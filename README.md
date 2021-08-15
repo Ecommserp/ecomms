@@ -5,3 +5,6 @@ We are developing a cloud-based SaaS (Software as a Service) Enterprise Resource
 VEGAL corporation is one of our customers who are interested in our product. We have customized our system according to VEGAL corporation requirements.
 
 ## Project Overview - https://ecommserp.github.io/
+
+Click on the @icn-camera icon to take a screen shot.
+
