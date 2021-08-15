@@ -7,12 +7,12 @@ VEGAL corporation is one of our customers who are interested in our product. We 
 ## Project Overview - https://ecommserp.github.io/
 
 <html>
-<head>
-    <title>My Notes</title>
-    <link href="style.css" rel="stylesheet">
-</head>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
 <body>
-    <h1>My notes</h1>
-    <?php markdown(file_get_contents('your_content.md')); ?>
+  <a href="#" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
 </body>
+    </html>
 
