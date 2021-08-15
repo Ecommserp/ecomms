@@ -6,42 +6,13 @@ VEGAL corporation is one of our customers who are interested in our product. We 
 
 ## Project Overview - https://ecommserp.github.io/
 
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
-            /* Style all font awesome icons */
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-}
+## The Team
 
-/* Add a hover effect if you want */
-.fa:hover {
-  opacity: 0.7;
-}
-
-/* Set a specific color for each brand */
-
-/* Facebook */
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-
-/* Twitter */
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
-}
-        </style>
-    </head>
-<body>
-  <a href="#" class="fa fa-facebook"></a>
-<a href="#" class="fa fa-twitter"></a>
-</body>
-    </html>
-
+[pulasthi perera](https://www.linkedin.com/in/pulasthiperera)
+[Ravindu Kavishwara](https://ravindukavishwara.com/)
+[Bimsara Wijethunga](https://bimsarawijethunga.github.io/)
+[Dinith Kaushalya](https://www.linkedin.com/in/dinith-k-7b24321a1)
+[Randika Navojith](https://www.linkedin.com/in/randika-navojith-4437b01a5)
+Harsha Erandika
+Yushika Withanage
+Chamodi Senevirathne 
