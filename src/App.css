@@ -14,16 +14,78 @@
   height: 150px;
   width: 25%;
   background-color: #fff;
-  border: 2px solid;
+  border: 1px solid;
   border-color: #666666;
   border-radius: 30px;
+  box-shadow: 10px 10px 10px rgba(102, 102, 102, .2);;
+  display: inline-block;
 
 
+
+}
+.tile_text {
+  position: absolute;
+  padding-left: 10px;
+  font-size: 20px;
+  color: #5f5c77;
+  text-align: left;
+}
+.space {
+  width: 3%;
+  display: inline-block;
+
+}
+
+.hr_img {
+  position: relative;
+  width: 200px;
+  padding-left: 60px;
+}
+
+.inv_img {
+  position: relative;
+  width: 140px;
+  padding-left: 120px;
+}
+
+.bi_img {
+  position: relative;
+  width: 170px;
+  padding-left: 120px;
+}
+
+.pu_img {
+  position: relative;
+  width: 150px;
+  padding-left: 120px;
+}
+
+.ac_img {
+  position: relative;
+  width: 150px;
+  padding-left: 120px;
+}
+
+.crm_img {
+  position: relative;
+  width: 180px;
+  padding-left: 125px;
+}
+
+.sale_img {
+  position: relative;
+  width: 150px;
+  padding-left: 120px;
+}
+
+.manu_img {
+  position: relative;
+  width: 190px;
+  padding-left: 120px;
 }
 
 .container {
   padding-top: 50px;
-  border: '2px solid red'
 
 }
 
