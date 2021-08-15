@@ -8,11 +8,11 @@ VEGAL corporation is one of our customers who are interested in our product. We 
 
 ## The Team
 
-[pulasthi perera](https://www.linkedin.com/in/pulasthiperera)
-[Ravindu Kavishwara](https://ravindukavishwara.com/)
-[Bimsara Wijethunga](https://bimsarawijethunga.github.io/)
-[Dinith Kaushalya](https://www.linkedin.com/in/dinith-k-7b24321a1)
-[Randika Navojith](https://www.linkedin.com/in/randika-navojith-4437b01a5)
-Harsha Erandika
-Yushika Withanage
-Chamodi Senevirathne 
+[pulasthi perera](https://www.linkedin.com/in/pulasthiperera) <br>
+[Ravindu Kavishwara](https://ravindukavishwara.com/) <br>
+[Bimsara Wijethunga](https://bimsarawijethunga.github.io/) <br>
+[Dinith Kaushalya](https://www.linkedin.com/in/dinith-k-7b24321a1) <br>
+[Randika Navojith](https://www.linkedin.com/in/randika-navojith-4437b01a5) <br>
+Harsha Erandika <br>
+Yushika Withanage <br>
+Chamodi Senevirathne  <br>
