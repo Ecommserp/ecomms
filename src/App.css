@@ -17,11 +17,17 @@
   border: 1px solid;
   border-color: #666666;
   border-radius: 30px;
-  box-shadow: 10px 10px 10px rgba(102, 102, 102, .2);;
+  box-shadow: 5px 5px 5px rgba(102, 102, 102, .2);;
   display: inline-block;
+  transition: box-shadow .8s;
 
 
 
+}
+.tile:hover {
+
+box-shadow: 10px 10px 10px rgba(102, 102, 102, .3);
+cursor: pointer;
 }
 .tile_text {
   position: absolute;
@@ -39,7 +45,7 @@
 .hr_img {
   position: relative;
   width: 150px;
-  padding-left: 60px;
+  padding-left: 120px;
 }
 
 .inv_img {
@@ -69,7 +75,7 @@
 .crm_img {
   position: relative;
   width: 150px;
-  padding-left: 125px;
+  padding-left: 120px;
 }
 
 .sale_img {

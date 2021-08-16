@@ -34,7 +34,6 @@ function App() {
     </div>
 <br /><br /> <br />
 
-    <div className="space"></div>
     <div className="tile">
     <p className="tile_text">Purchasing <br />Management</p>
     <img src={pu} className="pu_img" alt="purchasing" />
@@ -53,7 +52,6 @@ function App() {
     </div>
     <br /><br /> <br />
 
-    <div className="space"></div>
     <div className="tile">
     <p className="tile_text">Customer <br />Management</p>
     <img src={crm} className="crm_img" alt="Customer" />
