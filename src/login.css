@@ -1,0 +1,57 @@
+.main {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  padding-left: 30%;
+  padding-top: 60px;
+
+}
+.App {
+  height: 550px;
+  width: 40%;
+  background-color: #eff2f9;
+}
+
+.App-logo {
+  height: 8vmin;
+  pointer-events: none;
+  padding-top: 5vh;
+}
+
+.label {
+  font-size: 15px;
+  color: #5f5c77;
+}
+
+.input {
+  font-size: 15px;
+  color: #5f5c77;
+  width: 60%;
+  height: 30px;
+  border: 1px solid;
+  border-color: #666666;
+  border-radius: 30px;
+  text-align: center;
+  transition: border-color .5s;
+}
+
+.input:hover {
+  border-color: #659fdf;
+}
+
+.button {
+  font-size: 15px;
+  color: #FFF;
+  background-color: #659fdf;
+  width: 30%;
+  height: 40px;
+  border: 1px solid;
+  border-color: #659fdf;
+  border-radius: 30px;
+  transition: background-color .5s;
+}
+
+.button:hover {
+  background-color: #0079FF;
+  cursor: pointer;
+}

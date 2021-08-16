@@ -7,6 +7,10 @@ import ac from './assets/home/account.png';
 import sale from './assets/home/sales.png';
 import crm from './assets/home/crm.png';
 import manu from './assets/home/manu.png';
+import Login from './Login';
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 
 
 import './App.css';
@@ -15,6 +19,9 @@ function App() {
   return (
     <div className="App">
       <img src={logo} className="App-logo" alt="logo" />
+
+
+
 
     <div className="container">
     <div className="tile">
