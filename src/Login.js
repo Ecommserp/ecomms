@@ -26,7 +26,7 @@ function Login() {
 
   return (
     <div className="main">
-    <div className="App">
+    <div className="Appa">
       <img src={logo} className="App-logo" alt="logo" />
 
       <form onSubmit={handleSubmit}><br /><br />

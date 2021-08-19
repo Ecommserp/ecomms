@@ -6,10 +6,13 @@
   padding-top: 60px;
 
 }
-.App {
+.Appa {
   height: 550px;
   width: 40%;
   background-color: #eff2f9;
+  text-align: center;
+  align-items: center;
+  align-content: center;
 }
 
 .App-logo {

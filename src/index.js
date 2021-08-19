@@ -4,15 +4,21 @@ import './index.css';
 import App from './App';
 import Login from './Login';
 import reportWebVitals from './reportWebVitals';
-import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 
 ReactDOM.render(
 
   <React.StrictMode>
 
-    <Login />
 
+<Router>
+    <Switch>
+
+              <Route path='/Home' component={App} />
+              <Route path='/Login' component={Login} />
+    </Switch>
+</Router>
   </React.StrictMode>,
   document.getElementById('root')
 
