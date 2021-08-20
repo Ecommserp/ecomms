@@ -5,7 +5,7 @@
 }
 
 .App-logo {
-  height: 5vmin;
+  height: 10vmin;
   pointer-events: none;
   padding-top: 5vh;
 }
@@ -44,49 +44,49 @@ cursor: pointer;
 
 .hr_img {
   position: relative;
-  width: 150px;
+  width: 250px;
   padding-left: 120px;
 }
 
 .inv_img {
   position: relative;
-  width: 150px;
+  width: 250px;
   padding-left: 120px;
 }
 
 .bi_img {
   position: relative;
-  width: 150px;
+  width: 250px;
   padding-left: 120px;
 }
 
 .pu_img {
   position: relative;
-  width: 150px;
+  width: 250px;
   padding-left: 120px;
 }
 
 .ac_img {
   position: relative;
-  width: 150px;
+  width: 250px;
   padding-left: 120px;
 }
 
 .crm_img {
   position: relative;
-  width: 150px;
+  width: 250px;
   padding-left: 120px;
 }
 
 .sale_img {
   position: relative;
-  width: 150px;
+  width: 250px;
   padding-left: 120px;
 }
 
 .manu_img {
   position: relative;
-  width: 150px;
+  width: 250px;
   padding-left: 120px;
 }
 

@@ -6,7 +6,6 @@ import Login from './Login';
 import Inventory from './Inventory/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
