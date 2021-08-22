@@ -2,8 +2,8 @@ const sql = require("./db.js");
 
 // constructor
 const User = function(user) {
-  this.username = customer.username;
-  this.password = customer.password;
+  this.username = user.username;
+  this.password = user.password;
 };
 
 User.create = (newCustomer, result) => {
