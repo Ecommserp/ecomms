@@ -16,6 +16,7 @@
   padding-top: 30px;
 
 }
+
 .revenue {
   width: 45%;
   height: 350px;
@@ -37,9 +38,30 @@
   box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);;
 }
 
-.clients {
+.per {
   width: 55%;
   height: 380px;
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);;
+}
+
+.retention {
+  width: 35%;
+  height: 350px;
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);;
+}
+
+.emp {
+  width: 95%;
+  height: 350px;
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);;
+}
+
+.clients {
+  width: 55%;
+  height: 470px;
   background-color: #FFF;
   box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);;
 }

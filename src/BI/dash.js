@@ -9,6 +9,7 @@ import Select from '@material-ui/core/Select';
 import NotificationsSharpIcon from '@material-ui/icons/NotificationsSharp';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import PropTypes from 'prop-types';
+import { Bar } from 'react-chartjs-2';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
@@ -288,15 +289,13 @@ const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 // ---
 
 const sample = [
-  ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-  ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-  ['Eclair', 262, 16.0, 24, 6.0],
-  ['Cupcake', 305, 3.7, 67, 4.3],
-  ['Gingerbread', 356, 16.0, 49, 3.9],
+  ['GOV', 'CAN', 'product 1', 'N/a', '400', '234334.00'],
+  ['PRV', 'JP', 'product 2', 'N/a', '500', '234334.00'],
+  ['GOV', 'IN', 'product 3', 'N/a', '800', '234334.00'],
 ];
 
-function createData(id, dessert, calories, fat, carbs, protein) {
-  return { id, dessert, calories, fat, carbs, protein };
+function createData(id, segment, country, product, band, units, revenue) {
+  return { id, segment,country, product, band, units, revenue };
 }
 
 const rows = [];
@@ -305,6 +304,109 @@ for (let i = 0; i < 20; i += 1) {
   const randomSelection = sample[Math.floor(Math.random() * sample.length)];
   rows.push(createData(i, ...randomSelection));
 }
+
+
+
+
+const data4 = {
+  labels: ['JAN', 'FEB', 'MAR'],
+  datasets: [
+    {
+      label: 'Client 01',
+      data: [3433, 4542, 4523],
+      fill: false,
+      backgroundColor: 'rgb(130, 219, 109)',
+      borderColor: 'rgba(130, 219, 109, 0.2)',
+    },
+
+    {
+      label: 'Client 02',
+      data: [1734, 1234, 1341],
+      fill: false,
+      backgroundColor: 'rgb(207, 131, 212)',
+      borderColor: 'rgba(207, 131, 212, 0.2)',
+    },
+    {
+      label: 'Client 03',
+      data: [3410, 5216, 1632],
+      fill: false,
+      backgroundColor: 'rgb(102, 159, 223)',
+      borderColor: 'rgba(102, 159, 223, 0.2)',
+    },
+
+  ],
+};
+
+const options4 = {
+  scales: {
+    yAxes: [
+      {
+        type: 'linear',
+        display: true,
+        position: 'left',
+        id: 'y-axis-1',
+      },
+      {
+        type: 'linear',
+        display: true,
+        position: 'right',
+        id: 'y-axis-2',
+        gridLines: {
+          drawOnArea: false,
+        },
+      },
+      {
+        type: 'linear',
+        display: true,
+        position: 'right',
+        id: 'y-axis-3',
+        gridLines: {
+          drawOnArea: false,
+        },
+      },
+    ],
+  },
+};
+
+
+const data5 = {
+  labels: ['HR', 'BI', 'CRM', 'ACC', 'MAN', 'SAL'],
+  datasets: [
+    {
+      label: 'Employee performance',
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: 'rgb(255, 99, 132)',
+    },
+    {
+      label: 'Productivity',
+      data: [2, 3, 20, 5, 1, 4],
+      backgroundColor: 'rgb(54, 162, 235)',
+    },
+    {
+      label: 'Employee integrity',
+      data: [3, 10, 13, 15, 22, 30],
+      backgroundColor: 'rgb(75, 192, 192)',
+    },
+  ],
+};
+
+const options5 = {
+  scales: {
+    yAxes: [
+      {
+        stacked: true,
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    ],
+    xAxes: [
+      {
+        stacked: true,
+      },
+    ],
+  },
+};
 
 
 function dash() {
@@ -327,7 +429,7 @@ function dash() {
 <div className="space"></div>
 <div className="revenue">
 <label className="tile_text">Revenue Growth</label><br /><br />
-<Line data={data} options={options} />
+<Line height='140' data={data} options={options} />
 </div>
 <div className="space"></div>
 <div className="p_margin">
@@ -343,7 +445,7 @@ function dash() {
 </div>
 <br /><br />
 <TrendingUpIcon className="TrendingUpIcon"></TrendingUpIcon> <label className="p_title">20% increase compared to last 6 months</label>
-<Line data={data1} options={options1} />
+<Line height='130' data={data1} options={options1} />
 </div>
 
 </div>
@@ -371,56 +473,134 @@ function dash() {
   <Select>
     <MenuItem value={10}>Last 3 Months</MenuItem>
     <MenuItem value={20}>Last 6 Months</MenuItem>
-    <MenuItem value={30}>Last Year</MenuItem>
+    <MenuItem value={30}>Last Y9ar</MenuItem>
   </Select>
 </FormControl>
 </div>
 <br /><br />
 <TrendingUpIcon className="TrendingUpIcon"></TrendingUpIcon> <label className="p_title">30 New clients in Last 6 months</label>
 
-<Paper style={{ height: 310, width: '100%' }}>
+<Paper style={{ height: 390, width: '100%' }}>
      <VirtualizedTable
        rowCount={rows.length}
        rowGetter={({ index }) => rows[index]}
        columns={[
          {
-           width: 200,
-           label: 'Dessert',
-           dataKey: 'dessert',
+           width: 120,
+           label: 'Segment',
+           dataKey: 'segment',
          },
          {
            width: 120,
-           label: 'Calories\u00A0(g)',
-           dataKey: 'calories',
-           numeric: true,
+           label: 'Country',
+           dataKey: 'country',
          },
          {
            width: 120,
-           label: 'Fat\u00A0(g)',
-           dataKey: 'fat',
-           numeric: true,
+           label: 'Product',
+           dataKey: 'product',
          },
          {
            width: 120,
-           label: 'Carbs\u00A0(g)',
-           dataKey: 'carbs',
-           numeric: true,
+           label: 'Discount Band',
+           dataKey: 'band',
          },
          {
            width: 120,
-           label: 'Protein\u00A0(g)',
-           dataKey: 'protein',
-           numeric: true,
-         },
+           label: 'Sold Units',
+           dataKey: 'units',
+        },
+        {
+
+          label: 'Revenue',
+          dataKey: 'revenue',
+       },
        ]}
      />
    </Paper>
+   </div></div>
+
+   <div className="body_1"><div className="space"></div>
+   <div className="retention">
+   <label className="tile_text">Retention Clients</label>
+   <div className="drop_down">
+   <FormControl>
+     <Select>
+       <MenuItem value={10}>Last 3 Months</MenuItem>
+       <MenuItem value={20}>Last 6 Months</MenuItem>
+       <MenuItem value={30}>Last Year</MenuItem>
+     </Select>
+   </FormControl>
    </div>
+   <br /><br />
+   <Line data={data4} height='180px' options={options4} />
+   </div>
+<div className="space"></div>
+   <div className="per">
+   <label className="tile_text">Department Performance</label>
+   <div className="drop_down">
+   <FormControl>
+     <Select>
+       <MenuItem value={10}>Last 3 Months</MenuItem>
+       <MenuItem value={20}>Last 6 Months</MenuItem>
+       <MenuItem value={30}>Last Year</MenuItem>
+     </Select>
+   </FormControl>
+   </div>
+   <br /><br />
+   <Bar height='120' data={data5} options={options5} />
+   </div>
+
 
 </div>
 
-    </div>
+<div className="body_1"><div className="space"></div>
+<div className="emp">
+<label className="tile_text">Retention Clients</label>
+<br /><br />
 
+
+<Paper style={{ height: 390, width: '100%' }}>
+     <VirtualizedTable
+       rowCount={rows.length}
+       rowGetter={({ index }) => rows[index]}
+       columns={[
+         {
+           width: 220,
+           label: 'Segment',
+           dataKey: 'segment',
+         },
+         {
+           width: 220,
+           label: 'Country',
+           dataKey: 'country',
+         },
+         {
+           width: 220,
+           label: 'Product',
+           dataKey: 'product',
+         },
+         {
+           width: 220,
+           label: 'Discount Band',
+           dataKey: 'band',
+         },
+         {
+           width: 220,
+           label: 'Sold Units',
+           dataKey: 'units',
+        },
+        {
+
+          label: 'Revenue',
+          dataKey: 'revenue',
+       },
+       ]}
+     />
+   </Paper>
+</div>
+</div>
+</div>
 
   );
 }

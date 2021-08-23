@@ -27,7 +27,7 @@ function Additem() {
                 width: 160,
               height: 160}}
                 src = {logo}/>
-                <img 
+                <img
                 style={{
                   position: 'absolute',
                 right: 240,
@@ -61,7 +61,7 @@ function Additem() {
                         </Card.Body></Card>
                         </center>
     </motion.div>
-    
+
   );
 }
 

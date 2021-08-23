@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from "./cyan.png";
-import inventory from "../../assets/inventory.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -27,14 +26,7 @@ function Additem() {
                 width: 160,
               height: 160}}
                 src = {logo}/>
-                <img
-                style={{
-                  position: 'absolute',
-                right: 240,
-                top: 76,
-              width: 120,
-            height: 100}}
-                  src={inventory} /><br></br>
+              <br></br>
                 <br></br><br></br><br></br>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#000428'}}><h3 style ={{color:'white'}}>Add Item</h3></Card.Header>
