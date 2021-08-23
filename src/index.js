@@ -6,6 +6,7 @@ import Login from './Login';
 import Inventory from './Inventory/App';
 import Insert from './components/addUser';
 import Account from './Account/Home';
+import Purchasing_management from './purchasing_management/App';
 import BI from './BI/dash';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -24,6 +25,7 @@ ReactDOM.render(
               <Route path='/Inventory' component={Inventory} />
               <Route path='/Insert' component={Insert} />
               <Route path='/Account' component={Account} />
+              <Route path='/purchasing_management' component={Purchasing_management} />
                 <Route path='/BI' component={BI} />
     </Switch>
 </Router>
