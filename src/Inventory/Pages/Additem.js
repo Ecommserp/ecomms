@@ -17,21 +17,23 @@ function Additem() {
     transition={transition}>
         <i><h1 style={{
                 position: 'absolute',
-                right: '1%',
-                top: '10%',}}>Inventory<br></br>Management</h1></i>
+                right: 10,
+                top: 72,}}>Inventory<br></br>Management</h1></i>
                 <img
-                width = "10%" height = "20%"
                 style={{
                   position: 'absolute',
-                  left: '17%',
-                  top: '5%',}}
+                  left: 250,
+                  top: 50,
+                width: 160,
+              height: 160}}
                 src = {logo}/>
                 <img 
-                width = "8%" height = "14%"
                 style={{
                   position: 'absolute',
-                right: '16%',
-                top: '10%',}}
+                right: 240,
+                top: 76,
+              width: 120,
+            height: 100}}
                   src={inventory} /><br></br>
                 <br></br><br></br><br></br>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
