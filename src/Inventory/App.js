@@ -21,11 +21,11 @@ function App() {
         <AnimatePresence>
         <Navbar />
         <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/reports' component={Reports} />
-          <Route path='/update' component={Update} />
-          <Route path='/Additem' component={Additem} />
-          <Route path= '/Deleteitem' component={Deleteitem} />
+          <Route path='/inventory' exact component={Home} />
+          <Route path='/inventory/reports' component={Reports} />
+          <Route path='/inventory/update' component={Update} />
+          <Route path='/inventory/Additem' component={Additem} />
+          <Route path= '/inventory/Deleteitem' component={Deleteitem} />
         </Switch>
         </AnimatePresence>
       </Router>
