@@ -1,0 +1,113 @@
+.App {
+  width: 100%;
+  padding-top: 15px;
+
+}
+.headu {
+  width: 100%;
+  padding-top: 50px;
+  display: inline;
+  padding-top: 30px;
+
+}
+.body_1 {
+  display: flex;
+  width: 100%;
+  padding-top: 30px;
+
+}
+.revenue {
+  width: 45%;
+  height: 350px;
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);;
+}
+
+.p_margin {
+  width: 45%;
+  height: 370px;
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);;
+}
+
+.items {
+  width: 35%;
+  padding-top: 0%;
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);;
+}
+
+.clients {
+  width: 55%;
+  height: 380px;
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);;
+}
+
+.head_right {
+  padding-top: 50px;
+  width: auto;
+  margin: 0;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: flex;
+justify-content: center;
+align-itemss: center;
+}
+.App-dp {
+  width: 50px;
+  border: 1px solid;
+  border-color: #659fdf;
+  border-radius: 50%;
+}
+
+.App-logo {
+  height: 8vmin;
+  pointer-events: none;
+  padding-left: 10px;
+}
+
+.tile_text {
+  font-size: 20px;
+  color: #5f5c77;
+}
+
+.p_title {
+  font-size: 18px;
+  color: #82db6d;
+}
+.TrendingUpIcon {
+  color: #82db6d;
+}
+.drop_down {
+  float: right;
+}
+
+.space {
+  width: 3%;
+  display: inline-block;
+
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+.button {
+  font-size: 15px;
+  color: #FFF;
+  background-color: #659fdf;
+  width: 10%;
+  height: 40px;
+  border: 1px solid;
+  border-color: #659fdf;
+  border-radius: 30px;
+  transition: background-color .5s;
+  margin-left: auto;
+}
+
+.button:hover {
+  background-color: #0079FF;
+  cursor: pointer;
+}

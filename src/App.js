@@ -8,7 +8,6 @@ import sale from './assets/home/sales.png';
 import crm from './assets/home/crm.png';
 import manu from './assets/home/manu.png';
 import Login from './Login';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
