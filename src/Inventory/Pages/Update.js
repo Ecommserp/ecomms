@@ -15,26 +15,23 @@ function Update() {
     exit='out'
     variants={animationOne}
     transition={transition}>
-        <h1 style={{
+        <i><h1 style={{
                 position: 'absolute',
-                right: 10,
-                top: 80,
-                }}>Inventory<br></br>Management</h1>
+                right: '1%',
+                top: '10%',}}>Inventory<br></br>Management</h1></i>
                 <img
                 width = "10%" height = "20%"
                 style={{
                   position: 'absolute',
-                  left: 250,
-                  top: 30,}}
+                  left: '17%',
+                  top: '5%',}}
                 src = {logo}/>
                 <img 
-                width = "10%" height = "20%"
+                width = "8%" height = "14%"
                 style={{
-                  height: '100px',
-                  width: '110px',
                   position: 'absolute',
-                right: 250,
-                top: 80,}}
+                right: '16%',
+                top: '10%',}}
                   src={inventory} /><br></br>
                 <br></br><br></br><br></br>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
