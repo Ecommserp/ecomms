@@ -1,4 +1,3 @@
-import Login from '../Login';
 import logo from '../assets/cyan.png';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -19,14 +18,15 @@ function Home() {
  <br/>
 
      <div className="button_group">
-       <div className="space"></div><div className="space"></div><div className="space"></div><div className="space"></div><div className="space"></div><div className="space"></div><button className="button">Company Income</button><div className="space"></div>
-       <button className="button">Financial Report</button>
- </div>
- <br/>
+       <button className="button1">Company Income</button>    <div className="space"></div>
 
- <div className="button_group">
-   <div className="space"></div><div className="space"></div><div className="space"></div><div className="space"></div><div className="space"></div><div className="space"></div><button className="button">Manage Database</button><div className="space"></div>
-   <button className="button">Cash Flow</button>
+       <button className="button1">Financial Report</button>
+       </div><br /><br /><br />
+       <div className="button_group">
+
+ <button className="button1">Manage Database</button>    <div className="space"></div>
+
+   <button className="button1">Cash Flow</button>
  </div>
 
 
