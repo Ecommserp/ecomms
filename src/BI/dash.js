@@ -301,7 +301,7 @@ function createData(id, dessert, calories, fat, carbs, protein) {
 
 const rows = [];
 
-for (let i = 0; i < 200; i += 1) {
+for (let i = 0; i < 20; i += 1) {
   const randomSelection = sample[Math.floor(Math.random() * sample.length)];
   rows.push(createData(i, ...randomSelection));
 }
@@ -377,9 +377,8 @@ function dash() {
 </div>
 <br /><br />
 <TrendingUpIcon className="TrendingUpIcon"></TrendingUpIcon> <label className="p_title">30 New clients in Last 6 months</label>
-</div>
 
-<Paper style={{ height: 400, width: '100%' }}>
+<Paper style={{ height: 310, width: '100%' }}>
      <VirtualizedTable
        rowCount={rows.length}
        rowGetter={({ index }) => rows[index]}
@@ -416,6 +415,7 @@ function dash() {
        ]}
      />
    </Paper>
+   </div>
 
 </div>
 
