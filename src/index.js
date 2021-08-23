@@ -6,6 +6,7 @@ import Login from './Login';
 import Inventory from './Inventory/App';
 import Insert from './components/addUser';
 import Account from './Account/Home';
+import BI from './BI/dash';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
@@ -23,6 +24,7 @@ ReactDOM.render(
               <Route path='/Inventory' component={Inventory} />
               <Route path='/Insert' component={Insert} />
               <Route path='/Account' component={Account} />
+                <Route path='/BI' component={BI} />
     </Switch>
 </Router>
   </React.StrictMode>,

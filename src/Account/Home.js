@@ -10,7 +10,11 @@ import './App.css';
 function Home() {
   return (
     <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className="App-logo" alt="logo" /><br /><br />
+
+<div className="button_group">
+      <button className="button">Meetings</button>
+</div>
     </div>
 
   );
