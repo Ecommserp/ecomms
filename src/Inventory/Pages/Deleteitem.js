@@ -16,8 +16,8 @@ function Deleteitem() {
     transition={transition}>
         <i><h1 style={{
                 position: 'absolute',
-                right: 10,
-                top: 72,}}>Inventory<br></br>Management</h1></i>
+                right: 15,
+                top: 80,}}>Inventory<br></br>Management</h1></i>
                 <img
                 style={{
                   position: 'absolute',
@@ -29,12 +29,12 @@ function Deleteitem() {
                 <img 
                 style={{
                   position: 'absolute',
-                right: 240,
-                top: 76,
+                right: 250,
+                top: 85,
               width: 120,
             height: 100}}
                   src={inventory} /><br></br>
-                <br></br><br></br><br></br>
+                <br></br><br></br><br></br><br></br><br></br><br></br>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#060b26'}}><h3 style ={{color:'white'}}>Delete Item</h3></Card.Header>
                 <Card.Body>

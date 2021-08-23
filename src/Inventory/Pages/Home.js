@@ -40,8 +40,8 @@ function Home() {
     transition={transition}>
       <i><h1 style={{
                 position: 'absolute',
-                right: 10,
-                top: 72,}}>Inventory<br></br>Management</h1></i>
+                right: 15,
+                top: 80,}}>Inventory<br></br>Management</h1></i>
                 <img
                 style={{
                   position: 'absolute',
@@ -53,11 +53,12 @@ function Home() {
                 <img 
                 style={{
                   position: 'absolute',
-                right: 240,
-                top: 76,
+                right: 250,
+                top: 85,
               width: 120,
             height: 100}}
-                  src={inventory} />
+                  src={inventory} /><br></br>
+                  <br></br><br></br><br></br><br></br>
                 <table>
                   <tr>
                 <th><Line data={data} options={options} /></th>
