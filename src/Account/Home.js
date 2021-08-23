@@ -17,14 +17,15 @@ function Home() {
      <h1 className="h2">Dashboard</h1>
  <br/>
 
+
      <div className="button_group">
-       <button className="button1">Company Income</button>    <div className="space"></div>
+       <button className="button1"onClick={event =>  window.location.href='/account/managingdb'}>Managing Database</button>    <div className="space"></div>
 
        <button className="button1">Financial Report</button>
        </div><br /><br /><br />
        <div className="button_group">
 
- <button className="button1">Manage Database</button>    <div className="space"></div>
+ <button className="button1">Company Income</button>    <div className="space"></div>
 
    <button className="button1">Cash Flow</button>
  </div>
