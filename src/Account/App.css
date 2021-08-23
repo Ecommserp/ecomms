@@ -145,7 +145,7 @@ cursor: pointer;
   color: #61dafb;
 }
 
-.button {
+.button1 {
   font-size: 15px;
   color: #FFF;
   background-color: #659fdf;
@@ -157,7 +157,7 @@ cursor: pointer;
   transition: background-color .5s;
 }
 
-.button:hover {
+.button1:hover {
   background-color: #0079FF;
   cursor: pointer;
 }
