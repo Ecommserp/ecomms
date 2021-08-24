@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import Sidebar from './Sidebar';
-import Search_stocks from './pages/Search_stocks';
-import Manage_stocks from './pages/Manage_stocks';
+import Search_stocks from './Pages/search_stocks';
+import Manage_stocks from './Pages/manage_stocks';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
