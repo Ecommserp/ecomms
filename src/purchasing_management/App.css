@@ -1,18 +1,108 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Lato", sans-serif;
+.App{
+  display: flex;
+background-color: #F5F5F5;
 }
 
-.home,
-.reports,
-.update {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
+.App-logo {
+  height: 10vmin;
+  pointer-events: none;
+  padding-top: 5vh;
+}
+
+.tile {
+  height: 150px;
+  width: 25%;
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #666666;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px rgba(102, 102, 102, .2);;
+  display: inline-block;
+  transition: box-shadow .8s;
+
+
+
+}
+.tile:hover {
+
+box-shadow: 10px 10px 10px rgba(102, 102, 102, .3);
+cursor: pointer;
+}
+.tile_text {
+  position: absolute;
+  padding-left: 10px;
+  font-size: 20px;
+  color: #5f5c77;
+  text-align: left;
+}
+.space {
+  width: 3%;
+  display: inline-block;
+
+}
+
+.hr_img {
+  position: relative;
+  width: 250px;
+  padding-left: 120px;
+}
+
+.inv_img {
+  position: relative;
+  width: 250px;
+  padding-left: 120px;
+}
+
+.bi_img {
+  position: relative;
+  width: 250px;
+  padding-left: 120px;
+}
+
+.pu_img {
+  position: relative;
+  width: 250px;
+  padding-left: 120px;
+}
+
+.ac_img {
+  position: relative;
+  width: 250px;
+  padding-left: 120px;
+}
+
+.crm_img {
+  position: relative;
+  width: 250px;
+  padding-left: 120px;
+}
+
+.sale_img {
+  position: relative;
+  width: 250px;
+  padding-left: 120px;
+}
+
+.manu_img {
+  position: relative;
+  width: 250px;
+  padding-left: 120px;
+}
+
+.container {
+  padding-top: 50px;
+
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
