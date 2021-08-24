@@ -21,7 +21,7 @@
   display: inline-block;
   transition: box-shadow .8s;
 }
-.tile:hover {
+.tile_home:hover {
 
 box-shadow: 10px 10px 10px rgba(102, 102, 102, .3);
 cursor: pointer;
