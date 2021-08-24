@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import GlobalStyle from './globalStyles';
@@ -15,11 +15,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Router>
         <GlobalStyle/>
         <AnimatePresence>
-        <Navbar />
+        <Sidebar />
         <Switch>
           <Route path='/inventory' exact component={Home} />
           <Route path='/inventory/reports' component={Reports} />
@@ -29,7 +29,7 @@ function App() {
         </Switch>
         </AnimatePresence>
       </Router>
-    </>
+    </div>
   );
 }
 

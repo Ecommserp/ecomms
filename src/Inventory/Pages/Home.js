@@ -1,7 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import inventory from "./assets/inventory.png"
-import logo from "./cyan.png";
+import logo from "./assets/cyan.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Pages.css';
 import {motion} from 'framer-motion';
@@ -33,6 +33,7 @@ function Home() {
     },
   };
   return (
+    <div className = 'screen'>
     <motion.div className='home' initial='out'
     animate='in'
     exit='out'
@@ -41,12 +42,12 @@ function Home() {
       <i><h1 style={{
                 position: 'absolute',
                 right: 15,
-                top: 80,}}>Inventory<br></br>Management</h1></i>
+                top: 10,}}>Inventory<br></br>Management</h1></i>
                 <img
                 style={{
                   position: 'absolute',
-                  left: 250,
-                  top: 50,
+                  left: 200,
+                  top: -20,
                 width: 160,
               height: 160}}
                 src = {logo}/>
@@ -54,11 +55,10 @@ function Home() {
                 style={{
                   position: 'absolute',
                 right: 250,
-                top: 85,
+                top: 12,
               width: 120,
             height: 100}}
-                  src={inventory} /><br></br>
-                  <br></br><br></br><br></br><br></br>
+                  src={inventory} />
                   <table>
                     <tr>
                       <th>
@@ -69,7 +69,7 @@ function Home() {
                 <button className='button1' onClick={event =>  window.location.href='/inventory/Deleteitem'}>Delete Item</button>
                 </th></tr>
                 </table>
-    </motion.div>
+    </motion.div></div>
   );
 }
 

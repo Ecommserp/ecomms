@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from "./cyan.png";
+import logo from "./assets/cyan.png";
+import './Pages.css';
 import inventory from "./assets/inventory.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -10,6 +11,7 @@ import { animationOne, transition } from '../animations';
 
 function Additem() {
   return (
+    <div className = 'screen'>
     <motion.div className = "additem" initial='out'
     animate='in'
     exit='out'
@@ -18,12 +20,12 @@ function Additem() {
         <i><h1 style={{
                 position: 'absolute',
                 right: 15,
-                top: 80,}}>Inventory<br></br>Management</h1></i>
+                top: 10,}}>Inventory<br></br>Management</h1></i>
                 <img
                 style={{
                   position: 'absolute',
-                  left: 250,
-                  top: 50,
+                  left: 200,
+                  top: -20,
                 width: 160,
               height: 160}}
                 src = {logo}/>
@@ -31,11 +33,10 @@ function Additem() {
                 style={{
                   position: 'absolute',
                 right: 250,
-                top: 85,
+                top: 12,
               width: 120,
             height: 100}}
-                  src={inventory} /><br></br>
-                  <br></br><br></br><br></br><br></br>
+                  src={inventory} />
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Item</h3></Card.Header>
                 <Card.Body>
@@ -60,7 +61,7 @@ function Additem() {
                         </form>
                         </Card.Body></Card>
                         </center>
-    </motion.div>
+    </motion.div></div>
 
   );
 }
