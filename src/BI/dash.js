@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';
+import { styled } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -408,6 +409,15 @@ const options5 = {
   },
 };
 
+const NotificationsSharpIcon1 = styled(NotificationsSharpIcon)({
+  color: '#000',
+  transition: "background 1s, color 1s",
+  '&:hover': {
+       color: "#659fdf",
+       cursor: 'pointer',
+    }
+});
+
 
 function dash() {
 
@@ -418,7 +428,7 @@ function dash() {
       <label className="tile_text">Good Morning Mr.Sample</label>
 <div className="head_right">
       <button className="button">Meetings</button> <div className="space"></div>
-      <NotificationsSharpIcon> </NotificationsSharpIcon><div className="space"></div>
+      <NotificationsSharpIcon1 tooltip="Description here"> </NotificationsSharpIcon1><div className="space"></div>
       <img src={dp} className="App-dp" alt="dp" /><div className="space"></div>
 
 </div>
@@ -566,27 +576,27 @@ function dash() {
        rowGetter={({ index }) => rows[index]}
        columns={[
          {
-           width: 220,
+           width: 230,
            label: 'Segment',
            dataKey: 'segment',
          },
          {
-           width: 220,
+           width: 230,
            label: 'Country',
            dataKey: 'country',
          },
          {
-           width: 220,
+           width: 230,
            label: 'Product',
            dataKey: 'product',
          },
          {
-           width: 220,
+           width: 230,
            label: 'Discount Band',
            dataKey: 'band',
          },
          {
-           width: 220,
+           width: 230,
            label: 'Sold Units',
            dataKey: 'units',
         },
