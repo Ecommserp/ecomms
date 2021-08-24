@@ -1,3 +1,5 @@
+import React from 'react';
+import './home.css';
 import logo from './assets/cyan.png';
 import hr from './assets/home/HR.png';
 import inventory from './assets/home/inventory.png';
@@ -9,63 +11,61 @@ import crm from './assets/home/crm.png';
 import manu from './assets/home/manu.png';
 import Login from './Login';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App_home">
       <img src={logo} className="App-logo" alt="logo" />
 
 
 
 
-    <div className="container">
-    <div className="tile">
+    <div className="container_home">
+    <div className="tile_home">
     <p className="tile_text">Human <br />Resource</p>
     <img src={hr} className="hr_img" alt="HR" />
     </div>
     <div className="space"></div>
-    <div className="tile">
+    <div className="tile_home">
     <p className="tile_text">Inventory <br />Management</p>
     <img src={inventory} className="inv_img" alt="inventory" />
     </div>
 
     <div className="space"></div>
-    <div className="tile">
+    <div className="tile_home">
     <p className="tile_text">Business <br />Intelligence</p>
     <img src={bi} className="bi_img" alt="inventory" />
     </div>
 <br /><br /> <br />
 
-    <div className="tile">
+    <div className="tile_home">
     <p className="tile_text">Purchasing <br />Management</p>
     <img src={pu} className="pu_img" alt="purchasing" />
     </div>
 
     <div className="space"></div>
-    <div className="tile">
+    <div className="tile_home">
     <p className="tile_text">Account <br />Management</p>
     <img src={ac} className="ac_img" alt="account" />
     </div>
 
     <div className="space"></div>
-    <div className="tile">
+    <div className="tile_home">
     <p className="tile_text">Sales <br />Management</p>
     <img src={sale} className="sale_img" alt="Sales" />
     </div>
     <br /><br /> <br />
 
-    <div className="tile">
+    <div className="tile_home">
     <p className="tile_text">Customer <br />Management</p>
     <img src={crm} className="crm_img" alt="Customer" />
     </div>
 
     <div className="space"></div>
-    <div className="tile">
+    <div className="tile_home">
     <p className="tile_text">Product <br />Manufacturing</p>
     <img src={manu} className="manu_img" alt="Manufacturing" />
     </div>

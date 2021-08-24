@@ -10,6 +10,9 @@
   padding-top: 30px;
 
 }
+.notifi {
+  color: #659fdf;
+}
 .body_1 {
   display: flex;
   width: 100%;
@@ -110,6 +113,14 @@ align-itemss: center;
   width: 3%;
   display: inline-block;
 
+}
+
+.noti_win {
+  margin-left: 700px;
+  width: 400px;
+  height: 400px;
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);
 }
 
 
