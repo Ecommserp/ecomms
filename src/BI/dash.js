@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import NotificationsSharpIcon from '@material-ui/icons/NotificationsSharp';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
 import clsx from 'clsx';
@@ -426,9 +427,13 @@ function dash() {
     <div className="App">
     <div className="headu">
       <label className="tile_text">Good Morning Mr.Sample</label>
+
 <div className="head_right">
       <button className="button">Meetings</button> <div className="space"></div>
-      <NotificationsSharpIcon1 tooltip="Description here"> </NotificationsSharpIcon1><div className="space"></div>
+      <Popup trigger={<NotificationsSharpIcon1 tooltip="Description here"> </NotificationsSharpIcon1>} modal>
+    <div className="noti_win"><h1>content</h1></div>
+    </Popup>
+      <div className="space"></div>
       <img src={dp} className="App-dp" alt="dp" /><div className="space"></div>
 
 </div>

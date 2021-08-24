@@ -115,6 +115,14 @@ align-itemss: center;
 
 }
 
+.noti_win {
+  margin-left: 700px;
+  width: 400px;
+  height: 400px;
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);
+}
+
 
 .App-link {
   color: #61dafb;
