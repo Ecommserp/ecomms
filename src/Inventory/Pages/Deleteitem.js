@@ -36,14 +36,14 @@ function Deleteitem() {
                   src={inventory} /><br></br>
                 <br></br><br></br><br></br><br></br><br></br><br></br>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#060b26'}}><h3 style ={{color:'white'}}>Delete Item</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Delete Item</h3></Card.Header>
                 <Card.Body>
                 <form>
                     <label>
                         Item Code : &nbsp;&nbsp;&nbsp;
                         <input type="text" name="code" />
                         </label><br></br><br></br>
-                        <input type="submit" value="Search"/>
+                        <input className="button" type="submit" value="Search" />
                         </form>
                         </Card.Body></Card>
                         </center>

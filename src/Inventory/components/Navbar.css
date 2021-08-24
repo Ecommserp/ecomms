@@ -1,8 +1,5 @@
 .navbar {
-  background: #000428;
-  background: -webkit-linear-gradient(to left, #004e92, #000428);
-  background: linear-gradient(to left, #004e92, #000428);
-
+  background: #1f78b4;
   height: 80px;
   display: flex;
   justify-content: start;
@@ -16,10 +13,7 @@
 }
 
 .nav-menu {
-  background: #000428;
-  background: -webkit-linear-gradient(to left, #004e92, #000428);
-  background: linear-gradient(to left, #004e92, #000428);
-
+  background: #1f78b4;
   width: 250px;
   height: 100vh;
   display: flex;
@@ -58,8 +52,6 @@
 
 .nav-text a:hover {
   background: #00d2ff;
-  background: -webkit-linear-gradient(to left, #3a7bd5, #00d2ff);
-  background: linear-gradient(to left, #3a7bd5, #00d2ff);
   color: white;
 }
 
@@ -77,8 +69,6 @@
 
 .navbar-toggle:hover {
   background: #00d2ff;
-  background: -webkit-linear-gradient(to left, #3a7bd5, #00d2ff);
-  background: linear-gradient(to left, #3a7bd5, #00d2ff);
 }
 
 span {

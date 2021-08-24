@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 import inventory from "./assets/inventory.png"
 import logo from "./cyan.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
+import './Pages.css';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
@@ -59,15 +59,16 @@ function Home() {
             height: 100}}
                   src={inventory} /><br></br>
                   <br></br><br></br><br></br><br></br>
-                <table>
-                  <tr>
-                <th><Line data={data} options={options} /></th>
-                </tr>
-                <tr>
-                  <th><Button style={{ marginTop: '5rem' }} onClick={event =>  window.location.href='/inventory/Additem'} variant = 'primary' size= 'lg'>Add Item</Button>
-                  <Button style={{ marginLeft: '15rem', marginTop: '5rem' }} onClick={event =>  window.location.href='/inventory/Deleteitem'} variant = 'danger' size = 'lg'>Delete Item</Button></th>
-                  </tr>
-                  </table>
+                  <table>
+                    <tr>
+                      <th>
+                <Line style= {{width:700, height:200}} data={data} options={options} /></th></tr>
+                
+                <tr><th><button className='button1' style={{marginTop: 50}} onClick={event =>  window.location.href='/inventory/Additem'}>Add Item</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button className='button1' onClick={event =>  window.location.href='/inventory/Deleteitem'}>Delete Item</button>
+                </th></tr>
+                </table>
     </motion.div>
   );
 }

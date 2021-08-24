@@ -37,7 +37,7 @@ function Additem() {
                   src={inventory} /><br></br>
                   <br></br><br></br><br></br><br></br>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#000428'}}><h3 style ={{color:'white'}}>Add Item</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Item</h3></Card.Header>
                 <Card.Body>
                 <form>
                     <label>
@@ -56,7 +56,7 @@ function Additem() {
                         Quantity : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="text" name="quantity"/>
                         </label><br></br><br></br>
-                        <input type="submit" value="Submit"/>
+                        <input className="button" type="submit" value="Submit" />
                         </form>
                         </Card.Body></Card>
                         </center>
