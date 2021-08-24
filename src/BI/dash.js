@@ -424,7 +424,7 @@ function dash() {
 
 
   return (
-    <div className="App">
+    <div className="App_bi">
     <div className="headu">
       <label className="tile_text">Good Morning Mr.Sample</label>
 
@@ -440,7 +440,7 @@ function dash() {
 </div>
 
 
-<div className="body_1">
+<div className="body_3">
 <div className="space"></div>
 <div className="revenue">
 <label className="tile_text">Revenue Growth</label><br /><br />
@@ -464,7 +464,7 @@ function dash() {
 </div>
 
 </div>
-<div className="body_1"><div className="space"></div>
+<div className="body_3"><div className="space"></div>
 <div className="items">
 <label className="tile_text">Production : Purchased</label>
 <div className="drop_down">
@@ -535,7 +535,7 @@ function dash() {
    </Paper>
    </div></div>
 
-   <div className="body_1"><div className="space"></div>
+   <div className="body_3"><div className="space"></div>
    <div className="retention">
    <label className="tile_text">Retention Clients</label>
    <div className="drop_down">
@@ -569,7 +569,7 @@ function dash() {
 
 </div>
 
-<div className="body_1"><div className="space"></div>
+<div className="body_3"><div className="space"></div>
 <div className="emp">
 <label className="tile_text">Retention Clients</label>
 <br /><br />
