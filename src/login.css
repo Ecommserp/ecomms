@@ -44,7 +44,7 @@
   border-color: #659fdf;
 }
 
-.button {
+.button_login {
   font-size: 15px;
   color: #FFF;
   background-color: #659fdf;
@@ -56,7 +56,7 @@
   transition: background-color .5s;
 }
 
-.button:hover {
+.button_login:hover {
   background-color: #0079FF;
   cursor: pointer;
 }

@@ -46,7 +46,7 @@ Password:</label><br />
 value={password}
 onChange={(e) => setPassword(e.target.value)}
             /><br /><br /><br /><br />
-<input className="button" type="submit" value="Submit" />
+<input className="button_login" type="submit" value="Let Me In" />
             </form>
 
     </div>
