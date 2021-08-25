@@ -31,7 +31,7 @@ function Login() {
 }
 
   async function componentDidMount() {
-    const apiUrl = 'http://20.106.147.74/users/'+ e_id;
+    const apiUrl = 'http://13.92.27.35/users/'+ e_id;
     const data = await getData(apiUrl);
 
 console.log(data.username)
