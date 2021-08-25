@@ -1,6 +1,6 @@
 module.exports = {
-  HOST: "remotemysql.com",
-  USER: "67mVEUc24j",
-  PASSWORD: "Hkh9e2aSmC",
-  DB: "67mVEUc24j"
+  HOST: "34.68.146.68",
+  USER: "apiadmin",
+  PASSWORD: "Apiadmin12345",
+  DB: "Ecomms"
 };
