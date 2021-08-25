@@ -20,8 +20,21 @@ function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    alert(e_id)
 
+
+  }
+
+  async function getData(url) {
+  const response = await fetch(url);
+
+  return response.json();
+}
+
+  async function componentDidMount() {
+    const apiUrl = 'http://20.106.147.74/users/'+ e_id;
+    const data = await getData(apiUrl);
+
+console.log(data.username)
   }
 
   return (
@@ -46,8 +59,9 @@ Password:</label><br />
 value={password}
 onChange={(e) => setPassword(e.target.value)}
             /><br /><br /><br /><br />
-<input className="button_login" type="submit" value="Let Me In" />
+<input className="button_login" type="button" onClick={componentDidMount} value="Let Me In" />
             </form>
+
 
     </div>
     </div>
