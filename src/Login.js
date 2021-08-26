@@ -1,6 +1,7 @@
 import logo from './assets/cyan.png';
 import React, { useState } from "react";
-
+import ReactDOM from 'react-dom'
+import { useHistory } from "react-router-dom";
 
 
 
@@ -9,6 +10,7 @@ import './login.css';
 
 
 function Login() {
+  let history = useHistory();
 
 
   const [e_id, sete_id] = useState("");
@@ -34,7 +36,15 @@ function Login() {
     const apiUrl = 'http://13.92.27.35/users/'+ e_id;
     const data = await getData(apiUrl);
 
-console.log(data.username)
+    if(e_id == data.username && password == data.password){
+      console.log("hooray")
+      history.push("/home");
+
+    } else {
+      console.log("you fuckedup")
+      ReactDOM.render(<p>Invalid Login Details</p>, document.getElementById('inv'));
+    }
+
   }
 
   return (
@@ -58,7 +68,8 @@ Password:</label><br />
 <input className="input" type="password" name="password"
 value={password}
 onChange={(e) => setPassword(e.target.value)}
-            /><br /><br /><br /><br />
+            />  <div id="inv" className="invalid"></div>
+<br /><br /><br /><br />
 <input className="button_login" type="button" onClick={componentDidMount} value="Let Me In" />
             </form>
 

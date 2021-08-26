@@ -28,6 +28,11 @@
   color: #5f5c77;
 }
 
+.invalid {
+  font-size: 12px;
+  color: #FF0000;
+}
+
 .input {
   font-size: 15px;
   color: #5f5c77;
