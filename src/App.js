@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home.css';
 import logo from './assets/cyan.png';
 import hr from './assets/home/HR.png';
@@ -10,26 +10,33 @@ import sale from './assets/home/sales.png';
 import crm from './assets/home/crm.png';
 import manu from './assets/home/manu.png';
 import Login from './Login';
-import UserProfile from './UserProfile';
 import { useHistory } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+import ReactDOM from 'react-dom'
 
 
+function seesion(){
 
+}
 
 
 function App() {
   let history = useHistory();
-  var stat = UserProfile.getStatw();
 
-  if(stat == false){
-    console.log(stat)
+  const [cookies, setCookie] = useCookies(['user']);
+  console.log(cookies.logged)
+
+  if(cookies.logged = true){
+    console.log("done")
+
+ } else {
     history.push("/Login");
-  }
-  
+ }
+
+
   return (
     <div className="App_home">
       <img src={logo} className="App-logo" alt="logo" />
-
 
 
 
@@ -81,6 +88,7 @@ function App() {
     </div>
 
     </div>
+
     </div>
   );
 }

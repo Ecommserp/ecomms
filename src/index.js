@@ -11,10 +11,12 @@ import Purchasing_management from './purchasing_management/App';
 import BI from './BI/dash';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { CookiesProvider } from "react-cookie";
+
 
 
 ReactDOM.render(
-
+<CookiesProvider>
   <React.StrictMode>
 
 
@@ -31,7 +33,8 @@ ReactDOM.render(
                 <Route path='/BI' component={BI} />
     </Switch>
 </Router>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </CookiesProvider>,
   document.getElementById('root')
 
 );
