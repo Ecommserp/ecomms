@@ -21,6 +21,8 @@ function seesion(){
 
 
 function App() {
+
+  //session check start
   let history = useHistory();
 
   const [cookies, setCookie] = useCookies(['user']);
@@ -32,6 +34,8 @@ function App() {
  } else {
     history.push("/Login");
  }
+
+ //session check stop
 
 
   return (
