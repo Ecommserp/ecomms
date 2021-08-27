@@ -2,6 +2,7 @@ import logo from './assets/cyan.png';
 import React, { useState } from "react";
 import ReactDOM from 'react-dom'
 import { useHistory } from "react-router-dom";
+import UserProfile from './UserProfile';
 
 
 
@@ -33,15 +34,20 @@ function Login() {
 }
 
   async function componentDidMount() {
+    var stat = UserProfile.getStatw();
+    console.log(stat)
     const apiUrl = 'http://13.92.27.35/users/'+ e_id;
     const data = await getData(apiUrl);
 
     if(e_id == data.username && password == data.password){
       console.log("hooray")
+      UserProfile.setName(e_id);
+      UserProfile.setStat(true);
       history.push("/home");
 
     } else {
       console.log("you fuckedup")
+      UserProfile.setStat(false);
       ReactDOM.render(<p>Invalid Login Details</p>, document.getElementById('inv'));
     }
 

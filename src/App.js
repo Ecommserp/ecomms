@@ -10,12 +10,22 @@ import sale from './assets/home/sales.png';
 import crm from './assets/home/crm.png';
 import manu from './assets/home/manu.png';
 import Login from './Login';
+import UserProfile from './UserProfile';
+import { useHistory } from "react-router-dom";
 
 
 
 
 
 function App() {
+  let history = useHistory();
+  var stat = UserProfile.getStatw();
+
+  if(stat == false){
+    console.log(stat)
+    history.push("/Login");
+  }
+  
   return (
     <div className="App_home">
       <img src={logo} className="App-logo" alt="logo" />
