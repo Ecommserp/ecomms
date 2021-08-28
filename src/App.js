@@ -15,10 +15,6 @@ import { useCookies } from 'react-cookie';
 import ReactDOM from 'react-dom'
 
 
-function seesion(){
-
-}
-
 
 function App() {
 
@@ -36,6 +32,10 @@ function App() {
  }
 
  //session check stop
+
+ function Bi_click() {
+   history.push("/BI")
+ }
 
 
   return (
@@ -56,7 +56,7 @@ function App() {
     </div>
 
     <div className="space"></div>
-    <div className="tile_home">
+    <div className="tile_home" onClick={Bi_click}>
     <p className="tile_text">Business <br />Intelligence</p>
     <img src={bi} className="bi_img" alt="inventory" />
     </div>

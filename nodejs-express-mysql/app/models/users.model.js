@@ -7,6 +7,7 @@ const User = function(user) {
 };
 
 User.create = (newCustomer, result) => {
+  //console.log(newCustomer)
   sql.query("INSERT INTO users SET ?", newCustomer, (err, res) => {
     if (err) {
       console.log("error: ", err);

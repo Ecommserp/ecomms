@@ -1,7 +1,9 @@
 const User = require("../models/users.model.js");
 
+
 // Create and Save a new Customer
 exports.create = (req, res) => {
+  console.log('request ' + req.body)
   // Validate request
   if (!req.body) {
     res.status(400).send({
@@ -12,12 +14,11 @@ exports.create = (req, res) => {
   // Create a Customer
   const user = new User({
     username: req.body.username,
-    password: req.body.password,
-    active: req.body.active
+    password: req.body.password
   });
 
   // Save Customer in the database
-  User.create(customer, (err, data) => {
+  User.create(user, (err, data) => {
     if (err)
       res.status(500).send({
         message:
