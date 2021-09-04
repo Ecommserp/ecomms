@@ -50,8 +50,8 @@ function Additem() {
                         <input type="text" name="name" />
                         </label><br></br><br></br>
                         <label>
-                        Supplier : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="supplier" />
+                        Supplier ID : &nbsp;&nbsp;&nbsp;
+                        <input type="text" name="supplierid" />
                         </label><br></br><br></br>
                         <label>
                         Quantity : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
