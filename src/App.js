@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home.css';
 import logo from './assets/cyan.png';
 import hr from './assets/home/HR.png';
@@ -10,16 +10,37 @@ import sale from './assets/home/sales.png';
 import crm from './assets/home/crm.png';
 import manu from './assets/home/manu.png';
 import Login from './Login';
-
-
+import { useHistory } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+import ReactDOM from 'react-dom'
 
 
 
 function App() {
+
+  //session check start
+  let history = useHistory();
+
+  const [cookies, setCookie] = useCookies(['user']);
+  console.log(cookies.logged)
+
+  if(cookies.logged = true){
+    console.log("done")
+
+ } else {
+    history.push("/Login");
+ }
+
+ //session check stop
+
+ function Bi_click() {
+   history.push("/BI")
+ }
+
+
   return (
     <div className="App_home">
       <img src={logo} className="App-logo" alt="logo" />
-
 
 
 
@@ -35,7 +56,7 @@ function App() {
     </div>
 
     <div className="space"></div>
-    <div className="tile_home">
+    <div className="tile_home" onClick={Bi_click}>
     <p className="tile_text">Business <br />Intelligence</p>
     <img src={bi} className="bi_img" alt="inventory" />
     </div>
@@ -71,6 +92,7 @@ function App() {
     </div>
 
     </div>
+
     </div>
   );
 }

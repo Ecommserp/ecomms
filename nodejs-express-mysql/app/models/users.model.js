@@ -7,6 +7,7 @@ const User = function(user) {
 };
 
 User.create = (newCustomer, result) => {
+  //console.log(newCustomer)
   sql.query("INSERT INTO users SET ?", newCustomer, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -20,7 +21,7 @@ User.create = (newCustomer, result) => {
 };
 
 User.findById = (customerId, result) => {
-  sql.query(`SELECT * FROM users WHERE id = ${customerId}`, (err, res) => {
+  sql.query(`SELECT * FROM users WHERE username = '${customerId}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);

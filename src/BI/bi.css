@@ -116,11 +116,31 @@ align-itemss: center;
 }
 
 .noti_win {
-  margin-left: 700px;
-  width: 400px;
+  width: 200px;
   height: 400px;
   background-color: #FFF;
   box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);
+}
+
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255, 0.1);
+  width: 200px;
+  height: 400px;
+}
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
 }
 
 

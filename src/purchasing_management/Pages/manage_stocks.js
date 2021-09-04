@@ -1,8 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import 'reactjs-popup/dist/index.css';
 import MaterialTable from "material-table";
-import ReactDOM from "react-dom";
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -11,7 +9,6 @@ import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import ChevronRight from '@material-ui/icons/ChevronRight';
 import Clear from '@material-ui/icons/Clear';
 import DeleteOutline from '@material-ui/icons/DeleteOutline';
-import Edit from '@material-ui/icons/Edit';
 import FilterList from '@material-ui/icons/FilterList';
 import FirstPage from '@material-ui/icons/FirstPage';
 import LastPage from '@material-ui/icons/LastPage';
@@ -19,14 +16,10 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
- import DeleteIcon from '@material-ui/icons/Delete';
-  import EditIcon from '@material-ui/icons/Edit';
-  import Card from 'react-bootstrap/Card';
-import Modal from 'react-awesome-modal';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import EditIcon from '@material-ui/icons/Edit';
+import Card from 'react-bootstrap/Card';
 import Popup from './popup';
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import './pmcss1.css';
 
 
