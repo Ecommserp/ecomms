@@ -38,8 +38,10 @@ function Login() {
 }
 
   async function componentDidMount() {
-    const apiUrl = 'http://13.92.27.35/users/'+ e_id;
+    const apiUrl = 'http://localhost:3220/users/'+ e_id;
     const data = await getData(apiUrl);
+
+    console.log(data.password)
 
     if(e_id == data.username && password == data.password){
       console.log("hooray")

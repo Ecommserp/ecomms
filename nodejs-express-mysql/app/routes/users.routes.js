@@ -1,5 +1,7 @@
 module.exports = app => {
   const customers = require("../controllers/users.controller.js");
+  const inv = require("../controllers/inventory.controller.js");
+
 
   // Create a new Customer
   app.post("/users", customers.create);
@@ -16,6 +18,13 @@ module.exports = app => {
   // Delete a Customer with customerId
   app.delete("/users/:customerId", customers.delete);
 
-  // Create a new Customer
+  // Delete a new Customer
   app.delete("/users", customers.deleteAll);
+
+  // Retrieve all Customers
+  app.get("/inventory", inv.findAll);
+
+  // Retrieve a Items for category
+  app.get("/inventory/:itm_cat", inv.find_cat);
+
 };
