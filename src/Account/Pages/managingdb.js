@@ -8,6 +8,8 @@ import { animationOne, transition } from '../animations';
 
 
 function Additem() {
+
+
   return (
     <motion.div className = "additem" initial='out'
     animate='in'

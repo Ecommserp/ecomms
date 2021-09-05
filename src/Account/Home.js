@@ -1,12 +1,22 @@
 import logo from '../assets/cyan.png';
-
+import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 
 
 import './home_acc.css';
 
+
+
 function Home() {
+
+  let history = useHistory();
+
+  function Md_click(){
+    history.push("/managingdb");
+  }
+
   return (
     <div className="App_acc">
       <img src={logo} className="App-logo" alt="logo" /><br /><br />
@@ -19,7 +29,7 @@ function Home() {
 
 
      <div className="button_group">
-       <button className="button1"onClick={event =>  window.location.href='/account/managingdb'}>Managing Database</button>    <div className="space"></div>
+       <button className="button1"onClick={Md_click}>Managing Database</button>    <div className="space"></div>
 
        <button className="button1">Financial Report</button>
        </div><br /><br /><br />
