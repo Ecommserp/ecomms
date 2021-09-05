@@ -18,14 +18,16 @@ function Additem() {
   function insert() {
 
     const requestOptions = {
+
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ itemid: code, itemname: name, itemtype: type, quantity: quantity})
+        body: JSON.stringify({ code: code, name: name, type: type, quantity: quantity})
     };
     fetch('http://localhost:3220/inventory/', requestOptions)
         .then(response => response.json());
+        alert("Item added")
   }
-  
+
   return (
     <div className = 'screen'>
     <motion.div className = "additem" initial='out'
@@ -45,7 +47,7 @@ function Additem() {
                 width: 160,
               height: 160}}
                 src = {logo}/>
-                <img 
+                <img
                 style={{
                   position: 'absolute',
                 right: 250,
@@ -73,7 +75,7 @@ function Additem() {
                         Quantity : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="text" name="quantity" value={quantity} onChange={(e) => setquantity(e.target.value)}/>
                         </label><br></br><br></br>
-                        <input className="button" type="submit" value="Submit" onClick={insert}/>
+                        <input className="button" type="button" value="Submit" onClick={insert}/>
                         </form>
                         </Card.Body></Card>
                         </center>

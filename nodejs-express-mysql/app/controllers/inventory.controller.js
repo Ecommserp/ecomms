@@ -20,7 +20,7 @@ exports.create = (req, res) => {
   });
 
   // Save Item in the database
-  Inventory.create(item, (err, data) => {
+  Inventory.create(inventory, (err, data) => {
     if (err)
       res.status(500).send({
         message:
