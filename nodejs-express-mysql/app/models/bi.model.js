@@ -40,7 +40,7 @@ User.findById = (customerId, result) => {
 };
 
 User.getAll = result => {
-  sql.query("SELECT * FROM invoice GROUP BY date", (err, res) => {
+  sql.query("SELECT YEAR(date) AS year, MONTH(date) AS month, SUM(Total) AS total FROM invoice GROUP BY YEAR(date), MONTH(date)", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

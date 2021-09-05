@@ -19,35 +19,14 @@ import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table } from 'react-virtualized';
 import dp from '../assets/dp.jpg';
 import './bi.css';
+import ReactDOM from 'react-dom'
 
-const data = {
-  labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY'],
-  datasets: [
-    {
-      label: '2019',
-      data: [12, 19, 13, 15, 12, 13],
-      fill: false,
-      backgroundColor: 'rgb(130, 219, 109)',
-      borderColor: 'rgba(130, 219, 109, 0.2)',
-    },
 
-    {
-      label: '2020',
-      data: [17, 14, 11, 18, 16, 11],
-      fill: false,
-      backgroundColor: 'rgb(207, 131, 212)',
-      borderColor: 'rgba(207, 131, 212, 0.2)',
-    },
-    {
-      label: '2021',
-      data: [10, 16, 16, 9, 14, 19],
-      fill: false,
-      backgroundColor: 'rgb(102, 159, 223)',
-      borderColor: 'rgba(102, 159, 223, 0.2)',
-    },
+let data_revy1 = [];
+let data_revy2 = [];
+let data_revy3 = [];
 
-  ],
-};
+
 
 const options = {
   scales: {
@@ -430,20 +409,74 @@ async function getData_rev() {
     const apiUrl = 'http://localhost:3220/BI/rev';
     const data = await getData(apiUrl);
 
-    console.log(data.length)
+    for(var i = 0; i < data.length; i++){
+
+      if(data[i].year == '2019'){
+        data_revy1[i] = data[i].total;
+      }
+
+      if(data[i].year == '2020'){
+        data_revy2[i - 12] = data[i].total;
+      }
+
+      if(data[i].year == '2021'){
+        data_revy3[i - 24] = data[i].total;
+      }
+
+
+    }
+    sample_aa();
+
+
+}
+
+
+const data = {
+  labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+  datasets: [
+    {
+      label: '2019',
+      data: data_revy1,
+      fill: false,
+      backgroundColor: 'rgb(130, 219, 109)',
+      borderColor: 'rgba(130, 219, 109, 0.2)',
+    },
+
+    {
+      label: '2020',
+      data: data_revy2,
+      fill: false,
+      backgroundColor: 'rgb(207, 131, 212)',
+      borderColor: 'rgba(207, 131, 212, 0.2)',
+    },
+    {
+      label: '2021',
+      data: data_revy3,
+      fill: false,
+      backgroundColor: 'rgb(102, 159, 223)',
+      borderColor: 'rgba(102, 159, 223, 0.2)',
+    },
+
+  ],
+};
+
+async function sample_aa() {
+  //alert(data_revy1)
+  ReactDOM.render(<Line height='140' data={data} options={options} />, document.getElementById('revenue_graph'));
 }
 
 function dash() {
 
 getData_rev();
 
+
   return (
     <div className="App_bi">
     <div className="headu">
-      <label className="tile_text">Good Morning Mr.Sample</label>
+      <label className="tile_text">Good Morning Mr.Sample </label>
 
 <div className="head_right">
-      <button className="button">Meetings</button> <div className="space"></div>
+      <button className="button" onClick={sample_aa}>Meetings</button> <div className="space"></div>
       <Popup trigger={<NotificationsSharpIcon1 tooltip="Description here"> </NotificationsSharpIcon1>} modal>
     <div className="noti_win"><h1>content</h1></div>
     </Popup>
@@ -456,9 +489,9 @@ getData_rev();
 
 <div className="body_3">
 <div className="space"></div>
-<div className="revenue">
+<div className="revenue" id="revenue">
 <label className="tile_text">Revenue Growth</label><br /><br />
-<Line height='140' data={data} options={options} />
+<div id="revenue_graph"> </div>
 </div>
 <div className="space"></div>
 <div className="p_margin">
