@@ -1,6 +1,8 @@
 module.exports = app => {
   const customers = require("../controllers/users.controller.js");
   const inv = require("../controllers/inventory.controller.js");
+  const bi = require("../controllers/bi.controller.js");
+
 
 
   // Create a new Customer
@@ -26,5 +28,8 @@ module.exports = app => {
 
   // Retrieve a Items for category
   app.get("/inventory/:itm_cat", inv.find_cat);
+
+  // Retrieve BI for first graph
+  app.get("/BI/rev", bi.findAll);
 
 };

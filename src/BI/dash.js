@@ -419,9 +419,23 @@ const NotificationsSharpIcon1 = styled(NotificationsSharpIcon)({
     }
 });
 
+async function getData(url) {
+const response = await fetch(url);
+
+return response.json();
+}
+
+async function getData_rev() {
+
+    const apiUrl = 'http://localhost:3220/BI/rev';
+    const data = await getData(apiUrl);
+
+    console.log(data.length)
+}
 
 function dash() {
 
+getData_rev();
 
   return (
     <div className="App_bi">

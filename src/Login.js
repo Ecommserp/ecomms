@@ -37,6 +37,19 @@ function Login() {
   return response.json();
 }
 
+
+//insert code
+function insert() {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: 'anthima', password: 'anthima' })
+    };
+    fetch('http://localhost:3220/users/', requestOptions)
+        .then(response => response.json());
+}
+
+
   async function componentDidMount() {
     const apiUrl = 'http://localhost:3220/users/'+ e_id;
     const data = await getData(apiUrl);
