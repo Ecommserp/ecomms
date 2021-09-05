@@ -2,21 +2,23 @@ const sql = require("./db.js");
 
 // constructor
 const Inventory = function(inventory) {
-  this.username = user.username;
-  this.password = user.password;
+  this.Product_ID = inventory.Product_ID;
+  this.Product_name = inventory.Product_name;
+  this.Product_type = inventory.Product_type;
+  this.quantity = inventory.quantity;
 };
 
-Inventory.create = (newCustomer, result) => {
+Inventory.create = (newInventory, result) => {
   //console.log(newCustomer)
-  sql.query("INSERT INTO users SET ?", newCustomer, (err, res) => {
+  sql.query("INSERT INTO inventory SET ?", newInventory, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
 
-    console.log("created customer: ", { id: res.insertId, ...newCustomer });
-    result(null, { id: res.insertId, ...newCustomer });
+    console.log("created Item: ", { id: res.insertId, ...newInventory });
+    result(null, { id: res.insertId, ...newInventory });
   });
 };
 

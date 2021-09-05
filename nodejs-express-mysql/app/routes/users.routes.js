@@ -23,6 +23,9 @@ module.exports = app => {
   // Delete a new Customer
   app.delete("/users", customers.deleteAll);
 
+   // Create a new Item
+   app.post("/inventory", inv.create);
+
   // Retrieve all Customers
   app.get("/inventory", inv.findAll);
 

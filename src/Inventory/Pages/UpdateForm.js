@@ -50,7 +50,7 @@ function UpdateForm() {
                         <input type="radio" Value="itemname" name="group"/>
                         </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <label>
-                        Supplier ID &nbsp;
+                        Item Type &nbsp;
                         <input type="radio" Value="supplierid" name="group"/>
                         </label>
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -1,7 +1,7 @@
 const Inventory = require("../models/inventory.model.js");
 
 
-// Create and Save a new Customer
+// Create and Save a new Item
 exports.create = (req, res) => {
   console.log('request ' + req.body)
   // Validate request
@@ -11,17 +11,20 @@ exports.create = (req, res) => {
     });
   }
 
-  const new_item = new Inventory({
-    username: req.body.username,
-    password: req.body.password
+  //Create a new Item
+  const inventory = new Inventory({
+    Product_ID: req.body.code,
+    Product_name: req.body.name,
+    Product_type: req.body.type,
+    quantity: req.body.quantity,
   });
 
-  // Save Customer in the database
-  Inventory.create(user, (err, data) => {
+  // Save Item in the database
+  Inventory.create(item, (err, data) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Customer."
+          err.message || "Some error occurred while creating this Item."
       });
     else res.send(data);
   });

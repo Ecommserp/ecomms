@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from "./assets/cyan.png";
 import './Pages.css';
 import inventory from "./assets/inventory.png"
@@ -8,8 +8,24 @@ import Card from 'react-bootstrap/Card';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
-
 function Additem() {
+
+  const [code, setcode] = useState("");
+  const [name, setname] = useState("");
+  const [type, settype] = useState("");
+  const [quantity, setquantity] = useState("");
+
+  function insert() {
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itemid: code, itemname: name, itemtype: type, quantity: quantity})
+    };
+    fetch('http://localhost:3220/inventory/', requestOptions)
+        .then(response => response.json());
+  }
+  
   return (
     <div className = 'screen'>
     <motion.div className = "additem" initial='out'
@@ -43,21 +59,21 @@ function Additem() {
                 <form>
                     <label>
                         Item Code : &nbsp;&nbsp;&nbsp;
-                        <input type="text" name="code" />
+                        <input type="text" name="code" value={code} onChange={(e) => setcode(e.target.value)}/>
                         </label><br></br><br></br>
                         <label>
                         Item Name : &nbsp;&nbsp;
-                        <input type="text" name="name" />
+                        <input type="text" name="name" value={name} onChange={(e) => setname(e.target.value)}/>
                         </label><br></br><br></br>
                         <label>
-                        Supplier ID : &nbsp;&nbsp;&nbsp;
-                        <input type="text" name="supplierid" />
+                        Item Type : &nbsp;&nbsp;&nbsp;
+                        <input type="text" name="type" value={type} onChange={(e) => settype(e.target.value)}/>
                         </label><br></br><br></br>
                         <label>
                         Quantity : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="quantity"/>
+                        <input type="text" name="quantity" value={quantity} onChange={(e) => setquantity(e.target.value)}/>
                         </label><br></br><br></br>
-                        <input className="button" type="submit" value="Submit" />
+                        <input className="button" type="submit" value="Submit" onClick={insert}/>
                         </form>
                         </Card.Body></Card>
                         </center>

@@ -11,6 +11,8 @@ import Update from './Pages/Update';
 import Additem from './Pages/Additem';
 import Deleteitem from './Pages/Deleteitem';
 import UpdateForm from './Pages/UpdateForm';
+import GenerateReports from './Pages/GenerateReports';
+import ViewReports from './Pages/ViewReports';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -28,6 +30,8 @@ function App() {
           <Route path='/inventory/Additem' component={Additem} />
           <Route path= '/inventory/Deleteitem' component={Deleteitem} />
           <Route path= '/inventory/updateform' component={UpdateForm} />
+          <Route path= '/inventory/generatereports' component={GenerateReports} />
+          <Route path= '/inventory/viewreports' component={ViewReports} />
           </Switch>
         </AnimatePresence>
       </Router>
