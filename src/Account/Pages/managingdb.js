@@ -48,7 +48,7 @@ function Additem() {
                         </label><br></br><br></br>
                         <input type="Reset" value="Reset"/> <div className="space"></div>
                         <input type="Submit" value="Submit"/> <div className="space"></div>
-                      
+
                         </form>
 
                         </Card.Body></Card>

@@ -4,11 +4,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 
-import './App.css';
+import './home_acc.css';
 
 function Home() {
   return (
-    <div className="App">
+    <div className="App_acc">
       <img src={logo} className="App-logo" alt="logo" /><br /><br />
 
 
