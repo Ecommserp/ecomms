@@ -97,7 +97,7 @@ Inventory.updateById = (id, customer, result) => {
 };
 
 Inventory.remove = (id, result) => {
-  sql.query("DELETE FROM users WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM inventory WHERE Product_ID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -110,7 +110,7 @@ Inventory.remove = (id, result) => {
       return;
     }
 
-    console.log("deleted customer with id: ", id);
+    console.log("deleted Item with id: ", id);
     result(null, res);
   });
 };

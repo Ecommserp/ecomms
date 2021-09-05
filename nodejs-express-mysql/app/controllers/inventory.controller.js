@@ -107,20 +107,20 @@ exports.update = (req, res) => {
   );
 };
 
-// Delete a Customer with the specified customerId in the request
+// Delete an Item with the specified Item_ID in the request
 exports.delete = (req, res) => {
-  Inventory.remove(req.params.customerId, (err, data) => {
+  Inventory.remove(req.params.itemId, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Customer with id ${req.params.customerId}.`
+          message: `Not found Item with id ${req.params.itemId}.`
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Customer with id " + req.params.customerId
+          message: "Could not delete Item with id " + req.params.itemId
         });
       }
-    } else res.send({ message: `Customer was deleted successfully!` });
+    } else res.send({ message: `Item was deleted successfully!` });
   });
 };
 
