@@ -3,7 +3,7 @@ module.exports = app => {
   const inv = require("../controllers/inventory.controller.js");
   const bi = require("../controllers/bi.controller.js");
   const pm = require("../controllers/P_M.controller.js");
-
+  const sp = require("../controllers/sp.controller.js");
 
   // Create a new Customer
   app.post("/users", customers.create);
@@ -41,4 +41,13 @@ module.exports = app => {
 
   // Retrieve all purchases
   app.get("/purchases", pm.findAll);
+
+
+
+
+  // Retrieve all suppliers
+  app.get("/suppliers", sp.findAll);
+
+
+
 };
