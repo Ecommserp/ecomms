@@ -25,18 +25,6 @@ module.exports = app => {
 
    // Create a new Item
    app.post("/inventory", inv.create);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-   // Delete a Customer with customerId
-  app.delete("/inventory/:itemId", inv.delete);
->>>>>>> c5b8f431d85f96ec67ed5432bb9424e20444dd7f
-=======
-
-   // Delete a Customer with customerId
-  app.delete("/inventory/:itemId", inv.delete);
->>>>>>> c5b8f431d85f96ec67ed5432bb9424e20444dd7f
 
   // Retrieve all Customers
   app.get("/inventory", inv.findAll);
@@ -47,30 +35,7 @@ module.exports = app => {
   // Retrieve BI for first graph
   app.get("/BI/rev", bi.findAll);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   // Retrieve meetings for popup
   app.get("/BI/meetings", bi.findAll_meet);
-=======
-=======
->>>>>>> c5b8f431d85f96ec67ed5432bb9424e20444dd7f
-
-  // Retrieve all purchases
-  app.get("/purchases", pm.findAll);
-
-
-
-
-  // Retrieve all suppliers
-  app.get("/suppliers", sp.findAll);
-
-  // Create a new supplier
-  app.post("/suppliers", sp.create);
-
-
-<<<<<<< HEAD
->>>>>>> c5b8f431d85f96ec67ed5432bb9424e20444dd7f
-=======
->>>>>>> c5b8f431d85f96ec67ed5432bb9424e20444dd7f
 
 };

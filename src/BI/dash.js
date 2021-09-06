@@ -328,7 +328,7 @@ async function getData_meet() {
     //sample_aa();
     console.log(rows_meet)
     console.log(rows)
-    display_meet();
+
 
 
 }
@@ -552,12 +552,12 @@ getData_meet();
       <label className="tile_text">Good Morning Mr.Sample </label>
 
 <div className="head_right">
-<Popup trigger={  <button className="button" onClick={sample_aa}>Meetings</button> } modal>
+<Popup trigger={  <button className="button">Meetings</button> } modal>
     <div className="noti_win" id="noti_win">
   <label className="tile_text1">Meetings</label> <br />
 
 <div className="meeting_add">
-  <AddCircleIcon className="add_new" fontSize="large" onClick={display_meet}></AddCircleIcon>
+  <AddCircleIcon onClick={display_meet} className="add_new" fontSize="large"></AddCircleIcon>
   </div> <br /> <br />
 <Paper id="table_meet" style={{ height: '100%', width: '100%' }}>
 
@@ -754,6 +754,7 @@ getData_meet();
 </div>
 
   );
+
 }
 
 export default dash;
