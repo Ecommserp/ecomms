@@ -70,10 +70,10 @@ const togglePopup2 = () => {
    <div className="screen">
    <div className="headu2">
 
- <div className="head_right">
-     <button className="button22">Supplier Stocks</button> <div className="space"></div>
-     <button className="button22">Vendor Stocks</button>
-     <button className="button22"    onClick={togglePopup2}>Add New</button>
+ <div className="head_right3">
+ <button className="button22"   >Remove Supplier</button>
+
+ <button className="button22"    onClick={togglePopup2}>Add New Supplier</button><div className="space"></div><div className="space"></div><div className="space"></div><div className="space"></div>
   <div className="space"></div>
 
 
@@ -85,18 +85,18 @@ const togglePopup2 = () => {
 
 
    icons={tableIcons}
-        title="Stocks"
+        title="Suppliers"
         columns={[
-          { title: 'Product ID', field: 'name' , minWidth: 200  },
+          { title: 'Supplier ID', field: 'name' , minWidth: 200  },
 
 
           {title: 'Name',field: 'birthCity', minWidth: 200},
 
-              { title: 'Quntity', field: 'birthYear', type: 'numeric', minWidth: 200  ,align: 'center' },
+              { title: 'Contact', field: 'birthYear', type: 'name', minWidth: 200  ,align: 'center' },
         ]}
         data={[
-          { name: '00001',   birthCity: 'Sample data',birthYear: 1987 },
-          { name: '00002', birthCity: 'Sample data',birthYear: 2017 },
+          { name: '00001',   birthCity: 'Sample data',birthYear: 'damn' },
+          { name: '00002', birthCity: 'Sample data',birthYear: 'hello helllo' },
         ]}
         actions={[
 
@@ -123,12 +123,12 @@ const togglePopup2 = () => {
 
 
               <center><Card border ='primary' style={{ width: '40rem' }}>
-              <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>Manage Stocks</h3></Card.Header>
+              <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>Update Suppliers</h3></Card.Header>
               <Card.Body>
               <form>
                   <label>
-                      Product Name  &nbsp;&nbsp;
-                      <input type="text" name="p_name" />
+                      Supplier Name  &nbsp;&nbsp;
+                      <input type="text" name="S_name" />
                       </label><br></br><br></br>
 
 
@@ -138,8 +138,8 @@ const togglePopup2 = () => {
 
 
                       <label>
-                      Quantity  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <input type="number" name="quantity"/>
+                      Contact  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="number" name="S_data"/>
                       </label><br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <button className="button22">Update</button>
 
@@ -161,25 +161,25 @@ const togglePopup2 = () => {
 
 
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>Manage Stocks</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>New Supplier</h3></Card.Header>
                 <Card.Body>
                 <form>
                     <label>
-                        Product Name  &nbsp;&nbsp;
-                        <input type="text" name="p_name" />
+                        Supplier ID  &nbsp;&nbsp;
+                        <input type="number" name="S_id" />
                         </label><br></br><br></br>
                         <label>
 
 
 
 
-                        Quantity  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="number" name="quantity"/>
+                        Name  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="S_name"/>
                         </label><br></br><br></br>
 
                         <label>
-                            Supplier ID  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                            <input type="text" name="s_id" />
+                            Contacts  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                            <input type="text" name="S_data" />
                             </label><br></br><br></br>
 
                         <button className="button22">Insert Data</button>

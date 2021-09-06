@@ -2,7 +2,7 @@ module.exports = app => {
   const customers = require("../controllers/users.controller.js");
   const inv = require("../controllers/inventory.controller.js");
   const bi = require("../controllers/bi.controller.js");
-
+  const pm = require("../controllers/P_M.controller.js");
 
 
   // Create a new Customer
@@ -38,4 +38,7 @@ module.exports = app => {
   // Retrieve BI for first graph
   app.get("/BI/rev", bi.findAll);
 
+
+  // Retrieve all purchases
+  app.get("/purchases", pm.findAll);
 };
