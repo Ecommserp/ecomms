@@ -23,6 +23,13 @@ import {  useState } from "react";
 import './pmcss1.css';
 
 
+
+
+
+
+let table_data = [];
+
+
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
     Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -46,6 +53,9 @@ const tableIcons = {
 
 function Manage_stocks() {
 
+  const [name, setname] = useState("");
+  const [contact, setcontact] = useState("");
+
   const [isOpen, setIsOpen] = useState(false);
 
 
@@ -63,6 +73,49 @@ const togglePopup2 = () => {
 }
 
 
+async function getData(url) {
+const response = await fetch(url);
+
+return response.json();
+}
+
+async function getData_rev() {
+
+    const apiUrl = 'http://localhost:3220/suppliers';
+    const data = await getData(apiUrl);
+
+    for(var i = 0; i < data.length; i++){
+
+
+        table_data[i] = data[i];
+
+
+    }
+
+
+}
+
+function insert() {
+
+  const requestOptions = {
+
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, contact: contact})
+  };
+  fetch('http://localhost:3220/suppliers', requestOptions)
+      .then(response => response.json());
+      alert("Item added")
+}
+
+
+
+
+
+
+
+
+getData_rev();
 
  return (
 
@@ -87,17 +140,14 @@ const togglePopup2 = () => {
    icons={tableIcons}
         title="Suppliers"
         columns={[
-          { title: 'Supplier ID', field: 'name' , minWidth: 200  },
+          { title: 'Supplier ID', field: 'Supplier_ID' , minWidth: 200  },
 
 
-          {title: 'Name',field: 'birthCity', minWidth: 200},
+          {title: 'Name',field: 'name', minWidth: 200},
 
-              { title: 'Contact', field: 'birthYear', type: 'name', minWidth: 200  ,align: 'center' },
+              { title: 'Contact', field: 'contact', type: 'name', minWidth: 200  ,align: 'center' },
         ]}
-        data={[
-          { name: '00001',   birthCity: 'Sample data',birthYear: 'damn' },
-          { name: '00002', birthCity: 'Sample data',birthYear: 'hello helllo' },
-        ]}
+        data={table_data}
         actions={[
 
           rowData => ({
@@ -141,7 +191,7 @@ const togglePopup2 = () => {
                       Contact  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <input type="number" name="S_data"/>
                       </label><br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button className="button22">Update</button>
+                      <button className="button">Update</button>
 
                       </form>
                       </Card.Body></Card>
@@ -164,25 +214,22 @@ const togglePopup2 = () => {
                 <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>New Supplier</h3></Card.Header>
                 <Card.Body>
                 <form>
-                    <label>
-                        Supplier ID  &nbsp;&nbsp;
-                        <input type="number" name="S_id" />
-                        </label><br></br><br></br>
+
                         <label>
 
 
 
 
                         Name  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="S_name"/>
+                        <input type="text" name="name" value={name} onChange={(e) => setname(e.target.value)}/>
                         </label><br></br><br></br>
 
                         <label>
                             Contacts  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                            <input type="text" name="S_data" />
+                            <input type="text" name="contact" value={contact} onChange={(e) => setcontact(e.target.value)} />
                             </label><br></br><br></br>
 
-                        <button className="button22">Insert Data</button>
+                        <button className="button22" value="Submit" onClick={insert}>Insert Data</button>
 
                         </form>
                         </Card.Body></Card>

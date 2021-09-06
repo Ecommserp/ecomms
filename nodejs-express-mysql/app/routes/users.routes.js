@@ -48,6 +48,9 @@ module.exports = app => {
   // Retrieve all suppliers
   app.get("/suppliers", sp.findAll);
 
+  // Create a new supplier
+  app.post("/suppliers", sp.create);
+
 
 
 };

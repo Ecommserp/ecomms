@@ -20,4 +20,19 @@ Supplier.getAll = result => {
     result(null, res);
   });
 };
+
+
+Supplier.create = (newSupplier, result) => {
+  //console.log(newCustomer)
+  sql.query("INSERT INTO supplier SET ?", newSupplier, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    console.log("created Item: ", { id: res.insertId, ...newSupplier });
+    result(null, { id: res.insertId, ...newSupplier });
+  });
+};
 module.exports = Supplier;
