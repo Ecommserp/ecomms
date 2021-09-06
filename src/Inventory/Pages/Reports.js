@@ -1,7 +1,10 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
 import './Pages.css';
-import inventory from "./assets/inventory.png"
+import './Reports.css';
+import inventory from "./assets/inventory.png";
+import view from './assets/view.jpg';
+import generate from './assets/generate.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -37,14 +40,17 @@ function Reports() {
               width: 120,
             height: 100}}
                   src={inventory} />
-                  <table style={{width:10000}}>
-                  <tr><th>
-                  <button className='button1' style={{marginTop: 50}} onClick={event =>  window.location.href='/inventory/viewreports'}>View Reports</button>
-                  </th></tr>
-                  <tr><th>
-                  <button className='button1' style={{marginTop: 50}} onClick={event =>  window.location.href='/inventory/generatereports'}>Generate Reports</button>
-                  </th></tr>
-                  </table>
+                    <div className="tile_home" onClick={event =>  window.location.href='/inventory/viewreports'}>
+                      <p className="tile_text">View<br />Reports</p>
+                      <img src={view} className="view_img" alt="View Reports" />
+                      </div>
+                      <div className="space"></div>
+                      <div className="space"></div>
+                      <div className="space"></div>
+                      <div className="tile_home" onClick={event =>  window.location.href='/inventory/generatereports'}>
+                        <p className="tile_text">Generate<br />Reports</p>
+                        <img src={generate} className="generate_img" alt="Generate Reports" />
+                        </div>
                   </motion.div></div>
 
 );

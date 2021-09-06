@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from "./assets/cyan.png";
 import './Pages.css';
 import inventory from "./assets/inventory.png"
@@ -9,6 +9,23 @@ import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
 function Deleteitem() {
+
+  const [code, setcode] = useState("");
+
+  function deleted() {
+
+    const requestOptions = {
+
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: code})
+    };
+    fetch('http://localhost:3220/inventory/', requestOptions)
+        .then(response => response.json());
+        alert("Item Deleted")
+  }
+
+
   return (
     <div className = 'screen'>
     <motion.div className = "deleteitem" initial='out'
@@ -42,9 +59,9 @@ function Deleteitem() {
                 <form>
                     <label>
                         Item Code : &nbsp;&nbsp;&nbsp;
-                        <input type="text" name="code" />
+                        <input type="text" name="code" value={code} onChange={(e) => setcode(e.target.value)}/>
                         </label><br></br><br></br>
-                        <input className="button" type="submit" value="Search" />
+                        <input className="button" type="button" value="Delete" onClick={deleted}/>
                         </form>
                         </Card.Body></Card>
                         </center>
