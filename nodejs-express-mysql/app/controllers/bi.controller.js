@@ -1,4 +1,5 @@
 const BI = require("../models/bi.model.js");
+const BI_meet = require("../models/meeting.model.js");
 
 
 // Create and Save a new Customer
@@ -35,6 +36,18 @@ exports.findAll = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while retrieving invoices."
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all meetings from the database.
+exports.findAll_meet = (req, res) => {
+  BI_meet.getAll_meet((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving meetings."
       });
     else res.send(data);
   });

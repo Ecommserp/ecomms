@@ -1,10 +1,6 @@
 const sql = require("./db.js");
 
 // constructor
-const User = function(user) {
-  this.username = user.username;
-  this.password = user.password;
-};
 
 const Meet = function(meet) {
   this.title = meet.title;
@@ -13,7 +9,7 @@ const Meet = function(meet) {
   this.Attendees - meet.Attendees;
 };
 
-User.create = (newCustomer, result) => {
+Meet.create = (newCustomer, result) => {
   //console.log(newCustomer)
   sql.query("INSERT INTO users SET ?", newCustomer, (err, res) => {
     if (err) {
@@ -27,7 +23,7 @@ User.create = (newCustomer, result) => {
   });
 };
 
-User.findById = (customerId, result) => {
+Meet.findById = (customerId, result) => {
   sql.query(`SELECT * FROM users WHERE username = '${customerId}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -46,19 +42,6 @@ User.findById = (customerId, result) => {
   });
 };
 
-User.getAll = result => {
-  sql.query("SELECT YEAR(date) AS year, MONTH(date) AS month, SUM(Total) AS total FROM invoice GROUP BY YEAR(date), MONTH(date)", (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
-
-    console.log("customers: ", res);
-    result(null, res);
-  });
-};
-
 Meet.getAll_meet = result => {
   sql.query("SELECT * FROM meetings WHERE Start_time >= CURDATE() ORDER BY Start_time DESC", (err, res) => {
     if (err) {
@@ -67,12 +50,12 @@ Meet.getAll_meet = result => {
       return;
     }
 
-    console.log("customers: ", res);
+    console.log("meetings: ", res);
     result(null, res);
   });
 };
 
-User.updateById = (id, customer, result) => {
+Meet.updateById = (id, customer, result) => {
   sql.query(
     "UPDATE users SET email = ?, name = ?, active = ? WHERE id = ?",
     [customer.email, customer.name, customer.active, id],
@@ -95,7 +78,7 @@ User.updateById = (id, customer, result) => {
   );
 };
 
-User.remove = (id, result) => {
+Meet.remove = (id, result) => {
   sql.query("DELETE FROM users WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -114,7 +97,7 @@ User.remove = (id, result) => {
   });
 };
 
-User.removeAll = result => {
+Meet.removeAll = result => {
   sql.query("DELETE FROM users", (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -127,5 +110,5 @@ User.removeAll = result => {
   });
 };
 
-module.exports = User;
-//module.exports = Meet;
+//module.exports = User;
+module.exports = Meet;

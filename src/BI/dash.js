@@ -10,6 +10,7 @@ import Select from '@material-ui/core/Select';
 import NotificationsSharpIcon from '@material-ui/icons/NotificationsSharp';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import Popup from 'reactjs-popup';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
 import clsx from 'clsx';
@@ -287,6 +288,84 @@ for (let i = 0; i < 20; i += 1) {
 }
 
 
+//meetings tableRow
+
+const sample_meet = [
+  ['GOV', 'CAN', 'product 1', 'N/a', '400', '234334.00'],
+  ['PRV', 'JP', 'product 2', 'N/a', '500', '234334.00'],
+  ['GOV', 'IN', 'product 3', 'N/a', '800', '234334.00'],
+];
+
+async function getData(url) {
+const response = await fetch(url);
+
+return response.json();
+}
+
+function createData_meet(id, title, Start_time, End_time, Attendees) {
+  return { id, title, Start_time, End_time, Attendees };
+}
+
+const rows_meet = [];
+
+
+
+async function getData_meet() {
+
+    const apiUrl = 'http://localhost:3220/BI/meetings';
+    const data = await getData(apiUrl);
+
+    //console.log(data)
+
+    for(var i = 0; i < data.length; i++){
+
+        rows_meet[i] = createData_meet(i ,data[i].title, data[i].Start_time, data[i].End_time, data[i].Attendees);
+
+        //rows_meet[i] = createData_meet(sample_meet);
+
+
+    }
+    //sample_aa();
+    console.log(rows_meet)
+    console.log(rows)
+    display_meet();
+
+
+}
+
+async function display_meet(){
+
+//  alert(rows_meet)
+
+
+ReactDOM.render(<VirtualizedTable
+    rowCount={rows_meet.length}
+    rowGetter={({ index }) => rows_meet[index]}
+    columns={[
+      {
+        width: 120,
+        label: 'title',
+        dataKey: 'title',
+      },
+      {
+        width: 120,
+        label: 'Start Time',
+        dataKey: 'Start_time',
+      },
+      {
+        width: 120,
+        label: 'End Time',
+        dataKey: 'End_time',
+      },
+      {
+        width: 120,
+        label: 'Attendees',
+        dataKey: 'Attendees',
+      },
+    ]}
+  />, document.getElementById('table_meet'));
+}
+
 
 
 const data4 = {
@@ -398,11 +477,7 @@ const NotificationsSharpIcon1 = styled(NotificationsSharpIcon)({
     }
 });
 
-async function getData(url) {
-const response = await fetch(url);
 
-return response.json();
-}
 
 async function getData_rev() {
 
@@ -468,6 +543,7 @@ async function sample_aa() {
 function dash() {
 
 getData_rev();
+getData_meet();
 
 
   return (
@@ -476,10 +552,23 @@ getData_rev();
       <label className="tile_text">Good Morning Mr.Sample </label>
 
 <div className="head_right">
-      <button className="button" onClick={sample_aa}>Meetings</button> <div className="space"></div>
-      <Popup trigger={<NotificationsSharpIcon1 tooltip="Description here"> </NotificationsSharpIcon1>} modal>
-    <div className="noti_win"><h1>content</h1></div>
+<Popup trigger={  <button className="button" onClick={sample_aa}>Meetings</button> } modal>
+    <div className="noti_win" id="noti_win">
+  <label className="tile_text1">Meetings</label> <br />
+
+<div className="meeting_add">
+  <AddCircleIcon className="add_new" fontSize="large" onClick={display_meet}></AddCircleIcon>
+  </div> <br /> <br />
+<Paper id="table_meet" style={{ height: '100%', width: '100%' }}>
+
+</Paper>
+
+
+    </div>
     </Popup>
+    <div className="space"></div>
+  <NotificationsSharpIcon1 tooltip="Description here"> </NotificationsSharpIcon1>
+
       <div className="space"></div>
       <img src={dp} className="App-dp" alt="dp" /><div className="space"></div>
 

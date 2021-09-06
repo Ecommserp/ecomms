@@ -24,7 +24,7 @@ module.exports = app => {
   app.delete("/users", customers.deleteAll);
 
    // Create a new Item
-   app.post("/inventory", inventory.create);
+   app.post("/inventory", inv.create);
 
   // Retrieve all Customers
   app.get("/inventory", inv.findAll);
@@ -34,5 +34,8 @@ module.exports = app => {
 
   // Retrieve BI for first graph
   app.get("/BI/rev", bi.findAll);
+
+  // Retrieve meetings for popup
+  app.get("/BI/meetings", bi.findAll_meet);
 
 };
