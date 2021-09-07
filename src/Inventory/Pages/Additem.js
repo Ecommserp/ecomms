@@ -15,6 +15,16 @@ function Additem() {
   const [type, settype] = useState("");
   const [quantity, setquantity] = useState("");
 
+  function validateForm() {
+    return code.length > 0 && name.length > 0 && type.length > 0 && quantity.length > 0;
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+
+  }
+
   function insert() {
 
     const requestOptions = {
@@ -58,7 +68,7 @@ function Additem() {
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Item</h3></Card.Header>
                 <Card.Body>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label>
                         Item Code : &nbsp;&nbsp;&nbsp;
                         <input type="text" name="code" value={code} onChange={(e) => setcode(e.target.value)}/>
