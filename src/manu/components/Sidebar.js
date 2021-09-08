@@ -12,28 +12,27 @@ import { NavLink } from 'react-router-dom';
 const Sidebar = () => {
   return (
     <div
-      style={{ display: 'flex', height: '105vh', marginTop: '-20px' ,overflow: 'scroll initial' }}
+      style={{ display: 'flex', height: '105vh', marginTop: '-20px', overflow: 'scroll initial' }}
     >
       <CDBSidebar textColor="#fff" backgroundColor="#1F78B4">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <a
             href="/"
             className="text-decoration-none2"
-            style={{ color: 'inherit' }}
-          >
+            style={{ color: 'inherit' }} >
             ecomms
           </a>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/inventory" activeClassName="activeClicked" >
+            <NavLink exact to="/manu" activeClassName="activeClicked" >
               <CDBSidebarMenuItem icon="home">Home</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/inventory/update" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="edit">Update Inventory</CDBSidebarMenuItem>
+            <NavLink exact to="/manu/update" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="edit">Update Products</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/inventory/reports" activeClassName="activeClicked">
+            <NavLink exact to="/manu/reports" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="chart-line">Reports</CDBSidebarMenuItem>
             </NavLink>
 
@@ -46,7 +45,7 @@ const Sidebar = () => {
               padding: '20px 5px',
             }}
           >
-        
+
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>

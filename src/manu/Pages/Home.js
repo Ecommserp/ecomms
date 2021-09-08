@@ -1,10 +1,10 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import inventory from "./assets/inventory.png"
+import manu from "./assets/manu.png"
 import logo from "./assets/cyan.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Pages.css';
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
 function Home() {
@@ -20,7 +20,7 @@ function Home() {
       },
     ],
   };
-  
+
   const options = {
     scales: {
       yAxes: [
@@ -33,43 +33,57 @@ function Home() {
     },
   };
   return (
-    <div className = 'screen'>
-    <motion.div className='home' initial='out'
-    animate='in'
-    exit='out'
-    variants={animationOne}
-    transition={transition}>
-      <i><h1 style={{
-                position: 'absolute',
-                right: 15,
-                top: 10,}}>Inventory<br></br>Management</h1></i>
-                <img
-                style={{
-                  position: 'absolute',
-                  left: 200,
-                  top: -20,
-                width: 160,
-              height: 160}}
-                src = {logo}/>
-                <img 
-                style={{
-                  position: 'absolute',
-                right: 250,
-                top: 12,
-              width: 120,
-            height: 100}}
-                  src={inventory} />
-                  <table>
-                    <tr>
-                      <th>
-                <Line style= {{width:700, height:200}} data={data} options={options} /></th></tr>
-                
-                <tr><th><button className='button1' style={{marginTop: 50}} onClick={event =>  window.location.href='/inventory/Additem'}>Add Item</button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button className='button1' onClick={event =>  window.location.href='/inventory/Deleteitem'}>Delete Item</button>
-                </th></tr>
-                </table>
-    </motion.div></div>
+    <div className='screen'>
+
+      <img
+        style={{
+          position: 'absolute',
+          left: 800,
+          top: -20,
+          width: 160,
+          height: 160
+        }}
+        src={logo} />
+
+      <motion.div className='home' initial='out'
+        animate='in'
+        exit='out'
+        variants={animationOne}
+        transition={transition}>
+        <div><i><h1 style={{
+          position: 'absolute',
+          left: 820,
+          top: 60,
+        }}><br></br>Manufacturing</h1></i> </div>
+
+        <div><i><h1 style={{
+          position: 'absolute',
+          left: 750,
+          top: 150,
+        }}>Management</h1></i> </div>
+
+        <img
+          style={{
+            position: 'absolute',
+            left: 700,
+            top: 75,
+            width: 120,
+            height: 100
+          }}
+          src={manu} />
+        <div>
+          <table>
+            <tr>
+              <th>
+                <Line style={{ width: 700, height: 200 }} data={data} options={options} /></th></tr>
+
+            <tr><th><button className='button1' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/Additem'}>Add Item</button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button className='button1' onClick={event => window.location.href = '/inventory/Deleteitem'}>Delete Item</button>
+            </th></tr>
+          </table>
+        </div>
+      </motion.div></div>
   );
 }
 
