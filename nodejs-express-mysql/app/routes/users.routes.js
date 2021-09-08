@@ -2,6 +2,7 @@ module.exports = app => {
   const customers = require("../controllers/users.controller.js");
   const inv = require("../controllers/inventory.controller.js");
   const bi = require("../controllers/bi.controller.js");
+  const manu_prod = require("../controllers/manu_prod.controller.js");
   const pm = require("../controllers/P_M.controller.js");
   const sp = require("../controllers/sp.controller.js");
 
@@ -37,5 +38,11 @@ module.exports = app => {
 
   // Retrieve meetings for popup
   app.get("/BI/meetings", bi.findAll_meet);
+
+  // Retrieve Manu for sample
+  app.get("/manu/prod", manu_prod.findAll);
+
+  // Retrieve Manu for sample
+  app.post("/manu/prod", manu_prod.create);
 
 };
