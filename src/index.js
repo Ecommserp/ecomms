@@ -9,7 +9,7 @@ import Insert from './components/addUser';
 import Account from './Account/Home';
 import Managingdb from './Account/Pages/managingdb';
 import Purchasing_management from './purchasing_management/App';
-import BI from './BI/dash';
+import BI from './BI/Dash';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { CookiesProvider } from "react-cookie";
