@@ -1,8 +1,7 @@
-//const BI = require("../models/bi.model.js");
-const manu_prod_m = require("../models/manu_prod.model.js");
+const CRM = require("../models/crm.model.js");
 
 
-// Create and Save a new Customer
+// Create and Save a new customer inquiry
 exports.create = (req, res) => {
   console.log('request ' + req.body)
   // Validate request
@@ -12,41 +11,62 @@ exports.create = (req, res) => {
     });
   }
 
-  // Create a Production
-  const manu_prod = new manu_prod_m({
-    name: req.body.name,
-    Details: req.body.Details,
-    Production_stat: req.body.Production_stat,
-    Machine_no: req.body.Machine_no,
+  //Create a new customer inquiry
+
+  const crm = new CRM({
+   Customer_NIC: req.body.nic,
+   Birth_Date: req.body.birthdate,
+    Customer_name: req.body.name,
+    Email: req.body.email,
+    Phone: req.body.phone,
+    Purchased_items: req.body.type,
+    inquiry: req.body.inquiry,
+    inquiry_status: req.body.status,
   });
 
-  // Save Customer in the database
-  manu_prod_m.create(manu_prod, (err, data) => {
+  // Save customer inquiry in the database
+  CRM.create(crm, (err, data) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Customer."
+          err.message || "Some error occurred while creating this inquiry."
       });
     else res.send(data);
   });
 };
 
-// Retrieve all Customers from the database.
+// Retrieve all Customers inquiry from the database.
 exports.findAll = (req, res) => {
-  manu_prod_m.getAll((err, data) => {
+  CRM.getAll((err, data) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving invoices."
+          err.message || "Some error occurred while retrieving customers inquiry."
       });
     else res.send(data);
   });
 };
 
+// Find a single Customer with a customer nic
+exports.findOne = (req, res) => {
+  CRM.findById(req.params.Customer_NIC, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Customer with id ${req.params.Customer_NIC}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving Customer with id " + req.params.Customer_NIC
+        });
+      }
+    } else res.send(data);
+  });
+};
 
 // Find a single Customer with a customerId
-exports.findOne = (req, res) => {
-  manu_prod_m.findById(req.params.customerId, (err, data) => {
+exports.find_cat = (req, res) => {
+  CRM.findByCat(req.params.crm_cat, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -61,6 +81,7 @@ exports.findOne = (req, res) => {
   });
 };
 
+
 // Update a Customer identified by the customerId in the request
 exports.update = (req, res) => {
   // Validate Request
@@ -72,9 +93,9 @@ exports.update = (req, res) => {
 
   console.log(req.body);
 
-  manu_prod_m.updateById(
+  CRM.updateById(
     req.params.customerId,
-    new BI(req.body),
+    new User(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
@@ -91,26 +112,26 @@ exports.update = (req, res) => {
   );
 };
 
-// Delete a Customer with the specified customerId in the request
+// Delete an Item with the specified Item_ID in the request
 exports.delete = (req, res) => {
-  manu_prod_m.remove(req.params.customerId, (err, data) => {
+  Inventory.remove(req.params.itemId, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Customer with id ${req.params.customerId}.`
+          message: `Not found Item with id ${req.params.itemId}.`
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Customer with id " + req.params.customerId
+          message: "Could not delete Item with id " + req.params.itemId
         });
       }
-    } else res.send({ message: `Customer was deleted successfully!` });
+    } else res.send({ message: `Item was deleted successfully!` });
   });
 };
 
 // Delete all Customers from the database.
 exports.deleteAll = (req, res) => {
-  manu_prod_m.removeAll((err, data) => {
+  Inventory.removeAll((err, data) => {
     if (err)
       res.status(500).send({
         message:

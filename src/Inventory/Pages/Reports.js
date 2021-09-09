@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
-import './Pages.css';
-import './Reports.css';
+import './invPages.css';
+import './invReports.css';
 import inventory from "./assets/inventory.png";
 import view from './assets/view.jpg';
 import generate from './assets/generate.jpg';
