@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 import inventory from "./assets/inventory.png"
 import logo from "./assets/cyan.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Pages.css';
+import './invPages.css';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import logo from "./assets/cyan.png";
-import './Pages.css';
+import './invPages.css';
 import inventory from "./assets/inventory.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
