@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
 import './Pages.css';
-import inventory from "./assets/inventory.png"
+import manu from "./assets/manu.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -36,7 +36,7 @@ function ReportsView() {
                 top: 12,
               width: 120,
             height: 100}}
-                  src={inventory} />
+                  src={manu} />
                   <button className='button1' style={{position: 'absolute',
                   left: 200,
                   top: 150,

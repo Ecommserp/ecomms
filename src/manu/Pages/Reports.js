@@ -2,7 +2,7 @@ import React from 'react';
 import logo from "./assets/cyan.png";
 import './Pages.css';
 import './Reports.css';
-import inventory from "./assets/inventory.png";
+import manu from "./assets/manu.png";
 import view from './assets/view.jpg';
 import generate from './assets/generate.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,32 +22,43 @@ function Reports() {
     transition={transition}>
         <i><h1 style={{
                 position: 'absolute',
-                right: 15,
-                top: 10,}}>Inventory<br></br>Management</h1></i>
-                <img
-                style={{
-                  position: 'absolute',
-                  left: 200,
-                  top: -20,
-                width: 160,
-              height: 160}}
-                src = {logo}/>
+               right: 40,
+               top:-13,
+               }}><br></br>Production</h1></i>
+              
+              <div><i><h1 style={{
+          position: 'absolute',
+          right: 40,
+          top:70,
+        }}>Manufacturing Management</h1></i> </div>
+        
                 <img 
                 style={{
                   position: 'absolute',
                 right: 250,
-                top: 12,
+                 top:-1,
               width: 120,
             height: 100}}
-                  src={inventory} />
-                    <div className="tile_home" onClick={event =>  window.location.href='/inventory/viewreports'}>
+                  src={manu} />
+        <div className='imagelogo' >
+        <img
+          style={{
+            position: 'absolute',
+            left: 300,
+            top: -20,
+            width: 160,
+            height: 160
+          }}
+          src={logo} /></div>
+
+                    <div className="tile_home" onClick={event =>  window.location.href='/manu/viewreports'}>
                       <p className="tile_text">View<br />Reports</p>
                       <img src={view} className="view_img" alt="View Reports" />
                       </div>
                       <div className="space"></div>
                       <div className="space"></div>
                       <div className="space"></div>
-                      <div className="tile_home" onClick={event =>  window.location.href='/inventory/generatereports'}>
+                      <div className="tile_home" onClick={event =>  window.location.href='/manu/generatereports'}>
                         <p className="tile_text">Generate<br />Reports</p>
                         <img src={generate} className="generate_img" alt="Generate Reports" />
                         </div>

@@ -34,16 +34,6 @@ function Home() {
   };
   return (
     <div className='screen'>
-      <div className='imagelogo' >
-        <img
-          style={{
-            position: 'absolute',
-            left: 800,
-            top: -20,
-            width: 160,
-            height: 160
-          }}
-          src={logo} /></div>
 
       <motion.div className='home' initial='out'
         animate='in'
@@ -52,39 +42,78 @@ function Home() {
         transition={transition}>
         <div><i><h1 style={{
           position: 'absolute',
-          left: 830,
-          top: 60,
+          right: 40,
+          top:-13,
         }}><br></br>Production </h1></i> </div>
 
         <div><i><h1 style={{
           position: 'absolute',
-          left: 650,
-          top: 150,
+          right: 40,
+          top:70,
         }}>Manufacturing Management</h1></i> </div>
 
         <img
           style={{
             position: 'absolute',
-            left: 700,
-            top: 75,
+            right: 250,
+            top:-1,
             width: 120,
             height: 100
           }}
           src={manu} />
 
-        <div className='tablew'>
-          <table>
-            <tr>
-              <th>
-                <Line style={{ width: 700, height: 200 }} data={data} options={options} /></th></tr>
+           <div className='imagelogo' >
+                <img style={{
+                     position: 'absolute',
+                    left: 300,
+                    top: -20,
+                    width: 160,
+                    height: 160
+                  }}src={logo} /></div>
+     <div className="container">
+       
+          <div className='row'>
+            <div className='col1'>
+                <div className='subti'> <h3>products </h3></div>
+              <table>
+                 <tr>
+                   <th>
+                       <Line style={{ width: 500, height: 800 }} data={data} options={options} /></th></tr>
 
-            <tr><th><button className='button1' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/Additem'}>Add Item</button>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button className='button1' onClick={event => window.location.href = '/inventory/Deleteitem'}>Delete Item</button>
-            </th></tr>
-          </table>
+                    <tr>
+                      <th>
+                        <button className='button1' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/Additem'}> 1Add Item</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button className='button1' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
+                      </th>
+                    </tr>
+              </table>
+            </div> 
+
+              <div className='col1'>
+                <div className='subti'> <h3>Machines </h3></div>
+                 <table>
+                    <tr>
+                       <th>
+                           <Line style={{ width: 500, height: 800 }} data={data} options={options} />
+                        </th>
+                    </tr>
+
+                     <tr>
+                        <th>
+                          <button className='button1' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/Additem'}>Add Item</button>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <button className='button1' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
+                       </th>
+                     </tr>
+                  </table>
+               </div>
+          </div>
+        
         </div>
-      </motion.div></div>
+      </motion.div>
+      
+      </div>
   );
 }
 

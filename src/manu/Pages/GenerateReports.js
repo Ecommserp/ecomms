@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
 import './Pages.css';
-import inventory from "./assets/inventory.png"
+import manu from "./assets/manu.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -19,24 +19,34 @@ function ReportsGen() {
     transition={transition}>
         <i><h1 style={{
                 position: 'absolute',
-                right: 15,
-                top: 10,}}>Inventory<br></br>Management</h1></i>
-                <img
-                style={{
-                  position: 'absolute',
-                  left: 200,
-                  top: -20,
-                width: 160,
-              height: 160}}
-                src = {logo}/>
+                right: 40,
+          top:-13,}}><br></br>Production</h1></i>
+          <div><i><h1 style={{
+          position: 'absolute',
+          right: 40,
+          top:70,
+        }}>Manufacturing Management</h1></i> </div>
+      
                 <img 
                 style={{
                   position: 'absolute',
-                right: 250,
-                top: 12,
-              width: 120,
-            height: 100}}
-                  src={inventory} />
+                   right: 250,
+                   top:-1,
+                  width: 120,
+                   height: 100}}
+                  src={manu} />
+
+        <div className='imagelogo' >
+        <img
+          style={{
+            position: 'absolute',
+            left: 300,
+            top: -20,
+            width: 160,
+            height: 160
+          }}
+          src={logo} /></div>
+
                   <table style={{width:1000}}>
                   <tr><th>
                   <button className='button1' style={{marginTop: 50}}>Generate Weekly Report</button>

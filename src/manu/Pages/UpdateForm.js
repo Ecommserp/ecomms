@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
 import './Pages.css';
-import inventory from "./assets/inventory.png"
+import manu from "./assets/manu.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -19,8 +19,10 @@ function UpdateForm() {
     transition={transition}>
         <i><h1 style={{
                 position: 'absolute',
-                right: 15,
-                top: 10,}}>Inventory<br></br>Management</h1></i>
+                right: 40,
+          top:-13,}}><br></br>Production</h1></i>
+
+          
                 <img
                 style={{
                   position: 'absolute',
@@ -36,7 +38,7 @@ function UpdateForm() {
                 top: 12,
               width: 120,
             height: 100}}
-                  src={inventory} />
+                  src={manu} />
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Update Inventory</h3></Card.Header>
                 <Card.Body>

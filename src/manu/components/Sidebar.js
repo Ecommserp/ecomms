@@ -27,8 +27,9 @@ const Sidebar = () => {
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink exact to="/manu" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="home">Home</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="home"> Home</CDBSidebarMenuItem>
             </NavLink>
+          
             <NavLink exact to="/manu/update" activeClassName="activeClicked" >
               <CDBSidebarMenuItem icon="edit">Update Products</CDBSidebarMenuItem>
             </NavLink>
