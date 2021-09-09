@@ -34,16 +34,16 @@ function Home() {
   };
   return (
     <div className='screen'>
-
-      <img
-        style={{
-          position: 'absolute',
-          left: 800,
-          top: -20,
-          width: 160,
-          height: 160
-        }}
-        src={logo} />
+      <div className='imagelogo' >
+        <img
+          style={{
+            position: 'absolute',
+            left: 800,
+            top: -20,
+            width: 160,
+            height: 160
+          }}
+          src={logo} /></div>
 
       <motion.div className='home' initial='out'
         animate='in'
@@ -52,15 +52,15 @@ function Home() {
         transition={transition}>
         <div><i><h1 style={{
           position: 'absolute',
-          left: 820,
+          left: 830,
           top: 60,
-        }}><br></br>Manufacturing</h1></i> </div>
+        }}><br></br>Production </h1></i> </div>
 
         <div><i><h1 style={{
           position: 'absolute',
-          left: 750,
+          left: 650,
           top: 150,
-        }}>Management</h1></i> </div>
+        }}>Manufacturing Management</h1></i> </div>
 
         <img
           style={{
@@ -71,7 +71,8 @@ function Home() {
             height: 100
           }}
           src={manu} />
-        <div>
+
+        <div className='tablew'>
           <table>
             <tr>
               <th>
