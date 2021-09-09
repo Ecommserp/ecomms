@@ -1,0 +1,31 @@
+.button1 {
+    font-size: 15px;
+    color: #fff;
+    background-color: #659fdf;
+    width: 30%;
+    height: 40px;
+    border: 1px solid;
+    border-color: #659fdf;
+    border-radius: 30px;
+    transition: background-color 0.5s;
+  }
+  
+  .button1:hover {
+    background-color: #0079ff;
+    cursor: pointer;
+  }
+  
+  .space {
+    width: 3%;
+    display: inline-block;
+  }
+  
+  .App {
+    text-align: center;
+  }
+  
+  .screen {
+    min-width: 700px;
+    width: 1000px;
+    margin: auto;
+  }

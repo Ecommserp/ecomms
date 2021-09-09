@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
 import './Pages.css';
-import manu from "./assets/manu.png"
+import crm from "./assets/crm.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -9,10 +9,10 @@ import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
 
-function ReportsView() {
+function GenerateCustomerReport() {
   return (
     <div className = 'screen'>
-    <motion.div className = "reportsview" initial='out'
+    <motion.div className = "function GenerateCustomerReport() {" initial='out'
     animate='in'
     exit='out'
     variants={animationOne}
@@ -20,7 +20,7 @@ function ReportsView() {
         <i><h1 style={{
                 position: 'absolute',
                 right: 15,
-                top: 10,}}>Inventory<br></br>Management</h1></i>
+                top: 10,}}>Customer<br></br>Relationship<br></br>Management</h1></i>
                 <img
                 style={{
                   position: 'absolute',
@@ -36,27 +36,16 @@ function ReportsView() {
                 top: 12,
               width: 120,
             height: 100}}
-                  src={manu} />
-                  <button className='button1' style={{position: 'absolute',
-                  left: 200,
-                  top: 150,
-                  width: 300}}>View Purchasing Reports</button>
-                  <button className='button1' style={{position: 'absolute',
-                  right: 100,
-                  top: 150,
-                  width: 300}}>View Sales Report</button>
+                  src={crm} />
                   <table style={{width:1000}}>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>View Status Report</button>
+                  <button className='button1' style={{marginTop: 50}}>Generate Weekly Report</button>
                   </th></tr>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>View Weekly Reports</button>
+                  <button className='button1' style={{marginTop: 50}}>Generate Monthly Report</button>
                   </th></tr>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>View Monthly Reports</button>
-                  </th></tr>
-                  <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>View Annual Reports</button>
+                  <button className='button1' style={{marginTop: 50}}>Generate Annual Report</button>
                   </th></tr>
                   </table>
                   </motion.div></div>
@@ -64,4 +53,4 @@ function ReportsView() {
 );
 }
 
-export default ReportsView;
+export default GenerateCustomerReport;

@@ -338,54 +338,34 @@ async function display_meet(){
 //  alert(rows_meet)
 
 
-ReactDOM.render(  <div className="noti_win" id="noti_win">
-<label className="tile_text1">Meetings</label> <br />
-
-<div className="meeting_add">
-
-<Popup trigger={ <AddCircleIcon className="add_new" fontSize="large"></AddCircleIcon> } modal>
-</Popup>
-
-
-</div> <br /> <br />
-<Paper id="table_meet" style={{ height: '100%', width: '100%' }}>
-<VirtualizedTable
-  rowCount={rows_meet.length}
-  rowGetter={({ index }) => rows_meet[index]}
-  columns={[
-    {
-      width: 120,
-      label: 'title',
-      dataKey: 'title',
-    },
-    {
-      width: 120,
-      label: 'Start Time',
-      dataKey: 'Start_time',
-    },
-    {
-      width: 120,
-      label: 'End Time',
-      dataKey: 'End_time',
-    },
-    {
-      width: 120,
-      label: 'Attendees',
-      dataKey: 'Attendees',
-    },
-  ]}
-/>
-</Paper>
-
-
-  </div>, document.getElementById('meet_dis'));
+ReactDOM.render(<VirtualizedTable
+    rowCount={rows_meet.length}
+    rowGetter={({ index }) => rows_meet[index]}
+    columns={[
+      {
+        width: 120,
+        label: 'title',
+        dataKey: 'title',
+      },
+      {
+        width: 120,
+        label: 'Start Time',
+        dataKey: 'Start_time',
+      },
+      {
+        width: 120,
+        label: 'End Time',
+        dataKey: 'End_time',
+      },
+      {
+        width: 120,
+        label: 'Attendees',
+        dataKey: 'Attendees',
+      },
+    ]}
+  />, document.getElementById('table_meet'));
 }
 
-async function close_meet(){
-
-  ReactDOM.render(  <div> </div>, document.getElementById('meet_dis'));
-
-}
 
 
 const data4 = {
@@ -568,19 +548,26 @@ getData_meet();
 
   return (
     <div className="App_bi">
-
-    <div id="meet_dis"></div>
-
-
-
     <div className="headu">
       <label className="tile_text">Good Morning Mr.Sample </label>
 
 <div className="head_right">
-<button className="button" onClick={display_meet}>Meetings</button>
+<Popup trigger={  <button className="button">Meetings</button> } modal>
+    <div className="noti_win" id="noti_win">
+  <label className="tile_text1">Meetings</label> <br />
 
+<div className="meeting_add">
+  <AddCircleIcon onClick={display_meet} className="add_new" fontSize="large"></AddCircleIcon>
+  </div> <br /> <br />
+<Paper id="table_meet" style={{ height: '100%', width: '100%' }}>
+
+</Paper>
+
+
+    </div>
+    </Popup>
     <div className="space"></div>
-  <NotificationsSharpIcon1 onClick={close_meet} tooltip="Description here"> </NotificationsSharpIcon1>
+  <NotificationsSharpIcon1 tooltip="Description here"> </NotificationsSharpIcon1>
 
       <div className="space"></div>
       <img src={dp} className="App-dp" alt="dp" /><div className="space"></div>
