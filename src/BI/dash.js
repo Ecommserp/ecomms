@@ -607,21 +607,18 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
       <label className="tile_text">Good Morning Mr.Sample </label>
 
 <div className="head_right">
-<<<<<<< HEAD
 <button className="button" onClick={Display_meet}>Meetings</button>
-=======
 <Popup trigger={  <button className="button">Meetings</button> } modal>
     <div className="noti_win" id="noti_win">
   <label className="tile_text1">Meetings</label> <br />
 
 <div className="meeting_add">
-  <AddCircleIcon onClick={display_meet} className="add_new" fontSize="large"></AddCircleIcon>
+  <AddCircleIcon onClick={Display_meet} className="add_new" fontSize="large"></AddCircleIcon>
   </div> <br /> <br />
 <Paper id="table_meet" style={{ height: '100%', width: '100%' }}>
 
 </Paper>
 
->>>>>>> 0748f9f846ee064c9180a0f7731f74474c7fa92f
 
     </div>
     </Popup>
