@@ -37,7 +37,7 @@ function Deleteitem() {
 
 
   return (
-    <div className = 'screen'>
+    <div className = 'invscreen'>
     <motion.div className = "deleteitem" initial='out'
     animate='in'
     exit='out'

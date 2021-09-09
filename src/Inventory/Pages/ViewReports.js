@@ -11,7 +11,7 @@ import { animationOne, transition } from '../animations';
 
 function ReportsView() {
   return (
-    <div className = 'screen'>
+    <div className = 'invscreen'>
     <motion.div className = "reportsview" initial='out'
     animate='in'
     exit='out'

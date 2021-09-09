@@ -11,7 +11,7 @@ import { animationOne, transition } from '../animations';
 
 function Update() {
   return (
-    <div className = 'screen'>
+    <div className = 'invscreen'>
     <motion.div className = "additem" initial='out'
     animate='in'
     exit='out'
