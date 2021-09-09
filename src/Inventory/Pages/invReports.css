@@ -9,10 +9,12 @@
   display: inline-block;
   transition: box-shadow 0.8s;
 }
+
 .tile_home:hover {
   box-shadow: 10px 10px 10px rgba(102, 102, 102, 0.3);
   cursor: pointer;
 }
+
 .tile_text {
   position: absolute;
   padding-top: 60px;
@@ -21,6 +23,7 @@
   color: #5f5c77;
   text-align: left;
 }
+
 .space {
   width: 3%;
   display: inline-block;
