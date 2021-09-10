@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
 import './invPages.css';
+import './invReports.css';
 import inventory from "./assets/inventory.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -40,21 +41,22 @@ function ReportsView() {
                   <button className='button1' style={{position: 'absolute',
                   right: 100,
                   top: 150,
-                  width: 300}}>View Sales Report</button>
-                  <table style={{width:1000}}>
+                  width: 300}}>View Sales Report</button><br></br><br></br><br></br><br></br>
+                  <div className="invtile_gen">
+                  <table style={{width:700}}>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>View Status Report</button>
+                  <button className='invbutton' style={{marginTop: 50}}>View Status Report</button>
                   </th></tr>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>View Weekly Reports</button>
+                  <button className='invbutton' style={{marginTop: 50}}>View Weekly Reports</button>
                   </th></tr>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>View Monthly Reports</button>
+                  <button className='invbutton' style={{marginTop: 50}}>View Monthly Reports</button>
                   </th></tr>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>View Annual Reports</button>
+                  <button className='invbutton' style={{marginTop: 50, marginBottom: 50}}>View Annual Reports</button>
                   </th></tr>
-                  </table>
+                  </table></div>
                   </motion.div></div>
 
 );

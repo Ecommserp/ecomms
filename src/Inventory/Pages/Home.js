@@ -55,14 +55,13 @@ function Home() {
                 right: 250,
                 top: 12}}
                   src={inventory} />
-                  <table>
+                  <table style={{marginTop: 40}}>
                     <tr>
                       <th>
                 <Line style= {{width:700, height:200}} data={data} options={options} /></th></tr>
                 
-                <tr><th><button className='button1' style={{marginTop: 50}} onClick={event =>  window.location.href='/inventory/Additem'}>Add Item</button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button className='button1' onClick={event =>  window.location.href='/inventory/Deleteitem'}>Delete Item</button>
+                <tr><th><button className='nbutton' style={{marginTop: 60, marginRight: 260}} onClick={event =>  window.location.href='/inventory/Additem'}>Add Product</button>
+                <button className='nbutton' onClick={event =>  window.location.href='/inventory/Deleteitem'}>Delete Product</button>
                 </th></tr>
                 </table>
     </motion.div></div>

@@ -1,4 +1,4 @@
-.button1 {
+.nbutton {
   font-size: 15px;
   color: #fff;
   background-color: #659fdf;
@@ -10,7 +10,19 @@
   transition: background-color 0.5s;
 }
 
-.button1:hover {
+.invbutton {
+  font-size: 15px;
+  color: #fff;
+  background-color: #659fdf;
+  width: 50%;
+  height: 40px;
+  border: 1px solid;
+  border-color: #659fdf;
+  border-radius: 30px;
+  transition: background-color 0.5s;
+}
+
+.invbutton:hover {
   background-color: #0079ff;
   cursor: pointer;
 }

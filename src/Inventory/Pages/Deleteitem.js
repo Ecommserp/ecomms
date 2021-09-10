@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import logo from "./assets/cyan.png";
 import './invPages.css';
-import inventory from "./assets/inventory.png"
+import inventory from "./assets/inventory.png";
+import trash from "./assets/delete.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -62,12 +63,13 @@ function Deleteitem() {
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Delete Item</h3></Card.Header>
                 <Card.Body>
+                  <img style={{ width:'160px',height:'140px' }} src={trash} /> <br></br><br></br>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        Item Code : &nbsp;&nbsp;&nbsp;
+                       Product ID : &nbsp;&nbsp;&nbsp;
                         <input type="text" name="code" value={code} onChange={(e) => setcode(e.target.value)}/>
                         </label><br></br><br></br>
-                        <input className="button" type="button" value="Delete" onClick={deleted}/>
+                        <input className="nbutton" type="button" value="Delete" onClick={deleted}/>
                         </form>
                         </Card.Body></Card>
                         </center>

@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
 import './invPages.css';
-import inventory from "./assets/inventory.png"
+import inventory from "./assets/inventory.png";
+import search from "./assets/search.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -36,13 +37,14 @@ function UpdateForm() {
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Update Inventory</h3></Card.Header>
                 <Card.Body>
+                <img style={{ width:'160px',height:'140px' }} src={search} /><br></br><br></br>
                 <form>
                   <label style={{marginRight:50}}>Field to Edit :</label>
                   <select type="text">
-                  <option value="Null"></option>
+                  <option value="NULL"></option>
                       <option value="id">Product ID</option>
                       <option value="name">Product Name</option>
-                      <option value="sid">Supplier ID</option>
+                      <option value="type">Product Type</option>
                       <option value="quantity">Quantity</option>
                 </select>
                         <br></br><br></br>
@@ -50,7 +52,7 @@ function UpdateForm() {
                         New Value : &nbsp;&nbsp;
                         <input type="text" name="name" />
                         </label><br></br><br></br>
-                        <input className="button" type="submit" value="Submit" />
+                        <input className="nbutton" type="submit" value="Submit" />
                         </form>
                         </Card.Body></Card>
                         </center>

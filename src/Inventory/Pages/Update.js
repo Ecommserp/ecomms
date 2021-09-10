@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
 import './invPages.css';
-import inventory from "./assets/inventory.png"
+import inventory from "./assets/inventory.png";
+import search from "./assets/search.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -34,14 +35,15 @@ function Update() {
                 top: 12}}
                   src={inventory} />
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Search Item</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Search Product</h3></Card.Header>
                 <Card.Body>
+                <img style={{ width:'160px',height:'140px' }} src={search} /><br></br><br></br>
                 <form>
                     <label>
-                        Item Code : &nbsp;&nbsp;&nbsp;
+                        Product ID : &nbsp;&nbsp;&nbsp;
                         <input type="text" name="code" />
                         </label><br></br><br></br>
-                        <input className="button" type="submit" value="Search" />
+                        <input className="nbutton" type="submit" value="Search" />
                         </form>
                         </Card.Body></Card>
                         </center>

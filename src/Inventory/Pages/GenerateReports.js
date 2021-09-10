@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
 import './invPages.css';
+import './invReports.css';
 import inventory from "./assets/inventory.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -33,17 +34,19 @@ function ReportsGen() {
                 right: 250,
                 top: 12}}
                   src={inventory} />
-                  <table style={{width:1000}}>
+                  <div className="invtile_gen">
+                  <table style={{width:700}}>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>Generate Weekly Report</button>
+                  <button className='invbutton' style={{marginTop: 50}}>Generate Weekly Report</button>
                   </th></tr>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>Generate Monthly Report</button>
+                  <button className='invbutton' style={{marginTop: 50}}>Generate Monthly Report</button>
                   </th></tr>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>Generate Annual Report</button>
+                  <button className='invbutton' style={{marginTop: 50, marginBottom:50}}>Generate Annual Report</button>
                   </th></tr>
                   </table>
+                      </div>
                   </motion.div></div>
 
 );

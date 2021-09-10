@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import logo from "./assets/cyan.png";
 import './invPages.css';
-import inventory from "./assets/inventory.png"
+import inventory from "./assets/inventory.png";
+import add from "./assets/add.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -62,26 +63,27 @@ function Additem() {
                 top: 12}}
                   src={inventory} />
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Item</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Product</h3></Card.Header>
                 <Card.Body>
+                <img style={{ width:'120px',height:'120px' }} src={add} />
                 <form onSubmit={handleSubmit}>
-                    <label>
-                        Item Code : &nbsp;&nbsp;&nbsp;
-                        <input type="text" name="code" value={code} onChange={(e) => setcode(e.target.value)}/>
+                    <label style={{marginLeft:26}}>
+                        Product ID :
+                        <input type="text" name="code" value={code} onChange={(e) => setcode(e.target.value)} style={{marginLeft:10}}/>
                         </label><br></br><br></br>
                         <label>
-                        Item Name : &nbsp;&nbsp;
-                        <input type="text" name="name" value={name} onChange={(e) => setname(e.target.value)}/>
+                        Product Name :
+                        <input type="text" name="name" value={name} onChange={(e) => setname(e.target.value)} style={{marginLeft:10}}/>
                         </label><br></br><br></br>
-                        <label>
-                        Item Type : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="type" value={type} onChange={(e) => settype(e.target.value)}/>
+                        <label style={{marginLeft:8}}>
+                        Product Type :
+                        <input type="text" name="type" value={type} onChange={(e) => settype(e.target.value)} style={{marginLeft:10}}/>
                         </label><br></br><br></br>
-                        <label>
-                        Quantity : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="quantity" value={quantity} onChange={(e) => setquantity(e.target.value)}/>
+                        <label style={{marginLeft:36}}>
+                        Quantity :
+                        <input type="text" name="quantity" value={quantity} onChange={(e) => setquantity(e.target.value)} style={{marginLeft:10}}/>
                         </label><br></br><br></br>
-                        <input className="button" type="button" value="Submit" onClick={insert}/>
+                        <input className="nbutton" type="button" value="Submit" onClick={insert}/>
                         </form>
                         </Card.Body></Card>
                         </center>
