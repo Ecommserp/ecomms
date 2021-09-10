@@ -9,8 +9,9 @@ import Manu from './manu/App';
 import Insert from './components/addUser';
 import Account from './Account/Home';
 import Managingdb from './Account/Pages/managingdb';
+import Financial from './Account/Pages/financial';
 import Purchasing_management from './purchasing_management/App';
-import BI from './BI/Dash';
+import BI from './BI/dash';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { CookiesProvider } from "react-cookie";
@@ -32,6 +33,7 @@ ReactDOM.render(
               <Route path='/CRM' component={Crm} />
               <Route path='/Insert' component={Insert} />
               <Route path='/Account' component={Account} />
+              <Route path='/Financial' component={Financial} />
               <Route path='/managingdb' component={Managingdb} />
               <Route path='/purchasing_management' component={Purchasing_management} />
                 <Route path='/BI' component={BI} />

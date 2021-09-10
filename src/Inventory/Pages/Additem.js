@@ -39,7 +39,7 @@ function Additem() {
   }
 
   return (
-    <div className = 'screen'>
+    <div className = 'invscreen'>
     <motion.div className = "additem" initial='out'
     animate='in'
     exit='out'

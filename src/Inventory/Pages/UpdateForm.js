@@ -11,7 +11,7 @@ import { animationOne, transition } from '../animations';
 
 function UpdateForm() {
   return (
-    <div className = 'screen'>
+    <div className = 'invscreen'>
     <motion.div className = "updateform" initial='out'
     animate='in'
     exit='out'

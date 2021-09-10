@@ -33,7 +33,7 @@ function Home() {
     },
   };
   return (
-    <div className = 'screen'>
+    <div className = 'invscreen'>
     <motion.div className='home' initial='out'
     animate='in'
     exit='out'

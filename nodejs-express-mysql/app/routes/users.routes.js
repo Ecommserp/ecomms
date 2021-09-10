@@ -66,4 +66,20 @@ module.exports = app => {
    // Delete a new Customer inquiry
    app.delete("/crm", crm.deleteAll);
 
+
+     // Retrieve all purchases
+     app.get("/purchases", pm.findAll);
+
+
+   
+
+     // Retrieve all suppliers
+     app.get("/suppliers", sp.findAll);
+
+     // Create a new supplier
+     app.post("/suppliers", sp.create);
+
+
+
+
 };
