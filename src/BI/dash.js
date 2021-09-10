@@ -15,6 +15,7 @@ import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
+import CancelIcon from '@material-ui/icons/Cancel';
 import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table } from 'react-virtualized';
@@ -26,6 +27,7 @@ import ReactDOM from 'react-dom'
 let data_revy1 = [];
 let data_revy2 = [];
 let data_revy3 = [];
+
 
 
 
@@ -312,6 +314,7 @@ const rows_meet = [];
 
 async function getData_meet() {
 
+
     const apiUrl = 'http://localhost:3220/BI/meetings';
     const data = await getData(apiUrl);
 
@@ -333,39 +336,13 @@ async function getData_meet() {
 
 }
 
-async function display_meet(){
-
-//  alert(rows_meet)
 
 
-ReactDOM.render(<VirtualizedTable
-    rowCount={rows_meet.length}
-    rowGetter={({ index }) => rows_meet[index]}
-    columns={[
-      {
-        width: 120,
-        label: 'title',
-        dataKey: 'title',
-      },
-      {
-        width: 120,
-        label: 'Start Time',
-        dataKey: 'Start_time',
-      },
-      {
-        width: 120,
-        label: 'End Time',
-        dataKey: 'End_time',
-      },
-      {
-        width: 120,
-        label: 'Attendees',
-        dataKey: 'Attendees',
-      },
-    ]}
-  />, document.getElementById('table_meet'));
+async function close_meet(){
+
+  ReactDOM.render(  <div> </div>, document.getElementById('meet_dis'));
+
 }
-
 
 
 const data4 = {
@@ -540,10 +517,88 @@ async function sample_aa() {
   ReactDOM.render(<Line height='140' data={data} options={options} />, document.getElementById('revenue_graph'));
 }
 
-function dash() {
+function Dash() {
+
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [s_time, sets_time] = useState("");
+  const [e_time, sete_time] = useState("");
+  const [att, setatt] = useState("");
 
 getData_rev();
 getData_meet();
+
+const Display_meet = () => {
+
+//  alert(rows_meet)
+
+
+ReactDOM.render(  <div className="noti_win" id="noti_win">
+<div className="meeting_add">
+
+<CancelIcon style={{fill: "red"}} onClick={close_meet}></CancelIcon>
+</div>
+<label className="tile_text1">Meetings</label> <br />
+
+<div className="meeting_add">
+
+<Popup trigger={ <AddCircleIcon className="add_new" fontSize="large"></AddCircleIcon> } modal>
+<div className="add_new_win">
+<label className="tile_text1">New Meeting</label> <br /> <br />
+
+<label className="tile_text1">Title</label> <br />
+<input className="input" type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
+
+<label className="tile_text1">Description</label> <br />
+<input className="input" type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
+
+<label className="tile_text1">Start Time</label> <br />
+<input className="input" type="datetime" name="s_time" value={s_time} onChange={(e) => sets_time(e.target.value)}/>
+
+<label className="tile_text1">End Time</label> <br />
+<input className="input" type="datetime" name="e_time" value={e_time} onChange={(e) => sete_time(e.target.value)}/>
+
+<label className="tile_text1">Attendees</label> <br />
+<input className="input" type="text" name="att" value={att} onChange={(e) => setatt(e.target.value)}/>
+
+ </div>
+
+</Popup>
+
+
+</div> <br /> <br />
+<Paper id="table_meet" style={{ height: '100%', width: '100%' }}>
+<VirtualizedTable
+  rowCount={rows_meet.length}
+  rowGetter={({ index }) => rows_meet[index]}
+  columns={[
+    {
+      width: 120,
+      label: 'title',
+      dataKey: 'title',
+    },
+    {
+      width: 120,
+      label: 'Start Time',
+      dataKey: 'Start_time',
+    },
+    {
+      width: 120,
+      label: 'End Time',
+      dataKey: 'End_time',
+    },
+    {
+      width: 120,
+      label: 'Attendees',
+      dataKey: 'Attendees',
+    },
+  ]}
+/>
+</Paper>
+
+
+  </div>, document.getElementById('meet_dis'));
+}
 
 
   return (
@@ -552,12 +607,13 @@ getData_meet();
       <label className="tile_text">Good Morning Mr.Sample </label>
 
 <div className="head_right">
+<button className="button" onClick={Display_meet}>Meetings</button>
 <Popup trigger={  <button className="button">Meetings</button> } modal>
     <div className="noti_win" id="noti_win">
   <label className="tile_text1">Meetings</label> <br />
 
 <div className="meeting_add">
-  <AddCircleIcon onClick={display_meet} className="add_new" fontSize="large"></AddCircleIcon>
+  <AddCircleIcon onClick={Display_meet} className="add_new" fontSize="large"></AddCircleIcon>
   </div> <br /> <br />
 <Paper id="table_meet" style={{ height: '100%', width: '100%' }}>
 
@@ -757,4 +813,4 @@ getData_meet();
 
 }
 
-export default dash;
+export default Dash;

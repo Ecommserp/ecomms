@@ -139,6 +139,17 @@ align-itemss: center;
   display:inline-block;
 }
 
+.add_new_win{
+
+  width:100%;  /* adjust as per your needs */
+  height:400px;   /* adjust as per your needs */
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
 .popup-content {
   background: rgb(255, 255, 255, 0.0);
   width: 50%;

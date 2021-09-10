@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-.space {
+.invspace {
   width: 3%;
   display: inline-block;
 }
@@ -24,7 +24,7 @@
   text-align: center;
 }
 
-.screen {
+.invscreen {
   min-width: 700px;
   width: 1000px;
   margin: auto;

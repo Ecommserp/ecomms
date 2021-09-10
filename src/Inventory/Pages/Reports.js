@@ -14,7 +14,7 @@ import { animationOne, transition } from '../animations';
 
 function Reports() {
   return (
-    <div className = 'screen'>
+    <div className = 'invscreen'>
     <motion.div className = "reports" initial='out'
     animate='in'
     exit='out'
@@ -40,16 +40,14 @@ function Reports() {
               width: 120,
             height: 100}}
                   src={inventory} />
-                    <div className="tile_home" onClick={event =>  window.location.href='/inventory/viewreports'}>
-                      <p className="tile_text">View<br />Reports</p>
-                      <img src={view} className="view_img" alt="View Reports" />
+                    <div className="invtile_home" onClick={event =>  window.location.href='/inventory/viewreports'}>
+                      <p className="invtile_text">View<br />Reports</p>
+                      <img src={view} className="invview_img" alt="View Reports" />
                       </div>
-                      <div className="space"></div>
-                      <div className="space"></div>
-                      <div className="space"></div>
-                      <div className="tile_home" onClick={event =>  window.location.href='/inventory/generatereports'}>
-                        <p className="tile_text">Generate<br />Reports</p>
-                        <img src={generate} className="generate_img" alt="Generate Reports" />
+                      <div className="invspace"></div>
+                      <div className="invtile_home" onClick={event =>  window.location.href='/inventory/generatereports'}>
+                        <p className="invtile_text">Generate<br />Reports</p>
+                        <img src={generate} className="invgenerate_img" alt="Generate Reports" />
                         </div>
                   </motion.div></div>
 

@@ -1,5 +1,6 @@
-.invtile_home {
+.tile_home {
   height: 200px;
+  width: 35%;
   background-color: #fff;
   border: 2px solid;
   border-color: #666666;
@@ -8,13 +9,11 @@
   display: inline-block;
   transition: box-shadow 0.8s;
 }
-
-.invtile_home:hover {
+.tile_home:hover {
   box-shadow: 10px 10px 10px rgba(102, 102, 102, 0.3);
   cursor: pointer;
 }
-
-.invtile_text {
+.tile_text {
   position: absolute;
   padding-top: 60px;
   padding-left: 10px;
@@ -22,20 +21,19 @@
   color: #5f5c77;
   text-align: left;
 }
-
-.invspace {
+.space {
   width: 3%;
   display: inline-block;
 }
 
-.invview_img {
+.view_img {
   position: relative;
   width: 270px;
   padding-top: 20px;
   padding-left: 120px;
 }
 
-.invgenerate_img {
+.generate_img {
   position: relative;
   width: 280px;
   height: 170px;

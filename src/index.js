@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Login from './Login';
 import Inventory from './Inventory/App';
+import Manu from './manu/App';
 import Insert from './components/addUser';
 import Account from './Account/Home';
 import Managingdb from './Account/Pages/managingdb';
@@ -27,6 +28,7 @@ ReactDOM.render(
               <Route path='/Home' component={App} />
               <Route path='/Login' component={Login} />
               <Route path='/Inventory' component={Inventory} />
+              <Route path='/Manu' component={Manu} />
               <Route path='/Insert' component={Insert} />
               <Route path='/Account' component={Account} />
               <Route path='/Financial' component={Financial} />

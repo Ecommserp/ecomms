@@ -1,36 +1,29 @@
 const sql = require("./db.js");
 
 // constructor
-const CRM = function(crm) {
-
-
-
-  this.Customer_NIC = crm.Customer_NIC;
-  this.Birth_Date = crm.Birth_Date;
-  this.Customer_name = crm.Customer_name;
-  this.Email = crm.Email;
-  this.Phone = crm.Phone;
-  this.Address = crm.Address;
-  this.Purchased_items = crm.Purchased_items;
-  this.inquiry = crm.inquiry;
-  this.inquiry_status = crm.inquiry_status;
+const Product = function(prod) {
+  this.name = prod.name;
+  this.Details = prod.Details;
+  this.Production_stat = prod.Production_stat;
+  this.Machine_no = prod.Machine_no;
 };
 
-CRM.create = (newCRM, result) => {
+
+Product.create = (newCustomer, result) => {
   //console.log(newCustomer)
-  sql.query("INSERT INTO crm SET ?", newCRM, (err, res) => {
+  sql.query("INSERT INTO product SET ?", newCustomer, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
 
-    console.log("created inquiry: ", { id: res.insertId, ...newCRM });
-    result(null, { id: res.insertId, ...newCRM });
+    console.log("created customer: ", { id: res.insertId, ...newCustomer });
+    result(null, { id: res.insertId, ...newCustomer });
   });
 };
 
-CRM.findById = (customerId, result) => {
+Product.findById = (customerId, result) => {
   sql.query(`SELECT * FROM users WHERE username = '${customerId}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -49,27 +42,8 @@ CRM.findById = (customerId, result) => {
   });
 };
 
-CRM.findByCat = (category, result) => {
-  sql.query(`SELECT * FROM inventory WHERE Product_type = '${category}'`, (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
-    }
-
-    if (res.length) {
-      console.log("found customer: ", res);
-      result(null, res);
-      return;
-    }
-
-    // not found Customer with the id
-    result({ kind: "not_found" }, null);
-  });
-};
-
-CRM.getAll = result => {
-  sql.query("SELECT * FROM inventory", (err, res) => {
+Product.getAll = result => {
+  sql.query("SELECT * FROM product", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -81,7 +55,8 @@ CRM.getAll = result => {
   });
 };
 
-CRM.updateById = (id, customer, result) => {
+
+Product.updateById = (id, customer, result) => {
   sql.query(
     "UPDATE users SET email = ?, name = ?, active = ? WHERE id = ?",
     [customer.email, customer.name, customer.active, id],
@@ -104,8 +79,8 @@ CRM.updateById = (id, customer, result) => {
   );
 };
 
-CRM.remove = (id, result) => {
-  sql.query("DELETE FROM inventory WHERE Product_ID = ?", id, (err, res) => {
+Product.remove = (id, result) => {
+  sql.query("DELETE FROM users WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -118,12 +93,12 @@ CRM.remove = (id, result) => {
       return;
     }
 
-    console.log("deleted Item with id: ", id);
+    console.log("deleted customer with id: ", id);
     result(null, res);
   });
 };
 
-CRM.removeAll = result => {
+Product.removeAll = result => {
   sql.query("DELETE FROM users", (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -136,4 +111,5 @@ CRM.removeAll = result => {
   });
 };
 
-module.exports = CRM;
+module.exports = Product;
+//module.exports = Meet;

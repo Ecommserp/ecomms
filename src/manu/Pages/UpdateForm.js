@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
-import './invPages.css';
-import inventory from "./assets/inventory.png"
+import './Pages.css';
+import manu from "./assets/manu.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -11,7 +11,7 @@ import { animationOne, transition } from '../animations';
 
 function UpdateForm() {
   return (
-    <div className = 'invscreen'>
+    <div className = 'screen'>
     <motion.div className = "updateform" initial='out'
     animate='in'
     exit='out'
@@ -19,8 +19,10 @@ function UpdateForm() {
     transition={transition}>
         <i><h1 style={{
                 position: 'absolute',
-                right: 15,
-                top: 10,}}>Inventory<br></br>Management</h1></i>
+                right: 40,
+          top:-13,}}><br></br>Production</h1></i>
+
+
                 <img
                 style={{
                   position: 'absolute',
@@ -29,14 +31,14 @@ function UpdateForm() {
                 width: 160,
               height: 160}}
                 src = {logo}/>
-                <img 
+                <img
                 style={{
                   position: 'absolute',
                 right: 250,
                 top: 12,
               width: 120,
             height: 100}}
-                  src={inventory} />
+                  src={manu} />
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Update Inventory</h3></Card.Header>
                 <Card.Body>
