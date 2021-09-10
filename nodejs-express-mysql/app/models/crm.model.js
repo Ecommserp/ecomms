@@ -18,7 +18,7 @@ const CRM = function(crm) {
 
 CRM.create = (newCRM, result) => {
   //console.log(newCustomer)
-  sql.query("INSERT INTO crm SET ?", newCRM, (err, res) => {
+  sql.query("INSERT INTO customers SET ?", newCRM, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);

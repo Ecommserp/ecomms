@@ -3,7 +3,7 @@ import './App.css';
 import Sidebar from './components/Sidebar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import GlobalStyle from './globalStyles';
+import GlobalStyle from './globalStyle';
 import styled from 'styled-components';
 import CustomerHome from './Pages/CustomerHome';
 import CustomerReport from './Pages/CustomerReport';

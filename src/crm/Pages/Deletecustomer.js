@@ -13,7 +13,7 @@ function Deletecustomer() {
   const [nic, setnic] = useState("");
 
   function validateForm() {
-    return code.length > 0;
+    return nic.length > 0;
   }
 
   function handleSubmit(event) {
@@ -55,7 +55,7 @@ function Deletecustomer() {
                 width: 160,
               height: 160}}
                 src = {logo}/>
-                <img 
+                <img
                 style={{
                   position: 'absolute',
                 right: 250,
@@ -76,7 +76,7 @@ function Deletecustomer() {
                         </Card.Body></Card>
                         </center>
     </motion.div></div>
-    
+
   );
 }
 

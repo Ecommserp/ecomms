@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactDOM from 'react-dom'
 import { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';
 import { styled } from '@material-ui/core/styles';
@@ -21,7 +22,6 @@ import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table } from 'react-virtualized';
 import dp from '../assets/dp.jpg';
 import './bi.css';
-import ReactDOM from 'react-dom'
 
 
 let data_revy1 = [];
@@ -519,14 +519,13 @@ async function sample_aa() {
 
 function Dash() {
 
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [s_time, sets_time] = useState("");
   const [e_time, sete_time] = useState("");
   const [att, setatt] = useState("");
 
-getData_rev();
-getData_meet();
 
 const Display_meet = () => {
 
@@ -545,21 +544,25 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
 <Popup trigger={ <AddCircleIcon className="add_new" fontSize="large"></AddCircleIcon> } modal>
 <div className="add_new_win">
 <label className="tile_text1">New Meeting</label> <br /> <br />
-
+<br />
 <label className="tile_text1">Title</label> <br />
-<input className="input" type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
-
+<input className="input" type="text" name="title"/>
+<br />
 <label className="tile_text1">Description</label> <br />
 <input className="input" type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
-
+<br />
 <label className="tile_text1">Start Time</label> <br />
 <input className="input" type="datetime" name="s_time" value={s_time} onChange={(e) => sets_time(e.target.value)}/>
-
+<br />
 <label className="tile_text1">End Time</label> <br />
 <input className="input" type="datetime" name="e_time" value={e_time} onChange={(e) => sete_time(e.target.value)}/>
-
+<br />
 <label className="tile_text1">Attendees</label> <br />
 <input className="input" type="text" name="att" value={att} onChange={(e) => setatt(e.target.value)}/>
+<br />
+<br />
+
+<button className="button_add" onClick={Display_meet}>Add New</button>
 
  </div>
 
@@ -598,30 +601,27 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
 
 
   </div>, document.getElementById('meet_dis'));
+
+
+
 }
 
+getData_rev();
+getData_meet();
 
   return (
     <div className="App_bi">
+
+    <div id="meet_dis"></div>
+
+
+
     <div className="headu">
       <label className="tile_text">Good Morning Mr.Sample </label>
 
 <div className="head_right">
 <button className="button" onClick={Display_meet}>Meetings</button>
-<Popup trigger={  <button className="button">Meetings</button> } modal>
-    <div className="noti_win" id="noti_win">
-  <label className="tile_text1">Meetings</label> <br />
 
-<div className="meeting_add">
-  <AddCircleIcon onClick={Display_meet} className="add_new" fontSize="large"></AddCircleIcon>
-  </div> <br /> <br />
-<Paper id="table_meet" style={{ height: '100%', width: '100%' }}>
-
-</Paper>
-
-
-    </div>
-    </Popup>
     <div className="space"></div>
   <NotificationsSharpIcon1 tooltip="Description here"> </NotificationsSharpIcon1>
 

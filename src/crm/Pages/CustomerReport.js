@@ -2,7 +2,7 @@ import React from 'react';
 import logo from "./assets/cyan.png";
 import './Pages.css';
 import './Report.css';
-import crn from "./assets/crm.png";
+import crm from "./assets/crm.png";
 import view from './assets/view.jpg';
 import generate from './assets/generate.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -32,7 +32,7 @@ function CustomerReports() {
                 width: 160,
               height: 160}}
                 src = {logo}/>
-                <img 
+                <img
                 style={{
                   position: 'absolute',
                 right: 250,

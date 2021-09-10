@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Login from './Login';
 import Inventory from './Inventory/App';
+import Crm from './crm/App';
 import Manu from './manu/App';
 import Insert from './components/addUser';
 import Account from './Account/Home';
@@ -28,6 +29,7 @@ ReactDOM.render(
               <Route path='/Login' component={Login} />
               <Route path='/Inventory' component={Inventory} />
               <Route path='/Manu' component={Manu} />
+              <Route path='/CRM' component={Crm} />
               <Route path='/Insert' component={Insert} />
               <Route path='/Account' component={Account} />
               <Route path='/managingdb' component={Managingdb} />

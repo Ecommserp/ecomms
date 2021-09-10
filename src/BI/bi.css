@@ -1,6 +1,9 @@
 .App_bi {
   width: 100%;
   padding-top: 15px;
+  position:absolute;
+
+
 
 }
 .headu {
@@ -129,20 +132,26 @@ align-itemss: center;
 }
 
 .noti_win {
-  width: 100%;
-  height: 400px;
+
+  position:fixed;
+  z-index: 1;
+  top:50%;
+  left:50%;
+  width:50%;  /* adjust as per your needs */
+  height:400px;   /* adjust as per your needs */
+  margin-left:-25%;   /* negative half of width above */
+  margin-top:-200px;   /* negative half of height above */
   background-color: #FFF;
   box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);
   align-items: center;
   align-content: center;
   text-align: center;
-  display:inline-block;
 }
 
 .add_new_win{
 
   width:100%;  /* adjust as per your needs */
-  height:400px;   /* adjust as per your needs */
+  height:500px;   /* adjust as per your needs */
   background-color: #FFF;
   box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);
   align-items: center;
@@ -153,7 +162,7 @@ align-itemss: center;
 .popup-content {
   background: rgb(255, 255, 255, 0.0);
   width: 50%;
-  height: 400px;
+  height: 500px;
   align-items: center;
   align-content: center;
   text-align: center;
@@ -192,6 +201,24 @@ align-itemss: center;
 }
 
 .button:hover {
+  background-color: #0079FF;
+  cursor: pointer;
+}
+
+.button_add {
+  font-size: 15px;
+  color: #FFF;
+  background-color: #659fdf;
+  width: 40%;
+  height: 40px;
+  border: 1px solid;
+  border-color: #659fdf;
+  border-radius: 30px;
+  transition: background-color .5s;
+  margin-left: auto;
+}
+
+.button_add:hover {
   background-color: #0079FF;
   cursor: pointer;
 }

@@ -18,7 +18,7 @@ function Addcustomer() {
   const [purchased , setpurchased] = useState("");
   const [inquiry, setinquiry] = useState("");
   const [status , setstatus] = useState("");
-  
+
 
   function validateForm() {
     return nic.length > 0 && birthdate.length > 0 && name.length > 0 && email.length > 0 && phone.length > 0 && purchased.length > 0 && inquiry.length > 0 && status.length > 0;
@@ -80,7 +80,7 @@ function Addcustomer() {
                         </label><br></br><br></br>
                         <label>
                         DOB  : &nbsp;&nbsp;
-                        <input type="text" name="birthdate " value={birthdate} onChange={(e) => setbirthdate(e.target.value)}/>
+                        <input type="date" name="birthdate " value={birthdate} onChange={(e) => setbirthdate(e.target.value)}/>
                         </label><br></br><br></br>
                         <label>
                         Customer Name : &nbsp;&nbsp;&nbsp;
