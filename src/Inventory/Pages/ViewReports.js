@@ -21,21 +21,17 @@ function ReportsView() {
                 position: 'absolute',
                 right: 15,
                 top: 10,}}>Inventory<br></br>Management</h1></i>
-                <img
+                <img className="invlogo"
                 style={{
                   position: 'absolute',
                   left: 200,
-                  top: -20,
-                width: 160,
-              height: 160}}
+                  top: -20,}}
                 src = {logo}/>
-                <img 
+                <img className='invimg'
                 style={{
                   position: 'absolute',
                 right: 250,
-                top: 12,
-              width: 120,
-            height: 100}}
+                top: 12}}
                   src={inventory} />
                   <button className='button1' style={{position: 'absolute',
                   left: 200,

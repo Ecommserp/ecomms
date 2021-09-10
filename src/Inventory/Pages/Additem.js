@@ -49,21 +49,17 @@ function Additem() {
                 position: 'absolute',
                 right: 15,
                 top: 10,}}>Inventory<br></br>Management</h1></i>
-                <img
+                <img className="invlogo"
                 style={{
                   position: 'absolute',
                   left: 200,
-                  top: -20,
-                width: 160,
-              height: 160}}
+                  top: -20,}}
                 src = {logo}/>
-                <img
+                <img className='invimg'
                 style={{
                   position: 'absolute',
                 right: 250,
-                top: 12,
-              width: 120,
-            height: 100}}
+                top: 12}}
                   src={inventory} />
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Item</h3></Card.Header>
@@ -78,7 +74,7 @@ function Additem() {
                         <input type="text" name="name" value={name} onChange={(e) => setname(e.target.value)}/>
                         </label><br></br><br></br>
                         <label>
-                        Item Type : &nbsp;&nbsp;&nbsp;
+                        Item Type : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="text" name="type" value={type} onChange={(e) => settype(e.target.value)}/>
                         </label><br></br><br></br>
                         <label>

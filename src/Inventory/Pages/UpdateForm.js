@@ -21,42 +21,30 @@ function UpdateForm() {
                 position: 'absolute',
                 right: 15,
                 top: 10,}}>Inventory<br></br>Management</h1></i>
-                <img
+                <img className="invlogo"
                 style={{
                   position: 'absolute',
                   left: 200,
-                  top: -20,
-                width: 160,
-              height: 160}}
+                  top: -20,}}
                 src = {logo}/>
-                <img 
+                <img className='invimg'
                 style={{
                   position: 'absolute',
                 right: 250,
-                top: 12,
-              width: 120,
-            height: 100}}
+                top: 12}}
                   src={inventory} />
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Update Inventory</h3></Card.Header>
                 <Card.Body>
                 <form>
-                    <label>
-                        Item Code &nbsp;
-                        <input type="radio" Value="itemcode" name="group"/>
-                        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <label>
-                        Item Name &nbsp;
-                        <input type="radio" Value="itemname" name="group"/>
-                        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <label>
-                        Item Type &nbsp;
-                        <input type="radio" Value="supplierid" name="group"/>
-                        </label>
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Quantity &nbsp;
-                        <input type="radio" Value="quantity" name="group"/>
-                        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label style={{marginRight:50}}>Field to Edit :</label>
+                  <select type="text">
+                  <option value="Null"></option>
+                      <option value="id">Product ID</option>
+                      <option value="name">Product Name</option>
+                      <option value="sid">Supplier ID</option>
+                      <option value="quantity">Quantity</option>
+                </select>
                         <br></br><br></br>
                         <label>
                         New Value : &nbsp;&nbsp;

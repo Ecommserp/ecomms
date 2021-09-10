@@ -33,3 +33,13 @@
   display: flex;
   left: 0%;
 }
+
+.invlogo {
+  width: 160px;
+  height: 160px;
+}
+
+.invimg {
+  width: 120px;
+  height: 100px;
+}

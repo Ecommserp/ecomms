@@ -24,27 +24,22 @@ function Reports() {
                 position: 'absolute',
                 right: 15,
                 top: 10,}}>Inventory<br></br>Management</h1></i>
-                <img
+                <img className="invlogo"
                 style={{
                   position: 'absolute',
                   left: 200,
-                  top: -20,
-                width: 160,
-              height: 160}}
+                  top: -20,}}
                 src = {logo}/>
-                <img 
+                <img className='invimg'
                 style={{
                   position: 'absolute',
                 right: 250,
-                top: 12,
-              width: 120,
-            height: 100}}
+                top: 12}}
                   src={inventory} />
-                    <div className="invtile_home" onClick={event =>  window.location.href='/inventory/viewreports'}>
+                    <div className="invtile_home" onClick={event =>  window.location.href='/inventory/viewreports'} style={{marginRight: 50}}>
                       <p className="invtile_text">View<br />Reports</p>
                       <img src={view} className="invview_img" alt="View Reports" />
                       </div>
-                      <div className="invspace"></div>
                       <div className="invtile_home" onClick={event =>  window.location.href='/inventory/generatereports'}>
                         <p className="invtile_text">Generate<br />Reports</p>
                         <img src={generate} className="invgenerate_img" alt="Generate Reports" />
