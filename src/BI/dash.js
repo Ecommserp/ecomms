@@ -517,14 +517,45 @@ async function sample_aa() {
   ReactDOM.render(<Line height='140' data={data} options={options} />, document.getElementById('revenue_graph'));
 }
 
+
+
+
 function Dash() {
+  let title = '';
+  let description = '';
+  let s_time = '';
+  let e_time = '';
+  let att = '';
+
+  function setTitle(det){
+    title = det;
+  }
+  function setDescription(det){
+    description = det;
+  }
+  function sets_time(det){
+    s_time = det;
+  }
+  function sete_time(det){
+    e_time = det;
+  }
+  function setatt(det){
+    att = det;
+  }
 
 
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [s_time, sets_time] = useState("");
-  const [e_time, sete_time] = useState("");
-  const [att, setatt] = useState("");
+
+  function insert_meet() {
+
+    const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title: title, description: description, s_time: s_time, e_time: e_time, att: att})
+};
+fetch('http://localhost:3220/BI/meetings', requestOptions)
+    .then(response => response.json());
+    alert("Item added")
+  }
 
 
 const Display_meet = () => {
@@ -546,23 +577,23 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
 <label className="tile_text1">New Meeting</label> <br /> <br />
 <br />
 <label className="tile_text1">Title</label> <br />
-<input className="input" type="text" name="title"/>
+<input className="input" type="text" name="title" onChange={(e) => setTitle(e.target.value)}/>
 <br />
 <label className="tile_text1">Description</label> <br />
-<input className="input" type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
+<input className="input" type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
 <br />
 <label className="tile_text1">Start Time</label> <br />
-<input className="input" type="datetime" name="s_time" value={s_time} onChange={(e) => sets_time(e.target.value)}/>
+<input className="input" type="datetime-local" name="s_time" onChange={(e) => sets_time(e.target.value)}/>
 <br />
 <label className="tile_text1">End Time</label> <br />
-<input className="input" type="datetime" name="e_time" value={e_time} onChange={(e) => sete_time(e.target.value)}/>
+<input className="input" type="datetime-local" name="e_time" onChange={(e) => sete_time(e.target.value)}/>
 <br />
 <label className="tile_text1">Attendees</label> <br />
-<input className="input" type="text" name="att" value={att} onChange={(e) => setatt(e.target.value)}/>
+<input className="input" type="text" name="att" onChange={(e) => setatt(e.target.value)}/>
 <br />
 <br />
 
-<button className="button_add" onClick={Display_meet}>Add New</button>
+<button className="button_add" onClick={insert_meet}>Add New</button>
 
  </div>
 

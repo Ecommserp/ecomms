@@ -4,22 +4,23 @@ const sql = require("./db.js");
 
 const Meet = function(meet) {
   this.title = meet.title;
+  this.description = meet.description;
   this.Start_time = meet.Start_time;
   this.End_time = meet.End_time;
-  this.Attendees - meet.Attendees;
+  this.Attendees = meet.Attendees;
 };
 
-Meet.create = (newCustomer, result) => {
+Meet.create = (newMeet, result) => {
   //console.log(newCustomer)
-  sql.query("INSERT INTO users SET ?", newCustomer, (err, res) => {
+  sql.query("INSERT INTO meetings SET ?", newMeet, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
 
-    console.log("created customer: ", { id: res.insertId, ...newCustomer });
-    result(null, { id: res.insertId, ...newCustomer });
+    console.log("created customer: ", { id: res.insertId, ...newMeet });
+    result(null, { id: res.insertId, ...newMeet });
   });
 };
 

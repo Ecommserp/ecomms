@@ -41,6 +41,9 @@ module.exports = app => {
   // Retrieve meetings for popup
   app.get("/BI/meetings", bi.findAll_meet);
 
+  // Retrieve meetings for popup
+  app.post("/BI/meetings", bi.create_meet);
+
   // Retrieve Manu for sample
   app.get("/manu/prod", manu_prod.findAll);
 
@@ -71,7 +74,7 @@ module.exports = app => {
      app.get("/purchases", pm.findAll);
 
 
-   
+
 
      // Retrieve all suppliers
      app.get("/suppliers", sp.findAll);

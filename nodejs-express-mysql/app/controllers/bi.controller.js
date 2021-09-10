@@ -29,6 +29,36 @@ exports.create = (req, res) => {
   });
 };
 
+// Create and Save a new Customer
+exports.create_meet = (req, res) => {
+  console.log('request ' + req.body)
+  // Validate request
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  // Create a Customer
+  const meet = new BI_meet({
+    title: req.body.title,
+    description: req.body.description,
+    Start_time: req.body.s_time,
+    End_time: req.body.e_time,
+    Attendees: req.body.att
+  });
+
+  // Save Customer in the database
+  BI_meet.create(meet, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the Customer."
+      });
+    else res.send(data);
+  });
+};
+
 // Retrieve all Customers from the database.
 exports.findAll = (req, res) => {
   BI.getAll((err, data) => {
