@@ -18,7 +18,7 @@ function Additem() {
     transition={transition}>
         <i><h1 style={{
                 position: 'absolute',
-                right: 10,
+                right: 50,
                 top: 72,}}>Manage<br></br>Database</h1></i>
                 <img
                 style={{
@@ -29,6 +29,7 @@ function Additem() {
                }}
                 src = {logo}/>
                 <br></br>
+                <br></br><br></br><br></br>
                 <br></br><br></br><br></br>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#000428'}}><h3 style ={{color:'white'}}>Add Item</h3></Card.Header>
@@ -55,6 +56,34 @@ function Additem() {
 
                         </Card.Body></Card>
                         </center>
+                        <br></br><br></br><br></br>
+                        <center><Card border ='primary' style={{ width: '40rem' }}>
+                        <Card.Header style ={{backgroundColor: '#000428'}}><h3 style ={{color:'white'}}>Delete Item</h3></Card.Header>
+                        <Card.Body>
+                        <form>
+                            <label>
+                                Name of the item : &nbsp;&nbsp;&nbsp;
+                                <input type="text" name="code" />
+                                </label><br></br><br></br>
+                                <label>
+                                Item ID : &nbsp;&nbsp;
+                                <input type="text" name="name" />
+                                </label><br></br><br></br>
+                                <label>
+
+
+                                Name of the Account : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="text" name="quantity"/>
+                                </label><br></br><br></br>
+                                <input type="Reset" value="Reset"/> <div className="space"></div>
+                                <input type="Button" value="Delete"/> <div className="space"></div>
+
+                                </form>
+
+                                </Card.Body></Card>
+                                </center>
+                                <br></br><br></br><br></br>
+
 
     </motion.div>
 
