@@ -14,6 +14,7 @@ import ReactDOM from 'react-dom'
 
 
 
+
 let data_revy1 = [];
 let data_revy2 = [];
 let data_revy3 = [];
@@ -125,6 +126,17 @@ function financial() {
 
   return (
     <div className="App_bi">
+    <i><h1 style={{
+            position: 'absolute',
+            right: 50,
+            top: 72,}}>Manage<br></br>Database</h1></i>
+            <img
+            style={{
+              position: 'absolute',
+              left: 250,
+              top: 50,
+            width: 160
+          }} />
     <div className="revenue" id="revenue">
     <label className="tile_text">Revenue Growth</label><br /><br />
     <div id="revenue_graph"> </div>
