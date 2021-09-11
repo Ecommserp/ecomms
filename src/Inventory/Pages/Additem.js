@@ -37,6 +37,11 @@ function Additem() {
     fetch('http://localhost:3220/inventory/', requestOptions)
         .then(response => response.json());
         alert("Item added")
+
+        setcode("");
+        setname("");
+        settype("");
+        setquantity("");
   }
 
   return (

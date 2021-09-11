@@ -20,7 +20,6 @@ function Deleteitem() {
   function handleSubmit(event) {
     event.preventDefault();
 
-
   }
 
   function deleted() {
@@ -34,6 +33,8 @@ function Deleteitem() {
     fetch('http://localhost:3220/inventory/', requestOptions)
         .then(response => response.json());
         alert("Item Deleted")
+
+        setcode("");
   }
 
 

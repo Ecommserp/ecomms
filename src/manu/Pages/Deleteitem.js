@@ -18,8 +18,7 @@ function Deleteitem() {
 
   function handleSubmit(event) {
     event.preventDefault();
-
-
+    setcode("");
   }
 
   function deleted() {
