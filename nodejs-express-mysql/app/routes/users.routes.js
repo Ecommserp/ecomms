@@ -44,6 +44,12 @@ module.exports = app => {
   // Retrieve meetings for popup
   app.post("/BI/meetings", bi.create_meet);
 
+  // Retrieve a single meeting with meetingid
+  app.get("/BI/meetings/:Meet_id", bi.findOne_meet);
+
+  // Update a meetings with meetingid
+  app.put("/BI/meetings/:Meet_id", bi.update_meet);
+
   // Retrieve Manu for sample
   app.get("/manu/prod", manu_prod.findAll);
 

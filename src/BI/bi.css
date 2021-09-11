@@ -218,6 +218,19 @@ align-itemss: center;
   margin-left: auto;
 }
 
+.button_delete {
+  font-size: 15px;
+  color: #FFF;
+  background-color: #E63B16;
+  width: 40%;
+  height: 40px;
+  border: 1px solid;
+  border-color: #E63B16;
+  border-radius: 30px;
+  transition: background-color .5s;
+  margin-left: auto;
+}
+
 .button_add:hover {
   background-color: #0079FF;
   cursor: pointer;

@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import UpdateIcon from '@material-ui/icons/Update';
 import NotificationsSharpIcon from '@material-ui/icons/NotificationsSharp';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import Popup from 'reactjs-popup';
@@ -15,6 +16,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
 import clsx from 'clsx';
+import moment from 'moment';
 import { withStyles } from '@material-ui/core/styles';
 import CancelIcon from '@material-ui/icons/Cancel';
 import TableCell from '@material-ui/core/TableCell';
@@ -322,7 +324,7 @@ async function getData_meet() {
 
     for(var i = 0; i < data.length; i++){
 
-        rows_meet[i] = createData_meet(i ,data[i].title, data[i].Start_time, data[i].End_time, data[i].Attendees);
+        rows_meet[i] = createData_meet(data[i].Meeting_ID ,data[i].title, data[i].Start_time, data[i].End_time, data[i].Attendees);
 
         //rows_meet[i] = createData_meet(sample_meet);
 
@@ -517,7 +519,86 @@ async function sample_aa() {
   ReactDOM.render(<Line height='140' data={data} options={options} />, document.getElementById('revenue_graph'));
 }
 
+/* Declare functional InputField component */
+function InputField () {
 
+  /* Define local state hook to store the "user input" data */
+  const [upTitle, setUPTitle] = React.useState("");
+  const [upDes, setUPDes] = React.useState("");
+
+  const [upID, setUPID] = React.useState("");
+  const [ups_time, setUPs_time] = React.useState("");
+  const [upe_time, setUPe_time] = React.useState("");
+  const [upatt, setUPatt] = React.useState("");
+
+  async function keyPress(e){
+        if(e.keyCode == 13){
+           console.log('value', e.target.value);
+           // put the login here
+
+           e.preventDefault();
+
+           const apiUrl = 'http://localhost:3220/BI/meetings/'+ upID;
+           const data = await getData(apiUrl);
+
+
+
+           /* Call the state's "setter" method to update "userInput" state */
+           setUPTitle(data.title)
+           setUPDes(data.description)
+           setUPs_time(data.Start_time)
+           setUPe_time(data.End_time)
+           setUPatt(data.Attendees)
+        }
+     }
+
+
+
+  async function update_meet(e) {
+      /* Prevent button click's default behavior */
+      e.preventDefault();
+
+      const apiUrl = 'http://localhost:3220/BI/meetings/'+ upID;
+      const data = await getData(apiUrl);
+
+
+
+      /* Call the state's "setter" method to update "userInput" state */
+      setUPTitle(data.title)
+      setUPDes(data.description)
+      setUPs_time(data.Start_time)
+      setUPe_time(data.End_time)
+      setUPatt(data.Attendees)
+  }
+
+   /* Render both input and button in a <> fragment */
+   return (<>
+
+     <label className="tile_text1">ID</label> <br />
+     <input className="input" type="text" name="id" value={upID} onKeyDown={keyPress} onChange={(e) => setUPID(e.target.value)}/>
+     <br />
+     <label className="tile_text1">Title</label> <br />
+     <input className="input" type="text" name="title" value={upTitle} onChange={(e) => setUPTitle(e.target.value)}/>
+     <br />
+     <label className="tile_text1">Description</label> <br />
+     <input className="input" type="text" name="description" value={upDes} onChange={(e) => setUPDes(e.target.value)}/>
+     <br />
+     <label className="tile_text1">Start Time</label> <br />
+     <input className="input" type="datetime-local" name="s_time" value={moment(ups_time).format('YYYY-MM-DDTHH:mm')} onChange={(e) => setUPs_time(e.target.value)}/>
+     <br />
+     <label className="tile_text1">End Time</label> <br />
+     <input className="input" type="datetime-local" name="e_time" value={moment(upe_time).format('YYYY-MM-DDTHH:mm')} onChange={(e) => setUPe_time(e.target.value)}/>
+     <br />
+     <label className="tile_text1">Attendees</label> <br />
+     <input className="input" type="text" name="att" value={upatt} onChange={(e) => setUPatt(e.target.value)}/>
+     <br />
+     <br />
+
+     <button className="button_add" onClick={update_meet}>Update</button>
+     <button className="button_delete" onClick={update_meet}>Delete</button>
+
+   </>)
+}
 
 
 function Dash() {
@@ -572,6 +653,19 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
 
 <div className="meeting_add">
 
+
+<Popup trigger={ <UpdateIcon className="add_new" fontSize="large"></UpdateIcon> } modal>
+<div className="add_new_win">
+<label className="tile_text1">Update Meeting</label> <br />
+
+<InputField />
+
+
+ </div>
+
+</Popup>
+
+
 <Popup trigger={ <AddCircleIcon className="add_new" fontSize="large"></AddCircleIcon> } modal>
 <div className="add_new_win">
 <label className="tile_text1">New Meeting</label> <br /> <br />
@@ -606,6 +700,11 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
   rowCount={rows_meet.length}
   rowGetter={({ index }) => rows_meet[index]}
   columns={[
+    {
+      width: 60,
+      label: 'ID',
+      dataKey: 'id',
+    },
     {
       width: 120,
       label: 'title',

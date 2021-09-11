@@ -24,8 +24,8 @@ Meet.create = (newMeet, result) => {
   });
 };
 
-Meet.findById = (customerId, result) => {
-  sql.query(`SELECT * FROM users WHERE username = '${customerId}'`, (err, res) => {
+Meet.findById = (meetid, result) => {
+  sql.query(`SELECT * FROM meetings WHERE Meeting_ID = '${meetid}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
