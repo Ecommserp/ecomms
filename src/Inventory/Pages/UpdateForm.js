@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "./assets/cyan.png";
+import logo from "./assets/logo.png";
 import './invPages.css';
 import inventory from "./assets/inventory.png";
 import search from "./assets/search.jpg";
@@ -39,8 +39,12 @@ function UpdateForm() {
                 <Card.Body>
                 <img style={{ width:'160px',height:'140px' }} src={search} /><br></br><br></br>
                 <form>
-                  <label style={{marginRight:50}}>Field to Edit :</label>
-                  <select type="text">
+                  <label style={{marginRight:10}}>
+                        Product ID :</label>
+                        <input type="text" name="code" />
+                        <br></br><br></br>
+                  <label style={{marginRight:10}}>Field to Edit :</label>
+                  <select type="text" style={{width :'176px', marginRight: 8}}>
                   <option value="NULL"></option>
                       <option value="id">Product ID</option>
                       <option value="name">Product Name</option>

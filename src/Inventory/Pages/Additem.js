@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import logo from "./assets/cyan.png";
+import logo from "./assets/logo.png";
 import './invPages.css';
 import inventory from "./assets/inventory.png";
 import add from "./assets/add.jpg";

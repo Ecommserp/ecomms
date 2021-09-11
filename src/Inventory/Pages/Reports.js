@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "./assets/cyan.png";
+import logo from "./assets/logo.png";
 import './invPages.css';
 import './invReports.css';
 import inventory from "./assets/inventory.png";

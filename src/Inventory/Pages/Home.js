@@ -1,7 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import inventory from "./assets/inventory.png"
-import logo from "./assets/cyan.png";
+import logo from "./assets/logo.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './invPages.css';
 import {motion} from 'framer-motion';
