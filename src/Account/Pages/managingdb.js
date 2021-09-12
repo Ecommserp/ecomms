@@ -32,25 +32,25 @@ function Additem() {
                 <br></br><br></br><br></br>
                 <br></br><br></br><br></br>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#000428'}}><h3 style ={{color:'white'}}>Add Item</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#000428'}}><h3 style ={{color:'white'}}>Add Invoice</h3></Card.Header>
                 <Card.Body>
                 <form>
                     <label>
-                        Name of the item : &nbsp;&nbsp;&nbsp;
+                        Invoice ID : &nbsp;&nbsp;&nbsp;
                         <input type="text" name="code" />
                         </label><br></br><br></br>
                         <label>
-                        Update : &nbsp;&nbsp;
+                        Amount : &nbsp;&nbsp;
                         <input type="text" name="name" />
                         </label><br></br><br></br>
                         <label>
 
 
-                        Amount : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Date : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="text" name="quantity"/>
                         </label><br></br><br></br>
                         <input type="Reset" value="Reset"/> <div className="space"></div>
-                        <input type="Submit" value="Submit"/> <div className="space"></div>
+                        <input type="Submit" value="Add Invoice"/> <div className="space"></div>
 
                         </form>
 
@@ -58,25 +58,25 @@ function Additem() {
                         </center>
                         <br></br><br></br><br></br>
                         <center><Card border ='primary' style={{ width: '40rem' }}>
-                        <Card.Header style ={{backgroundColor: '#000428'}}><h3 style ={{color:'white'}}>Delete Item</h3></Card.Header>
+                        <Card.Header style ={{backgroundColor: '#000428'}}><h3 style ={{color:'white'}}>Update Invoice</h3></Card.Header>
                         <Card.Body>
                         <form>
                             <label>
-                                Name of the item : &nbsp;&nbsp;&nbsp;
+                                Invoice ID : &nbsp;&nbsp;&nbsp;
                                 <input type="text" name="code" />
                                 </label><br></br><br></br>
                                 <label>
-                                Item ID : &nbsp;&nbsp;
+                                Amount : &nbsp;&nbsp;
                                 <input type="text" name="name" />
                                 </label><br></br><br></br>
                                 <label>
 
 
-                                Name of the Account : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Date : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <input type="text" name="quantity"/>
                                 </label><br></br><br></br>
                                 <input type="Reset" value="Reset"/> <div className="space"></div>
-                                <input type="Button" value="Delete"/> <div className="space"></div>
+                                <input type="Button" value="Update"/> <div className="space"></div>
 
                                 </form>
 
