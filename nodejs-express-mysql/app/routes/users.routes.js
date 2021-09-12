@@ -35,6 +35,21 @@ module.exports = app => {
   // Retrieve a Items for category
   app.get("/inventory/:itm_cat", inv.find_cat);
 
+  // Delete a product with id
+  app.delete("/inventory/:Product_id", inv.delete_product);
+
+  // Update a product id with productid
+  app.put("/inventory/id/:Product_id", inv.updateid);
+
+  // Update a product name with productid
+  app.put("/inventory/name/:Product_id", inv.updatename);
+
+  // Update a product id with productid
+  app.put("/inventory/type/:Product_id", inv.updatetype);
+  
+  // Update a product id with productid
+  app.put("/inventory/quantity/:Product_id", inv.updatequantity);
+
   // Retrieve BI for first graph
   app.get("/BI/rev", bi.findAll);
 

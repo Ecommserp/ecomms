@@ -11,7 +11,7 @@ import Account from './Account/Home';
 import Managingdb from './Account/Pages/managingdb';
 import Financial from './Account/Pages/financial';
 import Purchasing_management from './purchasing_management/App';
-import BI from './BI/Dash';
+import BI from './BI/dash';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { CookiesProvider } from "react-cookie";

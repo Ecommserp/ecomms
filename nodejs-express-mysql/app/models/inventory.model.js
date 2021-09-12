@@ -73,10 +73,11 @@ Inventory.getAll = result => {
   });
 };
 
-Inventory.updateById = (id, customer, result) => {
+//Update Product ID
+Inventory.updateidById = (pid, field, nvalue) => {
   sql.query(
-    "UPDATE users SET email = ?, name = ?, active = ? WHERE id = ?",
-    [customer.email, customer.name, customer.active, id],
+    "UPDATE inventory SET Product_ID = ? WHERE Product_ID = ?",
+    [Inventory.nvalue, pid],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -85,19 +86,91 @@ Inventory.updateById = (id, customer, result) => {
       }
 
       if (res.affectedRows == 0) {
-        // not found Customer with the id
+        // not found Product with the id
         result({ kind: "not_found" }, null);
         return;
       }
 
-      console.log("updated customer: ", { id: id, ...customer });
-      result(null, { id: id, ...customer });
+      console.log("updated customer: ", { id: pid, ...Inventory });
+      result(null, { id: pid, ...Inventory });
     }
   );
 };
 
-Inventory.remove = (id, result) => {
-  sql.query("DELETE FROM inventory WHERE Product_ID = ?", id, (err, res) => {
+//Update Product Name
+Inventory.updatenameById = (pid, field, nvalue) => {
+  sql.query(
+    "UPDATE inventory SET Product_name = ? WHERE Product_ID = ?",
+    [Inventory.nvalue, pid],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Product with the id
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+      console.log("updated customer: ", { id: pid, ...Inventory });
+      result(null, { id: pid, ...Inventory });
+    }
+  );
+};
+
+//Update Product Type
+Inventory.updatetypeById = (pid, field, nvalue) => {
+  sql.query(
+    "UPDATE inventory SET Product_type = ? WHERE Product_ID = ?",
+    [Inventory.nvalue, pid],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Product with the id
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+      console.log("updated customer: ", { id: pid, ...Inventory });
+      result(null, { id: pid, ...Inventory });
+    }
+  );
+};
+
+//Update Product Quantity
+Inventory.updatequantityById = (pid, field, nvalue) => {
+  sql.query(
+    "UPDATE inventory SET quantity = ? WHERE Product_ID = ?",
+    [nvalue, pid],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Product with the id
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+      console.log("updated customer: ", { id: pid, ...Inventory });
+      result(null, { id: pid, ...Inventory });
+    }
+  );
+};
+
+Inventory.remove = (code, result) => {
+  sql.query("DELETE FROM inventory WHERE Product_ID = ?", code, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -110,7 +183,7 @@ Inventory.remove = (id, result) => {
       return;
     }
 
-    console.log("deleted Item with id: ", id);
+    console.log("deleted product with id: ", code);
     result(null, res);
   });
 };

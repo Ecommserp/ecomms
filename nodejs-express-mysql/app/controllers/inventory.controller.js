@@ -1,4 +1,5 @@
 const Inventory = require("../models/inventory.model.js");
+const Product = require("../models/manu_prod.model.js");
 
 
 // Create and Save a new Item
@@ -108,19 +109,19 @@ exports.update = (req, res) => {
 };
 
 // Delete an Item with the specified Item_ID in the request
-exports.delete = (req, res) => {
-  Inventory.remove(req.params.itemId, (err, data) => {
+exports.delete_product = (req, res) => {
+  Inventory.remove(req.params.Product_id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Item with id ${req.params.itemId}.`
+          message: `Not found Product with id ${req.params.Product_id}.`
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Item with id " + req.params.itemId
+          message: "Could not delete Product with id " + req.params.Product_id
         });
       }
-    } else res.send({ message: `Item was deleted successfully!` });
+    } else res.send({ message: `Product was deleted successfully!` });
   });
 };
 
@@ -134,4 +135,156 @@ exports.deleteAll = (req, res) => {
       });
     else res.send({ message: `All Customers were deleted successfully!` });
   });
+};
+
+//Update Product ID
+exports.updateid = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  console.log(req.body);
+
+  const inventory = new Inventory({
+    pid: req.body.pid,
+    field: req.body.field,
+    nvalue: req.body.nvalue
+  });
+
+  Inventory.updateidById(
+    req.params.Product_id,
+    meet,
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `Not found product with id ${req.params.Product_id}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "Error updating product with id " + req.params.Product_id
+          });
+        }
+      } else res.send(data);
+    }
+  );
+
+
+};
+
+//Update Product Name
+exports.updatename = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  console.log(req.body);
+
+  const inventory = new Inventory({
+    pid: req.body.pid,
+    field: req.body.field,
+    nvalue: req.body.nvalue
+  });
+
+  Inventory.updatenameById(
+    req.params.Product_id,
+    meet,
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `Not found product with id ${req.params.Product_id}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "Error updating product with id " + req.params.Product_id
+          });
+        }
+      } else res.send(data);
+    }
+  );
+
+
+};
+
+//Update Product Type
+exports.updatetype = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  console.log(req.body);
+
+  const meet = new Inventory({
+    pid: req.body.pid,
+    field: req.body.field,
+    nvalue: req.body.nvalue
+  });
+
+  Inventory.updatetypeById(
+    req.params.Product_id,
+    meet,
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `Not found product with id ${req.params.Product_id}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "Error updating product with id " + req.params.Product_id
+          });
+        }
+      } else res.send(data);
+    }
+  );
+
+
+};
+
+//Update Product Quantity
+exports.updatequantity = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  console.log(req.body);
+
+  const inventory = new Inventory({
+    pid: req.body.pid,
+    field: req.body.field,
+    nvalue: req.body.nvalue
+  });
+
+  Inventory.updatequantityById(
+    req.params.Product_id,
+    inventory,
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `Not found product with id ${req.params.Product_id}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "Error updating product with id " + req.params.Product_id
+          });
+        }
+      } else res.send(data);
+    }
+  );
+
+
 };

@@ -11,6 +11,50 @@ import { animationOne, transition } from '../animations';
 
 
 function UpdateForm() {
+
+  const [pid, setpid] = React.useState("");
+  const [field, setfield] = React.useState("");
+  const [nvalue, setnvalue] = React.useState("");
+
+  async function update_product(e) {
+    /* Prevent button click's default behavior */
+    e.preventDefault();
+
+    const requestOptions = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ pid: pid, field: field, nvalue: nvalue})
+};
+
+  if({field}=="code"){
+  fetch('http://localhost:3220/inventory/id/'+ pid, requestOptions)
+    .then(response => response.json());
+    console.log(requestOptions)
+    alert("Item Updated")}
+
+    else if({field}=="name"){
+      fetch('http://localhost:3220/inventory/name/'+ pid, requestOptions)
+        .then(response => response.json());
+        console.log(requestOptions)
+        alert("Item Updated")}
+
+        else if({field}=="type"){
+          fetch('http://localhost:3220/inventory/type/'+ pid, requestOptions)
+            .then(response => response.json());
+            console.log(requestOptions)
+            alert("Item Updated")}
+
+            else {
+              fetch('http://localhost:3220/inventory/quantity/'+ pid, requestOptions)
+                .then(response => response.json());
+                console.log(requestOptions)
+                alert("Item Updated")}
+
+                setpid("");
+                setfield("");
+                setnvalue("");
+}
+
   return (
     <div className = 'invscreen'>
     <motion.div className = "updateform" initial='out'
@@ -41,12 +85,12 @@ function UpdateForm() {
                 <form>
                   <label style={{marginRight:10}}>
                         Product ID :</label>
-                        <input type="text" name="code" />
+                        <input type="text" name="id" value={pid} onChange={(e) => setpid(e.target.value)}/>
                         <br></br><br></br>
                   <label style={{marginRight:10}}>Field to Edit :</label>
-                  <select type="text" style={{width :'176px', marginRight: 8}}>
+                  <select type="text" value={field} style={{width :'176px', marginRight: 8}} onChange={(e) => setfield(e.target.value)}>
                   <option value="NULL"></option>
-                      <option value="id">Product ID</option>
+                      <option value="code">Product ID</option>
                       <option value="name">Product Name</option>
                       <option value="type">Product Type</option>
                       <option value="quantity">Quantity</option>
@@ -54,9 +98,9 @@ function UpdateForm() {
                         <br></br><br></br>
                         <label>
                         New Value : &nbsp;&nbsp;
-                        <input type="text" name="name" />
+                        <input type="text" value={nvalue} name="nvalue" onChange={(e) => setnvalue(e.target.value)}/>
                         </label><br></br><br></br>
-                        <input className="nbutton" type="submit" value="Submit" />
+                        <input className="nbutton" type="submit" value="Submit" onClick={update_product}/>
                         </form>
                         </Card.Body></Card>
                         </center>

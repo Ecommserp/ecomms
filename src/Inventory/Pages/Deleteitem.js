@@ -22,20 +22,22 @@ function Deleteitem() {
 
   }
 
-  function deleted() {
+  async function delete_product(e) {
+    /* Prevent button click's default behavior */
+    e.preventDefault();
 
     const requestOptions = {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ code: code})
+};
+fetch('http://localhost:3220/inventory/'+ code, requestOptions)
+    .then(response => response.json());
+    console.log(requestOptions)
+    alert("Product Deleted")
 
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code: code})
-    };
-    fetch('http://localhost:3220/inventory/', requestOptions)
-        .then(response => response.json());
-        alert("Item Deleted")
-
-        setcode("");
-  }
+    setcode("");
+}
 
 
   return (
@@ -70,7 +72,7 @@ function Deleteitem() {
                        Product ID : &nbsp;&nbsp;&nbsp;
                         <input type="text" name="code" value={code} onChange={(e) => setcode(e.target.value)}/>
                         </label><br></br><br></br>
-                        <input className="nbutton" type="button" value="Delete" onClick={deleted}/>
+                        <input className="nbutton" type="button" value="Delete" onClick={delete_product}/>
                         </form>
                         </Card.Body></Card>
                         </center>
