@@ -9,11 +9,11 @@ import { animationOne, transition } from '../animations';
 
 function Home() {
   const data = {
-    labels: ['Hammers', 'Wrenches', 'Tapes', 'Cement', 'Wires', 'Screwdriver'],
+    labels: ['Cement', 'Wires', 'Bulbs', 'Banners', 'Wrenches', 'Monitors'],
     datasets: [
       {
         label: 'Quantity of Items',
-        data: [12, 19, 7, 5, 12, 3],
+        data: [500, 400, 500, 390, 600, 400],
         fill: false,
         backgroundColor: 'rgba(34, 167, 240)',
         borderColor: 'rgba(44, 62, 80, 1)',

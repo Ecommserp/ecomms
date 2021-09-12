@@ -22,6 +22,11 @@
   transition: background-color 0.5s;
 }
 
+.nbutton:hover {
+  background-color: #0079ff;
+  cursor: pointer;
+}
+
 .invbutton:hover {
   background-color: #0079ff;
   cursor: pointer;

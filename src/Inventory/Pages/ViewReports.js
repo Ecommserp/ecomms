@@ -45,9 +45,6 @@ function ReportsView() {
                   <div className="invtile_gen">
                   <table style={{width:700}}>
                   <tr><th>
-                  <button className='invbutton' style={{marginTop: 50}}>View Status Report</button>
-                  </th></tr>
-                  <tr><th>
                   <button className='invbutton' style={{marginTop: 50}}>View Weekly Reports</button>
                   </th></tr>
                   <tr><th>

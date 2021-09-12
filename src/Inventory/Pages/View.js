@@ -44,6 +44,9 @@ import Paper from '@material-ui/core/Paper';
         createData(1001, 'Cement', 'PURC', 500),
         createData(1002, 'Wires', 'PURC', 400),
         createData(1003, 'Bulbs', 'PURC', 500),
+        createData(1004, 'Banners', 'MANU', 390),
+        createData(1005, 'Wrenches', 'PURC', 600),
+        createData(1006, 'Monitors', 'MANU', 400),
       ];
 
       const useStyles = makeStyles({
@@ -58,7 +61,7 @@ import Paper from '@material-ui/core/Paper';
       export default function View() {
         const classes = useStyles();
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(6);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -129,7 +132,7 @@ import Paper from '@material-ui/core/Paper';
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPageOptions={[6, 25, 100]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}
