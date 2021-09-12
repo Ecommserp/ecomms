@@ -126,8 +126,6 @@ exports.update = (req, res) => {
     });
   }
 
-  console.log(req.body);
-
   BI.updateById(
     req.params.customerId,
     new BI(req.body),
@@ -157,23 +155,33 @@ exports.update_meet = (req, res) => {
 
   console.log(req.body);
 
+  const meet = new BI_meet({
+    title: req.body.title,
+    description: req.body.description,
+    Start_time: req.body.s_time,
+    End_time: req.body.e_time,
+    Attendees: req.body.att
+  });
+
   BI_meet.updateById(
     req.params.Meet_id,
-    new BI_meet(req.body),
+    meet,
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Customer with id ${req.params.Meet_id}.`
+            message: `Not found meeting with id ${req.params.Meet_id}.`
           });
         } else {
           res.status(500).send({
-            message: "Error updating Customer with id " + req.params.Meet_id
+            message: "Error updating meeting with id " + req.params.Meet_id
           });
         }
       } else res.send(data);
     }
   );
+
+
 };
 
 // Delete a Customer with the specified customerId in the request
@@ -190,6 +198,23 @@ exports.delete = (req, res) => {
         });
       }
     } else res.send({ message: `Customer was deleted successfully!` });
+  });
+};
+
+// Delete a Customer with the specified customerId in the request
+exports.delete_meet = (req, res) => {
+  BI_meet.remove(req.params.MeetID, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Meeting with id ${req.params.MeetID}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Could not delete meeting with id " + req.params.MeetID
+        });
+      }
+    } else res.send({ message: `meeting was deleted successfully!` });
   });
 };
 

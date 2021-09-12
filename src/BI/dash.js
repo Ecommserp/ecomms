@@ -547,6 +547,8 @@ function InputField () {
            setUPTitle(data.title)
            setUPDes(data.description)
            setUPs_time(data.Start_time)
+           console.log(data.Start_time)
+           console.log(moment(data.Start_time).format('YYYY-MM-DDTHH:mm'))
            setUPe_time(data.End_time)
            setUPatt(data.Attendees)
         }
@@ -558,17 +560,32 @@ function InputField () {
       /* Prevent button click's default behavior */
       e.preventDefault();
 
-      const apiUrl = 'http://localhost:3220/BI/meetings/'+ upID;
-      const data = await getData(apiUrl);
+      const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: upTitle, description: upDes, s_time: moment(ups_time).format('YYYY-MM-DD HH:mm:ss'), e_time: moment(upe_time).format('YYYY-MM-DD HH:mm:ss'), att: upatt})
+  };
+  fetch('http://localhost:3220/BI/meetings/'+ upID, requestOptions)
+      .then(response => response.json());
+      console.log(requestOptions)
+      alert("Item Updated")
 
+  }
 
+  async function delete_meet(e) {
+      /* Prevent button click's default behavior */
+      e.preventDefault();
 
-      /* Call the state's "setter" method to update "userInput" state */
-      setUPTitle(data.title)
-      setUPDes(data.description)
-      setUPs_time(data.Start_time)
-      setUPe_time(data.End_time)
-      setUPatt(data.Attendees)
+      const requestOptions = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: upTitle})
+  };
+  fetch('http://localhost:3220/BI/meetings/'+ upID, requestOptions)
+      .then(response => response.json());
+      console.log(requestOptions)
+      alert("Item Deleted")
+
   }
 
    /* Render both input and button in a <> fragment */
@@ -595,7 +612,7 @@ function InputField () {
      <br />
 
      <button className="button_add" onClick={update_meet}>Update</button>
-     <button className="button_delete" onClick={update_meet}>Delete</button>
+     <button className="button_delete" onClick={delete_meet}>Delete</button>
 
    </>)
 }
@@ -636,6 +653,8 @@ function Dash() {
 fetch('http://localhost:3220/BI/meetings', requestOptions)
     .then(response => response.json());
     alert("Item added")
+
+
   }
 
 

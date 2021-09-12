@@ -56,10 +56,12 @@ Meet.getAll_meet = result => {
   });
 };
 
-Meet.updateById = (id, customer, result) => {
+Meet.updateById = (id, meeting, result) => {
+
+  console.log('model' + meeting.Start_time)
   sql.query(
-    "UPDATE users SET email = ?, name = ?, active = ? WHERE id = ?",
-    [customer.email, customer.name, customer.active, id],
+    "UPDATE meetings SET title = ?, description = ?, Start_time = ?, End_time = ?, Attendees = ? WHERE Meeting_ID = ?",
+    [meeting.title, meeting.description, meeting.Start_time, meeting.End_time, meeting.Attendees, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -73,14 +75,14 @@ Meet.updateById = (id, customer, result) => {
         return;
       }
 
-      console.log("updated customer: ", { id: id, ...customer });
-      result(null, { id: id, ...customer });
+      console.log("updated meeting: ", { id: id, ...meeting });
+      result(null, { id: id, ...meeting });
     }
   );
 };
 
 Meet.remove = (id, result) => {
-  sql.query("DELETE FROM users WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM meetings WHERE Meeting_ID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -93,7 +95,7 @@ Meet.remove = (id, result) => {
       return;
     }
 
-    console.log("deleted customer with id: ", id);
+    console.log("deleted meeting with id: ", id);
     result(null, res);
   });
 };

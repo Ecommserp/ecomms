@@ -50,6 +50,9 @@ module.exports = app => {
   // Update a meetings with meetingid
   app.put("/BI/meetings/:Meet_id", bi.update_meet);
 
+  // Delete a meeting with meetingid
+  app.delete("/BI/meetings/:MeetID", bi.delete_meet);
+
   // Retrieve Manu for sample
   app.get("/manu/prod", manu_prod.findAll);
 
