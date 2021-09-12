@@ -40,14 +40,25 @@ function Additem() {
                         <input type="text" name="code" />
                         </label><br></br><br></br>
                         <label>
+
+                        Supplier ID : &nbsp;&nbsp;&nbsp;
+                        <input type="text" name="code" />
+                        </label><br></br><br></br>
+                        <label>
+
                         Amount : &nbsp;&nbsp;
+                        <input type="text" name="name" />
+                        </label><br></br><br></br>
+                        <label>
+
+                        Discount : &nbsp;&nbsp;
                         <input type="text" name="name" />
                         </label><br></br><br></br>
                         <label>
 
 
                         Date : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="quantity"/>
+                        <input type="date" name="quantity"/>
                         </label><br></br><br></br>
                         <input type="Reset" value="Reset"/> <div className="space"></div>
                         <input type="Submit" value="Add Invoice"/> <div className="space"></div>
@@ -66,14 +77,24 @@ function Additem() {
                                 <input type="text" name="code" />
                                 </label><br></br><br></br>
                                 <label>
+
+                                Supplier ID : &nbsp;&nbsp;&nbsp;
+                                <input type="text" name="code" />
+                                </label><br></br><br></br>
+                                <label>
+
                                 Amount : &nbsp;&nbsp;
+                                <input type="text" name="name" />
+                                </label><br></br><br></br>
+                                <label>
+                                Discount : &nbsp;&nbsp;
                                 <input type="text" name="name" />
                                 </label><br></br><br></br>
                                 <label>
 
 
                                 Date : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="text" name="quantity"/>
+                                <input type="date" name="quantity"/>
                                 </label><br></br><br></br>
                                 <input type="Reset" value="Reset"/> <div className="space"></div>
                                 <input type="Button" value="Update"/> <div className="space"></div>
