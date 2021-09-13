@@ -28,7 +28,7 @@ import './pmcss1.css';
 
 
 let table_data = [];
-
+let s_id = [];
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -61,16 +61,20 @@ function Manage_stocks() {
 
     const togglePopup = () => {
       setIsOpen(!isOpen);
-
-
-
-
 }
   const [isOpen2, setIsOpen2] = useState(false);
 const togglePopup2 = () => {
   setIsOpen2(!isOpen2);
 
 }
+
+
+const [isOpen3, setIsOpen3] = useState(false);
+const togglePopup3 = () => {
+setIsOpen3(!isOpen3);
+
+}
+
 
 
 async function getData(url) {
@@ -94,6 +98,10 @@ async function getData_rev() {
 
 
 }
+function showpopup() {
+
+togglePopup();
+}
 
 function insert() {
 
@@ -108,10 +116,62 @@ function insert() {
       alert("Item added")
 }
 
+function update() {
+
+  alert("You want to Edit " + s_id[0]);
+update_product();
+}
+///
+const [id, setid] = useState("");
+
+function validateForm() {
+  return id.length > 0;
+}
 
 
 
+  function deleteSP() {
 
+    const requestOptions = {
+
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: id})
+    };
+    fetch('http://localhost:3220/suppliers/'+ id, requestOptions)
+        .then(response => response.json());
+        console.log(requestOptions)
+        alert("successfully removed supplier")
+        setid("");
+  }
+
+
+////
+
+const [u_name, setu_name] = useState("");
+const [u_contact, setu_contact] = useState("");
+
+async function update_product() {
+  /* Prevent button click's default behavior */
+
+
+  const requestOptions = {
+  method: 'PUT',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ id: s_id[0], name: u_name, contact: u_contact})
+};
+
+
+fetch('http://localhost:3220/suppliers/'+ s_id[0], requestOptions)
+  .then(response => response.json());
+  console.log(requestOptions)
+alert("You want to Edit " + s_id[0]);
+  setu_name("");
+  setu_contact("");
+
+
+
+}
 
 
 
@@ -120,11 +180,11 @@ getData_rev();
  return (
 
 
-   <div className="screen">
+   <div className="screen2">
    <div className="headu2">
 
  <div className="head_right3">
- <button className="button22"   >Remove Supplier</button>
+ <button className="button22"   onClick={togglePopup3}>Remove Supplier</button>
 
  <button className="button22"    onClick={togglePopup2}>Add New Supplier</button><div className="space"></div><div className="space"></div><div className="space"></div><div className="space"></div>
   <div className="space"></div>
@@ -153,9 +213,10 @@ getData_rev();
           rowData => ({
            icon: EditIcon,
             tooltip: 'Delete User',
-          onClick: (togglePopup),
+        //  onClick: (togglePopup),
+          onClick: (event, rowData) => showpopup(s_id[0] = rowData.Supplier_ID) ,
 
-          //  onClick: (event, rowData) => alert("You want to Edit " + rowData.name),
+        //  onClick: (event, rowData) => alert("You want to Edit " + rowData.name),
           //  disabled: rowData.birthYear < 2000
           })
         ]}
@@ -178,7 +239,7 @@ getData_rev();
               <form>
                   <label>
                       Supplier Name  &nbsp;&nbsp;
-                      <input type="text" name="S_name" />
+                      <input type="text" name="u_name" value={u_name} onChange={(e) => setu_name(e.target.value)} />
                       </label><br></br><br></br>
 
 
@@ -189,9 +250,9 @@ getData_rev();
 
                       <label>
                       Contact  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <input type="number" name="S_data"/>
+                      <input type="text" name="u_contact"  value={u_contact} onChange={(e) => setu_contact(e.target.value)}/>
                       </label><br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button className="button">Update</button>
+                      <button className="button22" value="Submit" onClick={update_product}>Update</button>
 
                       </form>
                       </Card.Body></Card>
@@ -240,6 +301,57 @@ getData_rev();
               handleClose={togglePopup2}
             />}
           </div>
+
+
+
+
+          <div>
+
+
+              {isOpen3 && <Popup
+                content={<>
+
+
+                  <center><Card border ='primary' style={{ width: '40rem' }}>
+                  <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>Update Suppliers</h3></Card.Header>
+                  <Card.Body>
+                  <form >
+
+
+
+
+
+
+
+
+                          <label>
+                          Supplier ID  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <input type="text" name="id" value={id} onChange={(e) => setid(e.target.value)}/>
+                          </label><br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <button className="button22" value="Submit" onClick={deleteSP}>Delete</button>
+
+                          </form>
+                          </Card.Body></Card>
+                          </center>
+
+
+                </>}
+                handleClose={togglePopup3}
+              />}
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  </div>
 

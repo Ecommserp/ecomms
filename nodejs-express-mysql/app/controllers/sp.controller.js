@@ -40,3 +40,51 @@ exports.create = (req, res) => {
     else res.send(data);
   });
 };
+
+
+// update specific supplier by supplierId
+exports.update = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  SP.updateById(
+    req.params.supplierId,
+    new SP(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `Not found Customer with id ${req.params.supplierId}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "Error updating Customer with id " + req.params.supplierId
+          });
+        }
+      } else res.send(data);
+    }
+  );
+};
+
+
+
+// Delete an Item with the specified supplierId in the request
+exports.delete = (req, res) => {
+  SP.remove(req.params.supplierId, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Item with id ${req.params.supplierId}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Could not delete Item with id " + req.params.supplierId
+        });
+      }
+    } else res.send({ message: `Item was deleted successfully!` });
+  });
+};

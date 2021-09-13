@@ -46,7 +46,7 @@ module.exports = app => {
 
   // Update a product id with productid
   app.put("/inventory/type/:Product_id", inv.updatetype);
-  
+
   // Update a product id with productid
   app.put("/inventory/quantity/:Product_id", inv.updatequantity);
 
@@ -105,6 +105,14 @@ module.exports = app => {
 
      // Create a new supplier
      app.post("/suppliers", sp.create);
+
+
+     // Delete a supplier with supplierId
+     app.delete("/suppliers/:supplierId", sp.delete);
+
+     // update a supplier with supplierId
+     app.put("/suppliers/:supplierId", sp.update);
+
 
 
 
