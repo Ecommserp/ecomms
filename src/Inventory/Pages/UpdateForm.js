@@ -26,29 +26,33 @@ function UpdateForm() {
     body: JSON.stringify({ pid: pid, field: field, nvalue: nvalue})
 };
 
-  if({field}=="code"){
+  if(field =="code"){
   fetch('http://localhost:3220/inventory/id/'+ pid, requestOptions)
     .then(response => response.json());
     console.log(requestOptions)
-    alert("Item Updated")}
+    alert("code Updated")
+  }
 
-    else if({field}=="name"){
+    else if(field =="name"){
       fetch('http://localhost:3220/inventory/name/'+ pid, requestOptions)
         .then(response => response.json());
         console.log(requestOptions)
-        alert("Item Updated")}
+        alert("name Updated")
+      }
 
-        else if({field}=="type"){
+        else if(field =="type"){
           fetch('http://localhost:3220/inventory/type/'+ pid, requestOptions)
             .then(response => response.json());
             console.log(requestOptions)
-            alert("Item Updated")}
+            alert("type Updated")
+          }
 
             else {
               fetch('http://localhost:3220/inventory/quantity/'+ pid, requestOptions)
                 .then(response => response.json());
                 console.log(requestOptions)
-                alert("Item Updated")}
+                alert("quantity Updated")
+              }
 
                 setpid("");
                 setfield("");
