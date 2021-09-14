@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
 import './Pages.css';
-import './Reports.css';
+import './manfReports.css';
 import manu from "./assets/manu.png";
-import view from './assets/view.jpg';
-import generate from './assets/generate.jpg';
+import view from './assets/rportM.jpg';
+import generate from './assets/genratep.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';

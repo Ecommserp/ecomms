@@ -1,5 +1,5 @@
 //const BI = require("../models/bi.model.js");
-const manu_prod_m = require("../models/manu_prod.model.js");
+const macnin_prod_m = require("../models/macin_prod.model.js");
 
 
 // Create and Save a new Customer
@@ -13,16 +13,16 @@ exports.create = (req, res) => {
   }
 
   // Create a Production
-  const manu_prod = new manu_prod_m({
-    Product_ID:req.Product_ID,
+  const macnin_prod = new macnin_prod_m({
+    Machine_no:req.Machine_no,
     name: req.body.name,
-    Details: req.body.Details,
-    Production_stat: req.body.Production_stat,
-    Machine_no: req.body.Machine_no,
+    Machine_stat: req.body.Machine_stat,
+    //Production_stat: req.body.Production_stat,
+    //Machine_no: req.body.Machine_no,
   });
 
   // Save Customer in the database
-  manu_prod_m.create(manu_prod, (err, data) => {
+  macnin_prod_m.create(macnin_prod, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -73,7 +73,7 @@ exports.update = (req, res) => {
 
   console.log(req.body);
 
-  manu_prod_m.updateById(
+  macnin_prod_m.updateById(
     req.params.customerId,
     new User(req.body),
     (err, data) => {
@@ -94,7 +94,7 @@ exports.update = (req, res) => {
 
 // Delete a Product with the specified ProductId in the request
 exports.delete = (req, res) => {
-  manu_prod_m.remove(req.params.Product_ID, (err, data) => {
+  macnin_prod_m.remove(req.params.Product_ID, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -111,7 +111,7 @@ exports.delete = (req, res) => {
 
 // Delete all Customers from the database.
 exports.deleteAll = (req, res) => {
-  manu_prod_m.removeAll((err, data) => {
+  macnin_prod_m.removeAll((err, data) => {
     if (err)
       res.status(500).send({
         message:

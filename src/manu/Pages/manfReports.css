@@ -1,6 +1,6 @@
 .tile_home {
   height: 200px;
-  width: 35%;
+  width: 50%;
   background-color: #fff;
   border: 2px solid;
   border-color: #666666;
@@ -30,12 +30,14 @@
   position: relative;
   width: 270px;
   padding-top: 20px;
+
   padding-left: 120px;
 }
 
 .generate_img {
   position: relative;
   width: 280px;
+  padding-right: 10px;
   height: 170px;
   padding-top: 20px;
   padding-left: 110px;
