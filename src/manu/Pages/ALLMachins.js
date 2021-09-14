@@ -176,74 +176,14 @@ const rows = [
      <div className="container">
 
           <div className='row'>
-            
+
 
               <div className='col1'>
                 <div className='subti'> <h3> ALL Machines  </h3></div>
                  <table>
                     <tr>
                        <th>
-                           <Paper className={classes.root}>
-   <div style={{ marginLeft: '25%', marginTop: '60px', marginEnd: '60px' }}>
-
-       <Autocomplete
-         style={{ width: 500 }}
-         freeSolo
-         autoComplete
-         autoHighlight
-         options={myOptions}
-         renderInput={(params) => (
-           <TextField {...params}
-             onChange={getDataFromAPI}
-             variant="outlined"
-             label="Enter Product ID"
-           />
-         )}
-       />
-     </div>
-     <TableContainer className={classes.container}>
-       <Table stickyHeader aria-label="sticky table">
-         <TableHead>
-           <TableRow>
-             {columns.map((column) => (
-               <TableCell
-                 key={column.id}
-                 align={column.align}
-                 style={{ minWidth: column.minWidth }}
-               >
-                 {column.label}
-               </TableCell>
-             ))}
-           </TableRow>
-         </TableHead>
-         <TableBody>
-           {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-             return (
-               <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                 {columns.map((column) => {
-                   const value = row[column.id];
-                   return (
-                     <TableCell key={column.id} align={column.align}>
-                       {column.format && typeof value === 'number' ? column.format(value) : value}
-                     </TableCell>
-                   );
-                 })}
-               </TableRow>
-             );
-           })}
-         </TableBody>
-       </Table>
-     </TableContainer>
-     <TablePagination
-       rowsPerPageOptions={[10, 25, 50]}
-       component="div"
-       count={rows.length}
-       rowsPerPage={rowsPerPage}
-       page={page}
-       onPageChange={handleChangePage}
-       onRowsPerPageChange={handleChangeRowsPerPage}
-     />
-   </Paper>
+                          
                         </th>
                     </tr>
 

@@ -47,15 +47,15 @@ exports.findAll = (req, res) => {
 
 // Find a single Customer with a customerId
 exports.findOne = (req, res) => {
-  manu_prod_m.findById(req.params.customerId, (err, data) => {
+  manu_prod_m.findById(req.params.Product_ID, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Customer with id ${req.params.customerId}.`
+          message: `Not found Customer with id ${req.params.Product_ID}.`
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving Customer with id " + req.params.customerId
+          message: "Error retrieving Customer with id " + req.params.Product_ID
         });
       }
     } else res.send(data);
@@ -73,18 +73,25 @@ exports.update = (req, res) => {
 
   console.log(req.body);
 
+  const manu_prod = new manu_prod_m({
+    name: req.body.name,
+    Details: req.body.Details,
+    Production_stat: req.body.Production_stat,
+    Machine_no: req.body.Machine_no,
+  });
+
   manu_prod_m.updateById(
-    req.params.customerId,
-    new User(req.body),
+    req.params.Product_ID,
+    new manu_prod_m(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Customer with id ${req.params.customerId}.`
+            message: `Not found Customer with id ${req.params.Product_ID}.`
           });
         } else {
           res.status(500).send({
-            message: "Error updating Customer with id " + req.params.customerId
+            message: "Error updating Customer with id " + req.params.Product_ID
           });
         }
       } else res.send(data);
@@ -98,11 +105,11 @@ exports.delete = (req, res) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Customer with id ${req.params.Product_ID}.`
+          message: `Not found Product with id ${req.params.Product_ID}.`
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Customer with id " + req.params.Product_ID
+          message: "Could not delete product with id " + req.params.Product_ID
         });
       }
     } else res.send({ message: `Manufatuting Product was deleted successfully!` });

@@ -85,7 +85,7 @@ function MHome() {
      <div className="container">
 
           <div className='row'>
-            
+
 
               <div className='col1'>
                 <div className='subti'> <h3>Machines Management </h3></div>
@@ -102,7 +102,7 @@ function MHome() {
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           <button className='button1' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button className='button1' onClick={event => window.location.href = '/manu/ALLMachins'}> All Items</button>
+                        <button className='button1' onClick={event => window.location.href = '/manu/machinSearch'}> All Items</button>
 
                        </th>
                      </tr>

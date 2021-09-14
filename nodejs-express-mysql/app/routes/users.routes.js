@@ -80,17 +80,17 @@ module.exports = app => {
     // Retrieve Manu for sample
   app.post("/manu/manf", macnin_prod.create);
 
-  
-  
+
+
 
   // Retrieve a single Customer with customerId
-  app.get("/manu/:customerId", manu_prod.findOne);
+  app.get("/manu/:Product_ID", manu_prod.findOne);
 
   // Update a Customer with customerId
-  app.put("/manu_prod/:customerId", manu_prod.update);
+  app.put("/manu_prod/:Product_ID", manu_prod.update);
 
   // Delete a Customer with customerId
-  app.delete("/manu_prod/:customerId", manu_prod.delete);
+  app.delete("/manu_prod/:Product_ID", manu_prod.delete);
 
   // Delete a new Customer inquiry
   app.delete("/manu_prod", manu_prod.deleteAll);
