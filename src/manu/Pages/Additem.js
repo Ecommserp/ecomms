@@ -78,7 +78,7 @@ function Additem() {
           src={logo} /></div>
 
         <div className='cardCon'>
-           <div className='subti'> <h2>products </h2></div>
+           <div className='subti'> <h2>Products Mangement </h2></div>
         <center><Card border='primary' style={{ width: '40rem' }}>
           <Card.Header style={{ backgroundColor: '#1f78b4' }}><h3 style={{ color: 'white' }}>Add Item</h3></Card.Header>
           <Card.Body>

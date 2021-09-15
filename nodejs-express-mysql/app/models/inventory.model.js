@@ -74,10 +74,10 @@ Inventory.getAll = result => {
 };
 
 //Update Product ID
-Inventory.updateidById = (pid, field, nvalue) => {
+Inventory.updateidById = (pid, field, result) => {
   sql.query(
     "UPDATE inventory SET Product_ID = ? WHERE Product_ID = ?",
-    [Inventory.nvalue, pid],
+    [field.Product_ID, pid],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -91,17 +91,17 @@ Inventory.updateidById = (pid, field, nvalue) => {
         return;
       }
 
-      console.log("updated customer: ", { id: pid, ...Inventory });
-      result(null, { id: pid, ...Inventory });
+      console.log("updated customer: ", { id: pid, ...field });
+      result(null, { id: pid, ...field });
     }
   );
 };
 
 //Update Product Name
-Inventory.updatenameById = (pid, field, nvalue) => {
+Inventory.updatenameById = (pid, field, result) => {
   sql.query(
     "UPDATE inventory SET Product_name = ? WHERE Product_ID = ?",
-    [Inventory.nvalue, pid],
+    [field.Product_name, pid],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -115,17 +115,22 @@ Inventory.updatenameById = (pid, field, nvalue) => {
         return;
       }
 
-      console.log("updated customer: ", { id: pid, ...Inventory });
-      result(null, { id: pid, ...Inventory });
+      console.log("updated customer: ", { id: pid, ...field });
+      result(null, { id: pid, ...field });
     }
   );
 };
+
+
+
+
+
 
 //Update Product Type
-Inventory.updatetypeById = (pid, field, nvalue) => {
+Inventory.updatetypeById = (pid, inventory, result) => {
   sql.query(
     "UPDATE inventory SET Product_type = ? WHERE Product_ID = ?",
-    [Inventory.nvalue, pid],
+    [inventory.Product_type, pid],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -139,17 +144,21 @@ Inventory.updatetypeById = (pid, field, nvalue) => {
         return;
       }
 
-      console.log("updated customer: ", { id: pid, ...Inventory });
-      result(null, { id: pid, ...Inventory });
+      console.log("updated customer: ", { id: pid, ...inventory });
+      result(null, { id: pid, ...inventory });
     }
   );
 };
+
+
+
+
 
 //Update Product Quantity
-Inventory.updatequantityById = (pid, field, nvalue) => {
+Inventory.updatequantityById = (pid, inventory, result) => {
   sql.query(
     "UPDATE inventory SET quantity = ? WHERE Product_ID = ?",
-    [nvalue, pid],
+    [inventory.quantity, pid],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -163,11 +172,16 @@ Inventory.updatequantityById = (pid, field, nvalue) => {
         return;
       }
 
-      console.log("updated customer: ", { id: pid, ...Inventory });
-      result(null, { id: pid, ...Inventory });
+      console.log("updated customer: ", { id: pid, ...inventory });
+      result(null, { id: pid, ...inventory });
     }
   );
 };
+
+
+
+
+
 
 Inventory.remove = (code, result) => {
   sql.query("DELETE FROM inventory WHERE Product_ID = ?", code, (err, res) => {

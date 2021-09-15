@@ -30,11 +30,21 @@ const Sidebar = () => {
             <NavLink exact to="/crm" activeClassName="activeClicked" >
               <CDBSidebarMenuItem icon="home">Home</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/crm/UpdateCustomer" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="edit">Update Inventory</CDBSidebarMenuItem>
+            <NavLink exact to="/crm/Addcustomer" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="plus-square">ADD Inquiries</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/crm/ViewCustomerReport" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="chart-line">Reports</CDBSidebarMenuItem>
+            <NavLink exact to="/crm/UpdateCustomer" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="edit">Update Inquiries</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/crm/Deletecustomer" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="trash-alt">Delete Inquiries</CDBSidebarMenuItem>
+            </NavLink>
+
+            <NavLink exact to="/crm/Customeranalytics" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="chart-pie">Inquiry Analytics</CDBSidebarMenuItem>
+            </NavLink>
+           <NavLink exact to="/crm/GenerateCustomerReport" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="columns">Inquiry Reports</CDBSidebarMenuItem>
             </NavLink>
 
           </CDBSidebarMenu>

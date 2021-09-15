@@ -9,7 +9,7 @@ import './Pages.css';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
-function Home() {
+function MHome() {
   const data = {
     labels: ['UPcomming ', 'In Process', 'Completed', 'Malfuntioned'],
     datasets: [
@@ -17,9 +17,18 @@ function Home() {
         label: 'Quality of Production Process',
         data: [3, 6, 10, 5],
         fill: false,
-        borderWidth: 2,
-        backgroundColor: '#364fc7',
-        borderColor: 'rgba(44, 62, 80, 1)',
+        backgroundColor: [
+    '#7353BA',
+    '#E94973',
+    '#B7C0EE',
+    '#F3998E'
+    ],
+    hoverBackgroundColor: [
+    '#a3b5c7e3',
+    '#a3b5c7e3',
+    '#a3b5c7e3',
+    '#a3b5c7e3',
+    ]
       },
     ],
   };
@@ -76,22 +85,29 @@ function Home() {
      <div className="container">
 
           <div className='row'>
-            <div className='col1'>
-                <div className='subti'> <h3>products Management </h3></div>
-              <table>
-                 <tr>
-                   <th>
-                       <Bar style={{ width: 700, height: 800 }} data={data} options={options} /></th></tr>
 
+
+              <div className='col1'>
+                <div className='subti'> <h3>Machines Management </h3></div>
+                 <table>
                     <tr>
-                      <th>
-                        <button className='button1' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/Additem'}> 1Add Item</button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button className='button1' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
-                      </th>
+                       <th>
+                           <Doughnut  style={{ width: 500, height: 800 }} data={data}  />
+                        </th>
                     </tr>
-              </table>
-            </div>
+
+                     <tr>
+                        <th>
+                          <button className='button1' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/MAdditem'}>Add Item</button>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <button className='button1' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button className='button1' onClick={event => window.location.href = '/manu/machinSearch'}> All Items</button>
+
+                       </th>
+                     </tr>
+                  </table>
+               </div>
           </div>
 
         </div>
@@ -101,4 +117,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default MHome;

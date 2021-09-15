@@ -12,26 +12,23 @@ function Deleteitem() {
 
   const [code, setcode] = useState("");
 
-  function validateForm() {
-    return code.length > 0;
+  async function delete_item(e) {
+      /* Prevent button click's default behavior */
+      e.preventDefault();
+
+      const requestOptions = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: code})
+  };
+  fetch('http://localhost:3220/manu_prod/'+ code, requestOptions)
+      .then(response => response.json());
+      console.log(requestOptions)
+      alert("Item Deleted")
+
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
 
-  function deleted() {
-
-    const requestOptions = {
-
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code: code})
-    };
-    fetch('http://localhost:3220/inventory/', requestOptions)
-        .then(response => response.json());
-        alert("Item Deleted")
-  }
 
 
   return (
@@ -75,12 +72,12 @@ function Deleteitem() {
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Delete Item</h3></Card.Header>
                 <Card.Body>
-                <form onSubmit={handleSubmit}>
+                <form >
                     <label>
                         Item Code : &nbsp;&nbsp;&nbsp;
                         <input type="text" name="code" value={code} onChange={(e) => setcode(e.target.value)}/>
                         </label><br></br><br></br>
-                        <input className="button" type="button" value="Delete" onClick={deleted}/>
+                        <input className="button" type="button" value="Delete" onClick={delete_item}/>
                         </form>
                         </Card.Body></Card>
                         </center>

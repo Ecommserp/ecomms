@@ -22,23 +22,32 @@ function UpdateForm() {
                 right: 40,
           top:-13,}}><br></br>Production</h1></i>
 
+           <div><i><h1 style={{
+          position: 'absolute',
+          right: 40,
+          top:70,
+        }}>Manufacturing Management</h1></i> </div>
 
                 <img
                 style={{
                   position: 'absolute',
-                  left: 200,
-                  top: -20,
-                width: 160,
-              height: 160}}
-                src = {logo}/>
-                <img
-                style={{
-                  position: 'absolute',
                 right: 250,
-                top: 12,
-              width: 120,
-            height: 100}}
+                top:-1,
+                width: 120,
+               height: 100}}
                   src={manu} />
+
+                <div className='imagelogo' >
+        <img
+          style={{
+            position: 'absolute',
+            left: 300,
+            top: -20,
+            width: 160,
+            height: 160
+          }}
+          src={logo} /></div>
+
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Update Inventory</h3></Card.Header>
                 <Card.Body>
@@ -64,7 +73,7 @@ function UpdateForm() {
                         New Value : &nbsp;&nbsp;
                         <input type="text" name="name" />
                         </label><br></br><br></br>
-                        <input className="button" type="submit" value="Submit" />
+                        <input className="button1" type="submit" value="Submit" />
                         </form>
                         </Card.Body></Card>
                         </center>

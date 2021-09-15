@@ -9,6 +9,7 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 
+
 const Sidebar = () => {
   return (
     <div
@@ -27,7 +28,11 @@ const Sidebar = () => {
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink exact to="/manu" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="home"> Home</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="home"> Product Management</CDBSidebarMenuItem>
+            </NavLink>
+
+            <NavLink exact to="/manu/manf" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="FaArchway"> Machine Management</CDBSidebarMenuItem>
             </NavLink>
 
             <NavLink exact to="/manu/update" activeClassName="activeClicked" >

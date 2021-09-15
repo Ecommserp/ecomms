@@ -3,11 +3,10 @@ module.exports = app => {
   const inv = require("../controllers/inventory.controller.js");
   const bi = require("../controllers/bi.controller.js");
   const manu_prod = require("../controllers/manu_prod.controller.js");
+  const macnin_prod = require("../controllers/macin_prod.controller");
   const pm = require("../controllers/P_M.controller.js");
   const sp = require("../controllers/sp.controller.js");
-  const crm = require("../controllers/crm.controller.js");
-  const managingdb = require("../controllers/managingdb.controller.js");
-
+  const crmI = require("../controllers/crm.controller.js");
 
 
   // Create a new Customer
@@ -28,8 +27,8 @@ module.exports = app => {
   // Delete a new Customer
   app.delete("/users", customers.deleteAll);
 
-   // Create a new Item
-   app.post("/inventory", inv.create);
+  // Create a new Item
+  app.post("/inventory", inv.create);
 
   // Retrieve all Customers
   app.get("/inventory", inv.findAll);
@@ -72,28 +71,30 @@ module.exports = app => {
 
   // Retrieve Manu for sample
   app.get("/manu/prod", manu_prod.findAll);
+  // Retrieve all Customers
+  app.get("/manu/manf", macnin_prod.findAll);
 
-   // Retrieve Manu for sample
-   app.post("/manu/prod", manu_prod.create);
+  // Retrieve Manu for sample
+  app.post("/manu/prod", manu_prod.create);
+
+    // Retrieve Manu for sample
+  app.post("/manu/manf", macnin_prod.create);
 
 
-   // Create a new Customer inquiry
-   app.post("/crm", crm.create);
 
-   // Retrieve all Customers inquiry
-   app.get("/crm", crm.findAll);
 
-   // Retrieve a single Customer with customerId
-   app.get("/crm/:customerId", crm.findOne);
+  // Retrieve a single Customer with customerId
+  app.get("/manu/:Product_ID", manu_prod.findOne);
 
-   // Update a Customer with customerId
-   app.put("/crm/:customerId", crm.update);
+  // Update a Customer with customerId
+  app.put("/manu_prod/:Product_ID", manu_prod.update);
 
-   // Delete a Customer with customerId
-   app.delete("/crm/:customerId", crm.delete);
+  // Delete a Customer with customerId
+  app.delete("/manu_prod/:Product_ID", manu_prod.delete);
 
-   // Delete a new Customer inquiry
-   app.delete("/crm", crm.deleteAll);
+  // Delete a new Customer inquiry
+  app.delete("/manu_prod", manu_prod.deleteAll);
+
 
 
      // Retrieve all purchases
@@ -112,5 +113,22 @@ module.exports = app => {
      app.post("/account/invoice", managingdb.create);
 
 
+   // Create a new Customer inquiry
+   app.post("/crm/crm", crmI.create);
+
+   // Retrieve all Customers inquiry
+   app.get("/crm/crm", crmI.findAll);
+
+   // Retrieve a single Customer with customerId
+   app.get("/crm/crm/:Customer_NIC", crmI.findOne);
+
+   // Update a Customer with customerId
+   app.put("/crm/crm/:Customer_NIC", crmI.update);
+
+   // Delete a Customer with customerId
+   app.delete("/crmI/:Customer_NIC", crmI.delete);
+
+   // Delete a new Customer inquiry
+   app.delete("/crm", crmI.deleteAll);
 
 };

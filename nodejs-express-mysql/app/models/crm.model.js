@@ -1,22 +1,20 @@
 const sql = require("./db.js");
 
 // constructor
-const CRM = function(crm) {
-
-
+const Customers = function(crm) {
 
   this.Customer_NIC = crm.Customer_NIC;
   this.Birth_Date = crm.Birth_Date;
   this.Customer_name = crm.Customer_name;
   this.Email = crm.Email;
   this.Phone = crm.Phone;
-  this.Address = crm.Address;
-  this.Purchased_items = crm.Purchased_items;
+  this.Purchased_item = crm.Purchased_item;
   this.inquiry = crm.inquiry;
   this.inquiry_status = crm.inquiry_status;
 };
 
-CRM.create = (newCRM, result) => {
+
+Customers.create = (newCRM, result) => {
   //console.log(newCustomer)
   sql.query("INSERT INTO customers SET ?", newCRM, (err, res) => {
     if (err) {
@@ -30,8 +28,8 @@ CRM.create = (newCRM, result) => {
   });
 };
 
-CRM.findById = (customerId, result) => {
-  sql.query(`SELECT * FROM users WHERE username = '${customerId}'`, (err, res) => {
+Customers.findById = (customerId, result) => {
+  sql.query(`SELECT * FROM customers WHERE Customer_NIC = '${customerId}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -49,27 +47,27 @@ CRM.findById = (customerId, result) => {
   });
 };
 
-CRM.findByCat = (category, result) => {
-  sql.query(`SELECT * FROM inventory WHERE Product_type = '${category}'`, (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
-    }
+// Customers.findByCat = (category, result) => {
+//   sql.query(`SELECT * FROM customers WHERE Product_type = '${category}'`, (err, res) => {
+//     if (err) {
+//       console.log("error: ", err);
+//       result(err, null);
+//       return;
+//     }
 
-    if (res.length) {
-      console.log("found customer: ", res);
-      result(null, res);
-      return;
-    }
+//     if (res.length) {
+//       console.log("found customer: ", res);
+//       result(null, res);
+//       return;
+//     }
 
-    // not found Customer with the id
-    result({ kind: "not_found" }, null);
-  });
-};
+//     // not found Customer with the id
+//     result({ kind: "not_found" }, null);
+//   });
+// };
 
-CRM.getAll = result => {
-  sql.query("SELECT * FROM inventory", (err, res) => {
+Customers.getAll = result => {
+  sql.query("SELECT * FROM customers", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -81,10 +79,11 @@ CRM.getAll = result => {
   });
 };
 
-CRM.updateById = (id, customer, result) => {
+Customers.updateById = (id, customer, result) => {
+  //console.log(customer)
   sql.query(
-    "UPDATE users SET email = ?, name = ?, active = ? WHERE id = ?",
-    [customer.email, customer.name, customer.active, id],
+    "UPDATE customers SET Customer_name = ?, Birth_Date = ?, Email = ?, Phone = ?, Purchased_item = ?, inquiry = ?, inquiry_status = ? WHERE Customer_NIC = ?",
+    [customer.Customer_name, customer.Birth_Date, customer.Email, customer.Phone, customer.Purchased_item, customer.inquiry, customer.inquiry_status, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -104,8 +103,8 @@ CRM.updateById = (id, customer, result) => {
   );
 };
 
-CRM.remove = (id, result) => {
-  sql.query("DELETE FROM inventory WHERE Product_ID = ?", id, (err, res) => {
+Customers.remove = (id, result) => {
+  sql.query("DELETE FROM customers WHERE Customer_NIC = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -123,7 +122,7 @@ CRM.remove = (id, result) => {
   });
 };
 
-CRM.removeAll = result => {
+Customers.removeAll = result => {
   sql.query("DELETE FROM users", (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -136,4 +135,4 @@ CRM.removeAll = result => {
   });
 };
 
-module.exports = CRM;
+module.exports = Customers;

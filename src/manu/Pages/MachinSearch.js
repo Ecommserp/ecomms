@@ -11,7 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import  { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import './homestyle.css';
+import './pmcss1.css';
 
 
 const columns = [
@@ -69,7 +69,7 @@ marginTop: '60px'
 
 
 
-function CustomerHome() {
+function MachinSearch() {
 
   const [myOptions, setMyOptions] = useState([])
 
@@ -172,7 +172,4 @@ function CustomerHome() {
  );
 }
 
-
-
-
-export default CustomerHome;
+export default MachinSearch;

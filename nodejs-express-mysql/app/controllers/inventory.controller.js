@@ -149,14 +149,13 @@ exports.updateid = (req, res) => {
   console.log(req.body);
 
   const inventory = new Inventory({
-    pid: req.body.pid,
-    field: req.body.field,
-    nvalue: req.body.nvalue
+    Product_ID: req.body.pid,
+    Product_ID: req.body.nvalue
   });
 
   Inventory.updateidById(
     req.params.Product_id,
-    meet,
+    inventory,
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
@@ -187,14 +186,13 @@ exports.updatename = (req, res) => {
   console.log(req.body);
 
   const inventory = new Inventory({
-    pid: req.body.pid,
-    field: req.body.field,
-    nvalue: req.body.nvalue
+    Product_ID: req.body.pid,
+    Product_name: req.body.nvalue
   });
 
   Inventory.updatenameById(
     req.params.Product_id,
-    meet,
+    inventory,
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
@@ -225,9 +223,8 @@ exports.updatetype = (req, res) => {
   console.log(req.body);
 
   const meet = new Inventory({
-    pid: req.body.pid,
-    field: req.body.field,
-    nvalue: req.body.nvalue
+    Product_ID: req.body.pid,
+    Product_type: req.body.nvalue
   });
 
   Inventory.updatetypeById(
@@ -263,9 +260,8 @@ exports.updatequantity = (req, res) => {
   console.log(req.body);
 
   const inventory = new Inventory({
-    pid: req.body.pid,
-    field: req.body.field,
-    nvalue: req.body.nvalue
+    Product_ID: req.body.pid,
+    quantity: req.body.nvalue
   });
 
   Inventory.updatequantityById(

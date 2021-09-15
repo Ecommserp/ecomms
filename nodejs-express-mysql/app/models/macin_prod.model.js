@@ -1,35 +1,31 @@
 const sql = require("./db.js");
 
 // constructor
-const Product = function(prod) {
-  this.Product_ID=prod.Product_ID;
-  this.name = prod.name;
-  this.Details = prod.Details;
-  this.Production_stat = prod.Production_stat;
-  this.Machine_no = prod.Machine_no;
+const Machine = function(manf) {
+  this.Machine_no=manf.Machine_no;
+  this.name = manf.name;
+  this.Machine_stat = manf.Machine_stat;
+ // this.Production_stat = prod.Production_stat;
+  //this.Machine_no = prod.Machine_no;
 };
 
 
-
-
-
-
-Product.create = (newCustomer, result) => {
+Machine.create = (newMnfProduct, result) => {
   //console.log(newCustomer)
-  sql.query("INSERT INTO product SET ?", newMProduct, (err, res) => {
+  sql.query("INSERT INTO machines SET ?", newMnfProduct, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
 
-    console.log("created product: ", { id: res.insertId, ...newMProduct });
-    result(null, { id: res.insertId, ...newMProduct });
+    console.log("created Machine: ", { id: res.insertId, ...newMnfProduct });
+    result(null, { id: res.insertId, ...newMnfProduct });
   });
 };
 
-Product.findById = (customerId, result) => {
-  sql.query(`SELECT * FROM product WHERE Product_ID = '${customerId}'`, (err, res) => {
+Machine.findById = (customerId, result) => {
+  sql.query(`SELECT * FROM machines WHERE Machine_no = '${customerId}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -47,7 +43,7 @@ Product.findById = (customerId, result) => {
   });
 };
 
-Product.getAll = result => {
+Machine.getAll = result => {
   sql.query("SELECT * FROM product", (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -61,7 +57,7 @@ Product.getAll = result => {
 };
 
 
-Product.updateById = (id, customer, result) => {
+Machine.updateById = (id, customer, result) => {
   sql.query(
     "UPDATE product SET name = ?, Details = ?, Production_stat = ?,Machine_no =?  WHERE Product_ID = ?",
     [customer.name, customer.Details, customer.Production_stat,customer.Machine_no, id],
@@ -84,8 +80,8 @@ Product.updateById = (id, customer, result) => {
   );
 };
 
-Product.remove = (id, result) => {
-  sql.query("DELETE FROM product WHERE Product_ID = ?", id, (err, res) => {
+Machine.remove = (id, result) => {
+  sql.query("DELETE FROM users WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -103,7 +99,7 @@ Product.remove = (id, result) => {
   });
 };
 
-Product.removeAll = result => {
+Machine.removeAll = result => {
   sql.query("DELETE FROM product", (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -118,5 +114,5 @@ Product.removeAll = result => {
 
 //add by mee
 
-module.exports = Product;
+module.exports = Machine;
 //module.exports = Meet;

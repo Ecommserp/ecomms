@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+const crmGlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -9,4 +9,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export default GlobalStyle;
+export default crmGlobalStyle;

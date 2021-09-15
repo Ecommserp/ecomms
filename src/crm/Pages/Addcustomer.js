@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import logo from "./assets/cyan.png";
-import './Pages.css';
+import './CRMPages.css';
 import crm from "./assets/crm.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -38,79 +38,72 @@ function Addcustomer() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nic: nic, birthdate: birthdate, name: name, email: email,phone: phone, purchased: purchased, inquiry: inquiry, status: status})
     };
-    fetch('http://localhost:3220/crm/', requestOptions)
+    fetch('http://localhost:3220/crm/crm', requestOptions)
         .then(response => response.json());
         alert("Item added")
   }
 
   return (
-    <div className = 'screen'>
+    <div className = 'screen7'>
     <motion.div className = "addcustomer" initial='out'
     animate='in'
     exit='out'
     variants={animationOne}
     transition={transition}>
-        <i><h1 style={{
-                position: 'absolute',
-                right: 15,
-                top: 10,}}>Customer<br></br>Relationship<br></br>Management</h1></i>
-                <img
-                style={{
-                  position: 'absolute',
-                  left: 200,
-                  top: -20,
-                width: 160,
-              height: 160}}
-                src = {logo}/>
-                <img
-                style={{
-                  position: 'absolute',
-                right: 250,
-                top: 12,
-              width: 120,
-            height: 100}}
-                  src={crm} />
+
+
+
+                  <div className='Farea'>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Item</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Inquiry</h3></Card.Header>
                 <Card.Body>
                 <form onSubmit={handleSubmit}>
-                        <label>
-                        NIC: &nbsp;&nbsp;&nbsp;
-                        <input type="text" name="nic" value={nic} onChange={(e) => setnic(e.target.value)}/>
+                        <label className='label1'>
+                        Customer NIC: &nbsp;&nbsp;&nbsp;
+                        <input className='label2' type="text" name="nic" value={nic} onChange={(e) => setnic(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label>
-                        DOB  : &nbsp;&nbsp;
-                        <input type="date" name="birthdate " value={birthdate} onChange={(e) => setbirthdate(e.target.value)}/>
+
+                        <label className='label1'>
+                        Customer DOB  :
+                        <input className='label2' type="date" name="birthdate " value={birthdate} onChange={(e) => setbirthdate(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label>
+                        <label className='label1'>
                         Customer Name : &nbsp;&nbsp;&nbsp;
-                        <input type="text" name="name " value={name} onChange={(e) => setname(e.target.value)}/>
+                        <input className='label2' type="text" name="name " value={name} onChange={(e) => setname(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label>
-                        Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="email " value={email} onChange={(e) => setemail(e.target.value)}/>
+                        <label className='label1'>
+                        Customer Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input className='label2' type="text" name="email " value={email} onChange={(e) => setemail(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label>
-                         Phone : &nbsp;&nbsp;&nbsp;
-                        <input type="text" name="phone " value={phone} onChange={(e) => setphone(e.target.value)}/>
+                        <label className='label1'>
+                        Phone Number : &nbsp;&nbsp;&nbsp;
+                        <input className='label2' type="text" name="phone " value={phone} onChange={(e) => setphone(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label>
+                        <label className='label1'>
                         Purchased Item : &nbsp;&nbsp;&nbsp;
-                        <input type="text" name="purchased" value={purchased  } onChange={(e) => setpurchased(e.target.value)}/>
+                        <input className='label2' type="text" name="purchased" value={purchased} onChange={(e) => setpurchased(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label>
+                        <label className='label1'>
                         Inquiry  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="inquiry" value={inquiry } onChange={(e) => setinquiry(e.target.value)}/>
+                        <input className='label2' type="text" name="inquiry" value={inquiry} onChange={(e) => setinquiry(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label>
-                        Inquiry Status  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="status " value={status} onChange={(e) => setstatus(e.target.value)}/>
-                        </label><br></br><br></br>
-                        <input className="button" type="button" value="Submit" onClick={insert}/>
+                        <label className='label1'>
+                        Inquiry Status  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <select className='label2'type="text" name="status " value={status} onChange={(e) => setstatus(e.target.value)}>
+                      <option value="Null"></option>
+                      <option value="Pending"> Pending </option>
+                      <option value="Assigned">Assigned</option>
+                      <option value="Resolved">Resolved</option>
+
+                        </select>
+                        <br></br><br></br>
+                        <input className="button1" type="button" value="Submit" onClick={insert}/>
                         </form>
                         </Card.Body></Card>
                         </center>
+                        </div>
     </motion.div></div>
+
 
   );
 }
