@@ -3,11 +3,7 @@ import './App.css';
 import Sidebar from './components/Sidebar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-<<<<<<< Updated upstream
-import GlobalStyle from './globalStyle';
-=======
 import crmGlobalStyle from './crmGlobalStyle';
->>>>>>> Stashed changes
 import styled from 'styled-components';
 import Customeranalytics from './Pages/Customeranalytics';
 import CustomerHome from './Pages/CustomerHome';

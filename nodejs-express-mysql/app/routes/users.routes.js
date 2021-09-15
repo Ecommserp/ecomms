@@ -96,24 +96,6 @@ module.exports = app => {
   app.delete("/manu_prod", manu_prod.deleteAll);
 
 
-  // Create a new Customer inquiry
-  app.post("/crm", crm.create);
-
-  // Retrieve all Customers inquiry
-  app.get("/crm", crm.findAll);
-
-  // Retrieve a single Customer with customerId
-  app.get("/crm/:customerId", crm.findOne);
-
-  // Update a Customer with customerId
-  app.put("/crm/:customerId", crm.update);
-
-  // Delete a Customer with customerId
-  app.delete("/crm/:customerId", crm.delete);
-
-  // Delete a new Customer inquiry
-  app.delete("/crm", crm.deleteAll);
-
 
      // Retrieve all purchases
      app.get("/purchases", pm.findAll);
@@ -128,17 +110,7 @@ module.exports = app => {
      app.post("/suppliers", sp.create);
 
 
-<<<<<<< Updated upstream
-     // Delete a supplier with supplierId
-     app.delete("/suppliers/:supplierId", sp.delete);
 
-     // update a supplier with supplierId
-     app.put("/suppliers/:supplierId", sp.update);
-
-
-
-
-=======
    // Create a new Customer inquiry
    app.post("/crm/crm", crmI.create);
 
@@ -146,16 +118,15 @@ module.exports = app => {
    app.get("/crm/crm", crmI.findAll);
 
    // Retrieve a single Customer with customerId
-  //  app.get("/crm/:customerId", crmI.findOne);
+   app.get("/crm/crm/:Customer_NIC", crmI.findOne);
 
    // Update a Customer with customerId
-   app.put("/crm/:customerId", crmI.update);
+   app.put("/crm/crm/:Customer_NIC", crmI.update);
 
    // Delete a Customer with customerId
    app.delete("/crmI/:Customer_NIC", crmI.delete);
 
    // Delete a new Customer inquiry
    app.delete("/crm", crmI.deleteAll);
->>>>>>> Stashed changes
 
 };

@@ -12,23 +12,10 @@ function Deletecustomer() {
 
   const [nic, setnic] = useState("");
 
-<<<<<<< Updated upstream
-  function validateForm() {
-    return nic.length > 0;
-  }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-
-
-  }
-
-  function deleted() {
-=======
   async function delete_citem(e) {
     /* Prevent button click's default behavior */
     e.preventDefault();
->>>>>>> Stashed changes
 
     const requestOptions = {
     method: 'DELETE',
@@ -49,30 +36,8 @@ function Deletecustomer() {
     exit='out'
     variants={animationOne}
     transition={transition}>
-<<<<<<< Updated upstream
-        <i><h1 style={{
-                position: 'absolute',
-                right: 15,
-                top: 10,}}>Customer<br></br>Relationship<br></br>Management</h1></i>
-                <img
-                style={{
-                  position: 'absolute',
-                  left: 200,
-                  top: -20,
-                width: 160,
-              height: 160}}
-                src = {logo}/>
-                <img
-                style={{
-                  position: 'absolute',
-                right: 250,
-                top: 12,
-              width: 120,
-            height: 100}}
-                  src={crm} />
-=======
-       
->>>>>>> Stashed changes
+
+
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Delete customer</h3></Card.Header>
                 <Card.Body>

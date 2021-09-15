@@ -10,15 +10,11 @@ const Product = function(prod) {
 };
 
 
-<<<<<<< Updated upstream
-Product.create = (newMProduct, result) => {
-=======
 
 
 
 
 Product.create = (newCustomer, result) => {
->>>>>>> Stashed changes
   //console.log(newCustomer)
   sql.query("INSERT INTO product SET ?", newMProduct, (err, res) => {
     if (err) {

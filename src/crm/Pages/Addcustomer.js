@@ -50,56 +50,51 @@ function Addcustomer() {
     exit='out'
     variants={animationOne}
     transition={transition}>
-       
-               
-                
+
+
+
                   <div className='Farea'>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Inquiry</h3></Card.Header>
                 <Card.Body>
                 <form onSubmit={handleSubmit}>
-                        <label className='label1'> 
+                        <label className='label1'>
                         Customer NIC: &nbsp;&nbsp;&nbsp;
                         <input className='label2' type="text" name="nic" value={nic} onChange={(e) => setnic(e.target.value)}/>
                         </label><br></br><br></br>
-<<<<<<< Updated upstream
-                        <label>
-                        DOB  : &nbsp;&nbsp;
-                        <input type="date" name="birthdate " value={birthdate} onChange={(e) => setbirthdate(e.target.value)}/>
-=======
-                        <label className='label1'> 
-                        Customer DOB  : 
+
+                        <label className='label1'>
+                        Customer DOB  :
                         <input className='label2' type="date" name="birthdate " value={birthdate} onChange={(e) => setbirthdate(e.target.value)}/>
->>>>>>> Stashed changes
                         </label><br></br><br></br>
-                        <label className='label1'> 
+                        <label className='label1'>
                         Customer Name : &nbsp;&nbsp;&nbsp;
                         <input className='label2' type="text" name="name " value={name} onChange={(e) => setname(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label className='label1'> 
+                        <label className='label1'>
                         Customer Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input className='label2' type="text" name="email " value={email} onChange={(e) => setemail(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label className='label1'> 
+                        <label className='label1'>
                         Phone Number : &nbsp;&nbsp;&nbsp;
                         <input className='label2' type="text" name="phone " value={phone} onChange={(e) => setphone(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label className='label1'> 
+                        <label className='label1'>
                         Purchased Item : &nbsp;&nbsp;&nbsp;
                         <input className='label2' type="text" name="purchased" value={purchased} onChange={(e) => setpurchased(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label className='label1'> 
+                        <label className='label1'>
                         Inquiry  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input className='label2' type="text" name="inquiry" value={inquiry} onChange={(e) => setinquiry(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label className='label1'> 
+                        <label className='label1'>
                         Inquiry Status  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         <select className='label2'type="text" name="status " value={status} onChange={(e) => setstatus(e.target.value)}>
                       <option value="Null"></option>
                       <option value="Pending"> Pending </option>
                       <option value="Assigned">Assigned</option>
                       <option value="Resolved">Resolved</option>
-                      
+
                         </select>
                         <br></br><br></br>
                         <input className="button1" type="button" value="Submit" onClick={insert}/>
@@ -108,7 +103,7 @@ function Addcustomer() {
                         </center>
                         </div>
     </motion.div></div>
-    
+
 
   );
 }

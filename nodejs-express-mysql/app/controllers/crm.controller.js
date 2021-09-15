@@ -14,14 +14,14 @@ exports.create = (req, res) => {
   //Create a new customer inquiry
 
   const crmI = new CRM({
-   Customer_NIC: req.body.nic,
-   Birth_Date: req.body.birthdate,
-    Customer_name: req.body.name,
-    Email: req.body.email,
-    Phone: req.body.phone,
-    Purchased_item: req.body.purchased,
+    Customer_NIC: req.body.Customer_NIC,
+    Birth_Date: req.body.Birth_Date,
+    Customer_name: req.body.Customer_name,
+    Email: req.body.Email,
+    Phone: req.body.Phone,
+    Purchased_item: req.body.Purchased_item,
     inquiry: req.body.inquiry,
-    inquiry_status: req.body.status,
+    inquiry_status: req.body.inquiry_status,
   });
 
   // Save customer inquiry in the database
@@ -48,21 +48,21 @@ exports.findAll = (req, res) => {
 };
 
 // Find a single Customer with a customer nic
-// exports.findOne = (req, res) => {
-//   CRM.findById(req.params.Customer_NIC, (err, data) => {
-//     if (err) {
-//       if (err.kind === "not_found") {
-//         res.status(404).send({
-//           message: `Not found Customer with id ${req.params.Customer_NIC}.`
-//         });
-//       } else {
-//         res.status(500).send({
-//           message: "Error retrieving Customer with id " + req.params.Customer_NIC
-//         });
-//       }
-//     } else res.send(data);
-//   });
-// };
+exports.findOne = (req, res) => {
+  CRM.findById(req.params.Customer_NIC, (err, data) => {
+     if (err) {
+      if (err.kind === "not_found") {
+         res.status(404).send({
+           message: `Not found Customer with id ${req.params.Customer_NIC}.`
+         });
+       } else {
+         res.status(500).send({
+           message: "Error retrieving Customer with id " + req.params.Customer_NIC
+         });
+       }
+    } else res.send(data);
+   });
+ };
 
 // Find a single Customer with a customerId
 // exports.find_cat = (req, res) => {
@@ -91,11 +91,14 @@ exports.update = (req, res) => {
     });
   }
 
+
+
   console.log(req.body);
+  console.log(new CRM(req.body));
 
   CRM.updateById(
     req.params.Customer_NIC,
-    new User(req.body),
+    new CRM(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {

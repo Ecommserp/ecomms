@@ -29,7 +29,7 @@ Customers.create = (newCRM, result) => {
 };
 
 Customers.findById = (customerId, result) => {
-  sql.query(`SELECT * FROM users WHERE username = '${customerId}'`, (err, res) => {
+  sql.query(`SELECT * FROM customers WHERE Customer_NIC = '${customerId}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -80,9 +80,10 @@ Customers.getAll = result => {
 };
 
 Customers.updateById = (id, customer, result) => {
+  //console.log(customer)
   sql.query(
-    "UPDATE users SET email = ?, name = ?, active = ? WHERE id = ?",
-    [customer.email, customer.name, customer.active, id],
+    "UPDATE customers SET Customer_name = ?, Birth_Date = ?, Email = ?, Phone = ?, Purchased_item = ?, inquiry = ?, inquiry_status = ? WHERE Customer_NIC = ?",
+    [customer.Customer_name, customer.Birth_Date, customer.Email, customer.Phone, customer.Purchased_item, customer.inquiry, customer.inquiry_status, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
