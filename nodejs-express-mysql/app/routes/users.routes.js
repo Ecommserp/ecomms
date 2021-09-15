@@ -6,7 +6,7 @@ module.exports = app => {
   const macnin_prod = require("../controllers/macin_prod.controller");
   const pm = require("../controllers/P_M.controller.js");
   const sp = require("../controllers/sp.controller.js");
-  const crm = require("../controllers/crm.controller.js");
+  const crmI = require("../controllers/crm.controller.js");
 
 
   // Create a new Customer
@@ -128,6 +128,7 @@ module.exports = app => {
      app.post("/suppliers", sp.create);
 
 
+<<<<<<< Updated upstream
      // Delete a supplier with supplierId
      app.delete("/suppliers/:supplierId", sp.delete);
 
@@ -137,5 +138,24 @@ module.exports = app => {
 
 
 
+=======
+   // Create a new Customer inquiry
+   app.post("/crm/crm", crmI.create);
+
+   // Retrieve all Customers inquiry
+   app.get("/crm/crm", crmI.findAll);
+
+   // Retrieve a single Customer with customerId
+  //  app.get("/crm/:customerId", crmI.findOne);
+
+   // Update a Customer with customerId
+   app.put("/crm/:customerId", crmI.update);
+
+   // Delete a Customer with customerId
+   app.delete("/crmI/:Customer_NIC", crmI.delete);
+
+   // Delete a new Customer inquiry
+   app.delete("/crm", crmI.deleteAll);
+>>>>>>> Stashed changes
 
 };

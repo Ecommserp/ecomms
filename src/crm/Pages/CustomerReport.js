@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
-import './Pages.css';
+import './CRMPages.css';
 import './Report.css';
 import crm from "./assets/crm.png";
 import view from './assets/view.jpg';
@@ -13,7 +13,10 @@ import { animationOne, transition } from '../animations';
 
 
 function CustomerReports() {
+
+
   return (
+<<<<<<< Updated upstream
     <div className = 'screen'>
     <motion.div className = "CustomerReports" initial='out'
     animate='in'
@@ -57,3 +60,23 @@ function CustomerReports() {
 }
 
 export default CustomerReports;
+=======
+
+    <table style={{width:10000  ,height:500 , marginTop:100}}>
+    <tr><th>
+    <button className='button1' style={{marginTop: 50}}>Generate Weekly Report</button>
+    </th></tr>
+    <tr><th>
+    <button className='button1' style={{marginTop: 50}}>Generate Monthly Report</button>
+    </th></tr>
+    <tr><th>
+    <button className='button1' style={{marginTop: 50}}>Generate Annual Report</button>
+    </th></tr>
+    </table>
+
+  );
+}
+
+
+export default CustomerReports;
+>>>>>>> Stashed changes

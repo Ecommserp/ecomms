@@ -8,6 +8,7 @@ import Crm from './crm/App';
 import Manu from './manu/App';
 import Insert from './components/addUser';
 import Account from './Account/Home';
+import crm from './crm/App';
 import Managingdb from './Account/Pages/managingdb';
 import Financial from './Account/Pages/financial';
 import Purchasing_management from './purchasing_management/App';
@@ -29,6 +30,7 @@ ReactDOM.render(
               <Route path='/Home' component={App} />
               <Route path='/Login' component={Login} />
               <Route path='/Inventory' component={Inventory} />
+              <Route path='/crm' component={crm} />
               <Route path='/Manu' component={Manu} />
               <Route path='/CRM' component={Crm} />
               <Route path='/Insert' component={Insert} />

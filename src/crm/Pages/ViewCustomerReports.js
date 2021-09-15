@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
-import './Pages.css';
+import './CRMPages.css';
 import crm from "./assets/crm.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';

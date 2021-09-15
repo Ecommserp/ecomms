@@ -13,19 +13,19 @@ exports.create = (req, res) => {
 
   //Create a new customer inquiry
 
-  const crm = new CRM({
+  const crmI = new CRM({
    Customer_NIC: req.body.nic,
    Birth_Date: req.body.birthdate,
     Customer_name: req.body.name,
     Email: req.body.email,
     Phone: req.body.phone,
-    Purchased_items: req.body.type,
+    Purchased_item: req.body.purchased,
     inquiry: req.body.inquiry,
     inquiry_status: req.body.status,
   });
 
   // Save customer inquiry in the database
-  CRM.create(crm, (err, data) => {
+  CRM.create(crmI, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -48,38 +48,38 @@ exports.findAll = (req, res) => {
 };
 
 // Find a single Customer with a customer nic
-exports.findOne = (req, res) => {
-  CRM.findById(req.params.Customer_NIC, (err, data) => {
-    if (err) {
-      if (err.kind === "not_found") {
-        res.status(404).send({
-          message: `Not found Customer with id ${req.params.Customer_NIC}.`
-        });
-      } else {
-        res.status(500).send({
-          message: "Error retrieving Customer with id " + req.params.Customer_NIC
-        });
-      }
-    } else res.send(data);
-  });
-};
+// exports.findOne = (req, res) => {
+//   CRM.findById(req.params.Customer_NIC, (err, data) => {
+//     if (err) {
+//       if (err.kind === "not_found") {
+//         res.status(404).send({
+//           message: `Not found Customer with id ${req.params.Customer_NIC}.`
+//         });
+//       } else {
+//         res.status(500).send({
+//           message: "Error retrieving Customer with id " + req.params.Customer_NIC
+//         });
+//       }
+//     } else res.send(data);
+//   });
+// };
 
 // Find a single Customer with a customerId
-exports.find_cat = (req, res) => {
-  CRM.findByCat(req.params.crm_cat, (err, data) => {
-    if (err) {
-      if (err.kind === "not_found") {
-        res.status(404).send({
-          message: `Not found Customer with id ${req.params.customerId}.`
-        });
-      } else {
-        res.status(500).send({
-          message: "Error retrieving Customer with id " + req.params.customerId
-        });
-      }
-    } else res.send(data);
-  });
-};
+// exports.find_cat = (req, res) => {
+//   CRM.findByCat(req.params.crm_cat, (err, data) => {
+//     if (err) {
+//       if (err.kind === "not_found") {
+//         res.status(404).send({
+//           message: `Not found Customer with id ${req.params.customerId}.`
+//         });
+//       } else {
+//         res.status(500).send({
+//           message: "Error retrieving Customer with id " + req.params.customerId
+//         });
+//       }
+//     } else res.send(data);
+//   });
+// };
 
 
 // Update a Customer identified by the customerId in the request
@@ -94,17 +94,17 @@ exports.update = (req, res) => {
   console.log(req.body);
 
   CRM.updateById(
-    req.params.customerId,
+    req.params.Customer_NIC,
     new User(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Customer with id ${req.params.customerId}.`
+            message: `Not found Customer with id ${req.params.Customer_NIC}.`
           });
         } else {
           res.status(500).send({
-            message: "Error updating Customer with id " + req.params.customerId
+            message: "Error updating Customer with id " + req.params.Customer_NIC
           });
         }
       } else res.send(data);
@@ -114,15 +114,15 @@ exports.update = (req, res) => {
 
 // Delete an Item with the specified Item_ID in the request
 exports.delete = (req, res) => {
-  Inventory.remove(req.params.itemId, (err, data) => {
+  CRM.remove(req.params.Customer_NIC, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Item with id ${req.params.itemId}.`
+          message: `Not found Item with id ${req.params.Customer_NIC}.`
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Item with id " + req.params.itemId
+          message: "Could not delete Item with id " + req.params.Customer_NIC
         });
       }
     } else res.send({ message: `Item was deleted successfully!` });

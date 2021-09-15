@@ -9,7 +9,8 @@ import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
 
-function GenerateCustomerReport() {
+
+function Customerlist() {
   return (
     <div className = 'screen'>
     <motion.div className = "function GenerateCustomerReport() {" initial='out'
@@ -53,4 +54,4 @@ function GenerateCustomerReport() {
 );
 }
 
-export default GenerateCustomerReport;
+export default Customerlist;
