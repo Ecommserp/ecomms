@@ -7,6 +7,8 @@ module.exports = app => {
   const pm = require("../controllers/P_M.controller.js");
   const sp = require("../controllers/sp.controller.js");
   const crmI = require("../controllers/crm.controller.js");
+  const managingdb = require("../controllers/managingdb.controller.js");
+
 
 
   // Create a new Customer
@@ -130,5 +132,15 @@ module.exports = app => {
 
    // Delete a new Customer inquiry
    app.delete("/crm", crmI.deleteAll);
+
+
+   // Create a new invoice
+   app.post("/acc/managingdb", managingdb.create);
+
+   // Create a new invoice
+   app.put("/acc/managingdb/:Invoice_ID", managingdb.update);
+
+   // Create a new invoice
+   app.get("/acc/managingdb/:Invoice_ID", managingdb.findOne);
 
 };

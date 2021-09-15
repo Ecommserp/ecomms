@@ -13,15 +13,15 @@ exports.create = (req, res) => {
 
   // Create a Customer
   const invoice = new Managingdb({
-    Invoice_ID: req.body.username,
-    Supplier_ID: req.body.username,
-    Total: req.body.username,
-    Discount: req.body.username,
-    date: req.body.password
+    Invoice_ID: req.body.Invoice_ID,
+    Supplier_ID: req.body.Supplier_ID,
+    Total: req.body.Total,
+    Discount: req.body.Discount,
+    date: req.body.date
   });
 
   // Save Customer in the database
-  User.create(user, (err, data) => {
+  Managingdb.create(invoice, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -45,7 +45,7 @@ exports.findAll = (req, res) => {
 
 // Find a single Customer with a customerId
 exports.findOne = (req, res) => {
-  User.findById(req.params.customerId, (err, data) => {
+  Managingdb.findById(req.params.Invoice_ID, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -71,18 +71,18 @@ exports.update = (req, res) => {
 
   console.log(req.body);
 
-  User.updateById(
-    req.params.customerId,
-    new User(req.body),
+  Managingdb.updateById(
+    req.params.Invoice_ID,
+    new Managingdb(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Customer with id ${req.params.customerId}.`
+            message: `Not found Customer with id ${req.params.Invoice_ID}.`
           });
         } else {
           res.status(500).send({
-            message: "Error updating Customer with id " + req.params.customerId
+            message: "Error updating Customer with id " + req.params.Invoice_ID
           });
         }
       } else res.send(data);
