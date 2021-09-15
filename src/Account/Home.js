@@ -15,6 +15,8 @@ function Home() {
 
   function Md_click(){
     history.push("/managingdb");
+
+
   }
 
   return (
@@ -34,7 +36,7 @@ function Home() {
      <div className="button_group">
        <button className="button1"onClick={Md_click}>Managing Database</button>    <div className="space"></div>
 
-       <button className="button1">Financial Report</button>
+       <button className="button1"onClick={Md_click}>Financial Report</button>
        </div><br /><br /><br />
        <div className="button_group">
 
