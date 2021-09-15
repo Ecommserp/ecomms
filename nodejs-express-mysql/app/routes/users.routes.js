@@ -6,6 +6,8 @@ module.exports = app => {
   const pm = require("../controllers/P_M.controller.js");
   const sp = require("../controllers/sp.controller.js");
   const crm = require("../controllers/crm.controller.js");
+  const managingdb = require("../controllers/managingdb.controller.js");
+
 
 
   // Create a new Customer
@@ -46,7 +48,7 @@ module.exports = app => {
 
   // Update a product id with productid
   app.put("/inventory/type/:Product_id", inv.updatetype);
-  
+
   // Update a product id with productid
   app.put("/inventory/quantity/:Product_id", inv.updatequantity);
 
@@ -106,6 +108,8 @@ module.exports = app => {
      // Create a new supplier
      app.post("/suppliers", sp.create);
 
+     // Create a new Invoice
+     app.post("/account/invoice", managingdb.create);
 
 
 

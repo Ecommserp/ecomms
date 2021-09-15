@@ -23,9 +23,12 @@ function Home() {
 
 
     <h1 className="h1">Account Management</h1>
+    <br /><br />
 
      <h1 className="h2">Dashboard</h1>
  <br/>
+ <br /><br /><br /><br /><br /><br />
+
 
 
      <div className="button_group">
