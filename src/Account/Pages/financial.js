@@ -13,11 +13,6 @@ import ReactDOM from 'react-dom'
 
 
 
-
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 let data_revy1 = [];
 let data_revy2 = [];
 let data_revy3 = [];
@@ -64,10 +59,7 @@ return response.json();
 
 async function getData_rev() {
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     const apiUrl = 'http://localhost:3220/BI/rev';
     const data = await getData(apiUrl);
 
@@ -132,7 +124,6 @@ function financial() {
 
   return (
     <div className="App_bi">
-<<<<<<< Updated upstream
     <i><h1 style={{
             position: 'absolute',
             right: 50,
@@ -144,8 +135,7 @@ function financial() {
               top: 50,
             width: 160
           }} />
-=======
->>>>>>> Stashed changes
+
     <div className="revenue" id="revenue">
     <label className="tile_text">Revenue Growth</label><br /><br />
     <div id="revenue_graph"> </div>

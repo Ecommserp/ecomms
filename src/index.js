@@ -10,11 +10,8 @@ import Insert from './components/addUser';
 import Account from './Account/Home';
 import crm from './crm/App';
 import Managingdb from './Account/Pages/managingdb';
-<<<<<<< Updated upstream
 import Cash from './Account/Pages/cash';
 import Income from './Account/Pages/income';
-=======
->>>>>>> Stashed changes
 import Financial from './Account/Pages/financial';
 import Purchasing_management from './purchasing_management/App';
 import BI from './BI/Dash';
@@ -42,12 +39,9 @@ ReactDOM.render(
               <Route path='/Account' component={Account} />
               <Route path='/Financial' component={Financial} />
               <Route path='/managingdb' component={Managingdb} />
-<<<<<<< Updated upstream
               <Route path='/cash' component={Cash} />
               <Route path='/income' component={Income} />
-=======
               <Route path='/financial' component={Financial} />
->>>>>>> Stashed changes
               <Route path='/purchasing_management' component={Purchasing_management} />
                 <Route path='/BI' component={BI} />
     </Switch>
