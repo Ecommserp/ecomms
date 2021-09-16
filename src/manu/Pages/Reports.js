@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
-import './Pages.css';
+import './MPages.css';
 import './manfReports.css';
 import manu from "./assets/manu.png";
 import view from './assets/rportM.jpg';
@@ -14,7 +14,7 @@ import { animationOne, transition } from '../animations';
 
 function Reports() {
   return (
-    <div className = 'screen'>
+   
     <motion.div className = "reports" initial='out'
     animate='in'
     exit='out'
@@ -50,11 +50,15 @@ function Reports() {
             height: 160
           }}
           src={logo} /></div>
-
+                  <div className='cardcontain'>
+                     <div className='subti1'> <h2> Reports </h2></div>
+                    <div className='cardcontain1'>
                     <div className="tile_home" onClick={event =>  window.location.href='/manu/viewreports'}>
                       <p className="tile_text">View<br />Reports</p>
                       <img src={view} className="view_img" alt="View Reports" />
                       </div>
+                       </div>
+                        <div className='cardcontain2'>
                       <div className="space"></div>
                       <div className="space"></div>
                       <div className="space"></div>
@@ -62,7 +66,10 @@ function Reports() {
                         <p className="tile_text">Generate<br />Reports</p>
                         <img src={generate} className="generate_img" alt="Generate Reports" />
                         </div>
-                  </motion.div></div>
+                        </div>
+                        </div>
+                          
+                  </motion.div>
 
 );
 }

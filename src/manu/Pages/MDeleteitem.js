@@ -8,11 +8,11 @@ import Card from 'react-bootstrap/Card';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
-function Deleteitem() {
+function MDeleteitem() {
 
   const [code, setcode] = useState("");
 
-  async function delete_item(e) {
+  async function delete_Macitem(e) {
       /* Prevent button click's default behavior */
       e.preventDefault();
 
@@ -21,7 +21,7 @@ function Deleteitem() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ code: code})
   };
-  fetch('http://localhost:3220/manu_prod/'+ code, requestOptions)
+  fetch('http://localhost:3220/macnin_prod/'+ code, requestOptions)
       .then(response => response.json());
       console.log(requestOptions)
       alert("Item Deleted")
@@ -68,7 +68,7 @@ function Deleteitem() {
           }}
           src={logo} /></div>
                 <div className='cardCon'>
-                <div className='subti'> <h2>Products Mangement </h2></div>
+                <div className='subti'> <h2>Machines Mangement </h2></div>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Delete Item</h3></Card.Header>
                 <Card.Body>
@@ -77,7 +77,7 @@ function Deleteitem() {
                         Item Code : &nbsp;&nbsp;&nbsp;
                         <input type="text" name="code" value={code} onChange={(e) => setcode(e.target.value)}/>
                         </label><br></br><br></br>
-                        <input className="button2" type="button" value="Delete" onClick={delete_item}/>
+                        <input className="button2" type="button" value="Delete" onClick={delete_Macitem}/>
                         </form>
                         </Card.Body></Card>
                         </center>
@@ -87,4 +87,4 @@ function Deleteitem() {
   );
 }
 
-export default Deleteitem;
+export default MDeleteitem;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from "./assets/cyan.png";
-import './Pages.css';
+import './MPages.css';
 import manu from "./assets/manu.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -39,7 +39,7 @@ function Additem() {
   }
 
   return (
-    <div className='screen'>
+    
       <motion.div className="additem" initial='out'
         animate='in'
         exit='out'
@@ -102,12 +102,12 @@ function Additem() {
               <label className='lab'> Machine Number : </label>
                 <input className='lab4' type="number" name="m_num" value={m_num} onChange={(e) => setm_num(e.target.value)} />
               <br></br><br></br>
-              <input className="button1" type="button" value="Submit" onClick={insert} />
+              <input className="button2" type="button" value="Submit" onClick={insert} />
             </form>
           </Card.Body></Card>
         </center>
         </div>
-      </motion.div></div>
+      </motion.div>
 
   );
 }

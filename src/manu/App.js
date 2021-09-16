@@ -9,11 +9,14 @@ import Home from './Pages/Home';
 import MHome from './Pages/MHome';
 import Reports from './Pages/Reports';
 import Update from './Pages/Update';
+import MUpdate from './Pages/MUpdate';
 import Additem from './Pages/Additem';
 import MAdditem from './Pages/MAdditem';
 import ALLMachins from './Pages/ALLMachins';
-import MachinSearch from './Pages/MachinSearch';
+import ProductSearch from './Pages/ProductSearch';
+import MachineSearch from './Pages/MachineSearch';
 import Deleteitem from './Pages/Deleteitem';
+import MDeleteitem from './Pages/MDeleteitem';
 import UpdateForm from './Pages/UpdateForm';
 import GenerateReports from './Pages/GenerateReports';
 import ViewReports from './Pages/ViewReports';
@@ -32,11 +35,14 @@ function App() {
           <Route path='/manu/manf' exact component={MHome} />
           <Route path='/manu/reports' component={Reports} />
           <Route path='/manu/update' component={Update} />
+          <Route path='/manu/MUpdate' component={MUpdate} />
           <Route path='/manu/Additem' component={Additem} />
-           <Route path='/manu/MAdditem' component={MAdditem} />
-           <Route path='/manu/ALLMachins' component={ALLMachins} />
-           <Route path='/manu/machinSearch' component={MachinSearch} />
+          <Route path='/manu/MAdditem' component={MAdditem} />
+          <Route path='/manu/ALLMachins' component={ALLMachins} />
+          <Route path='/manu/ProductSearch' component={ProductSearch} />
+          <Route path='/manu/MachineSearch' component={MachineSearch} />
           <Route path= '/manu/Deleteitem' component={Deleteitem} />
+          <Route path= '/manu/MDeleteitem' component={MDeleteitem} />
           <Route path= '/manu/updateform' component={UpdateForm} />
           <Route path= '/manu/generatereports' component={GenerateReports} />
           <Route path= '/manu/viewreports' component={ViewReports} />

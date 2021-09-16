@@ -14,7 +14,7 @@ const Product = function(prod) {
 
 
 
-Product.create = (newCustomer, result) => {
+Product.create = (newMProduct, result) => {
   //console.log(newCustomer)
   sql.query("INSERT INTO product SET ?", newMProduct, (err, res) => {
     if (err) {

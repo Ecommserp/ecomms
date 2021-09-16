@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
 
-function Update() {
+function MUpdate() {
 
   async function getData(url) {
   const response = await fetch(url);
@@ -18,9 +18,9 @@ function Update() {
   }
   const [ID, setID] = React.useState("");
   const [name, setName] = React.useState("");
-  const [details, setDetails] = React.useState("");
-  const [stat, setStat] = React.useState("");
-  const [machine, setMachine] = React.useState("");
+  //const [details, setDetails] = React.useState("");
+  const [Mcstat, setStat] = React.useState("");
+  //const [machine, setMachine] = React.useState("");
 
   async function keyPress(e){
         if(e.keyCode == 13){
@@ -36,9 +36,9 @@ function Update() {
 
            /* Call the state's "setter" method to update "userInput" state */
            setName(data.name)
-           setDetails(data.Details)
-           setStat(data.Production_stat)
-           setMachine(data.Machine_no)
+           //setDetails(data.Details)
+           setStat(data.Machine_stat)
+           //setMachine(data.Machine_no)
         }
      }
 
@@ -49,9 +49,9 @@ function Update() {
          const requestOptions = {
          method: 'PUT',
          headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({ name: name, Details: details, Production_stat: stat, Machine_no: machine})
+         body: JSON.stringify({ name: name, Machine_stat: Mcstat})
      };
-     fetch('http://localhost:3220/manu_prod/'+ ID, requestOptions)
+     fetch('http://localhost:3220/macnin_prod/'+ ID, requestOptions)
          .then(response => response.json());
          console.log(requestOptions)
          alert("Item Updated")
@@ -98,33 +98,29 @@ function Update() {
             }}
             src={logo} /></div>
             <div className='cardCon'>
-                  <div className='subti'> <h2>Products Mangement </h2></div>
+                  <div className='subti'> <h2>Machine Mangement </h2></div>
         <center><Card border='primary' style={{ width: '40rem' }}>
           <Card.Header style={{ backgroundColor: '#1f78b4' }}><h3 style={{ color: 'white' }}>Search Item</h3></Card.Header>
           <Card.Body>
 
-               <label className='lab'>  Product ID : </label>
+               <label className='lab'>  Machine ID : </label>
                 <input className='lab1'  type="text" name="codep" value={ID} onKeyDown={keyPress} onChange={(e) => setID(e.target.value)}/><br></br>
                  <br></br>
-              <label className='lab'>   Product Name  : </label>
+              <label className='lab'>   Machine Name  : </label>
                 <input className='lab2' type="text" name="codep" value={name} onChange={(e) => setName(e.target.value)}/><br></br>
                <br></br>
-             <label className='lab'> Product Details :</label>
-                <input className='lab3' type="text" name="codep" value={details} onChange={(e) => setDetails(e.target.value)}/><br></br>
-                 <br></br>     
-              <label className='lab'> Production Status : </label>
-                <select  className='lab3' type="text" name="codep" value={stat} onChange={(e) => setStat(e.target.value)}>
+              
+              <label className='lab'> Machine Status : </label>
+                <select  className='lab3' type="text" name="codep" value={Mcstat} onChange={(e) => setStat(e.target.value)}>
                   <option value="Null"></option>
-                      <option value="Start"> Start </option>
-                      <option value="Paused">Pause</option>
-                      <option value="completed">Complete</option>
+                      <option value="Start"> On working </option>
+                      <option value="Paused">Paused</option>
+                      <option value="Repaired">Repaired</option>
                       <option value="Malfuntiond"> Malfuntioned </option>
                 </select>
                   <br></br>
                <br></br>
-              <label className='lab'> Machine Number : </label>
-                  <input className='lab4' type="text" name="codep" value={machine} onChange={(e) => setMachine(e.target.value)}/><br></br>
-              <br></br>
+              
               <input className="button2" type="button" value="Update" onClick={update}/>
           </Card.Body></Card>
         </center>
@@ -134,4 +130,4 @@ function Update() {
   );
 }
 
-export default Update;
+export default MUpdate;

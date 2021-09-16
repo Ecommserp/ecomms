@@ -8,6 +8,7 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
+import BuildIcon from '@material-ui/icons/Build';
 
 
 const Sidebar = () => {
@@ -31,12 +32,24 @@ const Sidebar = () => {
               <CDBSidebarMenuItem icon="home"> Product Management</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/manu/manf" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="FaArchway"> Machine Management</CDBSidebarMenuItem>
+            <NavLink exact to="/manu/ProductSearch" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="columns">Check All Products</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/manu/update" activeClassName="activeClicked" >
+           <NavLink exact to="/manu/update" activeClassName="activeClicked" >
               <CDBSidebarMenuItem icon="edit">Update Products</CDBSidebarMenuItem>
+            </NavLink>
+
+            <NavLink exact to="/manu/manf" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="home"> Machine Management</CDBSidebarMenuItem>
+            </NavLink>
+
+             <NavLink exact to="/manu/MachineSearch" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="columns">Check All Machines</CDBSidebarMenuItem>
+            </NavLink>
+
+             <NavLink exact to="/manu/Mupdate" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="edit">Update Machines</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/manu/reports" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="chart-line">Reports</CDBSidebarMenuItem>

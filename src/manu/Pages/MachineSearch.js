@@ -11,6 +11,10 @@ import TableRow from '@material-ui/core/TableRow';
 import  { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import manu from "./assets/manu.png"
+import logo from "./assets/cyan.png";
+import { motion } from 'framer-motion';
+import { animationOne, transition } from '../animations';
 import './pmcss1.css';
 
 
@@ -106,12 +110,51 @@ function MachinSearch() {
 
  return (
 
+   <motion.div className='checkpp' initial='out'
+        animate='in'
+        exit='out'
+        variants={animationOne}
+        transition={transition}>
+        <div><i><h1 style={{
+          position: 'absolute',
+          right: 40,
+          top:-13,
+        }}><br></br>Production </h1></i> </div>
 
+        <div><i><h1 style={{
+          position: 'absolute',
+          right: 40,
+          top:70,
+        }}>Manufacturing Management</h1></i> </div>
+
+        <img
+          style={{
+            position: 'absolute',
+            right: 250,
+            top:-1,
+            width: 120,
+            height: 100
+          }}
+          src={manu} />
+
+           <div className='imagelogo' >
+                <img style={{
+                     position: 'absolute',
+                    left: 300,
+                    top: -20,
+                    width: 160,
+                    height: 160
+                  }}src={logo} /></div>
+  <div className='subti'> <h3>Machines Management </h3></div>
+
+   <div  className='area55'>
    <Paper className={classes.root}>
-   <div style={{ marginLeft: '25%', marginTop: '60px', marginEnd: '60px' }}>
-
+     
+  
+    <div style={{ marginLeft: '1%', marginTop: '5%', marginRight: '1%'}}>
+      <div className="texti1">
        <Autocomplete
-         style={{ width: 500 }}
+         
          freeSolo
          autoComplete
          autoHighlight
@@ -119,12 +162,13 @@ function MachinSearch() {
          renderInput={(params) => (
            <TextField {...params}
              onChange={getDataFromAPI}
-             variant="outlined"
-             label="Enter Product ID"
+            
+             label="Enter Machine ID"
            />
          )}
        />
-     </div>
+     </div> 
+   
      <TableContainer className={classes.container}>
        <Table stickyHeader aria-label="sticky table">
          <TableHead>
@@ -158,6 +202,7 @@ function MachinSearch() {
          </TableBody>
        </Table>
      </TableContainer>
+     
      <TablePagination
        rowsPerPageOptions={[10, 25, 50]}
        component="div"
@@ -167,8 +212,10 @@ function MachinSearch() {
        onPageChange={handleChangePage}
        onRowsPerPageChange={handleChangeRowsPerPage}
      />
+      </div>
    </Paper>
-
+      </div>    
+ </motion.div>
  );
 }
 

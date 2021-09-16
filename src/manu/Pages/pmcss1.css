@@ -1,15 +1,15 @@
 .App {
   text-align: center;
 }
-.Search_stocks{
+.Search_stocks {
   background-color: coral;
 }
-.screen2{
-min-width: 700px;
-width: 1000px;
+.screen2 {
+  min-width: 700px;
+  width: 1000px;
   margin: auto;
 }
-.tabe{
+.tabe {
   width: 50%;
   margin: inherit;
   height: 40%;
@@ -40,7 +40,7 @@ width: 1000px;
 }
 
 .close-icon {
-  content: 'x';
+  content: "x";
   cursor: pointer;
   position: fixed;
   right: calc(24% - 30px);
@@ -64,17 +64,13 @@ width: 1000px;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   display: flex;
-justify-content: center;
-align-itemss: center;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
-
-.h1{
+.h1 {
   vertical-align: text-bottom;
 }
-
 
 .App-header {
   background-color: #282c34;
@@ -89,27 +85,38 @@ align-itemss: center;
 
 .button22 {
   font-size: 15px;
-  color: #FFF;
+  color: #fff;
   background-color: #659fdf;
   width: 20%;
   height: 40px;
   border: 1px solid;
   border-color: #659fdf;
   border-radius: 30px;
-  transition: background-color .5s;
+  transition: background-color 0.5s;
   margin-left: auto;
 }
 
 .button22:hover {
-  background-color: #0079FF;
+  background-color: #0079ff;
   cursor: pointer;
 }
 
-
-
-
-
-
 .App-link {
   color: #61dafb;
+}
+
+.subti {
+  margin-top: 10%;
+  margin-left: 1%;
+}
+
+.checkpp {
+  width: 100%;
+  height: 50%;
+}
+.texti1 {
+  width: 50%;
+
+  height: 10px;
+  margin-left: 25%;
 }

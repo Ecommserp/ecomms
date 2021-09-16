@@ -34,7 +34,7 @@ exports.create = (req, res) => {
 
 // Retrieve all Customers from the database.
 exports.findAll = (req, res) => {
-  manu_prod_m.getAll((err, data) => {
+  macnin_prod_m.getAll((err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -47,15 +47,15 @@ exports.findAll = (req, res) => {
 
 // Find a single Customer with a customerId
 exports.findOne = (req, res) => {
-  manu_prod_m.findById(req.params.customerId, (err, data) => {
+  macnin_prod_m.findById(req.params.Machine_no, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Customer with id ${req.params.customerId}.`
+          message: `Not found Machine with id ${req.params.Machine_no}.`
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving Customer with id " + req.params.customerId
+          message: "Error retrieving Customer with id " + req.params.Machine_no
         });
       }
     } else res.send(data);
@@ -74,17 +74,17 @@ exports.update = (req, res) => {
   console.log(req.body);
 
   macnin_prod_m.updateById(
-    req.params.customerId,
-    new User(req.body),
+    req.params.Machine_no,
+    new macnin_prod_m(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Customer with id ${req.params.customerId}.`
+            message: `Not found Customer with id ${req.params.Machine_no}.`
           });
         } else {
           res.status(500).send({
-            message: "Error updating Customer with id " + req.params.customerId
+            message: "Error updating Customer with id " + req.params.Machine_no
           });
         }
       } else res.send(data);
@@ -94,15 +94,15 @@ exports.update = (req, res) => {
 
 // Delete a Product with the specified ProductId in the request
 exports.delete = (req, res) => {
-  macnin_prod_m.remove(req.params.Product_ID, (err, data) => {
+  macnin_prod_m.remove(req.params.Machine_no, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Customer with id ${req.params.Product_ID}.`
+          message: `Not found Customer with id ${req.params.Machine_no}.`
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Customer with id " + req.params.Product_ID
+          message: "Could not delete Customer with id " + req.params.Machine_no
         });
       }
     } else res.send({ message: `Manufatuting Product was deleted successfully!` });

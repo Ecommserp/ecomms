@@ -33,7 +33,7 @@ Machine.findById = (customerId, result) => {
     }
 
     if (res.length) {
-      console.log("found Product: ", res[0]);
+      console.log("found Machine: ", res[0]);
       result(null, res[0]);
       return;
     }
@@ -44,7 +44,7 @@ Machine.findById = (customerId, result) => {
 };
 
 Machine.getAll = result => {
-  sql.query("SELECT * FROM product", (err, res) => {
+  sql.query("SELECT * FROM machines", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -59,8 +59,8 @@ Machine.getAll = result => {
 
 Machine.updateById = (id, customer, result) => {
   sql.query(
-    "UPDATE product SET name = ?, Details = ?, Production_stat = ?,Machine_no =?  WHERE Product_ID = ?",
-    [customer.name, customer.Details, customer.Production_stat,customer.Machine_no, id],
+    "UPDATE machines SET name = ?, Machine_stat = ? WHERE Machine_no = ?",
+    [customer.name, customer.Machine_stat, customer.Machine_no, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -81,7 +81,7 @@ Machine.updateById = (id, customer, result) => {
 };
 
 Machine.remove = (id, result) => {
-  sql.query("DELETE FROM users WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM machines WHERE Machine_no = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -100,7 +100,7 @@ Machine.remove = (id, result) => {
 };
 
 Machine.removeAll = result => {
-  sql.query("DELETE FROM product", (err, res) => {
+  sql.query("DELETE FROM machines", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

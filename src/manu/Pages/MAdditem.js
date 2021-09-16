@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from "./assets/cyan.png";
-import './Pages.css';
+import './MPages.css';
 import manu from "./assets/manu.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -39,7 +39,7 @@ function MAdditem() {
   }
 
   return (
-    <div className='screen'>
+    
       <motion.div className="additem" initial='out'
         animate='in'
         exit='out'
@@ -91,18 +91,18 @@ function MAdditem() {
               <label className='lab'> Machine Status : </label>
                 <select className='lab3' type="text" name="stat" value={Mstat} onChange={(e) => setstat(e.target.value)}>
                   <option value="Null"></option>
-                      <option value="Start"> Start </option>
-                      <option value="Paused">Pause</option>
-                      <option value="completed">Complete</option>
+                      <option value="Start"> On working  </option>
+                      <option value="Paused">Paused</option>
+                      <option value="Repaired">Repaired </option>
                       <option value="Malfuntiond"> Malfuntioned </option>
                 </select>
               <br></br><br></br>
-              <input className="button1" type="button" value="Submit" onClick={insert} />
+              <input className="button2" type="button" value="Submit" onClick={insert} />
             </form>
           </Card.Body></Card>
         </center>
         </div>
-      </motion.div></div>
+      </motion.div>
 
   );
 }

@@ -5,7 +5,7 @@ import {Doughnut} from 'react-chartjs-2';
 import manu from "./assets/manu.png"
 import logo from "./assets/cyan.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Pages.css';
+import './MPages.css';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
@@ -36,7 +36,7 @@ function Home() {
     },
   };
   return (
-    <div className='screen'>
+    
 
       <motion.div className='home' initial='out'
         animate='in'
@@ -81,13 +81,16 @@ function Home() {
               <table>
                  <tr>
                    <th>
-                       <Bar style={{ width: 700, height: 800 }} data={data} options={options} /></th></tr>
+                       <Bar style={{ width: 700, height: 800 }} data={data} options={options} />
+                      </th>
+                    </tr>
 
                     <tr>
                       <th>
-                        <button className='button1' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/Additem'}> 1Add Item</button>
+                        
+                        <button className='button2' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/Additem'}> 1Add Item</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button className='button1' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
+                        <button className='button2' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
                       </th>
                     </tr>
               </table>
@@ -97,7 +100,7 @@ function Home() {
         </div>
       </motion.div>
 
-      </div>
+     
   );
 }
 

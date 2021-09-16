@@ -84,15 +84,25 @@ module.exports = app => {
 
 
 
-
   // Retrieve a single Customer with customerId
   app.get("/manu/:Product_ID", manu_prod.findOne);
+
+  
+  // Retrieve a single Customer with customerId
+  app.get("/macnin_prod/:Machine_no", macnin_prod.findOne);
+
 
   // Update a Customer with customerId
   app.put("/manu_prod/:Product_ID", manu_prod.update);
 
+  // Update a Customer with customerId
+  app.put("/macnin_prod/:Product_ID", macnin_prod.update);
+
   // Delete a Customer with customerId
-  app.delete("/manu_prod/:Product_ID", manu_prod.delete);
+  app.delete("/manu_prod/:Machine_no", manu_prod.delete);
+
+   // Delete a Customer with customerId
+  app.delete("/macnin_prod/:Machine_no", macnin_prod.delete);
 
   // Delete a new Customer inquiry
   app.delete("/manu_prod", manu_prod.deleteAll);

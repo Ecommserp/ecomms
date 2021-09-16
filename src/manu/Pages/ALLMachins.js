@@ -17,7 +17,7 @@ import {Doughnut} from 'react-chartjs-2';
 import manu from "./assets/manu.png"
 import logo from "./assets/cyan.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Pages.css';
+import './MPages.css';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
@@ -136,7 +136,7 @@ const rows = [
   createData('00090', 'sample data', 140350),
 ];
   return (
-    <div className='screen'>
+   
 
       <motion.div className='home' initial='out'
         animate='in'
@@ -189,11 +189,11 @@ const rows = [
 
                      <tr>
                         <th>
-                          <button className='button1' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/MAdditem'}>Add Item</button>
+                          <button className='button2' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/MAdditem'}>Add Item</button>
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <button className='button1' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
+                          <button className='button2' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button className='button1' onClick={event => window.location.href = '/manu/ALLMAdditem'}> All Items</button>
+                        <button className='button2' onClick={event => window.location.href = '/manu/ALLMAdditem'}> All Items</button>
 
                        </th>
                      </tr>
@@ -204,7 +204,7 @@ const rows = [
         </div>
       </motion.div>
 
-      </div>
+     
   );
 }
 

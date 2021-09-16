@@ -5,13 +5,13 @@ import {Doughnut} from 'react-chartjs-2';
 import manu from "./assets/manu.png"
 import logo from "./assets/cyan.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Pages.css';
+import './MPages.css';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
 function MHome() {
   const data = {
-    labels: ['UPcomming ', 'In Process', 'Completed', 'Malfuntioned'],
+    labels: ['On working ', 'Paused', 'Repaired', 'Malfuntioned'],
     datasets: [
       {
         label: 'Quality of Production Process',
@@ -45,7 +45,7 @@ function MHome() {
     },
   };
   return (
-    <div className='screen'>
+   
 
       <motion.div className='home' initial='out'
         animate='in'
@@ -98,14 +98,13 @@ function MHome() {
 
                      <tr>
                         <th>
-                          <button className='button1' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/MAdditem'}>Add Item</button>
+                          
+                          <button className='button2' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/MAdditem'}>Add Item</button>
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <button className='button1' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button className='button1' onClick={event => window.location.href = '/manu/machinSearch'}> All Items</button>
-
+                          <button className='button2' onClick={event => window.location.href = '/manu/MDeleteitem'}>Delete Item</button>
                        </th>
                      </tr>
+            
                   </table>
                </div>
           </div>
@@ -113,7 +112,7 @@ function MHome() {
         </div>
       </motion.div>
 
-      </div>
+     
   );
 }
 

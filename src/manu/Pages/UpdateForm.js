@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
-import './Pages.css';
+import './MPages.css';
 import manu from "./assets/manu.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -11,7 +11,7 @@ import { animationOne, transition } from '../animations';
 
 function UpdateForm() {
   return (
-    <div className = 'screen'>
+    
     <motion.div className = "updateform" initial='out'
     animate='in'
     exit='out'
@@ -47,7 +47,8 @@ function UpdateForm() {
             height: 160
           }}
           src={logo} /></div>
-
+                <div className='cardCon'>
+                  <div className='subti'> <h2>Products Mangement </h2></div>
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Update Inventory</h3></Card.Header>
                 <Card.Body>
@@ -73,11 +74,12 @@ function UpdateForm() {
                         New Value : &nbsp;&nbsp;
                         <input type="text" name="name" />
                         </label><br></br><br></br>
-                        <input className="button1" type="submit" value="Submit" />
+                        <input className="button2" type="submit" value="Submit" />
                         </form>
                         </Card.Body></Card>
                         </center>
-    </motion.div></div>
+                        </div>
+    </motion.div>
 
   );
 }

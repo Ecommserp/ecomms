@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "./assets/cyan.png";
-import './Pages.css';
+import './MPages.css';
 import manu from "./assets/manu.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -11,7 +11,7 @@ import { animationOne, transition } from '../animations';
 
 function ReportsGen() {
   return (
-    <div className = 'screen'>
+   
     <motion.div className = "reportsgen" initial='out'
     animate='in'
     exit='out'
@@ -49,16 +49,16 @@ function ReportsGen() {
 
                   <table style={{width:1000}}>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>Generate Weekly Report</button>
+                  <button className='button2' style={{marginTop: 50}}>Generate Weekly Report</button>
                   </th></tr>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>Generate Monthly Report</button>
+                  <button className='button2' style={{marginTop: 50}}>Generate Monthly Report</button>
                   </th></tr>
                   <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>Generate Annual Report</button>
+                  <button className='button2' style={{marginTop: 50}}>Generate Annual Report</button>
                   </th></tr>
                   </table>
-                  </motion.div></div>
+                  </motion.div>
 
 );
 }
