@@ -1,10 +1,10 @@
 import React from 'react';
-import { Line } from 'react-chartjs-2';
+
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {motion} from 'framer-motion';
+
 
 
 function reports() {

@@ -9,6 +9,11 @@ min-width: 700px;
 width: 1000px;
   margin: auto;
 }
+.screen3{
+min-width: 700px;
+width: 1500px;
+  margin: auto;
+}
 .tabe{
   width: 50%;
   margin: inherit;

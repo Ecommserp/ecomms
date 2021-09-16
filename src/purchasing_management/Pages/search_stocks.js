@@ -1,173 +1,118 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
-import  { useState } from 'react'
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+
+import 'reactjs-popup/dist/index.css';
+import MaterialTable from "material-table";
+import { forwardRef } from 'react';
+import AddBox from '@material-ui/icons/AddBox';
+import ArrowDownward from '@material-ui/icons/ArrowDownward';
+import Check from '@material-ui/icons/Check';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import ChevronRight from '@material-ui/icons/ChevronRight';
+import Clear from '@material-ui/icons/Clear';
+import DeleteOutline from '@material-ui/icons/DeleteOutline';
+import FilterList from '@material-ui/icons/FilterList';
+import FirstPage from '@material-ui/icons/FirstPage';
+import LastPage from '@material-ui/icons/LastPage';
+import Remove from '@material-ui/icons/Remove';
+import SaveAlt from '@material-ui/icons/SaveAlt';
+import Search from '@material-ui/icons/Search';
+import ViewColumn from '@material-ui/icons/ViewColumn';
+
+
+
+
 import './pmcss1.css';
+const tableIcons = {
+    Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+    Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
+    Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+    Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
+    DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+
+    Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
+    Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
+    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+    PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+    ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+    Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+    SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
+    ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
+    ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+  };
+  let table_data = [];
 
 
-const columns = [
-  { id: 'name', label: 'Product ID', minWidth: 170 },
-  { id: 'code', label: 'Product Name', minWidth: 100 },
-  {
-    id: 'population',
-    label: 'Quantity',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
 
-];
 
-function createData(name, code, population) {
-  const density = population;
-  return { name, code, population};
+
+
+
+async function getData(url) {
+const response = await fetch(url);
+
+return response.json();
 }
 
-const rows = [
-  createData('00001', 'sample data', 132417),
-  createData('00002', 'sample data', 140350),
-  createData('00003', 'sample data', 132417),
-  createData('00004', 'sample data', 140350),
-  createData('00005', 'sample data', 132417),
-  createData('00006', 'sample data', 140350),
-  createData('00007', 'sample data', 132417),
-  createData('00008', 'sample data', 140350),
-  createData('00009', 'sample data', 140350),
-  createData('00010', 'sample data', 132417),
-  createData('00020', 'sample data', 140350),
-  createData('00030', 'sample data', 132417),
-  createData('00040', 'sample data', 140350),
-  createData('00050', 'sample data', 132417),
-  createData('00060', 'sample data', 140350),
-  createData('00070', 'sample data', 132417),
-  createData('00080', 'sample data', 140350),
-  createData('00090', 'sample data', 140350),
-];
+async function getData_rev() {
 
-const useStyles = makeStyles({
-  root: {
-    width: '50%',
-    height:'50%',
-    margin: 'auto',
+    const apiUrl = 'http://localhost:3220/purchases';
+    const data = await getData(apiUrl);
+
+    for(var i = 0; i < data.length; i++){
 
 
-  },
-  container: {
-    maxHeight: 440,
-marginTop: '60px'
-  },
-});
+        table_data[i] = data[i];
 
 
+    }
+
+
+}
+
+
+getData_rev();
 
 function Search_stocks() {
 
-  const [myOptions, setMyOptions] = useState([])
 
-  const getDataFromAPI = () => {
-    console.log("Options Fetched from API")
-
-    fetch('http://dummy.restapiexample.com/api/v1/employees').then((response) => {
-      return response.json()
-    }).then((res) => {
-      console.log(res.data)
-      for (var i = 0; i < res.data.length; i++) {
-        myOptions.push(res.data[i].employee_name)
-      }
-      setMyOptions(myOptions)
-    })
-  }
+getData_rev();
 
 
 
-
-
-  const classes = useStyles();
- const [page, setPage] = React.useState(0);
- const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
- const handleChangePage = (event, newPage) => {
-   setPage(newPage);
- };
-
- const handleChangeRowsPerPage = (event) => {
-   setRowsPerPage(+event.target.value);
-   setPage(0);
- };
 
  return (
 
+   <div className="screen3">
+   <div className="headu2">
+   <MaterialTable
 
-   <Paper className={classes.root}>
-   <div style={{ marginLeft: '25%', marginTop: '60px', marginEnd: '60px' }}>
 
-       <Autocomplete
-         style={{ width: 500 }}
-         freeSolo
-         autoComplete
-         autoHighlight
-         options={myOptions}
-         renderInput={(params) => (
-           <TextField {...params}
-             onChange={getDataFromAPI}
-             variant="outlined"
-             label="Enter Product ID"
-           />
-         )}
-       />
-     </div>
-     <TableContainer className={classes.container}>
-       <Table stickyHeader aria-label="sticky table">
-         <TableHead>
-           <TableRow>
-             {columns.map((column) => (
-               <TableCell
-                 key={column.id}
-                 align={column.align}
-                 style={{ minWidth: column.minWidth }}
-               >
-                 {column.label}
-               </TableCell>
-             ))}
-           </TableRow>
-         </TableHead>
-         <TableBody>
-           {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-             return (
-               <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                 {columns.map((column) => {
-                   const value = row[column.id];
-                   return (
-                     <TableCell key={column.id} align={column.align}>
-                       {column.format && typeof value === 'number' ? column.format(value) : value}
-                     </TableCell>
-                   );
-                 })}
-               </TableRow>
-             );
-           })}
-         </TableBody>
-       </Table>
-     </TableContainer>
-     <TablePagination
-       rowsPerPageOptions={[10, 25, 50]}
-       component="div"
-       count={rows.length}
-       rowsPerPage={rowsPerPage}
-       page={page}
-       onPageChange={handleChangePage}
-       onRowsPerPageChange={handleChangeRowsPerPage}
+  icons={tableIcons}
+       title="purchases"
+       columns={[
+         { title: 'Supplier ID', field: 'Purchase_id' , minWidth: 200  },
+
+
+         {title: 'Supplier_id',field: 'Supplier_id', minWidth: 200},
+
+             { title: 'Product_id', field: 'Product_id', type: 'name', minWidth: 200  ,align: 'center' },
+              { title: 'Date', field: 'Date', type: 'name', minWidth: 200  ,align: 'center' },
+              { title: 'Quantity', field: 'quantity', type: 'name', minWidth: 200  ,align: 'center' },
+                  { title: 'purchase price', field: 'P_price', type: 'name', minWidth: 200  ,align: 'center' },
+                      { title: 'Sold price', field: 'S_price', type: 'name', minWidth: 200  ,align: 'center' },
+       ]}
+       data={table_data}
+
+       options={{
+         actionsColumnIndex: -1
+       }}
+
      />
-   </Paper>
+
+     </div>
+          </div>
 
  );
 }

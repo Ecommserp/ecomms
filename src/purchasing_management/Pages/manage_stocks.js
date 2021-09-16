@@ -27,6 +27,7 @@ import './pmcss1.css';
 
 
 
+
 let table_data = [];
 let s_id = [];
 
@@ -116,17 +117,11 @@ function insert() {
       alert("Item added")
 }
 
-function update() {
 
-  alert("You want to Edit " + s_id[0]);
-update_product();
-}
 ///
 const [id, setid] = useState("");
 
-function validateForm() {
-  return id.length > 0;
-}
+
 
 
 

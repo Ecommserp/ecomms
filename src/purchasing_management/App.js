@@ -19,7 +19,7 @@ function App() {
 
        </Sidebar>
        <Switch>
-        <Route path="/Purchasing_Management/pages/Search_stocks" component={Search_stocks}>
+        <Route path="/Purchasing_Management" exact component={Search_stocks}>
            </Route>
         <Route path="/Purchasing_Management/pages/Manage_stocks" component={Manage_stocks}>
         </Route>

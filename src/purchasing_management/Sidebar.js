@@ -10,11 +10,12 @@ import {
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
+
   return (
     <div
       style={{ display: 'flex', height: '100vh',marginTop: '0px' ,overflow: 'scroll initial' }}
     >
-      <CDBSidebar textColor="#fff" backgroundColor="#1F78B4">
+      <CDBSidebar  textColor="#fff" backgroundColor="#1F78B4"   >
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <a
             href="/"
@@ -26,9 +27,9 @@ const Sidebar = () => {
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
-          <CDBSidebarMenu>
-            <NavLink exact to="/Purchasing_Management/pages/Search_stocks" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="search">Search Stocks</CDBSidebarMenuItem>
+          <CDBSidebarMenu  >
+            <NavLink exact to="/Purchasing_Management" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="search">Search purchases</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/Purchasing_Management/pages/Manage_stocks" activeClassName="activeClicked" >
               <CDBSidebarMenuItem icon="columns">Manage Suppliers</CDBSidebarMenuItem>
