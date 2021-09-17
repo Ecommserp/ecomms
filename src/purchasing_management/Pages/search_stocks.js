@@ -95,13 +95,13 @@ getData_rev();
          { title: 'Supplier ID', field: 'Purchase_id' , minWidth: 200  },
 
 
-         {title: 'Supplier_id',field: 'Supplier_id', minWidth: 200},
 
-             { title: 'Product_id', field: 'Product_id', type: 'name', minWidth: 200  ,align: 'center' },
+
+             { title: 'Product ID', field: 'Product_id', type: 'name', minWidth: 200  ,align: 'center' },
               { title: 'Date', field: 'Date', type: 'name', minWidth: 200  ,align: 'center' },
               { title: 'Quantity', field: 'quantity', type: 'name', minWidth: 200  ,align: 'center' },
                   { title: 'purchase price', field: 'P_price', type: 'name', minWidth: 200  ,align: 'center' },
-                      { title: 'Sold price', field: 'S_price', type: 'name', minWidth: 200  ,align: 'center' },
+                      { title: 'Selling price', field: 'S_price', type: 'name', minWidth: 200  ,align: 'center' },
        ]}
        data={table_data}
 

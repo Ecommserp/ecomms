@@ -29,17 +29,16 @@ const Sidebar = () => {
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu  >
             <NavLink exact to="/Purchasing_Management" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="search">Search purchases</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="search">Search Purchases</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/Purchasing_Management/pages/View_stocks" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="table">Manage Purchases</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/Purchasing_Management/pages/Manage_stocks" activeClassName="activeClicked" >
               <CDBSidebarMenuItem icon="columns">Manage Suppliers</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/Purchasing_Management/pages/View_stocks" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">View Stocks</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/Purchasing_Management/pages/View_suppliers" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">View Purchases</CDBSidebarMenuItem>
-            </NavLink>
+
+
             <NavLink exact to="/Purchasing_Management/pages/Reports" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="chart-line">Generate reports</CDBSidebarMenuItem>
             </NavLink>

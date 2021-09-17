@@ -308,7 +308,7 @@ getData_rev();
 
 
                   <center><Card border ='primary' style={{ width: '40rem' }}>
-                  <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>Update Suppliers</h3></Card.Header>
+                  <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>Remove Suppliers</h3></Card.Header>
                   <Card.Body>
                   <form >
 
