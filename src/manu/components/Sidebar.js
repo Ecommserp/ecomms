@@ -33,7 +33,7 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink exact to="/manu/ProductSearch" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="columns">Check All Products</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="clipboard-list">Check All Products</CDBSidebarMenuItem>
             </NavLink>
 
            <NavLink exact to="/manu/update" activeClassName="activeClicked" >
@@ -41,11 +41,11 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink exact to="/manu/manf" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="home"> Machine Management</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="cogs"> Machine Management</CDBSidebarMenuItem>
             </NavLink>
 
              <NavLink exact to="/manu/MachineSearch" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="columns">Check All Machines</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="clipboard">Check All Machines</CDBSidebarMenuItem>
             </NavLink>
 
              <NavLink exact to="/manu/Mupdate" activeClassName="activeClicked" >
