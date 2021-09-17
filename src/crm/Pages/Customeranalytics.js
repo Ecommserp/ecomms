@@ -16,7 +16,7 @@ function Customeranalytics() {
         data: [3, 6, 10],
         fill: false,
         backgroundColor: [
-    '#7353BA',
+    '##ff3030',
     '#E94973',
     '#B7C0EE',
     
@@ -43,20 +43,19 @@ function Customeranalytics() {
     },
   };
   return (
-    <div className='screen7'>
+    <div className='screen5'>
 
       <motion.div className='home' initial='out'
         animate='in'
         exit='out'
         variants={animationOne}
         transition={transition}>
-        <div className="container">
+        <div className="container5">
+<div className='row'>
 
-          <div className='row'>
 
-
-              <div className='col1'>
-                <div className='subti'> <h3>Inquiry Management </h3></div>
+              <div className='col5'>
+                <div className='subti5'> <h3> Customer Inquiry Management </h3></div>
                  <table>
                     <tr>
                        <th>

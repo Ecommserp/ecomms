@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import logo from "./assets/cyan.png";
+
 import './CRMPages.css';
-import crm from "./assets/crm.png"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -30,7 +30,7 @@ function Deletecustomer() {
 
 
   return (
-    <div className = 'screen'>
+    <div className = 'screen7'>
     <motion.div className = "deletecustomer" initial='out'
     animate='in'
     exit='out'
@@ -39,7 +39,7 @@ function Deletecustomer() {
 
 
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Delete customer</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Delete customer inquiries</h3></Card.Header>
                 <Card.Body>
                 <form>
                     <label>

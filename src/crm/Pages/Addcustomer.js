@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from "./assets/cyan.png";
 import './CRMPages.css';
 import crm from "./assets/crm.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -36,11 +35,11 @@ function Addcustomer() {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nic: nic, birthdate: birthdate, name: name, email: email,phone: phone, purchased: purchased, inquiry: inquiry, status: status})
+        body: JSON.stringify({ Customer_NIC: nic, Birth_Date: birthdate, Customer_name: name, Email: email,Phone: phone, Purchased_item: purchased, inquiry: inquiry, inquiry_status: status})
     };
     fetch('http://localhost:3220/crm/crm', requestOptions)
         .then(response => response.json());
-        alert("Item added")
+        alert("inquiry added")
   }
 
   return (
@@ -53,7 +52,7 @@ function Addcustomer() {
 
 
 
-                  <div className='Farea'>
+                 
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Inquiry</h3></Card.Header>
                 <Card.Body>
@@ -101,7 +100,7 @@ function Addcustomer() {
                         </form>
                         </Card.Body></Card>
                         </center>
-                        </div>
+                        
     </motion.div></div>
 
 

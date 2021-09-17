@@ -68,7 +68,7 @@ function UpdateCustomer() {
      }
 
   return (
-    <div className = 'screen'>
+    <div className = 'screen7'>
     <motion.div className = "addcustomer" initial='out'
     animate='in'
     exit='out'
@@ -76,7 +76,7 @@ function UpdateCustomer() {
     transition={transition}>
 
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Search Inquiry</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Update inquiries</h3></Card.Header>
                 <Card.Body>
                 <label className='label1'>
                 Customer NIC: &nbsp;&nbsp;&nbsp;
