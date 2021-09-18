@@ -59,6 +59,19 @@ User.getAll = result => {
   });
 };
 
+User.getAll_pp = result => {
+  sql.query("SELECT Product_type, SUM(quantity) AS qua FROM inventory GROUP BY Product_type", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
 Meet.getAll_meet = result => {
   sql.query("SELECT * FROM meetings WHERE Start_time >= CURDATE() ORDER BY Start_time DESC", (err, res) => {
     if (err) {

@@ -30,6 +30,8 @@ let data_revy1 = [];
 let data_revy2 = [];
 let data_revy3 = [];
 
+let data_pp = [];
+
 
 
 
@@ -123,7 +125,7 @@ const data3 = {
   datasets: [
     {
       label: '# of Votes',
-      data: [12, 19],
+      data: data_pp,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -479,6 +481,12 @@ async function getData_rev() {
 
 
     }
+
+    const apiUrl_1 = 'http://localhost:3220/bI/pp';
+    const data_1 = await getData(apiUrl_1);
+
+    data_pp[0] = data_1[0].qua;
+    data_pp[1] = data_1[1].qua;
     sample_aa();
 
 
@@ -516,7 +524,10 @@ const data = {
 
 async function sample_aa() {
   //alert(data_revy1)
+
   ReactDOM.render(<Line height='140' data={data} options={options} />, document.getElementById('revenue_graph'));
+  ReactDOM.render(<Pie data={data3} />, document.getElementById('pp_graph'));
+
 }
 
 /* Declare functional InputField component */
@@ -591,22 +602,22 @@ function InputField () {
    /* Render both input and button in a <> fragment */
    return (<>
 
-     <label className="tile_text1">ID</label> <br />
+     <label className="tile_text_bi1">ID</label> <br />
      <input className="input" type="text" name="id" value={upID} onKeyDown={keyPress} onChange={(e) => setUPID(e.target.value)}/>
      <br />
-     <label className="tile_text1">Title</label> <br />
+     <label className="tile_text_bi1">Title</label> <br />
      <input className="input" type="text" name="title" value={upTitle} onChange={(e) => setUPTitle(e.target.value)}/>
      <br />
-     <label className="tile_text1">Description</label> <br />
+     <label className="tile_text_bi1">Description</label> <br />
      <input className="input" type="text" name="description" value={upDes} onChange={(e) => setUPDes(e.target.value)}/>
      <br />
-     <label className="tile_text1">Start Time</label> <br />
+     <label className="tile_text_bi1">Start Time</label> <br />
      <input className="input" type="datetime-local" name="s_time" value={moment(ups_time).format('YYYY-MM-DDTHH:mm')} onChange={(e) => setUPs_time(e.target.value)}/>
      <br />
-     <label className="tile_text1">End Time</label> <br />
+     <label className="tile_text_bi1">End Time</label> <br />
      <input className="input" type="datetime-local" name="e_time" value={moment(upe_time).format('YYYY-MM-DDTHH:mm')} onChange={(e) => setUPe_time(e.target.value)}/>
      <br />
-     <label className="tile_text1">Attendees</label> <br />
+     <label className="tile_text_bi1">Attendees</label> <br />
      <input className="input" type="text" name="att" value={upatt} onChange={(e) => setUPatt(e.target.value)}/>
      <br />
      <br />
@@ -668,14 +679,14 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
 
 <CancelIcon style={{fill: "red"}} onClick={close_meet}></CancelIcon>
 </div>
-<label className="tile_text1">Meetings</label> <br />
+<label className="tile_text_bi1">Meetings</label> <br />
 
 <div className="meeting_add">
 
 
 <Popup trigger={ <UpdateIcon className="add_new" fontSize="large"></UpdateIcon> } modal>
 <div className="add_new_win">
-<label className="tile_text1">Update Meeting</label> <br />
+<label className="tile_text_bi1">Update Meeting</label> <br />
 
 <InputField />
 
@@ -687,21 +698,21 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
 
 <Popup trigger={ <AddCircleIcon className="add_new" fontSize="large"></AddCircleIcon> } modal>
 <div className="add_new_win">
-<label className="tile_text1">New Meeting</label> <br /> <br />
+<label className="tile_text_bi1">New Meeting</label> <br /> <br />
 <br />
-<label className="tile_text1">Title</label> <br />
+<label className="tile_text_bi1">Title</label> <br />
 <input className="input" type="text" name="title" onChange={(e) => setTitle(e.target.value)}/>
 <br />
-<label className="tile_text1">Description</label> <br />
+<label className="tile_text_bi1">Description</label> <br />
 <input className="input" type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
 <br />
-<label className="tile_text1">Start Time</label> <br />
+<label className="tile_text_bi1">Start Time</label> <br />
 <input className="input" type="datetime-local" name="s_time" onChange={(e) => sets_time(e.target.value)}/>
 <br />
-<label className="tile_text1">End Time</label> <br />
+<label className="tile_text_bi1">End Time</label> <br />
 <input className="input" type="datetime-local" name="e_time" onChange={(e) => sete_time(e.target.value)}/>
 <br />
-<label className="tile_text1">Attendees</label> <br />
+<label className="tile_text_bi1">Attendees</label> <br />
 <input className="input" type="text" name="att" onChange={(e) => setatt(e.target.value)}/>
 <br />
 <br />
@@ -766,9 +777,9 @@ ReactDOM.render(  <div className="report_win" id="report_win">
 
 <CancelIcon style={{fill: "red"}} onClick={close_meet}></CancelIcon>
 </div>
-<label className="tile_text1">Reports</label> <br /><br /><br />
+<label className="tile_text_bi1">Reports</label> <br /><br /><br />
 
-<label className="tile_text1">Type</label><br />
+<label className="tile_text_bi1">Type</label><br />
 <Select style={{minWidth: 220}}>
   <MenuItem value={10}>Employee Report</MenuItem>
   <MenuItem value={20}>Cashflow Report</MenuItem>
@@ -777,7 +788,7 @@ ReactDOM.render(  <div className="report_win" id="report_win">
   <MenuItem value={50}>Clients Report</MenuItem>
 </Select><br /><br />
 
-<label className="tile_text1">Time Period</label><br />
+<label className="tile_text_bi1">Time Period</label><br />
 <Select style={{minWidth: 220}}>
   <MenuItem value={10}>Todays</MenuItem>
   <MenuItem value={20}>Last 3 Days</MenuItem>
@@ -791,7 +802,7 @@ ReactDOM.render(  <div className="report_win" id="report_win">
 </Select><br /><br />
 
 
-<label className="tile_text1">Format</label><br />
+<label className="tile_text_bi1">Format</label><br />
 <Select style={{minWidth: 220}}>
   <MenuItem value={10}>PDF</MenuItem>
   <MenuItem value={20}>excel</MenuItem>
@@ -820,7 +831,7 @@ getData_meet();
 
 
     <div className="headu">
-      <label className="tile_text">Good Morning Mr.Sample </label>
+      <label className="tile_text_bi">Good Morning Mr.Sample </label>
 
 <div className="head_right">
 <button className="button" onClick={Display_meet}>Meetings</button>
@@ -841,12 +852,12 @@ getData_meet();
 <div className="body_3">
 <div className="space"></div>
 <div className="revenue" id="revenue">
-<label className="tile_text">Revenue Growth</label><br /><br />
+<label className="tile_text_bi">Revenue Growth</label><br /><br />
 <div id="revenue_graph"> </div>
 </div>
 <div className="space"></div>
 <div className="p_margin">
-<label className="tile_text">Profit Margin</label>
+<label className="tile_text_bi">Profit Margin</label>
 <div className="drop_down">
 <FormControl>
   <Select>
@@ -864,7 +875,7 @@ getData_meet();
 </div>
 <div className="body_3"><div className="space"></div>
 <div className="items">
-<label className="tile_text">Production : Purchased</label>
+<label className="tile_text_bi">Production : Purchased</label>
 <div className="drop_down">
 <FormControl>
   <Select>
@@ -875,12 +886,13 @@ getData_meet();
 </FormControl>
 </div>
 <br /><br />
-<Pie data={data3} />
+<div id="pp_graph"> </div>
+
 </div>
 <div className="space"></div>
 
 <div className="clients">
-<label className="tile_text">Clients</label>
+<label className="tile_text_bi">Clients</label>
 <div className="drop_down">
 <FormControl>
   <Select>
@@ -935,7 +947,7 @@ getData_meet();
 
    <div className="body_3"><div className="space"></div>
    <div className="retention">
-   <label className="tile_text">Retention Clients</label>
+   <label className="tile_text_bi">Retention Clients</label>
    <div className="drop_down">
    <FormControl>
      <Select>
@@ -950,7 +962,7 @@ getData_meet();
    </div>
 <div className="space"></div>
    <div className="per">
-   <label className="tile_text">Department Performance</label>
+   <label className="tile_text_bi">Department Performance</label>
    <div className="drop_down">
    <FormControl>
      <Select>
@@ -969,7 +981,7 @@ getData_meet();
 
 <div className="body_3"><div className="space"></div>
 <div className="emp">
-<label className="tile_text">Retention Clients</label>
+<label className="tile_text_bi">Retention Clients</label>
 <br /><br />
 
 
