@@ -85,7 +85,7 @@ Product.updateById = (id, customer, result) => {
 };
 
 Product.remove = (id, result) => {
-  sql.query("DELETE FROM product WHERE Product_ID = ?", id, (err, res) => {
+  sql.query(`DELETE FROM product WHERE Product_ID = '${id}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
