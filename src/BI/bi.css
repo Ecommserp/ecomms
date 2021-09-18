@@ -80,8 +80,8 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   display: flex;
-justify-content: center;
-align-itemss: center;
+justify-content: right;
+align-items: right;
 }
 .App-dp {
   width: 50px;
@@ -148,6 +148,21 @@ align-itemss: center;
   text-align: center;
 }
 
+.report_win {
+
+  position:fixed;
+  z-index: 1;
+  top:20%;
+  left:12.5%;
+  width:75%;  /* adjust as per your needs */
+  height:600px;   /* adjust as per your needs */
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
 .add_new_win{
 
   width:100%;  /* adjust as per your needs */
@@ -197,7 +212,6 @@ align-itemss: center;
   border-color: #659fdf;
   border-radius: 30px;
   transition: background-color .5s;
-  margin-left: auto;
 }
 
 .button:hover {

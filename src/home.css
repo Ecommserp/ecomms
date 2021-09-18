@@ -2,6 +2,7 @@
   text-align: center;
   align-items: center;
   align-content: center;
+  width: 100%;
 }
 
 .App-logo {
@@ -10,7 +11,7 @@
   padding-top: 5vh;
 }
 
-.tile_home {
+.tile_home_k {
   height: 150px;
   width: 25%;
   background-color: #fff;
@@ -21,7 +22,7 @@
   display: inline-block;
   transition: box-shadow .8s;
 }
-.tile_home:hover {
+.tile_home_k:hover {
 
 box-shadow: 10px 10px 10px rgba(102, 102, 102, .3);
 cursor: pointer;

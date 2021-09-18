@@ -755,6 +755,57 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
 
 }
 
+
+const Display_report = () => {
+
+//  alert(rows_meet)
+
+
+ReactDOM.render(  <div className="report_win" id="report_win">
+<div className="meeting_add">
+
+<CancelIcon style={{fill: "red"}} onClick={close_meet}></CancelIcon>
+</div>
+<label className="tile_text1">Reports</label> <br /><br /><br />
+
+<label className="tile_text1">Type</label><br />
+<Select style={{minWidth: 220}}>
+  <MenuItem value={10}>Employee Report</MenuItem>
+  <MenuItem value={20}>Cashflow Report</MenuItem>
+  <MenuItem value={30}>Inventory Report</MenuItem>
+  <MenuItem value={40}>Sales Report</MenuItem>
+  <MenuItem value={50}>Clients Report</MenuItem>
+</Select><br /><br />
+
+<label className="tile_text1">Time Period</label><br />
+<Select style={{minWidth: 220}}>
+  <MenuItem value={10}>Todays</MenuItem>
+  <MenuItem value={20}>Last 3 Days</MenuItem>
+  <MenuItem value={30}>Last Week</MenuItem>
+  <MenuItem value={40}>Last 3 Weeks</MenuItem>
+  <MenuItem value={50}>Last Month</MenuItem>
+  <MenuItem value={60}>Last 2 Months</MenuItem>
+  <MenuItem value={70}>Last 6 Months</MenuItem>
+  <MenuItem value={80}>Last Year</MenuItem>
+  <MenuItem value={90}>Last 2 Years</MenuItem>
+</Select><br /><br />
+
+
+<label className="tile_text1">Format</label><br />
+<Select style={{minWidth: 220}}>
+  <MenuItem value={10}>PDF</MenuItem>
+  <MenuItem value={20}>excel</MenuItem>
+  <MenuItem value={30}>CSV</MenuItem>
+</Select><br /><br /><br /><br /><br /><br />
+
+<button className="button_add" onClick={insert_meet}>Generate My Report</button>
+
+
+  </div>, document.getElementById('meet_dis'));
+
+
+
+}
 getData_rev();
 getData_meet();
 
@@ -763,6 +814,9 @@ getData_meet();
 
     <div id="meet_dis"></div>
 
+    <div id="report_dis"></div>
+
+
 
 
     <div className="headu">
@@ -770,6 +824,9 @@ getData_meet();
 
 <div className="head_right">
 <button className="button" onClick={Display_meet}>Meetings</button>
+<div className="space"></div>
+
+<button className="button" onClick={Display_report}>Reports</button>
 
     <div className="space"></div>
   <NotificationsSharpIcon1 tooltip="Description here"> </NotificationsSharpIcon1>
