@@ -1,0 +1,52 @@
+[
+    {
+      "empid": 125687,
+      "fullname": "Jenny Chan",
+      "phonenumber": "0767726584",
+      "address": "360, main road, malabe",
+      "department": "hr",
+      "position":"Executive"
+    },
+    {
+        "empid": 125896,
+        "fullname": "pula perera",
+        "phonenumber": "0767799844",
+        "address": "36, main road, kaudwela",
+        "department": "account",
+        "position":"j Executive"
+    },
+    {
+        "empid": 98657,
+        "fullname": "sunil perera",
+        "phonenumber": "0986454",
+        "address": "0, main road, meepe",
+        "department": "sales",
+        "position":"manager"
+    },
+    {
+        "empid": 156387,
+        "fullname": "kamal silva",
+        "phonenumber": "079532",
+        "address": "60, main road, colombo",
+        "department": "finance",
+        "position":"manager"
+    },
+    {
+        "empid": 965577,
+        "fullname": "nimal perera",
+        "phonenumber": "6232322",
+        "address": "98, main road, matale",
+        "department": "customer relationship",
+        "position":"assistant"
+    },
+
+    {
+        "empid": 8566,
+        "fullname": "malan silva",
+        "phonenumber": "dcs",
+        "address": "984, main road, Jaffna",
+        "department": "inventory",
+        "position":"manager"
+    }
+  ]
+  

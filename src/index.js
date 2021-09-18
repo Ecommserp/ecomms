@@ -15,7 +15,13 @@ import Income from './Account/Pages/income';
 import Financial from './Account/Pages/financial';
 import Purchasing_management from './purchasing_management/App';
 import BI from './BI/Dash';
-import reportWebVitals from './reportWebVitals';
+import HR from './hr/Hr';
+import HRDatabase from './hr/database';
+import HRSearch from './hr/search';
+import HRCrudOps from './hr/CrudOps';
+import HRSalary from './hr/Salary';
+import HRAttendance from './hr/attendance';
+//import HRReportWebVitals from './hr/reportWebVitals';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { CookiesProvider } from "react-cookie";
 
@@ -40,10 +46,17 @@ ReactDOM.render(
               <Route path='/Financial' component={Financial} />
               <Route path='/managingdb' component={Managingdb} />
               <Route path='/cash' component={Cash} />
+              <Route path='/Hr' component={HR} />
               <Route path='/income' component={Income} />
               <Route path='/financial' component={Financial} />
               <Route path='/purchasing_management' component={Purchasing_management} />
                 <Route path='/BI' component={BI} />
+
+                <Route path='/Hrdatabase' component={HRDatabase} />
+                <Route path='/Hrsearch' component={HRSearch} />
+                <Route path='/HrCrudOps' component={HRCrudOps} />
+                <Route path='/HrSalary' component={HRSalary} />
+                <Route path='/Hrattendance' component={HRAttendance} />
     </Switch>
 </Router>
   </React.StrictMode>
@@ -55,4 +68,3 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

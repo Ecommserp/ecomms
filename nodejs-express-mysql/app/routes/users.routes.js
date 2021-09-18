@@ -8,6 +8,8 @@ module.exports = app => {
   const sp = require("../controllers/sp.controller.js");
   const crmI = require("../controllers/crm.controller.js");
   const managingdb = require("../controllers/managingdb.controller.js");
+  const hr = require("../controllers/Hr.controller.js");
+
 
 
 
@@ -155,5 +157,9 @@ module.exports = app => {
 
    // Create a new invoice
    app.get("/acc/managingdb/:Invoice_ID", managingdb.findOne);
+
+
+   // Retrieve all Hr emplyees
+   app.get("/hr/emp", hr.findAll);
 
 };

@@ -1,0 +1,19 @@
+.abackgroud {
+  background-color: #c4e0e9;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  font-size: 10px;
+  margin-left: 250px;
+}
+
+td {
+  width: auto;
+}
+
+.h1 {
+  margin-left: 260px;
+  font-size: 30px;
+}
