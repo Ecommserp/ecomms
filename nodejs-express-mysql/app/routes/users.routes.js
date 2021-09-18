@@ -56,6 +56,9 @@ module.exports = app => {
   // Retrieve BI for first graph
   app.get("/BI/rev", bi.findAll);
 
+  // Retrieve purchased and production for first 3rd
+  app.get("/BI/pp", bi.findAll_pp);
+
   // Retrieve meetings for popup
   app.get("/BI/meetings", bi.findAll_meet);
 
@@ -87,7 +90,7 @@ module.exports = app => {
   // Retrieve a single Customer with customerId
   app.get("/manu/:Product_ID", manu_prod.findOne);
 
-  
+
   // Retrieve a single Customer with customerId
   app.get("/macnin_prod/:Machine_no", macnin_prod.findOne);
 

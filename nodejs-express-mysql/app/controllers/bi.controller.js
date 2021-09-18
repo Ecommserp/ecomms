@@ -71,6 +71,18 @@ exports.findAll = (req, res) => {
   });
 };
 
+// Retrieve all pp from the database.
+exports.findAll_pp = (req, res) => {
+  BI.getAll_pp((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving invoices."
+      });
+    else res.send(data);
+  });
+};
+
 // Retrieve all meetings from the database.
 exports.findAll_meet = (req, res) => {
   BI_meet.getAll_meet((err, data) => {
