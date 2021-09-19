@@ -126,6 +126,13 @@ module.exports = app => {
      // Create a new supplier
      app.post("/suppliers", sp.create);
 
+     // delete specific supplier
+         app.delete("/suppliers/:supplierId", sp.delete);
+
+     // update supplier details by id
+         app.put("/suppliers/:supplierId", sp.update);
+
+
      // Create a new Invoice
      app.post("/account/invoice", managingdb.create);
 

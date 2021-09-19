@@ -21,7 +21,7 @@ import Card from 'react-bootstrap/Card';
 import Popup from './popup';
 import {  useState } from "react";
 import './pmcss1.css';
-
+import ReactDOM from 'react-dom'
 
 
 
@@ -76,7 +76,7 @@ setIsOpen3(!isOpen3);
 
 }
 
-
+const loaddata = document.getElementById("load_data");
 
 async function getData(url) {
 const response = await fetch(url);
@@ -96,7 +96,7 @@ async function getData_rev() {
 
 
     }
-
+render_data();
 
 }
 function showpopup() {
@@ -139,7 +139,45 @@ const [id, setid] = useState("");
         alert("successfully removed supplier")
         setid("");
   }
+async function render_data() {
 
+  if(document.getElementById("load_data")) {
+    ReactDOM.render(<MaterialTable
+
+
+     icons={tableIcons}
+          title="Suppliers"
+          columns={[
+            { title: 'Supplier ID', field: 'Supplier_ID' , minWidth: 200  },
+
+
+            {title: 'Name',field: 'name', minWidth: 200},
+
+                { title: 'Contact', field: 'contact', type: 'name', minWidth: 200  ,align: 'center' },
+          ]}
+          data={table_data}
+          actions={[
+
+            rowData => ({
+             icon: EditIcon,
+              tooltip: 'Delete User',
+          //  onClick: (togglePopup),
+            onClick: (event, rowData) => showpopup(s_id[0] = rowData.Supplier_ID) ,
+
+          //  onClick: (event, rowData) => alert("You want to Edit " + rowData.name),
+            //  disabled: rowData.birthYear < 2000
+            })
+          ]}
+          options={{
+            actionsColumnIndex: -1
+          }}
+
+        />, document.getElementById("load_data"));
+  }
+
+
+
+}
 
 ////
 
@@ -172,8 +210,8 @@ alert("You want to Edit " + s_id[0]);
 
 getData_rev();
 
- return (
 
+  return (
 
    <div className="screen2">
    <div className="headu2">
@@ -188,38 +226,8 @@ getData_rev();
  </div>
  </div>
 
+<div id="load_data"> </div>
 
-    <MaterialTable
-
-
-   icons={tableIcons}
-        title="Suppliers"
-        columns={[
-          { title: 'Supplier ID', field: 'Supplier_ID' , minWidth: 200  },
-
-
-          {title: 'Name',field: 'name', minWidth: 200},
-
-              { title: 'Contact', field: 'contact', type: 'name', minWidth: 200  ,align: 'center' },
-        ]}
-        data={table_data}
-        actions={[
-
-          rowData => ({
-           icon: EditIcon,
-            tooltip: 'Delete User',
-        //  onClick: (togglePopup),
-          onClick: (event, rowData) => showpopup(s_id[0] = rowData.Supplier_ID) ,
-
-        //  onClick: (event, rowData) => alert("You want to Edit " + rowData.name),
-          //  disabled: rowData.birthYear < 2000
-          })
-        ]}
-        options={{
-          actionsColumnIndex: -1
-        }}
-
-      />
 
       <div>
 
