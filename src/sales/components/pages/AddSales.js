@@ -1,6 +1,8 @@
 
 import React, {useState} from 'react';
 
+
+
 function AddSales() {
     
   const [clientid, setclientid] = useState("");
@@ -36,11 +38,13 @@ function AddSales() {
 
 
     return (
-	<div class="invoicecontainer">
-	<div class="sheader">
-		<h2>Add sales</h2>
-	</div>
+
+	<div className="sscreen">
+  
+		<h2 className='shead'>Add sales</h2>
+	
 	<form id="form" class="salesform">
+  
 		<div class="sform-control">
 			<label for="username">Client ID</label>
 			<input type="text" placeholder=""  name="clientid" value={clientid} onChange={(e) => setclientid(e.target.value)}/>

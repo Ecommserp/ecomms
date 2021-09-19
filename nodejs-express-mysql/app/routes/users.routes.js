@@ -9,7 +9,7 @@ module.exports = app => {
   const crmI = require("../controllers/crm.controller.js");
   const managingdb = require("../controllers/managingdb.controller.js");
   const hr = require("../controllers/Hr.controller.js");
-
+  const sales =  require("../controllers/sales.controller.js");
 
 
 
@@ -161,5 +161,8 @@ module.exports = app => {
 
    // Retrieve all Hr emplyees
    app.get("/hr/emp", hr.findAll);
+
+    // Create a new Sale
+  app.post("/sales", sales.create);
 
 };
