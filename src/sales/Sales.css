@@ -1,14 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
-.saleshead{
-
- text-align: center;
+.saleshead {
+  text-align: center;
   justify-content: center;
   font-size: 5rem;
 }
@@ -16,13 +15,12 @@
   flex-basis: 100%;
 }
 
-.salesheaddetails{
+.salesheaddetails {
   margin-top: 30px;
   display: flex;
-  
 }
 
-.rdetails{
+.rdetails {
   text-align: center;
   padding: 20px;
   margin: 5px;
@@ -30,9 +28,8 @@
   height: 150px;
   box-sizing: border-box;
   border-width: 6px;
-  
 }
-.pdetails{
+.pdetails {
   text-align: right;
   border: black 2px solid;
   height: 150px;
@@ -42,27 +39,24 @@
   box-sizing: border-box;
   border-width: 6px;
 }
-.sdetails{
+.sdetails {
   text-align: left;
   padding: 20px;
   margin: 5px;
   margin-left: 120px;
   box-sizing: border-box;
-  
-  border: black 2px solid ;
+
+  border: black 2px solid;
   border-width: 6px;
   height: 150px;
- 
-
-  
 }
 
-.sales-chart{
+.sales-chart {
   margin-top: 120px;
   margin-left: 120px;
 }
 
-.search{
+.search {
   position: absolute;
   margin-top: 50px;
   padding: 10px;
@@ -70,197 +64,184 @@
   height: 50px;
   left: 70%;
 }
-.salesbutton{
+.salesbutton {
   position: absolute;
   margin-top: 50px;
   padding: 5px;
   width: 80px;
   left: 90%;
   height: 50px;
-
 }
 
 .salesmain > * {
   flex-basis: 100%;
 }
-.salesmain{
-   display: flex;
+.salesmain {
+  display: flex;
   margin-top: 100px;
 }
-.salesproducts{
-   font-size: 3rem;
-   text-align: center;
+.salesproducts {
+  font-size: 3rem;
+  text-align: center;
 }
-.salesquantity{
-  
+.salesquantity {
   margin-left: 100px;
   margin-bottom: 300px;
 }
-.trendy{
-
-margin-right: 100px;
-text-align: right;
+.trendy {
+  margin-right: 100px;
+  text-align: right;
 }
 
-.sales-chart{
+.sales-chart {
   margin-bottom: 100px;
 }
-.salesbarchart{
+.salesbarchart {
   margin-left: 75px;
 }
-.productchart{
+.productchart {
   font-size: 3rem;
   margin-bottom: 40px;
   margin-left: 200px;
 }
-.chartdetails{
+.chartdetails {
   width: 800;
   height: 400;
 }
-.saleshome{
+.saleshome {
   text-align: center;
   font-size: 4rem;
-  
 }
-.saleshome-head{
-  
+.saleshome-head {
   padding: -20px 0;
 }
 
-
-
-.salesproducts{
+.salesproducts {
   text-align: center;
   margin-bottom: 20px;
   font-size: 5rem;
 }
-.item-details{
-
+.item-details {
   text-align: right;
 }
-.sreports{
+.sreports {
   text-align: center;
   font-size: 2.5rem;
-  
 }
 
-  
-.re-buttons{
+.re-buttons {
   margin-top: 50px;
   margin-bottom: 10px;
   display: block;
   width: 500px;
   height: 50px;
- margin-left: 500px;
+  margin-left: 500px;
 }
-.re-buttons:hover{
-  
-  background-color:#75c9fa;
+.re-buttons:hover {
+  background-color: #75c9fa;
 }
 
 .invoicecontainer {
-	background-color: #fff;
-	border-radius: 5px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	overflow: hidden;
-	width: 700px;
-	max-width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 700px;
+  max-width: 100%;
   margin-left: 400px;
   margin-top: 75px;
 }
 
-
 .header h2 {
-	margin: 0;
+  margin: 0;
 }
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap");
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .salesforms {
-	padding: 30px 60px;	
+  padding: 30px 60px;
 }
 
 .form-control {
-	margin-bottom: 10px;
-	padding-bottom: 20px;
-	position: relative;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
 }
 
 .form-control label {
   margin-left: 10px;
-	display:inline-block;
-	margin-bottom: 5px;
+  display: inline-block;
+  margin-bottom: 5px;
 }
 
 .form-control input {
-	border: 2px solid #f0f0f0;
-	border-radius: 4px;
-	display: block;
-	font-family: inherit;
-	font-size: 14px;
-	padding: 10px;
-	width: 98%;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 98%;
   margin-left: 10px;
 }
 
 .form-control input:focus {
-	outline: 0;
-	border-color: #777;
+  outline: 0;
+  border-color: #777;
 }
 
 .form-control.success input {
-	border-color: #2ecc71;
+  border-color: #2ecc71;
 }
 
 .form-control.error input {
-	border-color: #e74c3c;
+  border-color: #e74c3c;
 }
 
 .form-control i {
-	visibility: hidden;
-	position: absolute;
-	top: 40px;
-	right: 10px;
+  visibility: hidden;
+  position: absolute;
+  top: 40px;
+  right: 10px;
 }
 
 .form-control.success i.fa-check-circle {
-	color: #2ecc71;
-	visibility: visible;
+  color: #2ecc71;
+  visibility: visible;
 }
 
 .form-control.error i.fa-exclamation-circle {
-	color: #e74c3c;
-	visibility: visible;
+  color: #e74c3c;
+  visibility: visible;
 }
 
 .form-control small {
-	color: #e74c3c;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	visibility: hidden;
+  color: #e74c3c;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
 }
 
 .form-control.error small {
-	visibility: visible;
+  visibility: visible;
 }
 
 .form button {
-	background-color: rgb(255, 255, 255);
-	border: 2px solid #8e44ad;
-	border-radius: 4px;
-	color: black;
-	display: block;
-	font-family: inherit;
-	font-size: 16px;
-	padding: 10px;
-	margin-top: 20px;
-	width: 100%;
-  
+  background-color: rgb(255, 255, 255);
+  border: 2px solid #8e44ad;
+  border-radius: 4px;
+  color: black;
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .app-container {
@@ -270,29 +251,28 @@ text-align: right;
   padding: 1rem;
 }
 
-table {
+.sales_table {
   border-collapse: collapse;
   width: 100%;
 }
 
-th,
-td {
+.sales_th,
+.sales_td {
   border: 1px solid #ffffff;
   text-align: left;
   padding: 8px;
   font-size: 32px;
 }
 
-th {
+.sales_th {
   background-color: #75c9fa;
 }
 
-td {
+.sales_td {
   background-color: #cdebfd;
 }
 
-
-form td:last-child {
+.sales_form td:last-child {
   display: flex;
   justify-content: space-evenly;
 }
@@ -300,19 +280,16 @@ form td:last-child {
 .salesform * {
   font-size: 28px;
 }
-.manageclient{
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 20px;
-  }
-  .sheader{
-    background-color:#1F78B4;
-    padding: 30px;
-  }
-  .bb:hover {background-color:#75c9fa }
-  
-
-
-
- 
+.manageclient {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+.sheader {
+  background-color: #1f78b4;
+  padding: 30px;
+}
+.bb:hover {
+  background-color: #75c9fa;
+}

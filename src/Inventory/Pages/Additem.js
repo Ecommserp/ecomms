@@ -3,13 +3,12 @@ import logo from "./assets/logo.png";
 import './invPages.css';
 import inventory from "./assets/inventory.png";
 import add from "./assets/add.jpg";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
-function Additem() {
+function InvAdditem() {
 
   const [code, setcode] = useState("");
   const [name, setname] = useState("");
@@ -46,7 +45,7 @@ function Additem() {
 
   return (
     <div className = 'invscreen'>
-    <motion.div className = "additem" initial='out'
+    <motion.div className = "invadditem" initial='out'
     animate='in'
     exit='out'
     variants={animationOne}
@@ -97,4 +96,4 @@ function Additem() {
   );
 }
 
-export default Additem;
+export default InvAdditem;
