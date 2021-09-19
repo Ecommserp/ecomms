@@ -12,7 +12,9 @@ import Navbar from "./components/Navbar";
 
 
 
-const CrudOps = () => {
+function CrudOps() {
+
+  console.log("all")
   let data1 = [];
 
   async function getData(url) {
@@ -21,13 +23,7 @@ const CrudOps = () => {
   return response.json();
   }
 
-  async function emp_data() {
-    const apiUrl = 'http://localhost:3220/hr/emp';
-    data1 = await getData(apiUrl);
 
-  }
-
-  emp_data();
 
 
 
@@ -40,6 +36,9 @@ const CrudOps = () => {
         department:'',
         position:''
     });
+
+
+
 
     const [editFormData, setEditFormData] = useState({
         empid:'',
@@ -55,7 +54,7 @@ const CrudOps = () => {
     const handleAddFormChange = (event) => {
         event.preventDefault();
 
-        const fieldName = event.target.getAttribute('name');
+        const fieldName = event.target.getAttribute('empid');
         const fieldValue = event.target.value;
 
         const newFormData = { ...addFormData};
@@ -67,7 +66,7 @@ const CrudOps = () => {
     const handleEditFormChange = (event) => {
         event.preventDefault();
 
-        const fieldName = event.target.getAttribute("name");
+        const fieldName = event.target.getAttribute("empid");
         const fieldValue = event.target.value;
 
         const newFormData = { ...editFormData };
@@ -151,6 +150,15 @@ const CrudOps = () => {
             setContacts (newContacts);
 
         }
+
+        async function emp_data() {
+          const apiUrl = 'http://localhost:3220/hr/emp';
+          data1 = await getData(apiUrl);
+          setContacts(data1);
+          console.log('ww')
+
+        }
+        //emp_data();
 
     return (
 <div >

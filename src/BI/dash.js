@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 import { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';
 import { styled } from '@material-ui/core/styles';

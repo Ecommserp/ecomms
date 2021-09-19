@@ -21,6 +21,8 @@ import HRSearch from './hr/search';
 import HRCrudOps from './hr/CrudOps';
 import HRSalary from './hr/Salary';
 import HRAttendance from './hr/attendance';
+
+import Salesmanagement from './sales/Sales';
 //import HRReportWebVitals from './hr/reportWebVitals';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { CookiesProvider } from "react-cookie";
@@ -57,6 +59,8 @@ ReactDOM.render(
                 <Route path='/HrCrudOps' component={HRCrudOps} />
                 <Route path='/HrSalary' component={HRSalary} />
                 <Route path='/Hrattendance' component={HRAttendance} />
+
+                <Route path='/sales' component={Salesmanagement} />
     </Switch>
 </Router>
   </React.StrictMode>

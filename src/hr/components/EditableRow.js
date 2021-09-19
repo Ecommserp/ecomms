@@ -2,7 +2,7 @@ import React from 'react'
 
 const EditableRow = ({ editFormData, handleEditFormChange, handleCancelClick}) => {
     return (
-        <tr>
+        <tr key={editFormData.empid}>
             <td>
                 <input  type="number"
                         required="required"
@@ -10,7 +10,7 @@ const EditableRow = ({ editFormData, handleEditFormChange, handleCancelClick}) =
                         name="empid"
                         value={editFormData.empid}
                         onChange={handleEditFormChange}
-                        ></input>                
+                        ></input>
             </td>
             <td>
                 <input  type="text"
@@ -19,7 +19,7 @@ const EditableRow = ({ editFormData, handleEditFormChange, handleCancelClick}) =
                         name="fullname"
                         value={editFormData.fullname}
                         onChange={handleEditFormChange}
-                        ></input>    
+                        ></input>
             </td>
             <td>
                 <input  type="number"
@@ -28,7 +28,7 @@ const EditableRow = ({ editFormData, handleEditFormChange, handleCancelClick}) =
                         name="phonenumber"
                         value={editFormData.phonenumber}
                         onChange={handleEditFormChange}
-                        ></input>    
+                        ></input>
             </td>
             <td>
                 <input  type="text"
@@ -37,7 +37,7 @@ const EditableRow = ({ editFormData, handleEditFormChange, handleCancelClick}) =
                         name="address"
                         value={editFormData.address}
                         onChange={handleEditFormChange}
-                        ></input>    
+                        ></input>
             </td>
             <td>
             <input  type="text"
@@ -46,7 +46,7 @@ const EditableRow = ({ editFormData, handleEditFormChange, handleCancelClick}) =
                         name="department"
                         value={editFormData.department}
                         onChange={handleEditFormChange}
-                        ></input>    
+                        ></input>
             </td>
             <td>
             <input  type="text"
@@ -55,7 +55,7 @@ const EditableRow = ({ editFormData, handleEditFormChange, handleCancelClick}) =
                         name="position"
                         value={editFormData.position}
                         onChange={handleEditFormChange}
-                        ></input>    
+                        ></input>
             </td>
                 <button type="submit">Save</button>
                 <button type="button" onClick={handleCancelClick}>

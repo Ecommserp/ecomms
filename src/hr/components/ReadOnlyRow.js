@@ -2,7 +2,7 @@ import React from 'react'
 
 const ReadOnlyRow =({contact, handleEditClick, handleDeleteClick}) => {
     return (
-        <tr>
+        <tr key={contact.empid}>
                 <td>{contact.empid}</td>
                 <td>{contact.fullname}</td>
                 <td>{contact.phonenumber}</td>
@@ -18,7 +18,7 @@ const ReadOnlyRow =({contact, handleEditClick, handleDeleteClick}) => {
                         <button type="button" onClick={() => handleDeleteClick(contact.empid)}>
                         Delete
                     </button>
-                    
+
                 </td>
             </tr>
     );
