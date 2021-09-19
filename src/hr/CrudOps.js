@@ -158,7 +158,7 @@ function CrudOps() {
           console.log('ww')
 
         }
-        //emp_data();
+        emp_data();
 
     return (
 <div >
