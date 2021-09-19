@@ -1,4 +1,4 @@
-.app-container {
+.hr_app-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -6,42 +6,42 @@
   background-color: #c4e0e9;
 }
 
-table {
+.hr_table {
   border-collapse: collapse;
   width: 100%;
 }
 
-th,
-td {
+.hr_th,
+.hr_td {
   border: 1px solid #ffffff;
   text-align: left;
   padding: 8px;
   font-size: 32px;
 }
 
-th {
+.hr_th {
   background-color: rgb(117, 201, 250);
 }
 
-td {
+.hr_td {
   background-color: rgb(205, 235, 253);
 }
 
-form {
+.hr_form {
   display: flex;
   gap: 5px;
 }
 
-form td:last-child {
+.hr_form .hr_td:last-child {
   display: flex;
   justify-content: space-evenly;
 }
 
-form * {
+.hr_form * {
   font-size: 18px;
 }
 
-H2 {
+.hr_H2 {
   padding-left: 700px;
   color: rgb(2, 2, 58);
   font-size: 30px;

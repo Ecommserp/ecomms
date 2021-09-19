@@ -1,10 +1,10 @@
-.searchInputs {
+.hr_searchInputs {
   margin-top: 105px;
   margin-left: 750px;
   display: flex;
 }
 
-.search input {
+.hr_search input {
   background-color: rgb(175, 214, 230);
   border: 10;
   border-radius: 2px;
@@ -16,7 +16,7 @@
   width: 500px;
 }
 
-.searchIcon {
+.hr_searchIcon {
   height: 60px;
   width: 50px;
   background-color: white;
@@ -24,14 +24,14 @@
   place-items: center;
 }
 
-input:focus {
+.hr_input:focus {
   outline: none;
 }
-.searchIcon svg {
+.hr_searchIcon svg {
   font-size: 35px;
 }
 
-.dataResult {
+.hr_dataResult {
   margin-top: 5px;
   margin-left: 475px;
   width: 435px;
@@ -42,11 +42,11 @@ input:focus {
   overflow-y: auto;
 }
 
-.dataResult::-webkit-scrollbar {
+.hr_dataResult::-webkit-scrollbar {
   display: none;
 }
 
-.dataResult .dataItem {
+.hr_dataResult .dataItem {
   width: 100%;
   height: 50px;
   display: flex;
@@ -54,14 +54,14 @@ input:focus {
   color: black;
 }
 
-.dataItem p {
+.hr_dataItem p {
   margin-left: 10px;
 }
-a {
+.hr_a {
   text-decoration: none;
 }
 
-a:hover {
+.hr_a:hover {
   background-color: lightgrey;
 }
 

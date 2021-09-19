@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 function attendance() {
     return (
         <div className="hr_App" className="body">
-            <img src={logo} className="App-logo" alt="logo" />
+            <img src={logo} className="hr_App-logo" alt="logo" />
 
 
             <div>
@@ -25,8 +25,8 @@ function attendance() {
 
 
 
-            <div className="attendance" className="abackgroud">
-              <h1 className="h1">Total Daily Employee Attendance</h1>
+            <div className="hr_attendance" className="hr_abackgroud">
+              <h1 className="hr_h1">Total Daily Employee Attendance</h1>
             <table >
                 <tr>
                   <td>Date </td>
@@ -90,8 +90,8 @@ function attendance() {
            </div>
 
             <br></br><br></br><br></br><br></br>
-           <div className="attendance" className="abackgroud">
-              <h1 className="h1">Total  Attendance and Leave Count</h1>
+           <div className="hr_attendance" className="hr_abackgroud">
+              <h1 className="hr_h1">Total  Attendance and Leave Count</h1>
             <table >
                 <tr>
                     <td>Date </td>
