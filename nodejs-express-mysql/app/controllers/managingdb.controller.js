@@ -91,19 +91,19 @@ exports.update = (req, res) => {
 };
 
 // Delete a Customer with the specified customerId in the request
-exports.delete = (req, res) => {
-  User.remove(req.params.customerId, (err, data) => {
+exports.delete_invoice = (req, res) => {
+  Managingdb.remove(req.params.Invoice_ID, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Customer with id ${req.params.customerId}.`
+          message: `Not found Invoice with id ${req.params.Invoice_ID}.`
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Customer with id " + req.params.customerId
+          message: "Could not delete Invoice with id " + req.params.Invoice_ID
         });
       }
-    } else res.send({ message: `Customer was deleted successfully!` });
+    } else res.send({ message: `Invoice was deleted successfully!` });
   });
 };
 

@@ -78,8 +78,22 @@ Managingdb.updateById = (id, customer, result) => {
   );
 };
 
+
+
+Managingdb.removeAll = result => {
+  sql.query("DELETE FROM users", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log(`deleted ${res.affectedRows} customers`);
+    result(null, res);
+  });
+};
 Managingdb.remove = (id, result) => {
-  sql.query("DELETE FROM users WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM invoice WHERE Invoice_ID = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -92,20 +106,7 @@ Managingdb.remove = (id, result) => {
       return;
     }
 
-    console.log("deleted customer with id: ", id);
-    result(null, res);
-  });
-};
-
-Managingdb.removeAll = result => {
-  sql.query("DELETE FROM users", (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
-
-    console.log(`deleted ${res.affectedRows} customers`);
+    console.log("deleted invoice with Invoice_ID: ", id);
     result(null, res);
   });
 };

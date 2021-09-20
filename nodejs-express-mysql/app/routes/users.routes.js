@@ -144,6 +144,7 @@ module.exports = app => {
    // Retrieve all Customers inquiry
    app.get("/crm/crm", crmI.findAll);
 
+
    // Retrieve a single Customer with customerId
    app.get("/crm/crm/:Customer_NIC", crmI.findOne);
 
@@ -165,6 +166,9 @@ module.exports = app => {
 
    // Create a new invoice
    app.get("/acc/managingdb/:Invoice_ID", managingdb.findOne);
+
+   // Delete a Invoice
+   app.delete("/acc/managingdb/:Invoice_ID", managingdb.delete_invoice);
 
 
    // Retrieve all Hr emplyees

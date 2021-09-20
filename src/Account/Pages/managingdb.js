@@ -77,6 +77,22 @@ function Additem() {
 
   }
 
+  async function deleted(e) {
+        /* Prevent button click's default behavior */
+        e.preventDefault();
+
+        const requestOptions = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ Invoice_ID: upid})
+    };
+    fetch('http://localhost:3220/acc/managingdb/'+ upid, requestOptions)
+        .then(response => response.json());
+        console.log(requestOptions)
+        alert("Item Deleted")
+
+    }
+
 
 
   return (
@@ -138,7 +154,7 @@ function Additem() {
                         </center>
                         <br></br><br></br><br></br>
                         <center><Card border ='primary' style={{ width: '40rem' }}>
-                        <Card.Header style ={{backgroundColor: '#000428'}}><h3 style ={{color:'white'}}>Update Invoice</h3></Card.Header>
+                        <Card.Header style ={{backgroundColor: '#000428'}}><h3 style ={{color:'white'}}>Update / Delete Invoice</h3></Card.Header>
                         <Card.Body>
                         <form>
                             <label>
@@ -167,6 +183,7 @@ function Additem() {
                                 </label><br></br><br></br>
                                 <input type="Reset" value="Reset"/> <div className="space"></div>
                                 <input type="Button" value="Update" onClick={update}/> <div className="space"></div>
+                                <input type="Button" value="Delete" onClick={deleted}/> <div className="space"></div>
 
                                 </form>
 
