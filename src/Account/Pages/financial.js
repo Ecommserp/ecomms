@@ -127,7 +127,7 @@ function financial() {
     <i><h1 style={{
             position: 'absolute',
             right: 50,
-            top: 72,}}>Manage<br></br>Database</h1></i>
+            top: 72,}}>Financial<br></br>Report</h1></i>
             <img
             style={{
               position: 'absolute',

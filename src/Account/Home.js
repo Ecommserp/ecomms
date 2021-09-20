@@ -23,8 +23,14 @@ function Home() {
   function f_click(){
     history.push("/financial");
 
+  }
 
+  function c_click(){
+    history.push("/cash");
 
+  }
+  function ci_click(){
+    history.push("/income");
 
   }
 
@@ -49,9 +55,9 @@ function Home() {
        </div><br /><br /><br />
        <div className="button_group">
 
- <button className="button1">Company Income</button>    <div className="space"></div>
+ <button className="button1"onClick={ci_click}>Company Income</button>    <div className="space"></div>
 
-   <button className="button1">Cash Flow</button>
+   <button className="button1"onClick={c_click}>Cash Flow</button>
  </div>
 
 
