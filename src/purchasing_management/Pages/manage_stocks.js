@@ -76,13 +76,14 @@ setIsOpen3(!isOpen3);
 
 }
 
-const loaddata = document.getElementById("load_data");
+
 
 async function getData(url) {
 const response = await fetch(url);
 
 return response.json();
 }
+
 
 async function getData_rev() {
 
@@ -141,7 +142,7 @@ const [id, setid] = useState("");
   }
 async function render_data() {
 
-  if(document.getElementById("load_data")) {
+  if(document.getElementById("load_data1")) {
     ReactDOM.render(<MaterialTable
 
 
@@ -169,10 +170,11 @@ async function render_data() {
             })
           ]}
           options={{
+
             actionsColumnIndex: -1
           }}
 
-        />, document.getElementById("load_data"));
+        />, document.getElementById("load_data1"));
   }
 
 
@@ -226,7 +228,7 @@ getData_rev();
  </div>
  </div>
 
-<div id="load_data"> </div>
+<div id="load_data1"> </div>
 
 
       <div>

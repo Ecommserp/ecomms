@@ -22,7 +22,7 @@ import Popup from './popup';
 import {  useState } from "react";
 import './pmcss1.css';
 import moment from 'moment';
-
+import ReactDOM from 'react-dom'
 
 
 
@@ -93,15 +93,9 @@ return response.json();
 async function getData_rev() {
 
     const apiUrl = 'http://localhost:3220/purchases';
-    const data = await getData(apiUrl);
+    table_data = await getData(apiUrl);
+render_data();
 
-    for(var i = 0; i < data.length; i++){
-
-
-        table_data[i] = data[i];
-
-
-    }
 
 
 }
@@ -126,12 +120,44 @@ function insert() {
 
 
 
-
+const loaddata = document.getElementById("load_data");
 
 
 
 const [u_name, setu_name] = useState("");
 const [u_contact, setu_contact] = useState("");
+
+async function render_data() {
+
+  if(document.getElementById("load_data")) {
+    ReactDOM.render(
+  <MaterialTable
+
+
+ icons={tableIcons}
+      title="Purchase History"
+      columns={[
+        { title: 'Purchase ID', field: 'Purchase_id' , minWidth: 200  },
+
+
+        {title: 'Product ID',field: 'Product_id', minWidth: 200},
+
+
+            { title: 'Quantity', field: 'quantity', type: 'name', minWidth: 200  ,align: 'center' },
+              {title: 'Purchased Price',field: 'P_price', minWidth: 200},
+                {title: 'Selling Price',field: 'S_price', minWidth: 200},
+      ]}
+      data={table_data}
+
+      options={{
+        search: false,
+        actionsColumnIndex: -1
+      }}
+
+    />, document.getElementById("load_data"));
+}
+}
+
 
 
 
@@ -156,29 +182,7 @@ getData_rev();
  </div>
 
 
-    <MaterialTable
-
-
-   icons={tableIcons}
-        title="Purchase History"
-        columns={[
-          { title: 'Supplier ID', field: 'Purchase_id' , minWidth: 200  },
-
-
-          {title: 'Name',field: 'Product_id', minWidth: 200},
-
-
-              { title: 'Contact', field: 'quantity', type: 'name', minWidth: 200  ,align: 'center' },
-                {title: 'Name',field: 'P_price', minWidth: 200},
-                  {title: 'Name',field: 'S_price', minWidth: 200},
-        ]}
-        data={table_data}
-
-        options={{
-          actionsColumnIndex: -1
-        }}
-
-      />
+<div id="load_data"> </div>
 
 
         <div>
@@ -201,31 +205,31 @@ getData_rev();
                         </label><br></br><br></br>
 
                         <label>
-                            Product ID  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                            Product ID &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                             <input type="text" name="contact" value={product_id} onChange={(e) => setproduct_id(e.target.value)} />
                             </label><br></br><br></br>
 
                             <label>
-                                Date  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                Date  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                                 <input  type="date" name="date" onChange={(e) => setdate(e.target.value)}/>
 
                                 </label><br></br><br></br>
 
 
                                 <label>
-                                    Quantity  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                    Quantity  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 
                                     <input type="text" name="contact" value={quantity} onChange={(e) => setquantity(e.target.value)} />
                                     </label><br></br><br></br>
 
 
                                     <label>
-                                        purchased price  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                        purchased price &nbsp;
                                         <input type="text" name="contact" value={p_price} onChange={(e) => setp_price(e.target.value)} />
                                         </label><br></br><br></br>
 
                                         <label>
-                                            Selling Price  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                            Selling Price  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                                             <input type="text" name="contact" value={s_price} onChange={(e) => sets_price(e.target.value)} />
                                             </label><br></br><br></br>
 

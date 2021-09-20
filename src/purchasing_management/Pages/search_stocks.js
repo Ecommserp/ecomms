@@ -17,7 +17,7 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
-
+import ReactDOM from 'react-dom'
 
 
 
@@ -58,26 +58,52 @@ return response.json();
 async function getData_rev() {
 
     const apiUrl = 'http://localhost:3220/purchases';
-    const data = await getData(apiUrl);
+    table_data = await getData(apiUrl);
 
-    for(var i = 0; i < data.length; i++){
-
-
-        table_data[i] = data[i];
-
-
-    }
+render_data();
 
 
 }
 
-
 getData_rev();
+
+async function render_data() {
+
+  if(document.getElementById("load_table_data")) {
+    ReactDOM.render(<MaterialTable
+
+
+ icons={tableIcons}
+      title="purchases"
+      columns={[
+        { title: 'Supplier ID', field: 'Purchase_id' , minWidth: 200  },
+
+
+
+
+            { title: 'Product ID', field: 'Product_id', type: 'name', minWidth: 200  ,align: 'center' },
+             { title: 'Date', field: 'Date', type: 'name', minWidth: 200  ,align: 'center' },
+             { title: 'Quantity', field: 'quantity', type: 'name', minWidth: 200  ,align: 'center' },
+                 { title: 'purchase price', field: 'P_price', type: 'name', minWidth: 200  ,align: 'center' },
+                     { title: 'Selling price', field: 'S_price', type: 'name', minWidth: 200  ,align: 'center' },
+      ]}
+      data={table_data}
+
+      options={{
+        actionsColumnIndex: -1
+      }}
+
+    />, document.getElementById("load_table_data"));
+
+}
+}
 
 function Search_stocks() {
 
 
-getData_rev();
+
+
+
 
 
 
@@ -86,33 +112,10 @@ getData_rev();
 
    <div className="screen3">
    <div className="headu2">
-   <MaterialTable
 
-
-  icons={tableIcons}
-       title="purchases"
-       columns={[
-         { title: 'Supplier ID', field: 'Purchase_id' , minWidth: 200  },
-
-
-
-
-             { title: 'Product ID', field: 'Product_id', type: 'name', minWidth: 200  ,align: 'center' },
-              { title: 'Date', field: 'Date', type: 'name', minWidth: 200  ,align: 'center' },
-              { title: 'Quantity', field: 'quantity', type: 'name', minWidth: 200  ,align: 'center' },
-                  { title: 'purchase price', field: 'P_price', type: 'name', minWidth: 200  ,align: 'center' },
-                      { title: 'Selling price', field: 'S_price', type: 'name', minWidth: 200  ,align: 'center' },
-       ]}
-       data={table_data}
-
-       options={{
-         actionsColumnIndex: -1
-       }}
-
-     />
-
+<div id="load_table_data"> </div>
      </div>
-          </div>
+     </div>
 
  );
 }
