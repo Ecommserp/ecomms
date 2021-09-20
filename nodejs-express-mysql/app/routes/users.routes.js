@@ -117,7 +117,8 @@ module.exports = app => {
      // Retrieve all purchases
      app.get("/purchases", pm.findAll);
 
-
+     // make a new purchase
+     app.post("/purchases", pm.create);
 
 
      // Retrieve all suppliers

@@ -7,7 +7,7 @@ const Sales = function(sales) {
   this.quantity= sales.quantity;
 };
 
-User.create = (newCustomer, result) => {
+Sales.create = (newCustomer, result) => {
   //console.log(newCustomer)
   sql.query("INSERT INTO users SET ?", newCustomer, (err, res) => {
     if (err) {
@@ -21,7 +21,7 @@ User.create = (newCustomer, result) => {
   });
 };
 
-User.findById = (customerId, result) => {
+Sales.findById = (customerId, result) => {
   sql.query(`SELECT * FROM users WHERE username = '${customerId}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -40,7 +40,7 @@ User.findById = (customerId, result) => {
   });
 };
 
-User.getAll = result => {
+Sales.getAll = result => {
   sql.query("SELECT * FROM users", (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -53,7 +53,7 @@ User.getAll = result => {
   });
 };
 
-User.updateById = (id, customer, result) => {
+Sales.updateById = (id, customer, result) => {
   sql.query(
     "UPDATE users SET email = ?, name = ?, active = ? WHERE id = ?",
     [customer.email, customer.name, customer.active, id],
@@ -76,7 +76,7 @@ User.updateById = (id, customer, result) => {
   );
 };
 
-User.remove = (id, result) => {
+Sales.remove = (id, result) => {
   sql.query("DELETE FROM users WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -95,7 +95,7 @@ User.remove = (id, result) => {
   });
 };
 
-User.removeAll = result => {
+Sales.removeAll = result => {
   sql.query("DELETE FROM users", (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -108,4 +108,4 @@ User.removeAll = result => {
   });
 };
 
-module.exports = User;
+module.exports = Sales;

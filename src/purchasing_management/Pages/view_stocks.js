@@ -21,7 +21,7 @@ import Card from 'react-bootstrap/Card';
 import Popup from './popup';
 import {  useState } from "react";
 import './pmcss1.css';
-
+import moment from 'moment';
 
 
 
@@ -29,7 +29,7 @@ import './pmcss1.css';
 
 
 let table_data = [];
-let s_id = [];
+
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -54,8 +54,14 @@ const tableIcons = {
 
 function View_stocks() {
 
-  const [name, setname] = useState("");
-  const [contact, setcontact] = useState("");
+  const [date, setdate] = useState("");
+  const [product_id, setproduct_id] = useState("");
+  const [supplier_id, setsupplier_id] = useState("");
+  const [quantity, setquantity] = useState("");
+  const [p_price, setp_price] = useState("");
+  const [s_price, sets_price] = useState("");
+
+
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -86,7 +92,7 @@ return response.json();
 
 async function getData_rev() {
 
-    const apiUrl = 'http://localhost:3220/suppliers';
+    const apiUrl = 'http://localhost:3220/purchases';
     const data = await getData(apiUrl);
 
     for(var i = 0; i < data.length; i++){
@@ -110,63 +116,24 @@ function insert() {
 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, contact: contact})
+      body: JSON.stringify({ Supplier_id: supplier_id, Product_id: product_id , Date: moment(date).format('YYYY-MM-DD') , quantity: quantity , P_price: p_price , S_price: s_price})
   };
-  fetch('http://localhost:3220/suppliers', requestOptions)
+  fetch('http://localhost:3220/purchases', requestOptions)
       .then(response => response.json());
       alert("Item added")
 }
 
 
-///
-const [id, setid] = useState("");
 
 
 
 
 
-  function deleteSP() {
-
-    const requestOptions = {
-
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: id})
-    };
-    fetch('http://localhost:3220/suppliers/'+ id, requestOptions)
-        .then(response => response.json());
-        console.log(requestOptions)
-        alert("successfully removed supplier")
-        setid("");
-  }
-
-
-////
 
 const [u_name, setu_name] = useState("");
 const [u_contact, setu_contact] = useState("");
 
-async function update_product() {
-  /* Prevent button click's default behavior */
 
-
-  const requestOptions = {
-  method: 'PUT',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ id: s_id[0], name: u_name, contact: u_contact})
-};
-
-
-fetch('http://localhost:3220/suppliers/'+ s_id[0], requestOptions)
-  .then(response => response.json());
-  console.log(requestOptions)
-alert("You want to Edit " + s_id[0]);
-  setu_name("");
-  setu_contact("");
-
-
-
-}
 
 
 
@@ -195,12 +162,15 @@ getData_rev();
    icons={tableIcons}
         title="Purchase History"
         columns={[
-          { title: 'Supplier ID', field: 'Supplier_ID' , minWidth: 200  },
+          { title: 'Supplier ID', field: 'Purchase_id' , minWidth: 200  },
 
 
-          {title: 'Name',field: 'name', minWidth: 200},
+          {title: 'Name',field: 'Product_id', minWidth: 200},
 
-              { title: 'Contact', field: 'contact', type: 'name', minWidth: 200  ,align: 'center' },
+
+              { title: 'Contact', field: 'quantity', type: 'name', minWidth: 200  ,align: 'center' },
+                {title: 'Name',field: 'P_price', minWidth: 200},
+                  {title: 'Name',field: 'S_price', minWidth: 200},
         ]}
         data={table_data}
 
@@ -210,43 +180,6 @@ getData_rev();
 
       />
 
-      <div>
-
-
-          {isOpen && <Popup
-            content={<>
-
-
-              <center><Card border ='primary' style={{ width: '40rem' }}>
-              <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>Update Suppliers</h3></Card.Header>
-              <Card.Body>
-              <form>
-                  <label>
-                      Supplier Name  &nbsp;&nbsp;
-                      <input type="text" name="u_name" value={u_name} onChange={(e) => setu_name(e.target.value)} />
-                      </label><br></br><br></br>
-
-
-
-
-
-
-
-                      <label>
-                      Contact  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <input type="text" name="u_contact"  value={u_contact} onChange={(e) => setu_contact(e.target.value)}/>
-                      </label><br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button className="button22" value="Submit" onClick={update_product}>Update</button>
-
-                      </form>
-                      </Card.Body></Card>
-                      </center>
-
-
-            </>}
-            handleClose={togglePopup}
-          />}
-        </div>
 
         <div>
 
@@ -256,23 +189,45 @@ getData_rev();
 
 
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>New Supplier</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>New Purchase</h3></Card.Header>
                 <Card.Body>
                 <form>
 
+
+
                         <label>
-
-
-
-
-                        Name  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="name" value={name} onChange={(e) => setname(e.target.value)}/>
+                        Supplier ID &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="name" value={supplier_id} onChange={(e) => setsupplier_id(e.target.value)}/>
                         </label><br></br><br></br>
 
                         <label>
-                            Contacts  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                            <input type="text" name="contact" value={contact} onChange={(e) => setcontact(e.target.value)} />
+                            Product ID  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                            <input type="text" name="contact" value={product_id} onChange={(e) => setproduct_id(e.target.value)} />
                             </label><br></br><br></br>
+
+                            <label>
+                                Date  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                <input  type="date" name="date" onChange={(e) => setdate(e.target.value)}/>
+
+                                </label><br></br><br></br>
+
+
+                                <label>
+                                    Quantity  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+
+                                    <input type="text" name="contact" value={quantity} onChange={(e) => setquantity(e.target.value)} />
+                                    </label><br></br><br></br>
+
+
+                                    <label>
+                                        purchased price  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                        <input type="text" name="contact" value={p_price} onChange={(e) => setp_price(e.target.value)} />
+                                        </label><br></br><br></br>
+
+                                        <label>
+                                            Selling Price  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                            <input type="text" name="contact" value={s_price} onChange={(e) => sets_price(e.target.value)} />
+                                            </label><br></br><br></br>
 
                         <button className="button22" value="Submit" onClick={insert}>Insert Data</button>
 
@@ -289,40 +244,7 @@ getData_rev();
 
 
 
-          <div>
 
-
-              {isOpen3 && <Popup
-                content={<>
-
-
-                  <center><Card border ='primary' style={{ width: '40rem' }}>
-                  <Card.Header style ={{backgroundColor: '#1F78B4'}}><h3 style ={{color:'white'}}>Remove Suppliers</h3></Card.Header>
-                  <Card.Body>
-                  <form >
-
-
-
-
-
-
-
-
-                          <label>
-                          Supplier ID  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <input type="text" name="id" value={id} onChange={(e) => setid(e.target.value)}/>
-                          </label><br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <button className="button22" value="Submit" onClick={deleteSP}>Delete</button>
-
-                          </form>
-                          </Card.Body></Card>
-                          </center>
-
-
-                </>}
-                handleClose={togglePopup3}
-              />}
-            </div>
 
 
 
