@@ -108,7 +108,7 @@ async function render_data() {
       data={table_data}
 
       options={{
-        search: false,
+        search: true,
         actionsColumnIndex: -1
       }}
 
