@@ -3,9 +3,9 @@ import '../menu.css';
 
 function Navbar() {
     return (
-        <div className="Navbar">
-            <div className="leftSide">
-            <div className="lLinks">
+        <div className="hr_Navbar">
+            <div className="hr_leftSide">
+            <div className="hr_lLinks">
             <a href="http://localhost:3000/Hr">Home</a>
             <a href="http://localhost:3000/HrCrudOps">Employee Database</a>
             <a href="http://localhost:3000/Hrsearch">Search</a>
@@ -15,8 +15,8 @@ function Navbar() {
             </div>
             </div>
 
-            <div className="rightSide">
-            <div className="rLinks">
+            <div className="hr_rightSide">
+            <div className="hr_rLinks">
             <a href=""> Logout</a>
             </div>
             </div>

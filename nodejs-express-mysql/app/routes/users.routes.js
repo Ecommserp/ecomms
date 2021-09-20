@@ -169,6 +169,9 @@ module.exports = app => {
    // Retrieve all Hr emplyees
    app.get("/hr/emp", hr.findAll);
 
+   // Retrieve all Hr emplyees
+   app.post("/hr/emp", hr.create);
+
     // Create a new Sale
   app.post("/sales", sales.create);
 

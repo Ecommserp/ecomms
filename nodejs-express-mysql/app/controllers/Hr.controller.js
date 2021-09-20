@@ -12,17 +12,20 @@ exports.create = (req, res) => {
   }
 
   // Create a Customer
-  const user = new Hr({
-    username: req.body.username,
-    password: req.body.password
+  const employee = new Hr({
+    fullname: req.body.fullname,
+    phonenumber: req.body.phonenumber,
+    address: req.body.address,
+    department: req.body.department,
+    position: req.body.position
   });
 
   // Save Customer in the database
-  Hr.create(user, (err, data) => {
+  Hr.create(employee, (err, data) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Customer."
+          err.message || "Some error occurred while creating the Employee."
       });
     else res.send(data);
   });
