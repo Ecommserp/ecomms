@@ -22,7 +22,7 @@ Sales.create = (newCustomer, result) => {
 };
 
 Sales.findById = (customerId, result) => {
-  sql.query(`SELECT * FROM users WHERE username = '${customerId}'`, (err, res) => {
+  sql.query(`SELECT * FROM client WHERE Client_ID = '${customerId}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -41,7 +41,7 @@ Sales.findById = (customerId, result) => {
 };
 
 Sales.getAll = result => {
-  sql.query("SELECT * FROM users", (err, res) => {
+  sql.query("SELECT * FROM client", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -55,8 +55,8 @@ Sales.getAll = result => {
 
 Sales.updateById = (id, customer, result) => {
   sql.query(
-    "UPDATE users SET email = ?, name = ?, active = ? WHERE id = ?",
-    [customer.email, customer.name, customer.active, id],
+    "UPDATE users SET name = ?, contact = ? WHERE id = ?",
+    [customer.name, customer.contact, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

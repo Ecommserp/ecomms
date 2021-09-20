@@ -1,0 +1,48 @@
+.sal_app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+  background-color: #c4e0e9;
+}
+
+.sal_table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.sal_th,
+.sal_td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 32px;
+}
+
+.sal_th {
+  background-color: rgb(117, 201, 250);
+}
+
+.sal_td {
+  background-color: rgb(205, 235, 253);
+}
+
+.sal_form {
+  display: flex;
+  gap: 5px;
+}
+
+.sal_form .sal_td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sal_form {
+  font-size: 18px;
+}
+
+.sal_H2 {
+  padding-left: 700px;
+  color: rgb(2, 2, 58);
+  font-size: 30px;
+}

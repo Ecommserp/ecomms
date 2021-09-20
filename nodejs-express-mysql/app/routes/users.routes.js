@@ -182,4 +182,13 @@ module.exports = app => {
     // Create a new Sale
   app.post("/sales", sales.create);
 
+  // Retrieve all Hr emplyees
+  app.get("/sales/cli", sales.findAll_cli);
+
+  // Retrieve a single client with customerId
+  app.get("/sales/cli/:Client_ID", sales.findOne_cli);
+
+  // Update a client with client id
+  app.put("/sales/cli/:Client_ID", sales.update_cli);
+
 };
