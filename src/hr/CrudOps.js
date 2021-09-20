@@ -1,5 +1,4 @@
-import React,{useState, Fragment} from 'react';
-import {nanoid} from 'nanoid';
+import React, { useState } from "react";
 import logo from './images/ecomms_logo.png';
 import './Hr.css';
 import './crudops.css';
@@ -15,12 +14,15 @@ import clsx from 'clsx';
 import TableCell from '@material-ui/core/TableCell';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 
 
 
 
 function CrudOps() {
+
+
 
   const styles = (theme) => ({
     flexContainer: {
@@ -289,13 +291,151 @@ fetch('http://localhost:3220/hr/emp', requestOptions)
 
 }
 
+/*const [upempid, setUpEmpid] = React.useState("");
+const [upfullname, setUpFullname] = React.useState("");
+const [upphonenumber, setUpPhone] = React.useState("");
+const [upaddress, setUpAddress] = React.useState("");
+const [updepartment, setUpDepartment] = React.useState("");
+const [upposition, setUpPosition] = React.useState("");*/
+
+/*let upempid = '';
+let upfullname = '';
+let upphonenumber = '';
+let upaddress = '';
+let updepartment = '';
+let upposition = '';
+
+function setUpEmpid(det){
+  upempid = det;
+}
+function setUpFullname(det){
+  upfullname = det;
+}
+function setUpPhone(det){
+  upphonenumber = det;
+}
+function setUpAddress(det){
+  upaddress = det;
+}
+function setUpDepartment(det){
+  updepartment = det;
+}
+function setUpPosition(det){
+  upposition = det;
+}
+
+*/
+
+
+function InputField () {
+
+    const [upempid, setUpEmpid] = React.useState("");
+    const [upfullname, setUpFullname] = React.useState("");
+    const [upphonenumber, setUpPhone] = React.useState("");
+    const [upaddress, setUpAddress] = React.useState("");
+    const [updepartment, setUpDepartment] = React.useState("");
+    const [upposition, setUpPosition] = React.useState("");
+
+
+  async function keyPress(e){
+
+        if(e.keyCode == 13){
+           console.log('value', e.target.value);
+           // put the login here
+
+           e.preventDefault();
+
+           const apiUrl = 'http://localhost:3220/hr/emp/'+ upempid;
+           const data = await getData(apiUrl);
+
+           console.log(data.fullname)
+
+
+
+           /* Call the state's "setter" method to update "userInput" state */
+           setUpFullname(data.fullname)
+           setUpPhone(data.phonenumber)
+           setUpAddress(data.address)
+           setUpDepartment(data.department)
+           setUpPosition(data.position)
+
+           console.log('name '+ upfullname)
+        }
+     }
+
+     async function update_emp(e) {
+       /* Prevent button click's default behavior */
+       e.preventDefault();
+
+       const requestOptions = {
+       method: 'PUT',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify({ fullname: upfullname, phonenumber: upphonenumber, address: upaddress, department: updepartment, position: upposition})
+     };
+     fetch('http://localhost:3220/hr/emp/'+ upempid, requestOptions)
+       .then(response => response.json());
+       console.log(requestOptions)
+       alert("Item Updated")
+
+     }
+
+
+  return(
+    <div className="hr_edit_win">
+    <div className="hr_emp_close">
+    <CancelIcon style={{fill: "red"}} onClick={close_emp}></CancelIcon>
+
+    </div>
+
+
+    <label className="tile_text_bi1">Edit/ Delete Meeting</label> <br /> <br />
+    <br />
+    <label className="tile_text_bi1">Employee ID</label> <br />
+    <input className="input" type="text" name="title" onKeyDown={keyPress} onChange={(e) => setUpEmpid(e.target.value)}/>
+    <br />
+    <label className="tile_text_bi1">Full Name</label> <br />
+    <input className="input" type="text" value={upfullname} onChange={(e) => setUpFullname(e.target.value)}/>
+    <br />
+    <label className="tile_text_bi1">Phone</label> <br />
+    <input className="input" type="text" value={upphonenumber} onChange={(e) => setUpPhone(e.target.value)}/>
+    <br />
+    <label className="tile_text_bi1">Address</label> <br />
+    <input className="input" type="text" value={upaddress} onChange={(e) => setUpAddress(e.target.value)}/>
+    <br />
+    <label className="tile_text_bi1">Department</label> <br />
+    <input className="input" type="text" value={updepartment} onChange={(e) => setUpDepartment(e.target.value)}/>
+   <br />
+    <label className="tile_text_bi1">Position</label> <br />
+    <input className="input" type="text" value={upposition} onChange={(e) => setUpPosition(e.target.value)}/>
+    <br />
+    <br />
+
+    <button className="button_add" onClick={update_emp}>Update</button>
+
+    </div>
+  )
+}
+
+function Edit_emp() {
+
+  ReactDOM.render(<InputField />
+, document.getElementById('main_win'));
+
+}
+
+async function close_emp(){
+
+  ReactDOM.render(  <div> </div>, document.getElementById('main_win'));
+
+}
+
 getData_emp();
 
 
 
 
     return (
-<div >
+<div>
     <div>
         <img src={logo} className="App-logo" alt="logo" />
     </div>
@@ -310,8 +450,14 @@ getData_emp();
 
     </div>
 
+    <div id="main_win">
+    </div>
+
     <br></br><br></br><br></br><br></br><br></br>
+    <button type="button" className="hr_button1" onClick={Edit_emp}>Edit/Delete</button>
+
     <div className="hr_app-container">
+
 
     <div id="dis_emp">
 

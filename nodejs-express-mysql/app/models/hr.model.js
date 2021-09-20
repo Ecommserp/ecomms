@@ -23,8 +23,8 @@ Hr.create = (newCustomer, result) => {
   });
 };
 
-Hr.findById = (customerId, result) => {
-  sql.query(`SELECT * FROM users WHERE username = '${customerId}'`, (err, res) => {
+Hr.findById = (empid, result) => {
+  sql.query(`SELECT * FROM employee WHERE empid = '${empid}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -57,8 +57,8 @@ Hr.getAll = result => {
 
 Hr.updateById = (id, customer, result) => {
   sql.query(
-    "UPDATE users SET email = ?, name = ?, active = ? WHERE id = ?",
-    [customer.email, customer.name, customer.active, id],
+    "UPDATE employee SET fullname = ?, phonenumber = ?, address = ?, department = ?, position = ? WHERE empid = ?",
+    [customer.fullname, customer.phonenumber, customer.address, customer.department, customer.position , id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

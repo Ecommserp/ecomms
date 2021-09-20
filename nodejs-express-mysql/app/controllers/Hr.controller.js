@@ -45,7 +45,7 @@ exports.findAll = (req, res) => {
 
 // Find a single Customer with a customerId
 exports.findOne = (req, res) => {
-  Hr.findById(req.params.customerId, (err, data) => {
+  Hr.findById(req.params.Emp_ID, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -72,17 +72,17 @@ exports.update = (req, res) => {
   console.log(req.body);
 
   Hr.updateById(
-    req.params.customerId,
-    new User(req.body),
+    req.params.Emp_ID,
+    new Hr(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Customer with id ${req.params.customerId}.`
+            message: `Not found Customer with id ${req.params.Emp_ID}.`
           });
         } else {
           res.status(500).send({
-            message: "Error updating Customer with id " + req.params.customerId
+            message: "Error updating Customer with id " + req.params.Emp_ID
           });
         }
       } else res.send(data);

@@ -170,8 +170,14 @@ module.exports = app => {
    // Retrieve all Hr emplyees
    app.get("/hr/emp", hr.findAll);
 
+   // Retrieve one Hr emplyees
+   app.get("/hr/emp/:Emp_ID", hr.findOne);
+
    // Retrieve all Hr emplyees
    app.post("/hr/emp", hr.create);
+
+   // Update a employee with empid
+   app.put("/hr/emp/:Emp_ID", hr.update);
 
     // Create a new Sale
   app.post("/sales", sales.create);
