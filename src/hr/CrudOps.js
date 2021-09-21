@@ -114,7 +114,7 @@ function CrudOps() {
       return (
         <AutoSizer>
           {({ height, width }) => (
-            <Table
+            <Table 
               height={height}
               width={width}
               rowHeight={rowHeight}
@@ -204,7 +204,7 @@ async function getData_emp() {
 
     }
 
-    ReactDOM.render(   <Paper style={{ height: 300, width: '100%' }}>
+    ReactDOM.render(   <Paper style={{ height: 300, width: '60%',margin:'auto'}}>
          <VirtualizedTable
            rowCount={rows.length}
            rowGetter={({ index }) => rows[index]}
@@ -456,7 +456,7 @@ getData_emp();
     <br></br><br></br><br></br><br></br><br></br>
     <button type="button" className="hr_button1" onClick={Edit_emp}>Edit/Delete</button>
 
-    <div className="hr_app-container">
+    <div className="hr_crud_app-container">
 
 
     <div id="dis_emp">

@@ -27,7 +27,7 @@ function Salary() {
 
 
 
-            <div className="salary" className="salaryAppBack">
+            <div className="salary" >
               <h1 className="h1">Payroll 2021 (Amounts in LKR)</h1>
             <table >
                 <tr>

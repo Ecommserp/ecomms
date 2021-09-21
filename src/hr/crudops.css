@@ -1,47 +1,47 @@
-.hr_app-container {
+.hr_crud_app-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 50px;
   padding: 1rem;
   background-color: #c4e0e9;
 }
 
-.hr_table {
+.hr_crud_table {
   border-collapse: collapse;
-  width: 100%;
+  width: 50%;
 }
 
-.hr_th,
-.hr_td {
-  border: 1px solid #ffffff;
+.hr_crud_th,
+.hr_crud_td {
+  border: 1px solid #f5f5f5;
   text-align: left;
   padding: 8px;
   font-size: 32px;
 }
 
-.hr_th {
-  background-color: rgb(117, 201, 250);
+.hr_crud_th {
+  background-color: rgb(84, 176, 230);
 }
 
-.hr_td {
+.hr_crud_td {
   background-color: rgb(205, 235, 253);
 }
 
-.hr_form {
+.hr_crud_form {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 
-.hr_form .hr_td:last-child {
+.hr_crud_form .hr_crud_td:last-child {
   display: flex;
   justify-content: space-evenly;
 }
 
-.hr_form {
+.hr_crud_form {
   font-size: 18px;
 }
 
-.hr_H2 {
+.hr_crud_H2 {
   padding-left: 700px;
   color: rgb(2, 2, 58);
   font-size: 30px;

@@ -1,19 +1,19 @@
-.hr_abackgroud {
+.hr_att_abackgroud {
   background-color: #c4e0e9;
 }
 
-.hr_table {
+.hr_att_table {
   border-collapse: collapse;
   width: 80%;
   font-size: 10px;
   margin-left: 250px;
 }
 
-.hr_td {
+.hr_att_td {
   width: auto;
 }
 
-.hr_h1 {
+.hr_att_h1 {
   margin-left: 260px;
   font-size: 30px;
 }
