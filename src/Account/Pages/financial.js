@@ -142,18 +142,7 @@ function financial() {
     <div id="revenue_graph"> </div>
     </div>
     <div className="space"></div>
-    <div className="p_margin">
-    <label className="tile_text">Profit Margin</label>
-    <div className="drop_down">
-    <FormControl>
-      <Select>
-        <MenuItem value={10}>Last 3 Months</MenuItem>
-        <MenuItem value={20}>Last 6 Months</MenuItem>
-        <MenuItem value={30}>Last Year</MenuItem>
-      </Select>
-    </FormControl>
-    </div>
-    </div>
+
     </div>
 
 
