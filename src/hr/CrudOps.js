@@ -464,9 +464,9 @@ getData_emp();
     </div>
 
 
-        <h2 className="H2">Add New Employee Details</h2>
+        <h2 className="hr_crud_H2" >Add New Employee Details</h2>
 
-        <form >
+        <form className="hr_crud_form">
 
             <input
                 type="text"

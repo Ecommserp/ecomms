@@ -29,7 +29,8 @@
 
 .hr_crud_form {
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  margin-left: 370px;
 }
 
 .hr_crud_form .hr_crud_td:last-child {
@@ -42,7 +43,8 @@
 }
 
 .hr_crud_H2 {
-  padding-left: 700px;
-  color: rgb(2, 2, 58);
-  font-size: 30px;
+  padding-left: 750px;
+  color: rgb(12, 12, 116);
+  font-size: 40px;
+  font-family: "Times New Roman", Times, serif;
 }
