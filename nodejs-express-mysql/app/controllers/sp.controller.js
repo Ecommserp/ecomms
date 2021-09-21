@@ -58,11 +58,11 @@ exports.update = (req, res) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Customer with id ${req.params.supplierId}.`
+            message: `Not found supplier with id ${req.params.supplierId}.`
           });
         } else {
           res.status(500).send({
-            message: "Error updating Customer with id " + req.params.supplierId
+            message: "Error updating supplier with id " + req.params.supplierId
           });
         }
       } else res.send(data);
@@ -72,19 +72,19 @@ exports.update = (req, res) => {
 
 
 
-// Delete an Item with the specified supplierId in the request
+// Delete a supplier with the specified supplierId in the request
 exports.delete = (req, res) => {
   SP.remove(req.params.supplierId, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Item with id ${req.params.supplierId}.`
+          message: `Not found supplier with id ${req.params.supplierId}.`
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Item with id " + req.params.supplierId
+          message: "Could not delete supplier with id " + req.params.supplierId
         });
       }
-    } else res.send({ message: `Item was deleted successfully!` });
+    } else res.send({ message: `supplier was deleted successfully!` });
   });
 };
