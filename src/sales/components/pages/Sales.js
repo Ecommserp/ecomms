@@ -82,11 +82,12 @@ const Sales = () =>{
     <div>
       <div>
        <h1 className='saleshead'>Sales Management</h1>
+       
        </div>
       <div className='salesheaddetails'>
-        <h1 className='sdetails'>Sales Count</h1>
-       <h1 className='rdetails'>Revenue</h1>
-       <h1   className='pdetails'>Profit</h1>
+        <h1 className='sdetails'>Sales Count<h2>2200</h2></h1>
+       <h1 className='rdetails'>Revenue<h2>USD42000</h2></h1>
+       <h1   className='pdetails'>Profit<h2>USD29000</h2></h1>
        </div>
        
      

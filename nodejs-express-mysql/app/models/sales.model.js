@@ -7,17 +7,17 @@ const Sales = function(sales) {
   this.quantity= sales.quantity;
 };
 
-Sales.create = (newCustomer, result) => {
-  //console.log(newCustomer)
-  sql.query("INSERT INTO users SET ?", newCustomer, (err, res) => {
+Sales.create = (newSales, result) => {
+  //console.log(newSales)
+  sql.query("INSERT INTO sales SET ?", newSales, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
 
-    console.log("created customer: ", { id: res.insertId, ...newCustomer });
-    result(null, { id: res.insertId, ...newCustomer });
+    console.log("created sales: ", { id: res.insertId, ...newSales });
+    result(null, { id: res.insertId, ...newSales});
   });
 };
 
@@ -35,7 +35,7 @@ Sales.findById = (customerId, result) => {
       return;
     }
 
-    // not found Customer with the id
+    // not found Sales with the id
     result({ kind: "not_found" }, null);
   });
 };
@@ -65,7 +65,7 @@ Sales.updateById = (id, customer, result) => {
       }
 
       if (res.affectedRows == 0) {
-        // not found Customer with the id
+        // not found Sales with the id
         result({ kind: "not_found" }, null);
         return;
       }
@@ -85,7 +85,7 @@ Sales.remove = (id, result) => {
     }
 
     if (res.affectedRows == 0) {
-      // not found Customer with the id
+      // not found Sales with the id
       result({ kind: "not_found" }, null);
       return;
     }

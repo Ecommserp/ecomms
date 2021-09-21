@@ -15,7 +15,7 @@
   text-align: center;
   padding-top: 0%;
   font-size: 50px;
-  color: rgb(42, 15, 196);
+  color: black;
 }
 .sal_tile:hover {
   box-shadow: 10px 10px 10px rgba(102, 102, 102, 0.3);
@@ -92,11 +92,12 @@
 }
 
 .sal_button:hover {
-  background-color: #0079ff;
+  background-color:#659fdf;
   cursor: pointer;
 }
 
 .sal_button1 {
+  margin-left: 20%;
   font-size: 15px;
   color: #fff;
   background-color: #659fdf;
@@ -110,20 +111,20 @@
 }
 
 .sal_button1:hover {
-  background-color: #0079ff;
+  background-color: #0072B5;
   cursor: pointer;
 }
 
 .sal_edit_win {
-
+ 
   position:fixed;
   z-index: 1;
   top:50%;
   left:50%;
-  width:50%;  /* adjust as per your needs */
-  height:600px;   /* adjust as per your needs */
-  margin-left:-25%;   /* negative half of width above */
-  margin-top:-300px;   /* negative half of height above */
+  width:50%;  
+  height:600px;   
+  margin-left:-25%;   
+  margin-top:-300px;   
   background-color: #FFF;
   box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);
   align-items: center;

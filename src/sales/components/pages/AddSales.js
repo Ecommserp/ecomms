@@ -41,10 +41,11 @@ function AddSales() {
 
 	<div className="sscreen">
   
-		<h2 className='shead'>Add sales</h2>
-	
-	<form id="form" class="salesform">
-  
+		
+		<form id="form" class="salesform">
+    <div class="sshead">
+		<h2>Add Sales</h2>
+	</div> 
 		<div class="sform-control">
 			<label for="username">Client ID</label>
 			<input type="text" placeholder=""  name="clientid" value={clientid} onChange={(e) => setclientid(e.target.value)}/>
