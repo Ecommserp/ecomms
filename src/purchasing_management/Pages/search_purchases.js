@@ -98,7 +98,7 @@ async function render_data() {
 }
 }
 
-function Search_stocks() {
+function Search_purchases() {
 
 
 
@@ -120,4 +120,4 @@ function Search_stocks() {
  );
 }
 
-export default Search_stocks;
+export default Search_purchases;

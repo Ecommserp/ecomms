@@ -52,7 +52,7 @@ const tableIcons = {
   };
 
 
-function View_stocks() {
+function Manage_purchases() {
 
   const [date, setdate] = useState("");
   const [product_id, setproduct_id] = useState("");
@@ -268,4 +268,4 @@ getData_rev();
  );
 }
 
-export default View_stocks;
+export default Manage_purchases;

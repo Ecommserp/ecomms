@@ -52,7 +52,7 @@ const tableIcons = {
   };
 
 
-function Manage_stocks() {
+function Manage_suppliers() {
 
   const [name, setname] = useState("");
   const [contact, setcontact] = useState("");
@@ -161,7 +161,7 @@ async function render_data() {
 
             rowData => ({
              icon: EditIcon,
-              tooltip: 'Delete User',
+              tooltip: 'Edit User',
           //  onClick: (togglePopup),
             onClick: (event, rowData) => showpopup(s_id[0] = rowData.Supplier_ID) ,
 
@@ -200,7 +200,7 @@ async function update_product() {
 fetch('http://localhost:3220/suppliers/'+ s_id[0], requestOptions)
   .then(response => response.json());
   console.log(requestOptions)
-alert("You want to Edit " + s_id[0]);
+alert("You want to Update supplier : " + s_id[0]);
   setu_name("");
   setu_contact("");
 
@@ -363,4 +363,4 @@ getData_rev();
  );
 }
 
-export default Manage_stocks;
+export default Manage_suppliers;

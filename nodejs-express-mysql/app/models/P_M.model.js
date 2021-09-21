@@ -34,7 +34,7 @@ Purchases.create = (purchase_data, result) => {
       return;
     }
 
-  //  console.log("created Item: ", { id: res.insertId, ...newSupplier });
+
     result(null, { id: res.insertId, ...purchase_data });
   });
 };
