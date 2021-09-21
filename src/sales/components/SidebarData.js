@@ -2,7 +2,7 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
-
+import { IconName } from "react-icons/fa";
 export const SidebarData = [
   {
     title: 'Home',
@@ -27,21 +27,21 @@ export const SidebarData = [
   {
     title: 'ManageClient',
     path: '/manageclient',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <FaIcons.FaUsers />,
     cName: 'nav-text'
   },
   
   {
     title: 'Products',
     path: '/products',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <FaIcons.FaInbox />,
     cName: 'nav-text'
   },
   
 {
     title: 'Invoices',
     path: '/invoices',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <FaIcons.FaFileAlt/>,
     cName: 'nav-text'
   },
   {

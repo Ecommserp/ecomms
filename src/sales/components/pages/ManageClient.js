@@ -200,7 +200,7 @@ async function getData_emp() {
 
     }
 
-    ReactDOM.render(   <Paper style={{ height: 300, width: '100%' }}>
+    ReactDOM.render(   <Paper style={{ height: 300, width: '60%',margin:'auto' }}>
          <VirtualizedTable
            rowCount={rows.length}
            rowGetter={({ index }) => rows[index]}
@@ -331,7 +331,7 @@ function InputField () {
 
 
 
-           /* Call the state's "setter" method to update "userInput" state */
+           
            setUpName(data.name)
            setUpCon(data.contact)
 
@@ -410,7 +410,7 @@ getData_emp();
 
 
     <div>
-        <h1 className="sal_tile">Compnay Employee Database</h1>
+        <h1 className="sal_tile"> Client Management</h1>
     </div>
 
     <div>
@@ -431,9 +431,9 @@ getData_emp();
     </div>
 
 
-        <h2 className="H2">Add New Employee Details</h2>
+        <h2 className="H2">Add New Client Details</h2>
 
-        <form >
+        <form className="mc">
 
             <input
                 type="text"
@@ -475,7 +475,7 @@ getData_emp();
                 onChange={(e) => setPosition(e.target.value)}
             />
 
-            <button type="button" onClick={insert_emp}>Submit</button>
+            <button type="button" classNAme="mabutton" onClick={insert_emp}>Submit</button>
 
         </form>
 

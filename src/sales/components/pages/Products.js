@@ -53,8 +53,17 @@ const Products = () =>{
       <div><h1 className='salesproducts'>Product</h1></div>
       <div className='salesmain'>
       
-      <h1  className='salesquantity'>Quantity</h1> 
-    <h1 className='trendy'>Trendy products</h1>
+      <h1  className='salesquantity'>Quantity<h2>3800</h2></h1> 
+    <h1 className='trendy'>Trendy products
+    <ul className="ultags">
+  <li className="it1">Item 1</li>
+  <li className="it2">Item 2</li>
+  <li className="it3">Item 3</li>
+  <li className="it4">Item 4</li>
+  <li className="it5">Item 5</li>
+  <li className="it6">Item 6</li>
+  <li className="it7">Item 7</li>
+</ul></h1>
     
     </div>
     
