@@ -33,12 +33,12 @@ import Paper from '@material-ui/core/Paper';
       }
       
       const rows = [
-        createData('90v', '1987-12-9', 'john', 'john@gmail.com',1001, '1001E', 'refund', 'pending'),
-        createData('90v', '1980-09-2', 'nimal', 'nimal@gmail.com',1001, '1001E', 'repair ', 'assigned'),
-        createData('90v', '1980-09-2', 'kamal', 'kamal@gmail.com',1001, '1001E', 'refund', 'assigned'),
-        createData('90v', '1980-09-2', 'saman', 'saman@gmail.com',1001, '1001E', 'replacement', 'resolved'),
-        createData('90v', '1980-09-2', 'dias', 'jdias@gmail.com',1001, '1001E', 'replacement', 'resolved'),
-        createData('90v', '1980-09-2', 'sunil', 'jsunil@gmail.com',1001, '1001E', 'repair ','pending'),
+        createData('8789997v', '1987-12-9', 'john', 'john@gmail.com','07165542', '10N1E', 'refund', 'pending'),
+        createData('8089997v', '1980-08-2', 'nimal', 'nimal@gmail.com','0766558', '4571E', 'repair ', 'assigned'),
+        createData('8989997v', '1989-07-2', 'kamal', 'kamal@gmail.com','07165542', '9750K', 'refund', 'assigned'),
+        createData('8189997v', '1981-10-2', 'saman', 'saman@gmail.com','07165542', '9871A', 'replacement', 'resolved'),
+        createData('9089997v', '1990-06-2', 'dias', 'dias@gmail.com','07165542', '1891E', 'replacement', 'resolved'),
+        createData('8589997v', '1985-09-2', 'sunil', 'sunil@gmail.com','07165542', '5281JK', 'repair ','pending'),
       ];
 
       const useStyles = makeStyles({
