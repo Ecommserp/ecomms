@@ -5,7 +5,7 @@ function Invoices() {
     return (
 	<div class="sscreen">
 	
-	<form id="form" class="invform">
+	<form id="form" class="saleform">
 	<div class="sshead">
 		<h2>Add Invoice</h2>
 	</div>
@@ -37,7 +37,7 @@ function Invoices() {
 			
 		</div>
 	
-		<input className="nbutton" type="button" value="Submit"/>
+		<input className="salebutton" type="button" value="Submit"/>
 	</form>
 </div>
         

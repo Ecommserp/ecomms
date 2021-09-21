@@ -64,7 +64,7 @@ function AddSales() {
 			
 		</div>
 	
-		<input className="nbutton" type="button" value="Submit" onClick={insert}/>
+		<input className="salebutton" type="button" value="Submit" onClick={insert}/>
 	</form>
 </div>
         

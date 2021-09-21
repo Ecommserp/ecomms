@@ -50,31 +50,30 @@
   border-width: 6px;
   height: 150px;
 }
-.ultags{
+.ultags {
   font-size: 2rem;
 }
-.sales_li.it1{
-  color: #0072B5;
+.sales_li.it1 {
+  color: #0072b5;
 }
-.sales_li.it2{
-  color: #A0DAA9;
+.sales_li.it2 {
+  color: #a0daa9;
 }
-.sales_li.it3{
+.sales_li.it3 {
   color: #e74c3c;
 }
-.sales_li.it4{
+.sales_li.it4 {
   color: #2ecc71;
 }
-.sales_li.it5{
+.sales_li.it5 {
   color: #8e44ad;
 }
-.sales_li.it6{
-  color: #FDAC53;
+.sales_li.it6 {
+  color: #fdac53;
 }
 .sales_ul.ultags {
   list-style-type: square;
 }
-
 
 .sales-chart {
   margin-top: 120px;
@@ -125,7 +124,7 @@
   margin-right: 100px;
   text-align: center;
 }
-.trendy h2{
+.trendy h2 {
   color: #1f78b4;
   margin-top: 20px;
   margin-right: 40px;
@@ -331,88 +330,84 @@
 .bb:hover {
   background-color: #75c9fa;
 }
-.salesform{
-  background-color:#fff ;
+.salesform {
+  background-color: #fff;
   width: 750px;
   margin-left: 350px;
   margin-top: 100px;
   height: 600px;
   border: 3px solid black;
 }
-.sform-control{
-
+.sform-control {
   margin: 20px;
   padding: 10px;
 }
-.shead{
+.shead {
   font-size: 4rem;
   text-align: center;
   background-color: #1f78b4;
 }
- .sales_label{
-  display:block;
+.sales_label {
+  display: block;
   width: 200px;
-
 }
-.sales_input{
+.sales_input {
   width: 90%;
   border-radius: 5px;
   height: 40px;
 }
-.sbutton{
+.sbutton {
   width: 100px;
   margin-left: 300px;
 }
-.sbutton:hover{
+.sbutton:hover {
   background-color: #75c9fa;
 }
-.sh{
-  background-color:#1f78b4;
+.sh {
+  background-color: #1f78b4;
 }
 
-.nbutton{
+.salebutton {
   background-color: #fff;
   color: black;
   margin-left: 250px;
 }
-.nbutton:hover{
-  background-color:#1f78b4;
+.salebutton:hover {
+  background-color: #1f78b4;
 }
-.invform{
-  background-color:#fff ;
+.saleform {
+  background-color: #fff;
   width: 750px;
   margin-left: 350px;
   margin-top: 100px;
   height: 800px;
   border: 3px solid black;
 }
-.mabutton{
+.mabutton {
   width: 50px;
   display: block;
 }
-  .mc{
-
-    height: 300px;
-  }
-  .re-buttons{
-    width: 500px;
-    font-size: 20px;
-
-  }
-  .re-buttons:hover{
-    background-color:#1f78b4;
-  }
-  .sshead{
-    background-color:#1f78b4;
-    height: 90px;
-  }
-  .sshead h2{
-    font-size: 3rem;
-    text-align: center;
-  }
-  .shead h2{
-    font-size: 3rem;
-  }
-   .mabutton{
-     width: 60px;
-   }
+.mc {
+  height: 300px;
+}
+.re-buttons {
+  width: 500px;
+  font-size: 20px;
+}
+.re-buttons:hover {
+  background-color: #1f78b4;
+}
+.sshead {
+  background-color: #1f78b4;
+  height: 90px;
+}
+.sshead h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+.shead h2 {
+  font-size: 3rem;
+}
+.mabutton {
+  width: 60px;
+}
