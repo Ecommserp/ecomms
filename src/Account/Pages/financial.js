@@ -137,7 +137,8 @@ function financial() {
           }} />
 
     <div className="revenue" id="revenue">
-    <label className="tile_text">Revenue Growth</label><br /><br />
+    <label className="tile_text">Revenue Growth</label><br /><br /><br />
+    <br />
     <div id="revenue_graph"> </div>
     </div>
     <div className="space"></div>
