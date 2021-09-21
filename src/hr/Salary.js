@@ -27,9 +27,9 @@ function Salary() {
 
 
 
-            <div className="salary" >
-              <h1 className="h1">Payroll 2021 (Amounts in LKR)</h1>
-            <table >
+            <div className="salaryAppBack">
+              <h1 className="hr_salary_h1">Payroll 2021 (Amounts in LKR)</h1> <br></br>
+            <table className="hr_salary_table" className="hr_salary_td">
                 <tr>
                   <td>Month</td>
                   <td>Total Payments Received from Finance</td>

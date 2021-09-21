@@ -25,9 +25,9 @@ function attendance() {
 
 
 
-            <div className="hr_attendance" className="hr_abackgroud">
-              <h1 className="hr_h1">Total Daily Employee Attendance</h1>
-            <table >
+            <div  className="hr_att_abackgroud">
+              <h1 className="hr_att_h1">Total Daily Employee Attendance</h1>
+            <table className="hr_att_table">
                 <tr>
                   <td>Date </td>
                   <td>Department</td>
@@ -90,9 +90,9 @@ function attendance() {
            </div>
 
             <br></br><br></br><br></br><br></br>
-           <div className="hr_attendance" className="hr_abackgroud">
-              <h1 className="hr_h1">Total  Attendance and Leave Count</h1>
-            <table >
+           <div  className="hr_att_abackgroud">
+              <h1 className="hr_att_h1">Total  Attendance and Leave Count</h1>
+            <table className="hr_att_table" >
                 <tr>
                     <td>Date </td>
                   <td>Total Employees </td>

@@ -388,8 +388,8 @@ function InputField () {
     </div>
 
 
-    <label className="tile_text_bi1">Edit/ Delete Meeting</label> <br /> <br />
-    <br />
+    <label className="tile_text_bi1">Edit/ Delete Employee</label> <br /> <br />
+    <br /> <br></br><br></br>
     <label className="tile_text_bi1">Employee ID</label> <br />
     <input className="input" type="text" name="title" onKeyDown={keyPress} onChange={(e) => setUpEmpid(e.target.value)}/>
     <br />

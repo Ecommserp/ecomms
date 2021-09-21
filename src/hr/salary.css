@@ -1,11 +1,11 @@
 .salaryAppBack {
   background: #c4e0e9;
+  margin: 50px;
 }
 .hr_salary_table {
   border-collapse: collapse;
-  width: 80%;
-  font-size: 10px;
-  margin-left: 250px;
+  width: 100%;
+  font-size: 20px;
 }
 
 .hr_salary_td {
@@ -15,4 +15,8 @@
 .hr_salary_h1 {
   margin-left: 260px;
   font-size: 30px;
+}
+
+.hr_salary_table2 {
+  margin-left: 100px;
 }
