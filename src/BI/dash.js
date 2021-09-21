@@ -827,9 +827,6 @@ getData_meet();
 
     <div id="report_dis"></div>
 
-
-
-
     <div className="headu">
       <label className="tile_text_bi">Good Morning Mr.Sample </label>
 

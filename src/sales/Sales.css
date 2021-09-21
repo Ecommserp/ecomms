@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-* {
+.sales_body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -53,25 +53,25 @@
 .ultags{
   font-size: 2rem;
 }
-li.it1{
+.sales_li.it1{
   color: #0072B5;
 }
-li.it2{
+.sales_li.it2{
   color: #A0DAA9;
 }
-li.it3{
+.sales_li.it3{
   color: #e74c3c;
 }
-li.it4{
+.sales_li.it4{
   color: #2ecc71;
 }
-li.it5{
+.sales_li.it5{
   color: #8e44ad;
 }
-li.it6{
+.sales_li.it6{
   color: #FDAC53;
 }
-ul.ultags {
+.sales_ul.ultags {
   list-style-type: square;
 }
 
@@ -119,7 +119,7 @@ ul.ultags {
   margin-bottom: 300px;
 }
 .trendy {
-  font-size: 3.5rem; 
+  font-size: 3.5rem;
   margin-left: 500px;
   border: 4px solid black;
   margin-right: 100px;
@@ -190,13 +190,13 @@ ul.ultags {
   margin-top: 75px;
 }
 
-.header h2 {
+.sales_header h2 {
   margin: 0;
 }
 @import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap");
 
-* {
+.sales {
   box-sizing: border-box;
 }
 
@@ -269,7 +269,7 @@ ul.ultags {
   visibility: visible;
 }
 
-.form button {
+..sales_form button {
   background-color: rgb(255, 255, 255);
   border: 2px solid #8e44ad;
   border-radius: 4px;
@@ -349,12 +349,12 @@ ul.ultags {
   text-align: center;
   background-color: #1f78b4;
 }
- label{
+ .sales_label{
   display:block;
   width: 200px;
-  
+
 }
-input{
+.sales_input{
   width: 90%;
   border-radius: 5px;
   height: 40px;
@@ -391,7 +391,7 @@ input{
   display: block;
 }
   .mc{
-    
+
     height: 300px;
   }
   .re-buttons{
