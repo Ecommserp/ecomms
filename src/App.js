@@ -37,6 +37,32 @@ function App() {
    history.push("/BI")
  }
 
+ function hr_click() {
+   history.push("/Hr")
+ }
+
+ function inv_click() {
+   history.push("/Inventory")
+ }
+
+ function pur_click() {
+   history.push("/purchasing_management")
+ }
+ function acc_click() {
+   history.push("/Account")
+ }
+ function sales_click() {
+   history.push("/sales")
+ }
+
+ function crm_click() {
+   history.push("/CRM")
+ }
+
+ function manu_click() {
+   history.push("/Manu")
+ }
+
 
   return (
     <div className="App_home">
@@ -45,12 +71,12 @@ function App() {
 
 
     <div className="container_home">
-    <div className="tile_home_k">
+    <div className="tile_home_k" onClick={hr_click}>
     <p className="tile_text">Human <br />Resource</p>
     <img src={hr} className="hr_img" alt="HR" />
     </div>
     <div className="space"></div>
-    <div className="tile_home_k">
+    <div className="tile_home_k" onClick={inv_click}>
     <p className="tile_text">Inventory <br />Management</p>
     <img src={inventory} className="inv_img" alt="inventory" />
     </div>
@@ -62,31 +88,31 @@ function App() {
     </div>
 <br /><br /> <br />
 
-    <div className="tile_home_k">
+    <div className="tile_home_k" onClick={pur_click}>
     <p className="tile_text">Purchasing <br />Management</p>
     <img src={pu} className="pu_img" alt="purchasing" />
     </div>
 
     <div className="space"></div>
-    <div className="tile_home_k">
+    <div className="tile_home_k" onClick={acc_click}>
     <p className="tile_text">Account <br />Management</p>
     <img src={ac} className="ac_img" alt="account" />
     </div>
 
     <div className="space"></div>
-    <div className="tile_home_k">
+    <div className="tile_home_k" onClick={sales_click}>
     <p className="tile_text">Sales <br />Management</p>
     <img src={sale} className="sale_img" alt="Sales" />
     </div>
     <br /><br /> <br />
 
-    <div className="tile_home_k">
+    <div className="tile_home_k" onClick={crm_click}>
     <p className="tile_text">Customer <br />Management</p>
     <img src={crm} className="crm_img" alt="Customer" />
     </div>
 
     <div className="space"></div>
-    <div className="tile_home_k">
+    <div className="tile_home_k" onClick={manu_click}>
     <p className="tile_text">Product <br />Manufacturing</p>
     <img src={manu} className="manu_img" alt="Manufacturing" />
     </div>
