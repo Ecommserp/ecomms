@@ -12,7 +12,7 @@ function Home() {
     labels: ['Cement', 'Wires', 'Bulbs', 'Banners', 'Wrenches', 'Monitors'],
     datasets: [
       {
-        label: 'Quantity of Items',
+        label: 'Quantity of Highest Selling Items',
         data: [500, 400, 500, 390, 600, 400],
         fill: false,
         backgroundColor: 'rgba(34, 167, 240)',
