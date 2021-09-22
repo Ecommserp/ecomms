@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import { Line } from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 import inventory from "./assets/inventory.png"
 import logo from "./assets/logo.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,19 +10,22 @@ import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
 function Home() {
+
+  const [activeSlide, setActiveSlide] = useState(0);
+
   const data = {
-    labels: ['Cement', 'Wires', 'Bulbs', 'Banners', 'Wrenches', 'Monitors'],
-    datasets: [
-      {
-        label: 'Quantity of Highest Selling Items',
-        data: [500, 400, 500, 390, 600, 400],
+    labels: ['Cement', 'Wires', 'Bulbs', 'Banners', 'Wrenches'],
+    datasets: [{
+        label: 'Quantity of Highest Selling Products',
+        data: [1000,400,500,390,600],
         fill: false,
-        backgroundColor: 'rgba(34, 167, 240)',
+        borderWidth: 2,
+        backgroundColor: '#1F78B4',
         borderColor: 'rgba(44, 62, 80, 1)',
       },
     ],
   };
-  
+
   const options = {
     scales: {
       yAxes: [
@@ -32,6 +37,10 @@ function Home() {
       ],
     },
   };
+
+  
+
+
   return (
     <div className = 'invscreen'>
     <motion.div className='home' initial='out'
@@ -55,17 +64,13 @@ function Home() {
                 right: 250,
                 top: 12}}
                   src={inventory} />
-                  <table style={{marginTop: 40}}>
-                    <tr>
-                      <th>
-                <Line style= {{width:700, height:200}} data={data} options={options} /></th></tr>
-                
-                <tr><th><button className='nbutton' style={{marginTop: 60, marginRight: 260}} onClick={event =>  window.location.href='/inventory/Additem'}>Add Product</button>
-                <button className='nbutton' onClick={event =>  window.location.href='/inventory/Deleteitem'}>Delete Product</button>
-                </th></tr>
-                </table>
+                  <table>
+                  <tr><th><td><Bar style={{ marginTop:50 ,width: 900}} data={data} options={options} /></td></th></tr>
+                  <tr><th><td><button className='nbutton' style={{marginTop: 40, marginLeft:370}} onClick={event =>  window.location.href='/inventory/request'}>Request Purchase</button></td></th></tr>
+            </table>
     </motion.div></div>
   );
+                
 }
 
 export default Home;

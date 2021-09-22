@@ -3,7 +3,6 @@ import {  useState } from "react";
 import logo from "./assets/logo.png";
 import './invPages.css';
 import inventory from "./assets/inventory.png";
-import view from "./assets/viewi.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -147,8 +146,9 @@ getData_rev();
                 right: 250,
                 top: 12}}
                   src={inventory} />
-                  <img style={{ width:'120px',height:'100px', marginTop:50 }} src={view} /><br></br><br></br>
-                  <div id="load_data"> </div>
+                  <div id="load_data" style={{marginTop: 50}}> </div>
+                  <button className='nbutton' style={{marginTop: 30, marginRight: 260}} onClick={event =>  window.location.href='/inventory/Additem'}>Add Product</button>
+                <button className='nbutton' onClick={event =>  window.location.href='/inventory/Deleteitem'}>Delete Product</button>
 
 
         <div>

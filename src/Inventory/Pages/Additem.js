@@ -10,13 +10,13 @@ import { animationOne, transition } from '../animations';
 
 function InvAdditem() {
 
-  const [code, setcode] = useState("");
+  
   const [name, setname] = useState("");
   const [type, settype] = useState("");
   const [quantity, setquantity] = useState("");
 
   function validateForm() {
-    return code.length > 0 && name.length > 0 && type.length > 0 && quantity.length > 0;
+    return name.length > 0 && type.length > 0 && quantity.length > 0;
   }
 
   function handleSubmit(event) {
@@ -31,13 +31,13 @@ function InvAdditem() {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code: code, name: name, type: type, quantity: quantity})
+        body: JSON.stringify({ name: name, type: type, quantity: quantity})
     };
     fetch('http://localhost:3220/inventory/', requestOptions)
         .then(response => response.json());
         alert("Item added")
 
-        setcode("");
+        
         setname("");
         settype("");
         setquantity("");
@@ -71,18 +71,17 @@ function InvAdditem() {
                 <Card.Body>
                 <img style={{ width:'120px',height:'120px' }} src={add} />
                 <form onSubmit={handleSubmit}>
-                    <label style={{marginLeft:26}}>
-                        Product ID :
-                        <input type="text" name="code" value={code} onChange={(e) => setcode(e.target.value)} style={{marginLeft:10}}/>
-                        </label><br></br><br></br>
                         <label>
                         Product Name :
                         <input type="text" name="name" value={name} onChange={(e) => setname(e.target.value)} style={{marginLeft:10}}/>
                         </label><br></br><br></br>
-                        <label style={{marginLeft:8}}>
-                        Product Type :
-                        <input type="text" name="type" value={type} onChange={(e) => settype(e.target.value)} style={{marginLeft:10}}/>
-                        </label><br></br><br></br>
+                        <label> Product Type : </label>
+                <select style = {{width:175, marginLeft:15}} type="text" name="stat" value={type} onChange={(e) => settype(e.target.value)}>
+                  <option value="Null"></option>
+                      <option value="PURC"> PURC </option>
+                      <option value="MANU">MANU</option>
+                      <option value="OTHER">OTHER</option>
+                </select><br></br><br></br>
                         <label style={{marginLeft:36}}>
                         Quantity :
                         <input type="text" name="quantity" value={quantity} onChange={(e) => setquantity(e.target.value)} style={{marginLeft:10}}/>
