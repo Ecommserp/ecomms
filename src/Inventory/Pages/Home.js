@@ -103,7 +103,7 @@ function Home() {
                   <table>
                   <tr><th><td><Bar style={{ marginTop:50 ,width: 900}} data={data} options={options} /></td></th></tr>
                   <tr><th><td><Popup trigger={<button className='nbutton' style={{marginTop: 40, marginLeft:370}}>Request Product</button>}modal>
-                  <center><Card border ='primary' style={{height: '490px'}}>
+                  <center><Card style={{height: '490px'}}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Request Product</h3></Card.Header>
                 <Card.Body>
                 <img style={{ width:'120px',height:'120px' }} src={add} />

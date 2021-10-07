@@ -238,7 +238,7 @@ getData_rev();
                         </center></div>
   </Popup>
   <Popup trigger={<button className='nbutton'>Delete Product</button>}modal>
-  <center><Card border ='primary' style={{height: '490px'}}>
+  <center><Card style={{height: '490px'}}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Delete Item</h3></Card.Header>
                 <Card.Body>
                   <img style={{ width:'160px',height:'140px' }} src={trash} /> <br></br><br></br>
