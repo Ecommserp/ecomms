@@ -11,6 +11,7 @@ import UpdateForm from './Pages/UpdateForm';
 import GenerateReports from './Pages/GenerateReports';
 import ViewReports from './Pages/ViewReports';
 import View from './Pages/View';
+import Types from './Pages/types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path= '/inventory/generatereports' component={GenerateReports} />
           <Route path= '/inventory/viewreports' component={ViewReports} />
           <Route path= '/inventory/view' component={View} />
+          <Route path= '/inventory/types' component={Types} />
           </Switch>
         </AnimatePresence>
       </Router>

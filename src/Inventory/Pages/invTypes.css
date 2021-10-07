@@ -1,0 +1,31 @@
+.typetile_home {
+  height: 200px;
+  width: 420px;
+  background-color: #fff;
+  border: 2px solid;
+  border-color: #666666;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px rgba(102, 102, 102, 0.2);
+  display: inline-block;
+  transition: box-shadow 0.8s;
+}
+
+.typetile_text {
+  position: absolute;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 10px;
+  font-size: 30px;
+  color: #000000;
+  text-align: left;
+}
+
+.typetile_gen {
+  background-color: #fff;
+  border: 2px solid;
+  border-color: #666666;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px rgba(102, 102, 102, 0.2);
+  display: inline-block;
+  transition: box-shadow 0.8s;
+}
