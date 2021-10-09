@@ -58,6 +58,9 @@ module.exports = app => {
   // Retrieve BI for first graph
   app.get("/BI/rev", bi.findAll);
 
+  // Retrieve BI for first graph
+  app.get("/BI/rev/:Range", bi.findrange);
+
   // Retrieve purchased and production for first 3rd
   app.get("/BI/pp", bi.findAll_pp);
 
@@ -66,6 +69,9 @@ module.exports = app => {
 
   // Retrieve meetings for popup
   app.post("/BI/meetings", bi.create_meet);
+
+  // Retrieve meetings for popup
+  app.get("/BI/emp_per", bi.findAll_emp);
 
   // Retrieve a single meeting with meetingid
   app.get("/BI/meetings/:Meet_id", bi.findOne_meet);

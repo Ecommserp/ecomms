@@ -83,6 +83,17 @@ exports.findAll_pp = (req, res) => {
   });
 };
 
+exports.findAll_emp = (req, res) => {
+  BI.getempper((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving invoices."
+      });
+    else res.send(data);
+  });
+};
+
 // Retrieve all meetings from the database.
 exports.findAll_meet = (req, res) => {
   BI_meet.getAll_meet((err, data) => {
@@ -92,6 +103,23 @@ exports.findAll_meet = (req, res) => {
           err.message || "Some error occurred while retrieving meetings."
       });
     else res.send(data);
+  });
+};
+
+// Find a single Customer with a customerId
+exports.findrange = (req, res) => {
+  BI.findByRange(req.params.Range, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found  with range ${req.params.customerId}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving data with range " + req.params.customerId
+        });
+      }
+    } else res.send(data);
   });
 };
 

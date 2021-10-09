@@ -166,7 +166,7 @@ align-items: right;
 .add_new_win{
 
   width:100%;  /* adjust as per your needs */
-  height:500px;   /* adjust as per your needs */
+  height:550px;   /* adjust as per your needs */
   background-color: #FFF;
   box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);
   align-items: center;
@@ -248,4 +248,16 @@ align-items: right;
 .button_add:hover {
   background-color: #0079FF;
   cursor: pointer;
+}
+
+.pdf_temp {
+  backgroundColor: #f5f5f5;
+  width: 393px;
+  minHeight: 11122px;
+  marginLeft: auto;
+  marginRight: auto;
+}
+.inv_rep_table {
+  border: 1px solid #ddd;
+  text-align: left;
 }

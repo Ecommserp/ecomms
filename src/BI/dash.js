@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import GoogleEventComponent from './GoogleEventComponent';
+import Pdfgen from './pdf';
 import { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';
 import { styled } from '@material-ui/core/styles';
@@ -31,9 +33,6 @@ let data_revy2 = [];
 let data_revy3 = [];
 
 let data_pp = [];
-
-
-
 
 const options = {
   scales: {
@@ -282,16 +281,35 @@ const sample = [
   ['GOV', 'IN', 'product 3', 'N/a', '800', '234334.00'],
 ];
 
-function createData(id, segment, country, product, band, units, revenue) {
-  return { id, segment,country, product, band, units, revenue };
+function createData_emp(emp_id, emp_name, email, rate) {
+  return { emp_id, emp_name, email, rate  };
 }
 
-const rows = [];
+const rows_emp = [];
 
-for (let i = 0; i < 20; i += 1) {
-  const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-  rows.push(createData(i, ...randomSelection));
+async function getData_emp() {
+
+
+    const apiUrl = 'http://localhost:3220/bI/emp_per';
+    const data = await getData(apiUrl);
+
+    //console.log(data)
+
+    for(var i = 0; i < data.length; i++){
+
+        rows_emp[i] = createData_emp(data[i].empid ,data[i].fullname, data[i].email, data[i].perc + '%');
+
+        //rows_meet[i] = createData_meet(sample_meet);
+
+
+    }
+    //sample_aa();
+
+
+
+
 }
+
 
 
 //meetings tableRow
@@ -334,7 +352,6 @@ async function getData_meet() {
     }
     //sample_aa();
     console.log(rows_meet)
-    console.log(rows)
 
 
 
@@ -527,6 +544,41 @@ async function sample_aa() {
 
   ReactDOM.render(<Line height='140' data={data} options={options} />, document.getElementById('revenue_graph'));
   ReactDOM.render(<Pie data={data3} />, document.getElementById('pp_graph'));
+  ReactDOM.render(
+    <div>
+    <label className="tile_text_bi">Employees</label> <br /><br />
+
+
+    <Paper style={{ height: 390, width: '100%' }}>
+         <VirtualizedTable
+           rowCount={rows_emp.length}
+           rowGetter={({ index }) => rows_emp[index]}
+           columns={[
+             {
+               width: 330,
+               label: 'emp id',
+               dataKey: 'emp_id',
+             },
+             {
+               width: 330,
+               label: 'Employee name',
+               dataKey: 'emp_name',
+             },
+             {
+               width: 330,
+               label: 'E-mail',
+               dataKey: 'email',
+             },
+             {
+               width: 330,
+               label: 'Rate',
+               dataKey: 'rate',
+             },
+           ]}
+         />
+       </Paper>
+       </div>
+       , document.getElementById('emp_div'));
 
 }
 
@@ -630,44 +682,6 @@ function InputField () {
 
 
 function Dash() {
-  let title = '';
-  let description = '';
-  let s_time = '';
-  let e_time = '';
-  let att = '';
-
-  function setTitle(det){
-    title = det;
-  }
-  function setDescription(det){
-    description = det;
-  }
-  function sets_time(det){
-    s_time = det;
-  }
-  function sete_time(det){
-    e_time = det;
-  }
-  function setatt(det){
-    att = det;
-  }
-
-
-
-  function insert_meet() {
-
-    const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title: title, description: description, s_time: s_time, e_time: e_time, att: att})
-};
-fetch('http://localhost:3220/BI/meetings', requestOptions)
-    .then(response => response.json());
-    alert("Item added")
-
-
-  }
-
 
 const Display_meet = () => {
 
@@ -699,25 +713,10 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
 <Popup trigger={ <AddCircleIcon className="add_new" fontSize="large"></AddCircleIcon> } modal>
 <div className="add_new_win">
 <label className="tile_text_bi1">New Meeting</label> <br /> <br />
-<br />
-<label className="tile_text_bi1">Title</label> <br />
-<input className="input" type="text" name="title" onChange={(e) => setTitle(e.target.value)}/>
-<br />
-<label className="tile_text_bi1">Description</label> <br />
-<input className="input" type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
-<br />
-<label className="tile_text_bi1">Start Time</label> <br />
-<input className="input" type="datetime-local" name="s_time" onChange={(e) => sets_time(e.target.value)}/>
-<br />
-<label className="tile_text_bi1">End Time</label> <br />
-<input className="input" type="datetime-local" name="e_time" onChange={(e) => sete_time(e.target.value)}/>
-<br />
-<label className="tile_text_bi1">Attendees</label> <br />
-<input className="input" type="text" name="att" onChange={(e) => setatt(e.target.value)}/>
-<br />
-<br />
 
-<button className="button_add" onClick={insert_meet}>Add New</button>
+
+
+<GoogleEventComponent />
 
  </div>
 
@@ -779,37 +778,8 @@ ReactDOM.render(  <div className="report_win" id="report_win">
 </div>
 <label className="tile_text_bi1">Reports</label> <br /><br /><br />
 
-<label className="tile_text_bi1">Type</label><br />
-<Select style={{minWidth: 220}}>
-  <MenuItem value={10}>Employee Report</MenuItem>
-  <MenuItem value={20}>Cashflow Report</MenuItem>
-  <MenuItem value={30}>Inventory Report</MenuItem>
-  <MenuItem value={40}>Sales Report</MenuItem>
-  <MenuItem value={50}>Clients Report</MenuItem>
-</Select><br /><br />
+<Pdfgen />
 
-<label className="tile_text_bi1">Time Period</label><br />
-<Select style={{minWidth: 220}}>
-  <MenuItem value={10}>Todays</MenuItem>
-  <MenuItem value={20}>Last 3 Days</MenuItem>
-  <MenuItem value={30}>Last Week</MenuItem>
-  <MenuItem value={40}>Last 3 Weeks</MenuItem>
-  <MenuItem value={50}>Last Month</MenuItem>
-  <MenuItem value={60}>Last 2 Months</MenuItem>
-  <MenuItem value={70}>Last 6 Months</MenuItem>
-  <MenuItem value={80}>Last Year</MenuItem>
-  <MenuItem value={90}>Last 2 Years</MenuItem>
-</Select><br /><br />
-
-
-<label className="tile_text_bi1">Format</label><br />
-<Select style={{minWidth: 220}}>
-  <MenuItem value={10}>PDF</MenuItem>
-  <MenuItem value={20}>excel</MenuItem>
-  <MenuItem value={30}>CSV</MenuItem>
-</Select><br /><br /><br /><br /><br /><br />
-
-<button className="button_add" onClick={insert_meet}>Generate My Report</button>
 
 
   </div>, document.getElementById('meet_dis'));
@@ -818,6 +788,7 @@ ReactDOM.render(  <div className="report_win" id="report_win">
 
 }
 getData_rev();
+getData_emp();
 getData_meet();
 
   return (
@@ -904,8 +875,8 @@ getData_meet();
 
 <Paper style={{ height: 390, width: '100%' }}>
      <VirtualizedTable
-       rowCount={rows.length}
-       rowGetter={({ index }) => rows[index]}
+       rowCount={rows_emp.length}
+       rowGetter={({ index }) => rows_emp[index]}
        columns={[
          {
            width: 120,
@@ -977,49 +948,8 @@ getData_meet();
 </div>
 
 <div className="body_3"><div className="space"></div>
-<div className="emp">
-<label className="tile_text_bi">Retention Clients</label>
-<br /><br />
+<div id="emp_div" className="emp">
 
-
-<Paper style={{ height: 390, width: '100%' }}>
-     <VirtualizedTable
-       rowCount={rows.length}
-       rowGetter={({ index }) => rows[index]}
-       columns={[
-         {
-           width: 230,
-           label: 'Segment',
-           dataKey: 'segment',
-         },
-         {
-           width: 230,
-           label: 'Country',
-           dataKey: 'country',
-         },
-         {
-           width: 230,
-           label: 'Product',
-           dataKey: 'product',
-         },
-         {
-           width: 230,
-           label: 'Discount Band',
-           dataKey: 'band',
-         },
-         {
-           width: 230,
-           label: 'Sold Units',
-           dataKey: 'units',
-        },
-        {
-
-          label: 'Revenue',
-          dataKey: 'revenue',
-       },
-       ]}
-     />
-   </Paper>
 </div>
 </div>
 </div>

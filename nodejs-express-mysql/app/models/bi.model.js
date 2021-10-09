@@ -46,8 +46,40 @@ User.findById = (customerId, result) => {
   });
 };
 
+User.findByRange = (range, result) => {
+  sql.query(`SELECT YEAR(date) AS year, MONTH(date) AS month, SUM(Total) AS total FROM invoice WHERE date >= DATE_ADD(CURDATE(), INTERVAL -'${range}' DAY) GROUP BY YEAR(date), MONTH(date)`, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    if (res.length) {
+      console.log("found customer: ", res);
+      result(null, res);
+      return;
+    }
+
+    // not found Customer with the id
+    result({ kind: "not_found" }, null);
+  });
+};
+
 User.getAll = result => {
   sql.query("SELECT YEAR(date) AS year, MONTH(date) AS month, SUM(Total) AS total FROM invoice GROUP BY YEAR(date), MONTH(date)", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+User.getempper = result => {
+  sql.query("SELECT employee.empid, employee.fullname, employee.email, emp_benefits.allowance, emp_benefits.allowance / emp_benefits.basic_sal * 100 AS perc FROM employee INNER JOIN emp_benefits ON employee.empid = emp_benefits.Emp_id WHERE MONTH(emp_benefits.month) = MONTH(CURRENT_DATE()) ORDER BY emp_benefits.allowance / emp_benefits.basic_sal * 100 DESC LIMIT 5", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
