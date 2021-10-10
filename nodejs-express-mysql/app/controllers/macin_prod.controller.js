@@ -44,6 +44,50 @@ exports.findAll = (req, res) => {
   });
 };
 
+//Retrieve
+exports.find_machine = (req, res) => {
+  macnin_prod_m.getMachine((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving manufacturing Products."
+      });
+    else res.send(data);
+  });
+};
+
+exports.findcat = (req, res) => {
+  macnin_prod_m.getAll_cat((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving manufacturing Products."
+      });
+    else res.send(data);
+  });
+};
+
+exports.findprodall = (req, res) => {
+  macnin_prod_m.findprodall((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving manufacturing Products."
+      });
+    else res.send(data);
+  });
+};
+
+exports.findcount = (req, res) => {
+  macnin_prod_m.find_prodcount((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving manufacturing Products."
+      });
+    else res.send(data);
+  });
+};
 
 // Find a single Customer with a customerId
 exports.findOne = (req, res) => {

@@ -39,11 +39,11 @@ function Deletecustomer() {
 
 
                 <center><Card border ='primary' style={{ width: '40rem' }}>
-                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Delete customer inquiries</h3></Card.Header>
+                <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Delete inquiries</h3></Card.Header>
                 <Card.Body>
                 <form>
                     <label>
-                        NIC : &nbsp;&nbsp;&nbsp;
+                        Inquiry ID : &nbsp;&nbsp;&nbsp;
                         <input type="text" name="nic" value={nic} onChange={(e) => setnic(e.target.value)}/>
                         </label><br></br><br></br>
                         <input className="button1" type="button" value="Delete" onClick={delete_citem}/>

@@ -1,222 +1,152 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import './pmcss1.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import {motion} from 'framer-motion';
+import { animationOne, transition } from '../animations';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import  { useState } from 'react'
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import manu from "./assets/manu.png"
-import logo from "./assets/cyan.png";
-import { motion } from 'framer-motion';
-import { animationOne, transition } from '../animations';
-import './pmcss1.css';
+import TablePagination from '@material-ui/core/TablePagination';
+import Paper from '@material-ui/core/Paper';
+import ReactDOM from 'react-dom';
 
 
-const columns = [
-  { id: 'name', label: 'Product ID', minWidth: 170 },
-  { id: 'code', label: 'Product Name', minWidth: 100 },
-  {
-    id: 'population',
-    label: 'Quantity',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
+  const columns = [
+    { id: 'Product_ID', label: 'Product ID', minWidth: 70 },
+    { id: 'name', label: 'Name ', minWidth: 70 },
+    { id: 'Details',label: 'Details',minWidth: 170,align: 'right',},
+    { id: 'Production_stat',label: 'Status',minWidth: 170,align: 'right',},
 
-];
+  ];
 
-function createData(name, code, population) {
-  const density = population;
-  return { name, code, population};
-}
+  async function getData(url) {
+  const response = await fetch(url);
 
-const rows = [
-  createData('00001', 'sample data', 132417),
-  createData('00002', 'sample data', 140350),
-  createData('00003', 'sample data', 132417),
-  createData('00004', 'sample data', 140350),
-  createData('00005', 'sample data', 132417),
-  createData('00006', 'sample data', 140350),
-  createData('00007', 'sample data', 132417),
-  createData('00008', 'sample data', 140350),
-  createData('00009', 'sample data', 140350),
-  createData('00010', 'sample data', 132417),
-  createData('00020', 'sample data', 140350),
-  createData('00030', 'sample data', 132417),
-  createData('00040', 'sample data', 140350),
-  createData('00050', 'sample data', 132417),
-  createData('00060', 'sample data', 140350),
-  createData('00070', 'sample data', 132417),
-  createData('00080', 'sample data', 140350),
-  createData('00090', 'sample data', 140350),
-];
-
-const useStyles = makeStyles({
-  root: {
-    width: '50%',
-    height:'50%',
-    margin: 'auto',
-
-
-  },
-  container: {
-    maxHeight: 440,
-marginTop: '60px'
-  },
-});
-
-
-
-function MachinSearch() {
-
-  const [myOptions, setMyOptions] = useState([])
-
-  const getDataFromAPI = () => {
-    console.log("Options Fetched from API")
-
-    fetch('http://dummy.restapiexample.com/api/v1/employees').then((response) => {
-      return response.json()
-    }).then((res) => {
-      console.log(res.data)
-      for (var i = 0; i < res.data.length; i++) {
-        myOptions.push(res.data[i].employee_name)
-      }
-      setMyOptions(myOptions)
-    })
+  return response.json();
   }
 
 
 
 
+      function createData(Product_ID, name, Details, Production_stat) {
+        return { Product_ID, name, Details, Production_stat};
+      }
 
-  const classes = useStyles();
- const [page, setPage] = React.useState(0);
- const [rowsPerPage, setRowsPerPage] = React.useState(10);
+      const rows = [];
 
- const handleChangePage = (event, newPage) => {
-   setPage(newPage);
- };
 
- const handleChangeRowsPerPage = (event) => {
-   setRowsPerPage(+event.target.value);
-   setPage(0);
- };
 
- return (
+      const useStyles = makeStyles({
+        root: {
+          width: '100%',
+        },
+        container: {
+          maxHeight: 440,
+        },
+      });
 
-   <motion.div className='checkpp' initial='out'
-        animate='in'
-        exit='out'
-        variants={animationOne}
-        transition={transition}>
-        <div><i><h1 style={{
-          position: 'absolute',
-          right: 40,
-          top:-13,
-        }}><br></br>Production </h1></i> </div>
+      export default function MachineSearch() {
+        const classes = useStyles();
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(6);
 
-        <div><i><h1 style={{
-          position: 'absolute',
-          right: 40,
-          top:70,
-        }}>Manufacturing Management</h1></i> </div>
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
 
-        <img
-          style={{
-            position: 'absolute',
-            right: 250,
-            top:-1,
-            width: 120,
-            height: 100
-          }}
-          src={manu} />
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
-           <div className='imagelogo' >
-                <img style={{
-                     position: 'absolute',
-                    left: 300,
-                    top: -20,
-                    width: 160,
-                    height: 160
-                  }}src={logo} /></div>
-  <div className='subti'> <h3>Products Management </h3></div>
+  async function sample_aa() {
+    ReactDOM.render(
+      <motion.div className = "view" initial='out'
+      animate='in'
+      exit='out'
+      variants={animationOne}
+      transition={transition}>
 
-   <div  className='area55'>
-   <Paper className={classes.root}>
-     
-  
-    <div style={{ marginLeft: '1%', marginTop: '5%', marginRight: '1%'}}>
-      <div className="texti1">
-       <Autocomplete
-         
-         freeSolo
-         autoComplete
-         autoHighlight
-         options={myOptions}
-         renderInput={(params) => (
-           <TextField {...params}
-             onChange={getDataFromAPI}
-            
-             label="Enter Product ID"
-           />
-         )}
-       />
-     </div> 
-   
-     <TableContainer className={classes.container}>
-       <Table stickyHeader aria-label="sticky table">
-         <TableHead>
-           <TableRow>
-             {columns.map((column) => (
-               <TableCell
-                 key={column.id}
-                 align={column.align}
-                 style={{ minWidth: column.minWidth }}
-               >
-                 {column.label}
-               </TableCell>
-             ))}
-           </TableRow>
-         </TableHead>
-         <TableBody>
-           {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-             return (
-               <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                 {columns.map((column) => {
-                   const value = row[column.id];
-                   return (
-                     <TableCell key={column.id} align={column.align}>
-                       {column.format && typeof value === 'number' ? column.format(value) : value}
-                     </TableCell>
-                   );
-                 })}
-               </TableRow>
-             );
-           })}
-         </TableBody>
-       </Table>
-     </TableContainer>
-     
-     <TablePagination
-       rowsPerPageOptions={[10, 25, 50]}
-       component="div"
-       count={rows.length}
-       rowsPerPage={rowsPerPage}
-       page={page}
-       onPageChange={handleChangePage}
-       onRowsPerPageChange={handleChangeRowsPerPage}
-     />
-      </div>
-   </Paper>
-      </div>    
- </motion.div>
- );
+                    <Paper className={classes.root}>
+        <TableContainer className={classes.container}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === 'number' ? column.format(value) : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[6, 25, 100]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
+
+      </motion.div>, document.getElementById('inq_tbl'));
+
+
+  }
+
+  async function getData_inq() {
+    rows.length = 0;
+    //alert('working')
+
+      const apiUrl = 'http://localhost:3220/manu_prod_g/prod';
+      const data = await getData(apiUrl);
+
+      for(var i = 0; i < data.length; i++){
+        rows[i] = createData(data[i].Product_ID, data[i].name, data[i].Details, data[i].Production_stat);
+
+
+
+
+      }
+
+
+      sample_aa();
+
+  }
+
+getData_inq();
+  return (
+    <div id="inq_tbl" className = 'screen7'>
+  </div>
+
+  );
 }
-
-export default MachinSearch;

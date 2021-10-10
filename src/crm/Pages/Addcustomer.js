@@ -12,15 +12,23 @@ function Addcustomer() {
   const [nic, setnic] = useState("");
   const [birthdate, setbirthdate] = useState("");
   const [name, setname] = useState("");
-  const [email, setemail] = useState("");
+  const [sales_id, setsales_id] = useState("");
+  const [client_id, setclient_id] = useState("");
   const [phone, setphone] = useState("");
   const [purchased , setpurchased] = useState("");
   const [inquiry, setinquiry] = useState("");
   const [status , setstatus] = useState("");
 
 
+
+  async function getData(url) {
+  const response = await fetch(url);
+
+  return response.json();
+  }
+
   function validateForm() {
-    return nic.length > 0 && birthdate.length > 0 && name.length > 0 && email.length > 0 && phone.length > 0 && purchased.length > 0 && inquiry.length > 0 && status.length > 0;
+    return nic.length > 0 && birthdate.length > 0 && name.length > 0 && phone.length > 0 && purchased.length > 0 && inquiry.length > 0 && status.length > 0;
   }
 
   function handleSubmit(event) {
@@ -35,12 +43,38 @@ function Addcustomer() {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ Customer_NIC: nic, Birth_Date: birthdate, Customer_name: name, Email: email,Phone: phone, Purchased_item: purchased, inquiry: inquiry, inquiry_status: status})
+        body: JSON.stringify({ Sales_ID: sales_id, Customer_inquiry: inquiry, client_ID: client_id, stat: 'pending'})
     };
     fetch('http://localhost:3220/crm/crm', requestOptions)
         .then(response => response.json());
         alert("inquiry added")
   }
+
+  async function keyPress(e){
+        if(e.keyCode == 13){
+           console.log('value', e.target.value);
+           // put the login here
+
+           e.preventDefault();
+
+           const apiUrl = 'http://localhost:3220/crm/inq_join/'+ nic;
+           const data = await getData(apiUrl);
+
+           console.log(data)
+
+
+
+           /* Call the state's "setter" method to update "userInput" state */
+           setname(data.name)
+           setphone(data.contact)
+           setpurchased(data.Product_ID)
+           setinquiry(data.inquiry)
+           setsales_id(data.Sales_ID)
+           setclient_id(data.Client_ID)
+
+        }
+     }
+
 
   return (
     <div className = 'screen7'>
@@ -52,27 +86,19 @@ function Addcustomer() {
 
 
 
-                 
+
                 <center><Card border ='primary' style={{ width: '40rem' }}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Add Inquiry</h3></Card.Header>
                 <Card.Body>
                 <form onSubmit={handleSubmit}>
                         <label className='label1'>
-                        Customer NIC: &nbsp;&nbsp;&nbsp;
-                        <input className='label2' type="text" name="nic" value={nic} onChange={(e) => setnic(e.target.value)}/>
+                        Sales ID: &nbsp;&nbsp;&nbsp;
+                        <input className='label2' type="text" name="nic" value={nic} onKeyDown={keyPress} onChange={(e) => setnic(e.target.value)}/>
                         </label><br></br><br></br>
 
                         <label className='label1'>
-                        Customer DOB  :
-                        <input className='label2' type="date" name="birthdate " value={birthdate} onChange={(e) => setbirthdate(e.target.value)}/>
-                        </label><br></br><br></br>
-                        <label className='label1'>
                         Customer Name : &nbsp;&nbsp;&nbsp;
                         <input className='label2' type="text" name="name " value={name} onChange={(e) => setname(e.target.value)}/>
-                        </label><br></br><br></br>
-                        <label className='label1'>
-                        Customer Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input className='label2' type="text" name="email " value={email} onChange={(e) => setemail(e.target.value)}/>
                         </label><br></br><br></br>
                         <label className='label1'>
                         Phone Number : &nbsp;&nbsp;&nbsp;
@@ -100,7 +126,7 @@ function Addcustomer() {
                         </form>
                         </Card.Body></Card>
                         </center>
-                        
+
     </motion.div></div>
 
 

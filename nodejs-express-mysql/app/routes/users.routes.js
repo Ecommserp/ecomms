@@ -98,6 +98,18 @@ module.exports = app => {
   // Retrieve a single Customer with customerId
   app.get("/manu/:Product_ID", manu_prod.findOne);
 
+  // Retrieve data for manufacturing home graph
+  app.get("/manu_prod_g/graph", macnin_prod.findcat);
+
+  // Retrieve data for manufacturing product table
+  app.get("/manu_prod_g/prod", macnin_prod.findprodall);
+
+  // Retrieve data for doughnut chart
+  app.get("/manu_prod_g/dough", macnin_prod.findcount);
+
+  // Retrieve data for goughnut chart
+  app.get("/manu_prod_g/c_machine", macnin_prod.find_machine);
+
 
   // Retrieve a single Customer with customerId
   app.get("/macnin_prod/:Machine_no", macnin_prod.findOne);
@@ -150,9 +162,19 @@ module.exports = app => {
    // Retrieve all Customers inquiry
    app.get("/crm/crm", crmI.findAll);
 
+   // Retrieve all inquiry group
+   app.get("/crm/dough", crmI.findAll_g);
+
+
+   // Retrieve all inquiries
+   app.get("/crm/inq", crmI.findAll_inq);
+
+   // Retrieve all inquiries
+   app.get("/crm/inq_join/:salesid", crmI.findAll_inq_join);
+
 
    // Retrieve a single Customer with customerId
-   app.get("/crm/crm/:Customer_NIC", crmI.findOne);
+   app.get("/crm/crm/:inq_id", crmI.findOne);
 
    // Update a Customer with customerId
    app.put("/crm/crm/:Customer_NIC", crmI.update);

@@ -14,32 +14,39 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TablePagination from '@material-ui/core/TablePagination';
 import Paper from '@material-ui/core/Paper';
+import ReactDOM from 'react-dom';
 
 
   const columns = [
-    { id: 'NIC', label: 'NIC', minWidth: 170 },
-    { id: 'DOB', label: 'DOB ', minWidth: 100 },
-    { id: 'Name',label: 'Name',minWidth: 170,align: 'right',},
-    { id: 'Email',label: 'Email',minWidth: 170,align: 'right',},
-    { id: 'Phone', label: 'Phone', minWidth: 170,align: 'right', },
-    { id: 'Item', label: 'Purchased Item', minWidth: 170 ,align: 'right',},
-    { id: 'Inquiry',label: 'Inquiry',minWidth: 170,align: 'right',},
-    { id: 'Status',label: 'Status',minWidth: 170,align: 'right',},
-    
+    { id: 'InquireID', label: 'Inquiry ID', minWidth: 70 },
+    { id: 'Sales_ID', label: 'Sales ID ', minWidth: 70 },
+    { id: 'Customer_inquiry',label: 'Inquiry',minWidth: 170,align: 'right',},
+    { id: 'inquiry_date',label: 'Lodged Date',minWidth: 170,align: 'right',},
+    { id: 'Product_ID', label: 'Product', minWidth: 170,align: 'right', },
+    { id: 'quantity', label: 'Quantity', minWidth: 70 ,align: 'right',},
+    { id: 'purc_date',label: 'Purchased date',minWidth: 170,align: 'right',},
+    { id: 'name',label: 'Name',minWidth: 170,align: 'right',},
+    { id: 'contact',label: 'Contact',minWidth: 170,align: 'right',},
+    { id: 'stat',label: 'Status',minWidth: 170,align: 'right',},
+
   ];
-      
-      function createData(NIC, DOB, Name, Email,Phone, Item, Inquiry, Status) {
-        return { NIC, DOB, Name, Email,Phone, Item, Inquiry, Status};
+
+  async function getData(url) {
+  const response = await fetch(url);
+
+  return response.json();
+  }
+
+
+
+
+      function createData(InquireID, Sales_ID, Customer_inquiry, inquiry_date, Product_ID, quantity, purc_date, name, contact, stat) {
+        return { InquireID, Sales_ID, Customer_inquiry, inquiry_date, Product_ID, quantity, purc_date, name, contact, stat};
       }
-      
-      const rows = [
-        createData('8789997v', '1987-12-9', 'john', 'john@gmail.com','07165542', '10N1E', 'refund', 'pending'),
-        createData('8089997v', '1980-08-2', 'nimal', 'nimal@gmail.com','0766558', '4571E', 'repair ', 'assigned'),
-        createData('8989997v', '1989-07-2', 'kamal', 'kamal@gmail.com','07165542', '9750K', 'refund', 'assigned'),
-        createData('8189997v', '1981-10-2', 'saman', 'saman@gmail.com','07165542', '9871A', 'replacement', 'resolved'),
-        createData('9089997v', '1990-06-2', 'dias', 'dias@gmail.com','07165542', '1891E', 'replacement', 'resolved'),
-        createData('8589997v', '1985-09-2', 'sunil', 'sunil@gmail.com','07165542', '5281JK', 'repair ','pending'),
-      ];
+
+      const rows = [];
+
+
 
       const useStyles = makeStyles({
         root: {
@@ -49,7 +56,7 @@ import Paper from '@material-ui/core/Paper';
           maxHeight: 440,
         },
       });
-      
+
       export default function CustomerHome() {
         const classes = useStyles();
   const [page, setPage] = React.useState(0);
@@ -64,61 +71,88 @@ import Paper from '@material-ui/core/Paper';
     setPage(0);
   };
 
-        
-  return (
-    <div className = 'screen7'>
-    <motion.div className = "view" initial='out'
-    animate='in'
-    exit='out'
-    variants={animationOne}
-    transition={transition}>
-      
-                  <Paper className={classes.root}>
-      <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-              return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                  {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[6, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
-    </Paper>
+  async function sample_aa() {
+    ReactDOM.render(
+      <motion.div className = "view" initial='out'
+      animate='in'
+      exit='out'
+      variants={animationOne}
+      transition={transition}>
 
-    </motion.div></div>
-    
+                    <Paper className={classes.root}>
+        <TableContainer className={classes.container}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === 'number' ? column.format(value) : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[6, 25, 100]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
+
+      </motion.div>, document.getElementById('inq_tbl'));
+
+
+  }
+
+  async function getData_inq() {
+    rows.length = 0;
+    //alert('working')
+
+      const apiUrl = 'http://localhost:3220/crm/inq';
+      const data = await getData(apiUrl);
+
+      for(var i = 0; i < data.length; i++){
+        rows[i] = createData(data[i].InquireID, data[i].Sales_ID, data[i].Customer_inquiry, data[i].inquiry_date, data[i].Product_ID, data[i].quantity, data[i].purc_date, data[i].name, data[i].contact, data[i].stat);
+
+
+
+
+      }
+
+
+      sample_aa();
+
+  }
+
+getData_inq();
+  return (
+    <div id="inq_tbl" className = 'screen7'>
+  </div>
+
   );
 }

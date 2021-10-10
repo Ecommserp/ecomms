@@ -1,5 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
+import ReactDOM from 'react-dom';
 import {Bar} from 'react-chartjs-2';
 import {Doughnut} from 'react-chartjs-2';
 import manu from "./assets/manu.png"
@@ -10,12 +11,21 @@ import { motion } from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
 function MHome() {
+
+  let data_pp = [];
+
+  async function getData(url) {
+  const response = await fetch(url);
+
+  return response.json();
+  }
+
   const data = {
     labels: ['On working ', 'Paused', 'Repaired', 'Malfuntioned'],
     datasets: [
       {
         label: 'Quality of Production Process',
-        data: [3, 6, 10, 5],
+        data: data_pp,
         fill: false,
         backgroundColor: [
     '#7353BA',
@@ -32,7 +42,25 @@ function MHome() {
       },
     ],
   };
+  async function getData_rev() {
 
+      const apiUrl_1 = 'http://localhost:3220/manu_prod_g/dough';
+      const data_1 = await getData(apiUrl_1);
+
+      data_pp[0] = data_1[0].count;
+      data_pp[1] = data_1[1].count;
+      data_pp[2] = data_1[2].count;
+      sample_aa();
+
+
+  }
+
+  async function sample_aa() {
+    ReactDOM.render(<Doughnut  style={{ width: 500, height: 800 }} data={data}  />, document.getElementById('chart'));
+
+  }
+
+  getData_rev();
   const options = {
     scales: {
       yAxes: [
@@ -45,7 +73,7 @@ function MHome() {
     },
   };
   return (
-   
+
 
       <motion.div className='home' initial='out'
         animate='in'
@@ -92,19 +120,20 @@ function MHome() {
                  <table>
                     <tr>
                        <th>
-                           <Doughnut  style={{ width: 500, height: 800 }} data={data}  />
-                        </th>
+                       <div id="chart">
+                       </div>
+                          </th>
                     </tr>
 
                      <tr>
                         <th>
-                          
+
                           <button className='button2' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/MAdditem'}>Add Item</button>
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           <button className='button2' onClick={event => window.location.href = '/manu/MDeleteitem'}>Delete Item</button>
                        </th>
                      </tr>
-            
+
                   </table>
                </div>
           </div>
@@ -112,7 +141,7 @@ function MHome() {
         </div>
       </motion.div>
 
-     
+
   );
 }
 

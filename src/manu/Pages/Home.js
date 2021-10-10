@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Line } from 'react-chartjs-2';
 import {Bar} from 'react-chartjs-2';
 import {Doughnut} from 'react-chartjs-2';
@@ -10,12 +11,21 @@ import { motion } from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
 function Home() {
+
+    let data_pp = [];
+
+    async function getData(url) {
+    const response = await fetch(url);
+
+    return response.json();
+    }
+
   const data = {
     labels: ['UPcomming ', 'In Process', 'Completed', 'Malfuntioned'],
     datasets: [
       {
         label: 'Quality of Production Process',
-        data: [3, 6, 10, 5],
+        data: data_pp,
         fill: false,
         borderWidth: 2,
         backgroundColor: '#364fc7',
@@ -35,8 +45,31 @@ function Home() {
       ],
     },
   };
+
+  async function getData_rev() {
+
+      const apiUrl_1 = 'http://localhost:3220/manu_prod_g/graph';
+      const data_1 = await getData(apiUrl_1);
+
+      data_pp[0] = data_1[0].cnt;
+      data_pp[1] = data_1[1].cnt;
+      data_pp[2] = data_1[2].cnt;
+      data_pp[3] = data_1[3].cnt;
+      sample_aa();
+
+
+  }
+
+  async function sample_aa() {
+    ReactDOM.render(<Bar style={{ width: 700, height: 800 }} data={data} options={options} />, document.getElementById('graph_cont'));
+
+  }
+
+  getData_rev();
+
+
   return (
-    
+
 
       <motion.div className='home' initial='out'
         animate='in'
@@ -81,13 +114,14 @@ function Home() {
               <table>
                  <tr>
                    <th>
-                       <Bar style={{ width: 700, height: 800 }} data={data} options={options} />
+                       <div id="graph_cont">
+                       </div>
                       </th>
                     </tr>
 
                     <tr>
                       <th>
-                        
+
                         <button className='button2' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/Additem'}> 1Add Item</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <button className='button2' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
@@ -100,7 +134,7 @@ function Home() {
         </div>
       </motion.div>
 
-     
+
   );
 }
 

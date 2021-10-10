@@ -1,4 +1,5 @@
 const CRM = require("../models/crm.model.js");
+const CRM_u = require("../models/crm.model.js");
 
 
 // Create and Save a new customer inquiry
@@ -14,18 +15,15 @@ exports.create = (req, res) => {
   //Create a new customer inquiry
 
   const crmI = new CRM({
-    Customer_NIC: req.body.Customer_NIC,
-    Birth_Date: req.body.Birth_Date,
-    Customer_name: req.body.Customer_name,
-    Email: req.body.Email,
-    Phone: req.body.Phone,
-    Purchased_item: req.body.Purchased_item,
-    inquiry: req.body.inquiry,
-    inquiry_status: req.body.inquiry_status,
+    Sales_ID: req.body.Sales_ID,
+    Customer_inquiry: req.body.Customer_inquiry,
+    client_ID: req.body.client_ID,
+    stat: req.body.stat,
   });
 
   // Save customer inquiry in the database
   CRM.create(crmI, (err, data) => {
+    console.log('samle id' + req.body.Sales_ID)
     if (err)
       res.status(500).send({
         message:
@@ -47,17 +45,57 @@ exports.findAll = (req, res) => {
   });
 };
 
-// Find a single Customer with a customer nic
-exports.findOne = (req, res) => {
-  CRM.findById(req.params.Customer_NIC, (err, data) => {
+exports.findAll_g = (req, res) => {
+  CRM.getAll_g((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers inquiry."
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all inquiries from the database.
+exports.findAll_inq = (req, res) => {
+  CRM.getAll_inq((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers inquiry."
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all inquiries from the database.
+exports.findAll_inq_join = (req, res) => {
+  CRM.getAll_inq_join(req.params.salesid, (err, data) => {
      if (err) {
       if (err.kind === "not_found") {
          res.status(404).send({
-           message: `Not found Customer with id ${req.params.Customer_NIC}.`
+           message: `Not found Customer with id ${req.params.salesid}.`
          });
        } else {
          res.status(500).send({
-           message: "Error retrieving Customer with id " + req.params.Customer_NIC
+           message: "Error retrieving Customer with id " + req.params.salesid
+         });
+       }
+    } else res.send(data);
+   });
+};
+
+// Find a single Customer with a customer nic
+exports.findOne = (req, res) => {
+  CRM.findById(req.params.inq_id, (err, data) => {
+     if (err) {
+      if (err.kind === "not_found") {
+         res.status(404).send({
+           message: `Not found Customer with id ${req.params.inq_id}.`
+         });
+       } else {
+         res.status(500).send({
+           message: "Error retrieving Customer with id " + req.params.inq_id
          });
        }
     } else res.send(data);
@@ -92,13 +130,15 @@ exports.update = (req, res) => {
   }
 
 
+  const crmI_u = new CRM_u({
+    Customer_inquiry: req.body.Customer_inquiry,
+    stat: req.body.stat,
+  });
 
-  console.log(req.body);
-  console.log(new CRM(req.body));
 
   CRM.updateById(
     req.params.Customer_NIC,
-    new CRM(req.body),
+    new CRM_u(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
