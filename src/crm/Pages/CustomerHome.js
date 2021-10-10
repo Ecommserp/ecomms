@@ -79,6 +79,8 @@ import ReactDOM from 'react-dom';
       variants={animationOne}
       transition={transition}>
 
+<div className='subti5'> <h3> All Customer Inquiries  </h3></div>
+
                     <Paper className={classes.root}>
         <TableContainer className={classes.container}>
           <Table stickyHeader aria-label="sticky table">

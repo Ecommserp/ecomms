@@ -19,7 +19,7 @@ function Customeranalytics() {
   }
 
   const data = {
-    labels: ['Pending ', 'Assigned', 'Resolved'],
+    labels: ['Assigned ', 'Pending', 'Resolved'],
     datasets: [
       {
         label: 'Quality of Production Process',

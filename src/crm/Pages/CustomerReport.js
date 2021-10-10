@@ -17,7 +17,8 @@ function CustomerReports() {
 
   return (
 
-
+    
+    
     <table style={{width:10000  ,height:500 , marginTop:100}}>
     <tr><th>
     <button className='button1' style={{marginTop: 50}}>Generate Weekly Report</button>
@@ -29,7 +30,7 @@ function CustomerReports() {
     <button className='button1' style={{marginTop: 50}}>Generate Annual Report</button>
     </th></tr>
     </table>
-
+    
   );
 }
 
