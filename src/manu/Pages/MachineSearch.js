@@ -3,6 +3,8 @@ import './pmcss1.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import manu from "./assets/manu.png"
+import logo from "./assets/cyan.png";
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
@@ -70,7 +72,38 @@ export default function MachinSearch() {
       exit='out'
       variants={animationOne}
       transition={transition}>
+           <div><i><h1 style={{
+          position: 'absolute',
+          right: 40,
+          top:-13,
+        }}><br></br>Production </h1></i> </div>
 
+        <div><i><h1 style={{
+          position: 'absolute',
+          right: 40,
+          top:70,
+        }}>Manufacturing Management</h1></i> </div>
+
+        <img
+          style={{
+            position: 'absolute',
+            right: 250,
+            top:-1,
+            width: 120,
+            height: 100
+          }}
+          src={manu} />
+
+           <div className='imagelogo' >
+                <img style={{
+                     position: 'absolute',
+                    left: 300,
+                    top: -20,
+                    width: 160,
+                    height: 160
+                  }}src={logo} /></div>
+
+         <div className='subti'> <h3> ALL Machines  </h3></div>
                     <Paper className={classes.root}>
         <TableContainer className={classes.container}>
           <Table stickyHeader aria-label="sticky table">

@@ -21,7 +21,7 @@ function MHome() {
   }
 
   const data = {
-    labels: ['On working ', 'Paused', 'Repaired', 'Malfuntioned'],
+    labels: ['Start ', 'Paused', 'Repaired', 'Malfuntioned'],
     datasets: [
       {
         label: 'Quality of Production Process',
@@ -50,6 +50,7 @@ function MHome() {
       data_pp[0] = data_1[0].count;
       data_pp[1] = data_1[1].count;
       data_pp[2] = data_1[2].count;
+      data_pp[3] = data_1[3].count;
       sample_aa();
 
 

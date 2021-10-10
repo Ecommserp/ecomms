@@ -54,7 +54,7 @@ function Reports() {
                      <div className='subti1'> <h2> Reports </h2></div>
                     <div className='cardcontain1'>
                     <div className="tile_home" onClick={event =>  window.location.href='/manu/viewreports'}>
-                      <p className="tile_text">View<br />Reports</p>
+                      <p className="tile_text">Past<br />Reports</p>
                       <img src={view} className="view_img" alt="View Reports" />
                       </div>
                        </div>

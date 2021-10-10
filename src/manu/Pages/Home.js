@@ -122,7 +122,7 @@ function Home() {
                     <tr>
                       <th>
 
-                        <button className='button2' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/Additem'}> 1Add Item</button>
+                        <button className='button2' style={{ marginTop: 50 }} onClick={event => window.location.href = '/manu/Additem'}> Add Item</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <button className='button2' onClick={event => window.location.href = '/manu/Deleteitem'}>Delete Item</button>
                       </th>
