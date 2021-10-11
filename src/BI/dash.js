@@ -711,7 +711,7 @@ ReactDOM.render(  <div className="noti_win" id="noti_win">
 
 
 <Popup trigger={ <AddCircleIcon className="add_new" fontSize="large"></AddCircleIcon> } modal>
-<div className="add_new_win">
+<div className="add_new_win_meet">
 <label className="tile_text_bi1">New Meeting</label> <br /> <br />
 
 

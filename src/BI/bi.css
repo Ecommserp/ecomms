@@ -125,6 +125,7 @@ align-items: right;
   float: right;
   text-align: right;
   margin-right: 20px;
+  overflow: scroll;
 }
 
 .add_new {
@@ -172,6 +173,18 @@ align-items: right;
   align-items: center;
   align-content: center;
   text-align: center;
+}
+
+.add_new_win_meet{
+
+  width:100%;  /* adjust as per your needs */
+  height:550px;   /* adjust as per your needs */
+  background-color: #FFF;
+  box-shadow: 15px 15px 15px rgba(102, 102, 102, .2);
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  overflow: scroll;
 }
 
 .popup-content {
