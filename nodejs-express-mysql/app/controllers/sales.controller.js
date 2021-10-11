@@ -43,6 +43,40 @@ exports.create = (req, res) => {
     });
   };
 
+  // Retrieve all Customers from the database.
+  exports.findAllg1 = (req, res) => {
+    Sales.getAll_g1((err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers."
+        });
+      else res.send(data);
+    });
+  };
+
+  exports.findAllg2 = (req, res) => {
+    Sales.getAll_g2((err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers."
+        });
+      else res.send(data);
+    });
+  };
+
+  exports.findAllg3 = (req, res) => {
+    Sales.getAll_g3((err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers."
+        });
+      else res.send(data);
+    });
+  };
+
   // Find a single Customer with a customerId
   exports.findOne_cli = (req, res) => {
     Sales.findById(req.params.Client_ID, (err, data) => {

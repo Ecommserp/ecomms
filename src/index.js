@@ -61,6 +61,7 @@ ReactDOM.render(
                 <Route path='/Hrattendance' component={HRAttendance} />
 
                 <Route path='/sales' component={Salesmanagement} />
+                
     </Switch>
 </Router>
   </React.StrictMode>

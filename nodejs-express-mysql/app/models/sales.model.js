@@ -53,6 +53,45 @@ Sales.getAll = result => {
   });
 };
 
+Sales.getAll_g1 = result => {
+  sql.query("SELECT YEAR(Date) AS year, MONTH(Date) AS month, SUM(quantity) AS total FROM sales GROUP BY YEAR(Date), MONTH(Date)", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+Sales.getAll_g2 = result => {
+  sql.query("SELECT SUM(sales.quantity) AS qua FROM sales WHERE Date >= DATE_ADD(CURDATE(), INTERVAL - 30 DAY)", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+Sales.getAll_g3 = result => {
+  sql.query("SELECT inventory.Product_name, SUM(sales.quantity) AS qua FROM sales INNER JOIN inventory ON inventory.Product_ID = sales.Product_ID WHERE sales.Date >= DATE_ADD(CURDATE(), INTERVAL - 30 DAY) GROUP BY inventory.Product_name ORDER BY SUM(sales.quantity) DESC LIMIT 5", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
 Sales.updateById = (id, customer, result) => {
   sql.query(
     "UPDATE users SET name = ?, contact = ? WHERE id = ?",
