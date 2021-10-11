@@ -226,7 +226,6 @@ getData_rev();
                   <option value="Null"></option>
                       <option value="PURC"> PURC </option>
                       <option value="MANU">MANU</option>
-                      <option value="OTHER">OTHER</option>
                 </select><br></br><br></br>
                         <label style={{marginLeft:36}}>
                         Quantity :

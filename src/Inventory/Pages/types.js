@@ -71,14 +71,14 @@ function Types() {
             ptypes[1] = data[1].Product_type;
             pqua[1] = data[1].qua;
 
-//if(data[0].Product_type == "MANU") {
-  //setmanu(data[0].qua);
-  //setpurc(data[1].qua);
-//}
-//if(data[0].Product_type == "PURC") {
-  //setmanu(data[1].qua);
-  //setpurc(data[0].qua);
-//}
+if(data[0].Product_type == "MANU") {
+  setmanu(data[0].qua);
+  setpurc(data[1].qua);
+}
+if(data[0].Product_type == "PURC") {
+  setmanu(data[1].qua);
+  setpurc(data[0].qua);
+}
 
 
           sample_aa();
