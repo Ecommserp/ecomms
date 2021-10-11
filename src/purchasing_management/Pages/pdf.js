@@ -274,7 +274,6 @@ function printDocument7() {
         ;
       }
 
-  getData_rev7();
 
 
 export default class Export extends Component {
