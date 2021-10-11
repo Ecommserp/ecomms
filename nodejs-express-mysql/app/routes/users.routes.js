@@ -113,6 +113,12 @@ module.exports = app => {
   // Retrieve data for manufacturing product table
   app.get("/manu_prod_g/prod", macnin_prod.findprodall);
 
+
+  app.get("/manu_prod_g/rep7", macnin_prod.findprod7);
+  app.get("/manu_prod_g/rep30", macnin_prod.findprod30);
+  app.get("/manu_prod_g/rep365", macnin_prod.findprod365);
+
+
   // Retrieve data for doughnut chart
   app.get("/manu_prod_g/dough", macnin_prod.findcount);
 
@@ -134,7 +140,7 @@ module.exports = app => {
    // Delete a Machine with MachineId
   app.delete("/macnin_prod/:Machine_no", macnin_prod.delete);
 
-  // Delete all product 
+  // Delete all product
   app.delete("/manu_prod", manu_prod.deleteAll);
 
 

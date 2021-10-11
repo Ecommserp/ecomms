@@ -78,6 +78,39 @@ exports.findprodall = (req, res) => {
   });
 };
 
+exports.findprod7 = (req, res) => {
+  macnin_prod_m.findprod7((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving manufacturing Products."
+      });
+    else res.send(data);
+  });
+};
+
+exports.findprod30 = (req, res) => {
+  macnin_prod_m.findprod30((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving manufacturing Products."
+      });
+    else res.send(data);
+  });
+};
+
+exports.findprod365 = (req, res) => {
+  macnin_prod_m.findprod365((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving manufacturing Products."
+      });
+    else res.send(data);
+  });
+};
+
 exports.findcount = (req, res) => {
   macnin_prod_m.find_prodcount((err, data) => {
     if (err)
@@ -116,7 +149,7 @@ exports.update = (req, res) => {
   }
 
   console.log(req.body);
-  
+
 
 //  const macnin_prod = new macnin_prod_m({
 //     Machine_no:req.Machine_no,
