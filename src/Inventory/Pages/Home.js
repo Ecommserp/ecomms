@@ -99,7 +99,7 @@ let quantity = '';
 
   async function getData_rev() {
 
-      const apiUrl = 'http://localhost:3220/sales/g3';
+      const apiUrl = 'http://localhost:3220/inventory_graph';
       const data = await getData(apiUrl);
 
       for(var i = 0; i < data.length; i++){

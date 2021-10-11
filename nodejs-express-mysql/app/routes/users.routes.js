@@ -15,14 +15,14 @@ module.exports = app => {
   const rr =  require("../controllers/request.controller.js");
 
 
-  
+
   // Retrieve all hr_attendance
   app.get("/hr_attendance", hr_attendance.findAll);
 
   // Create  hr_attendance
   app.post("/hr_attendance", hr_attendance.create);
-  
-  
+
+
   // Retrieve all emp_benefits
   app.get("/emp_benefits", emp_benefits.findAll);
 
@@ -56,6 +56,10 @@ module.exports = app => {
 
   // Retrieve all Customers
   app.get("/inventory", inv.findAll);
+
+
+  // Retrieve all Customers
+  app.get("/inventory_graph", inv.findforgraph);
 
   // Retrieve a Items for category
   app.get("/inventory/:itm_cat", inv.find_cat);

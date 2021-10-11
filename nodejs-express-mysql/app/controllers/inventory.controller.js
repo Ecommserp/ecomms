@@ -43,6 +43,17 @@ exports.findAll = (req, res) => {
   });
 };
 
+exports.findforgraph = (req, res) => {
+  Inventory.getAllgraph((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers."
+      });
+    else res.send(data);
+  });
+};
+
 // Find a single Customer with a customerId
 exports.findOne = (req, res) => {
   Inventory.findById(req.params.customerId, (err, data) => {
