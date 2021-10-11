@@ -17,10 +17,6 @@ module.exports = app => {
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 687442d423031e6e5d3298abc43d154914f01d5f
   // Retrieve all hr_attendance
   app.get("/hr_attendance", hr_attendance.findAll);
 
