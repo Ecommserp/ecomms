@@ -69,6 +69,42 @@ exports.findAll_inq = (req, res) => {
 };
 
 // Retrieve all inquiries from the database.
+exports.findAll_inq7 = (req, res) => {
+  CRM.getAll_inq7((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers inquiry."
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all inquiries from the database.
+exports.findAll_inq30 = (req, res) => {
+  CRM.getAll_inq30((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers inquiry."
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all inquiries from the database.
+exports.findAll_inq365 = (req, res) => {
+  CRM.getAll_inq365((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers inquiry."
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all inquiries from the database.
 exports.findAll_inq_join = (req, res) => {
   CRM.getAll_inq_join(req.params.salesid, (err, data) => {
      if (err) {

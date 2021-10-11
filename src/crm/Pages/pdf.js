@@ -8,6 +8,7 @@ import * as _html2canvas from "html2canvas";
 import logo from "./assets/cyan.png";
 import './CRMPages.css';
 import './Report.css';
+import moment from 'moment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
@@ -155,6 +156,8 @@ return response.json();
 async function sample_aa() {
   //alert(data_revy1)
     ReactDOM.render(
+      <div>
+      <label className="tile_text_bi">Inquiries</label>
       <table>
 <tbody>
 <tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}}>
@@ -169,16 +172,16 @@ year_rev.map((value, index) => {
 })
 }
 </tbody>
-</table>, document.getElementById('divToPrint'));
+</table></div>, document.getElementById('divToPrint'));
 
 }
 
 
-  async function getData_rev() {
-    //alert('working')
+  async function getData_rev7() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq';
+      const apiUrl = 'http://localhost:3220/crm/inq7';
       const data = await getData(apiUrl);
+
 
       for(var i = 0; i < data.length; i++){
 
@@ -187,17 +190,48 @@ year_rev.map((value, index) => {
         total_rev[i] = data[i].Customer_inquiry;
         date_rev[i] = data[i].inquiry_date;
 
-
       }
-
-
       sample_aa();
-
   }
 
-  getData_rev();
+  async function getData_rev30() {
 
-  async function printDocument() {
+      const apiUrl = 'http://localhost:3220/crm/inq30';
+      const data = await getData(apiUrl);
+
+
+      for(var i = 0; i < data.length; i++){
+
+        year_rev[i] = data[i].InquireID;
+        month_rev[i] = data[i].Sales_ID;
+        total_rev[i] = data[i].Customer_inquiry;
+        date_rev[i] = data[i].inquiry_date;
+
+      }
+      sample_aa();
+  }
+
+  async function getData_rev365() {
+
+      const apiUrl = 'http://localhost:3220/crm/inq30';
+      const data = await getData(apiUrl);
+
+
+      for(var i = 0; i < data.length; i++){
+
+        year_rev[i] = data[i].InquireID;
+        month_rev[i] = data[i].Sales_ID;
+        total_rev[i] = data[i].Customer_inquiry;
+        date_rev[i] = data[i].inquiry_date;
+
+      }
+      sample_aa();
+  }
+
+
+function printDocument7() {
+
+  getData_rev7();
 
     const input = document.getElementById('divToPrint');
     html2canvas(input)
@@ -211,6 +245,41 @@ year_rev.map((value, index) => {
     ;
   }
 
+  function printDocument30() {
+
+    getData_rev30();
+
+      const input = document.getElementById('divToPrint');
+      html2canvas(input)
+        .then((canvas) => {
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jsPDF();
+          pdf.addImage(imgData, 'JPEG', 0, 0);
+          // pdf.output('dataurlnewwindow');
+          pdf.save("download.pdf");
+        })
+      ;
+    }
+
+    function printDocument365() {
+
+      getData_rev365();
+
+        const input = document.getElementById('divToPrint');
+        html2canvas(input)
+          .then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, 'JPEG', 0, 0);
+            // pdf.output('dataurlnewwindow');
+            pdf.save("download.pdf");
+          })
+        ;
+      }
+
+  getData_rev7();
+
+
 export default class Export extends Component {
   constructor(props) {
     super(props);
@@ -222,11 +291,11 @@ export default class Export extends Component {
   render() {
     return (<div>
 
-      <button className='button1'  style={{marginTop: 50}} onClick={printDocument}>Generate Weekly Report</button>
+      <button className='button1'  style={{marginTop: 50}} onClick={printDocument7}>Generate Weekly Report</button>
 
-      <button className='button1' style={{marginTop: 50}}>Generate Monthly Report</button>
+      <button className='button1' style={{marginTop: 50}} onClick={printDocument30}>Generate Monthly Report</button>
 
-      <button className='button1' style={{marginTop: 50}}>Generate Annual Report</button>
+      <button className='button1' style={{marginTop: 50}} onClick={printDocument365}>Generate Annual Report</button>
 
       <div id="divToPrint" className="pdf_temp">
         <div>Note: Here the dimensions of div are same as A4</div>

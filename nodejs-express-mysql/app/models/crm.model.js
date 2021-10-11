@@ -100,6 +100,45 @@ Customers.getAll_inq = result => {
   });
 };
 
+Customers.getAll_inq7 = result => {
+  sql.query("SELECT inquiries.InquireID, inquiries.Sales_ID, inquiries.Customer_inquiry, inquiries.inquiry_date, inquiries.stat, sales.Product_ID, sales.quantity, sales.Date AS purc_date, client.name, client.contact FROM inquiries INNER JOIN sales ON inquiries.Sales_ID = sales.Sales_ID INNER JOIN client ON inquiries.client_ID = client.Client_ID WHERE inquiries.inquiry_date > now() - INTERVAL 7 day", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+Customers.getAll_inq30 = result => {
+  sql.query("SELECT inquiries.InquireID, inquiries.Sales_ID, inquiries.Customer_inquiry, inquiries.inquiry_date, inquiries.stat, sales.Product_ID, sales.quantity, sales.Date AS purc_date, client.name, client.contact FROM inquiries INNER JOIN sales ON inquiries.Sales_ID = sales.Sales_ID INNER JOIN client ON inquiries.client_ID = client.Client_ID WHERE inquiries.inquiry_date > now() - INTERVAL 30 day", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+Customers.getAll_inq365 = result => {
+  sql.query("SELECT inquiries.InquireID, inquiries.Sales_ID, inquiries.Customer_inquiry, inquiries.inquiry_date, inquiries.stat, sales.Product_ID, sales.quantity, sales.Date AS purc_date, client.name, client.contact FROM inquiries INNER JOIN sales ON inquiries.Sales_ID = sales.Sales_ID INNER JOIN client ON inquiries.client_ID = client.Client_ID WHERE inquiries.inquiry_date > now() - INTERVAL 365 day", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
 Customers.getAll_inq_join = (salesid, result) => {
   sql.query(`SELECT sales.Sales_ID, client.Client_ID, client.name, client.contact, sales.Product_ID FROM sales INNER JOIN client ON sales.Client_ID = client.Client_ID WHERE sales.Sales_ID = '${salesid}'`, (err, res) => {
     if (err) {
