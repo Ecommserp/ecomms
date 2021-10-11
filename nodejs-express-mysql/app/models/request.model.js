@@ -1,13 +1,13 @@
 const sql = require("./db.js");
 
 // constructor
-const Request = function(request) {
-  this.Product_name = request.Product_name;
-  this.Product_type = request.Product_type;
-  this.quantity = request.quantity;
+const Rrequest = function(rrequest) {
+  this.name = rrequest.name;
+  this.type = rrequest.type;
+  this.quantity = rrequest.quantity;
 };
 
-Request.create = (newRequest, result) => {
+Rrequest.create = (newRequest, result) => {
   //console.log(newCustomer)
   sql.query("INSERT INTO requests SET ?", newRequest, (err, res) => {
     if (err) {
@@ -20,3 +20,4 @@ Request.create = (newRequest, result) => {
     result(null, { id: res.insertId, ...newRequest });
   });
 };
+module.exports = Rrequest;

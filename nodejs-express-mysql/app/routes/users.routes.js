@@ -10,6 +10,7 @@ module.exports = app => {
   const managingdb = require("../controllers/managingdb.controller.js");
   const hr = require("../controllers/Hr.controller.js");
   const sales =  require("../controllers/sales.controller.js");
+  const rr =  require("../controllers/request.controller.js");
 
 
 
@@ -19,6 +20,9 @@ module.exports = app => {
 
   // Retrieve all Customers
   app.get("/users", customers.findAll);
+
+  // Retrieve all Customers
+  app.post("/inv/request", rr.createreq);
 
   // Retrieve a single Customer with customerId
   app.get("/users/:customerId", customers.findOne);

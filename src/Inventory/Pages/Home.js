@@ -42,7 +42,7 @@ function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: name, type : type, quantity: quantity})
     };
-    fetch('http://localhost:3220/request', requestOptions)
+    fetch('http://localhost:3220/inv/request', requestOptions)
         .then(response => response.json());
         alert("Item added")
 

@@ -14,7 +14,7 @@ import Cash from './Account/Pages/cash';
 import Income from './Account/Pages/income';
 import Financial from './Account/Pages/financial';
 import Purchasing_management from './purchasing_management/App';
-import BI from './BI/dash';
+import BI from './BI/Dash';
 import HR from './hr/Hr';
 import HRDatabase from './hr/database';
 import HRSearch from './hr/search';
@@ -61,7 +61,7 @@ ReactDOM.render(
                 <Route path='/Hrattendance' component={HRAttendance} />
 
                 <Route path='/sales' component={Salesmanagement} />
-                
+
     </Switch>
 </Router>
   </React.StrictMode>

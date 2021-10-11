@@ -18,7 +18,7 @@ import Paper from '@material-ui/core/Paper';
 import ReactDOM from 'react-dom';
 import './bi.css';
 
-export default function GoogleEventComponent() {
+export default function Gc() {
 
 
     const [signedin,setSignedIn] = useState(false);
@@ -235,7 +235,10 @@ export default function GoogleEventComponent() {
               'dateTime': moment(e_time),
               'timeZone': 'America/Los_Angeles'
             },
-            'attendees': [att],
+            'attendees': [
+              {'email': 'dinithkaushalya55@gmail.com'},
+              {'email': 'pulasthi.perera94@gmail.com'}
+            ],
       }
       publishTheCalenderEvent(event);
 

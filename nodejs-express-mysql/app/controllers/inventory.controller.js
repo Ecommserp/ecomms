@@ -14,6 +14,7 @@ exports.create = (req, res) => {
 
   //Create a new Item
   const inventory = new Inventory({
+    Product_ID:req.Product_ID,
     Product_name: req.body.name,
     Product_type: req.body.type,
     quantity: req.body.quantity,
