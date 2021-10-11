@@ -156,12 +156,12 @@ return response.json();
 async function sample_aa() {
   //alert(data_revy1)
     ReactDOM.render(
-      <div style={{'marginTop':'-500'}}>
-      <label className="tile_text_bi">Inquiries</label>
+      <div style={{'marginTop':'-500', marginLeft:100}}>
+      <label className="tile_text_bi"> Record </label>
       <table>
 <tbody>
 <tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}}>
-    <th>Product ID</th>
+    <th>ID</th>
     <th>Name</th>
     <th>Details</th>
     <th>Status</th>
@@ -293,11 +293,11 @@ export default class Export extends Component {
 <br/>
 <br/>
 
-      <button className='button1'  style={{marginTop: 50}} onClick={printDocument7}>Product Report</button>
+      <button className='button2'  style={{marginTop: 50,marginRight:10,width:300, marginLeft:200}} onClick={printDocument7}>Product Report</button>
 
-      <button className='button1' style={{marginTop: 50}} onClick={printDocument30}>Machine Report</button>
+      <button className='button2' style={{marginTop: 50,marginRight:10,width:300}} onClick={printDocument30}>Machine Report</button>
 
-      <button className='button1' style={{marginTop: 50}} onClick={printDocument365}>Generate Annual Report</button>
+      <button className='button2' style={{marginTop: 50,marginRight:10,width:300}} onClick={printDocument365}>Generate Annual Report</button>
 
       <div id="divToPrint" className="pdf_temp">
         <div>Note: Here the dimensions of div are same as A4</div>
