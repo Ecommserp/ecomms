@@ -19,7 +19,7 @@
 .hr_searchIcon {
   height: 60px;
   width: 50px;
-  background-color: white;
+  background-color: rgb(83, 10, 10);
   display: grid;
   place-items: center;
 }

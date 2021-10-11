@@ -10,8 +10,23 @@ module.exports = app => {
   const managingdb = require("../controllers/managingdb.controller.js");
   const hr = require("../controllers/Hr.controller.js");
   const sales =  require("../controllers/sales.controller.js");
+  const emp_benefits =  require("../controllers/emp_benefits.controller.js");
+  const hr_attendance =  require("../controllers/hr_attendance.controller.js");
 
 
+  
+  // Retrieve all hr_attendance
+  app.get("/hr_attendance", hr_attendance.findAll);
+
+  // Create  hr_attendance
+  app.post("/hr_attendance", hr_attendance.create);
+  
+  
+  // Retrieve all emp_benefits
+  app.get("/emp_benefits", emp_benefits.findAll);
+
+  // Create  emp_benefits
+  app.post("/emp_benefits", emp_benefits.create);
 
 
   // Create a new Customer
@@ -111,9 +126,6 @@ module.exports = app => {
 
   // Retrieve data for doughnut chart
   app.get("/manu_prod_g/dough", macnin_prod.findcount);
-
-  // Retrieve data for goughnut chart
-  app.get("/manu_prod_g/c_machine", macnin_prod.find_machine);
 
   // Retrieve a single Customer with customerId
   app.get("/manf/:Machine_no", macnin_prod.findOne);
