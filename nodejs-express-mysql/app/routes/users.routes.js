@@ -131,14 +131,11 @@ module.exports = app => {
   // Retrieve data for doughnut chart
   app.get("/manu_prod_g/dough", macnin_prod.findcount);
 
-<<<<<<< HEAD
   // Retrieve data for goughnut chart
   app.get("/manu_prod_g/c_machine", macnin_prod.find_machine);
 
   // Retrieve a single Machine with MachineId
-=======
   // Retrieve a single Customer with customerId
->>>>>>> 929174d1ef086ab33a7028320d9f29dfd826fdbd
   app.get("/manf/:Machine_no", macnin_prod.findOne);
 
   // Update a Product with ProductId
