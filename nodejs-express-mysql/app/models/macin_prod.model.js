@@ -82,6 +82,19 @@ Machine.findprodall = result => {
   });
 };
 
+Machine.findprod7 = result => {
+  sql.query("SELECT * FROM product", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("Products: ", res);
+    result(null, res);
+  });
+};
+
 Machine.getMachine = result => {
   sql.query("SELECT * FROM machines", (err, res) => {
     if (err) {

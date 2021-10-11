@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './CRMPages.css';
-import crm from "./assets/crm.png"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -9,7 +9,7 @@ import { animationOne, transition } from '../animations';
 
 function Addcustomer() {
 
-  const [nic, setnic] = useState("");
+  const [nic, setnic] = useState("");  //nic= Sales ID
   const [birthdate, setbirthdate] = useState("");
   const [name, setname] = useState("");
   const [sales_id, setsales_id] = useState("");
@@ -93,24 +93,24 @@ function Addcustomer() {
                 <form onSubmit={handleSubmit}>
                         <label className='label1'>
                         Sales ID: &nbsp;&nbsp;&nbsp;
-                        <input className='label2' type="text" name="nic" value={nic} onKeyDown={keyPress} onChange={(e) => setnic(e.target.value)}/>
+                        <input className='label2' type="text" name="nic" value={nic} onKeyDown={keyPress} onChange={(e) => setnic(e.target.value)}required/>
                         </label><br></br><br></br>
 
                         <label className='label1'>
                         Customer Name : &nbsp;&nbsp;&nbsp;
-                        <input className='label2' type="text" name="name " value={name} onChange={(e) => setname(e.target.value)}/>
+                        <input className='label2' type="text" name="name " value={name} onChange={(e) => setname(e.target.value)}disabled/>
                         </label><br></br><br></br>
                         <label className='label1'>
                         Phone Number : &nbsp;&nbsp;&nbsp;
-                        <input className='label2' type="text" name="phone " value={phone} onChange={(e) => setphone(e.target.value)}/>
+                        <input className='label2' type="text" name="phone " value={phone} onChange={(e) => setphone(e.target.value)}disabled/>
                         </label><br></br><br></br>
                         <label className='label1'>
                         Purchased Item : &nbsp;&nbsp;&nbsp;
-                        <input className='label2' type="text" name="purchased" value={purchased} onChange={(e) => setpurchased(e.target.value)}/>
+                        <input className='label2' type="text" name="purchased" value={purchased} onChange={(e) => setpurchased(e.target.value)}disabled/>
                         </label><br></br><br></br>
                         <label className='label1'>
                         Inquiry  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input className='label2' type="text" name="inquiry" value={inquiry} onChange={(e) => setinquiry(e.target.value)}/>
+                        <input className='label2' type="text" name="inquiry" value={inquiry} onChange={(e) => setinquiry(e.target.value)}required/>
                         </label><br></br><br></br>
                         {/* <label className='label1'>
                         Inquiry Status  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>

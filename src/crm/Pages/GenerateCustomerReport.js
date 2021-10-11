@@ -3,6 +3,7 @@ import './CRMPages.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Pdfgen from './pdf';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
@@ -15,18 +16,9 @@ function GenerateCustomerReport() {
     exit='out'
     variants={animationOne}
     transition={transition}>
-        
-                  <table style={{width:1000}}>
-                  <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>Generate Weekly Report</button>
-                  </th></tr>
-                  <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>Generate Monthly Report</button>
-                  </th></tr>
-                  <tr><th>
-                  <button className='button1' style={{marginTop: 50}}>Generate Annual Report</button>
-                  </th></tr>
-                  </table>
+
+    <Pdfgen />
+
                   </motion.div></div>
 
 );
