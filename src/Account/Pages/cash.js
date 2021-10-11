@@ -119,6 +119,19 @@ function Additem() {
           alert("Item added")
     }
 
+    function update() {
+
+      const requestOptions = {
+
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ Account_ID: accid, Account_name: accname, Total: amount,date: date})
+      };
+      fetch('http://localhost:3220/acc/cash', requestOptions)
+          .then(response => response.json());
+          alert("Item added")
+    }
+
 
   return (
     <motion.div className = "additem" initial='out'
@@ -171,7 +184,7 @@ function Additem() {
                         <input type="date" name="quantity" value={date} onChange={(e) => setDate(e.target.value)}/>
                         </label><br></br><br></br>
                         <input type="Reset" value="Reset"/> <div className="space"></div>
-                        <input type="Submit" value="Send cash"/> <div className="space"></div>
+                        <input type="Submit" onClick={insert} value="Send cash"/> <div className="space"></div>
 
                         </form>
 

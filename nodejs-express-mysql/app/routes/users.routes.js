@@ -14,6 +14,7 @@ module.exports = app => {
   const hr_attendance =  require("../controllers/hr_attendance.controller.js");
   const rr =  require("../controllers/request.controller.js");
  const pm2 = require("../controllers/P_M_reports.controller.js");
+ const cash = require("../controllers/cash.controller.js");
 
 
 
@@ -113,6 +114,7 @@ module.exports = app => {
 
   // Retrieve Manu for sample
   app.get("/manu/prod", manu_prod.findAll);
+
   // Retrieve all Customers
   app.get("/manu/manf", macnin_prod.findAll);
 
@@ -213,7 +215,7 @@ module.exports = app => {
 
    // Retrieve all inquiries for last week
    app.get("/crm/inq365", crmI.findAll_inq365);
-   
+
 
    // Retrieve all inquiries
    app.get("/crm/inq_join/:salesid", crmI.findAll_inq_join);
@@ -233,6 +235,8 @@ module.exports = app => {
 
    // Create a new invoice
    app.post("/acc/managingdb", managingdb.create);
+
+   app.post("/acc/cash", cash.create);
 
    // Create a new invoice
    app.put("/acc/managingdb/:Invoice_ID", managingdb.update);
@@ -273,10 +277,10 @@ module.exports = app => {
 
 
     // Retrieve all Hr emplyees
-    app.get("/sales/g2", sales.findAllg2);
+  app.get("/sales/g2", sales.findAllg2);
 
     // Retrieve all Hr emplyees
-    app.get("/sales/g3", sales.findAllg3);
+  app.get("/sales/g3", sales.findAllg3);
 
   // Retrieve a single client with customerId
   app.get("/sales/cli/:Client_ID", sales.findOne_cli);
