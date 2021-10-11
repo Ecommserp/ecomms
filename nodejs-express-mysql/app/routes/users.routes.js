@@ -10,8 +10,14 @@ module.exports = app => {
   const managingdb = require("../controllers/managingdb.controller.js");
   const hr = require("../controllers/Hr.controller.js");
   const sales =  require("../controllers/sales.controller.js");
+  const emp_benefits =  require("../controllers/emp_benefits.controller.js");
 
 
+  // Retrieve all emp_benefits
+  app.get("/emp_benefits", emp_benefits.findAll);
+
+  // Create  emp_benefits
+  app.post("/emp_benefits", emp_benefits.create);
 
   // Create a new Customer
   app.post("/users", customers.create);

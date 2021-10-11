@@ -27,6 +27,9 @@ exports.create = (req, res) => {
   const sp = new SP({
     name: req.body.name,
     contact: req.body.contact,
+  address: req.body.address,
+  nic: req.body.nic,
+  br: req.body.br,
 
   });
 

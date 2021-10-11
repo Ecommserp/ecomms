@@ -4,7 +4,9 @@ const Supplier = function(supplier) {
   this.supplier_id = supplier.supplier_id;
   this.name = supplier.name;
   this.contact = supplier.contact;
-
+this.address = supplier.address;
+this.nic = supplier.nic;
+this.br = supplier.br;
 };
 
 
@@ -23,7 +25,7 @@ Supplier.getAll = result => {
 
 
 Supplier.create = (newSupplier, result) => {
-  //console.log(newCustomer)
+  //console.log(newSupplier)
   sql.query("INSERT INTO supplier SET ?", newSupplier, (err, res) => {
     if (err) {
       console.log("error: ", err);

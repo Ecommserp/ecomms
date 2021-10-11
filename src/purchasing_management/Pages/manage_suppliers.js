@@ -56,6 +56,9 @@ function Manage_suppliers() {
 
   const [name, setname] = useState("");
   const [contact, setcontact] = useState("");
+  const [address, setaddress] = useState("");
+  const [nic, setnic] = useState("");
+const [br, setbr] = useState("");
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -111,7 +114,7 @@ function insert() {
 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, contact: contact})
+      body: JSON.stringify({ name: name, contact: contact, nic: nic, address: address, br: br})
   };
   fetch('http://localhost:3220/suppliers', requestOptions)
       .then(response => response.json());
@@ -154,7 +157,15 @@ async function render_data() {
 
             {title: 'Name',field: 'name', minWidth: 200},
 
-                { title: 'Contact', field: 'contact', type: 'name', minWidth: 200  ,align: 'center' },
+
+
+                { title: 'Contact', field: 'contact', type: 'name' ,align: 'center' },
+
+{ title: 'NIC', field: 'nic', type: 'name', minWidth: 200  ,align: 'center' },
+
+{ title: 'Business registration', field: 'br', type: 'name' ,align: 'center' },
+
+
           ]}
           data={table_data}
           actions={[
@@ -291,9 +302,26 @@ getData_rev();
                         </label><br></br><br></br>
 
                         <label>
-                            Contacts  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                            Contact No  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                             <input type="text" name="contact" value={contact} onChange={(e) => setcontact(e.target.value)} />
                             </label><br></br><br></br>
+
+                            <label>
+                                Address  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                <input type="text" name="address" value={address} onChange={(e) => setaddress(e.target.value)} />
+                                </label><br></br><br></br>
+
+
+                                <label>
+                                    NIC  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                    <input type="text" name="nic" value={nic} onChange={(e) => setnic(e.target.value)} />
+                                    </label><br></br><br></br>
+
+
+                                    <label>
+                                        Business registration code &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                        <input type="text" name="nic" value={br} onChange={(e) => setbr(e.target.value)} />
+                                        </label><br></br><br></br>
 
                         <button className="button22" value="Submit" onClick={insert}>Insert Data</button>
 
