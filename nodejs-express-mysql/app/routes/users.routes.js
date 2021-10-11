@@ -13,16 +13,17 @@ module.exports = app => {
   const emp_benefits =  require("../controllers/emp_benefits.controller.js");
   const hr_attendance =  require("../controllers/hr_attendance.controller.js");
   const rr =  require("../controllers/request.controller.js");
+ const pm2 = require("../controllers/P_M_reports.controller.js");
 
 
-  
+
   // Retrieve all hr_attendance
   app.get("/hr_attendance", hr_attendance.findAll);
 
   // Create  hr_attendance
   app.post("/hr_attendance", hr_attendance.create);
-  
-  
+
+
   // Retrieve all emp_benefits
   app.get("/emp_benefits", emp_benefits.findAll);
 
@@ -77,7 +78,7 @@ module.exports = app => {
 
 
 
-  http://localhost:3220/request
+//  http://localhost:3220/request
 
   // Retrieve BI for first graph
   app.get("/BI/rev", bi.findAll);
@@ -131,14 +132,14 @@ module.exports = app => {
   // Retrieve data for doughnut chart
   app.get("/manu_prod_g/dough", macnin_prod.findcount);
 
-<<<<<<< HEAD
+
   // Retrieve data for goughnut chart
   app.get("/manu_prod_g/c_machine", macnin_prod.find_machine);
 
   // Retrieve a single Machine with MachineId
-=======
+
   // Retrieve a single Customer with customerId
->>>>>>> 929174d1ef086ab33a7028320d9f29dfd826fdbd
+
   app.get("/manf/:Machine_no", macnin_prod.findOne);
 
   // Update a Product with ProductId
@@ -153,7 +154,7 @@ module.exports = app => {
    // Delete a Machine with MachineId
   app.delete("/macnin_prod/:Machine_no", macnin_prod.delete);
 
-  // Delete all product 
+  // Delete all product
   app.delete("/manu_prod", manu_prod.deleteAll);
 
 
@@ -164,6 +165,13 @@ module.exports = app => {
      // make a new purchase
      app.post("/purchases", pm.create);
 
+     // Retrieve all inqusiries for last week
+        app.get("/purchases/inq7", pm2.findAll_inq7);
+
+
+        app.get("/purchases/inq30", pm2.findAll_inq30);
+
+        app.get("/purchases/inq365", pm2.findAll_inq365);
 
      // Retrieve all suppliers
      app.get("/suppliers", sp.findAll);
