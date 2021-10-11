@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component, PropTypes, useState} from 'react';
 import { jsPDF } from "jspdf";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -23,6 +23,18 @@ import generate from './assets/generate.jpg';
 // download html2canvas and jsPDF and save the files in app/ext, or somewhere else
 // the built versions are directly consumable
 // import {html2canvas, jsPDF} from 'app/ext';
+
+
+let from = '';
+let to = '';
+
+  function setFrom(det){
+    from = det;
+  }
+
+  function setTo(det){
+    to = det;
+  }
 
 let repo_type;
 let repo_time;
@@ -159,13 +171,23 @@ const response = await fetch(url);
 return response.json();
 }
 
+async function getCurrentDate(separator=''){
+
+let myCurrentDate = new Date()
+let date = myCurrentDate.getDate();
+let month = myCurrentDate.getMonth() + 1;
+let year = myCurrentDate.getFullYear();
+
+return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`
+}
+
 async function sample_aa() {
   //alert(data_revy1)
     ReactDOM.render(
       <div className='pdfTable'>
       <div style={{'marginTop':'-500'}}>
-      <label className="tile_text_bi"> Customer Relationship Management</label>
-      <label className="tile_text_bi"> Customer Inquiries</label>
+      <label className="tile_text_bi"> Inventory Status Report</label><br></br>
+      <label className="tile_text_bi"> {currentDate}</label>
       <table>
 <tbody>
 <tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '15px', 'width': '200px'}}>
@@ -173,6 +195,29 @@ async function sample_aa() {
     <th>Product Name</th>
     <th>Product Type</th>
     <th>Quantity</th>
+  </tr>
+{
+year_rev.map((value, index) => {
+    return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{value}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{month_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{total_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{date_rev[index]}</td></tr>
+})
+}
+</tbody>
+</table></div></div>, document.getElementById('divToPrint'));
+
+}
+
+async function sample_aaa() {
+  //alert(data_revy1)
+    ReactDOM.render(
+      <div className='pdfTable'>
+      <div style={{'marginTop':'-500'}}>
+      <label className="tile_text_bi"> Inventory Incomings Report</label><br></br>
+      <table>
+<tbody>
+<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '15px', 'width': '200px'}}>
+    <th>Product ID</th>
+    <th>Quantity</th>
+    <th>Date</th>
   </tr>
 {
 year_rev.map((value, index) => {
@@ -204,19 +249,18 @@ year_rev.map((value, index) => {
 
   async function getData_rev30() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq30';
+      const apiUrl = 'http://localhost:3220/purchases';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].InquireID;
-        month_rev[i] = data[i].Sales_ID;
-        total_rev[i] = data[i].Customer_inquiry;
-        date_rev[i] = data[i].inquiry_date;
+        year_rev[i] = data[i].Product_id;
+        month_rev[i] = data[i].quantity;
+        total_rev[i] = data[i].Date;
 
       }
-      sample_aa();
+      sample_aaa();
   }
 
   async function getData_rev365() {
@@ -235,7 +279,7 @@ year_rev.map((value, index) => {
       }
       sample_aa();
   }
-
+let currentDate = '10/12/2021';
 //weekly report
 function printDocument7() {
 
@@ -288,12 +332,14 @@ function printDocument7() {
 
 
 export default class Export extends Component {
+
+
   constructor(props) {
     super(props);
   }
 
 
-
+  
 
   render() {
     return (<div>
@@ -320,19 +366,19 @@ export default class Export extends Component {
                 right: 250,
                 top: 12}}
                   src={inventory} />
-                  <div className="invtile_gen">
+                  <div className="invtile_gen" style = {{marginTop:50}}>
                   <img src={generate} className="invgenerate_img" alt="Generate Reports" />
                   <table style={{width:700}}>
                   <tr><th>
                   <button className='invbutton' style={{marginTop: 30, marginBottom:30}} onClick={printDocument7}>Generate Status Report</button>
                   </th></tr>
                   <tr><th>
-                    <p>Generate Custom Report</p>
+                    <p>Incomings Report</p>
                     <form>
-                      <label style ={{marginRight:20}} >From : <input type="date"></input></label><br></br>
-                      <label style={{marginTop: 20}}>To : <input type="date"></input></label>
+                      <label style ={{marginRight:20}} >From : <input type="date" value={from} onChange={(e) => setFrom(e.target.value)}></input></label><br></br>
+                      <label style={{marginTop: 20}}>To : <input type="date" value={to} onChange={(e) => setTo(e.target.value)}></input></label>
                       </form>
-                  <button className='invbutton' style={{marginTop: 30, marginBottom:50}}>Generate Report</button>
+                  <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument30}>Generate Incomings Report</button>
                   </th></tr>
                   </table>
                       </div>

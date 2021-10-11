@@ -46,3 +46,9 @@
   display: inline-block;
   transition: box-shadow 0.8s;
 }
+
+.pdfTable {
+  background-color: rgb(250, 250, 250);
+  height: 500px;
+  margin-top: 50px;
+}

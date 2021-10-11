@@ -14,7 +14,7 @@ import Pdfgen from './pdf';
 
 function ReportsGen() {
   return (
-    <div>
+    <div className = 'invscreen'>
       <Pdfgen />
     </div>
 
