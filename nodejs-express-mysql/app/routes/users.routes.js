@@ -141,6 +141,7 @@ module.exports = app => {
   app.get("/manu_prod_g/c_machine", macnin_prod.find_machine);
 
   // Retrieve a single Machine with MachineId
+  // Retrieve a single Customer with customerId
 
   // Retrieve a single Customer with customerId
 

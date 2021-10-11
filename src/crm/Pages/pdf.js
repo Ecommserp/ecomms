@@ -2,12 +2,11 @@ import React, {Component, PropTypes} from 'react';
 import { jsPDF } from "jspdf";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import './Report.css';
 import ReactDOM from 'react-dom';
-import { Line } from 'react-chartjs-2';
 import * as _html2canvas from "html2canvas";
 import logo from "./assets/cyan.png";
-import './CRMPages.css';
-import './Report.css';
+import { Line } from 'react-chartjs-2';
 import moment from 'moment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {motion} from 'framer-motion';
@@ -156,11 +155,13 @@ return response.json();
 async function sample_aa() {
   //alert(data_revy1)
     ReactDOM.render(
+      <div className='pdfTable'>
       <div style={{'marginTop':'-500'}}>
-      <label className="tile_text_bi">Inquiries</label>
+      <label className="tile_text_bi"> Customer Relationship Management</label>
+      <label className="tile_text_bi"> Customer Inquiries</label>
       <table>
 <tbody>
-<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}}>
+<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '15px', 'width': '200px'}}>
     <th>Inquiry ID</th>
     <th>Sales ID</th>
     <th>Customer Inquiry</th>
@@ -168,11 +169,11 @@ async function sample_aa() {
   </tr>
 {
 year_rev.map((value, index) => {
-    return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{value}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{month_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{total_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{date_rev[index]}</td></tr>
+    return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{value}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{month_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{total_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{date_rev[index]}</td></tr>
 })
 }
 </tbody>
-</table></div>, document.getElementById('divToPrint'));
+</table></div></div>, document.getElementById('divToPrint'));
 
 }
 
@@ -228,7 +229,7 @@ year_rev.map((value, index) => {
       sample_aa();
   }
 
-
+//weekly report
 function printDocument7() {
 
   getData_rev7();
