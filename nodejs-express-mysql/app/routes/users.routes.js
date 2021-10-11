@@ -61,6 +61,11 @@ module.exports = app => {
   // Update a product id with productid
   app.put("/inventory/quantity/:Product_id", inv.updatequantity);
 
+  // Create Product Request
+  app.put("/requests", req.create);
+
+  http://localhost:3220/request
+
   // Retrieve BI for first graph
   app.get("/BI/rev", bi.findAll);
 

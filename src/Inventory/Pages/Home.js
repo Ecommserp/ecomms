@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './invPages.css';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
+import { relativeTimeRounding } from "moment";
 
 function Home() {
 
@@ -39,7 +40,7 @@ function Home() {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, quantity: quantity})
+        body: JSON.stringify({ name: name, type : type, quantity: quantity})
     };
     fetch('http://localhost:3220/request', requestOptions)
         .then(response => response.json());
@@ -101,7 +102,7 @@ function Home() {
   }
 
   async function sample_aa() {
-    ReactDOM.render(<Bar style={{ width: 700, height: 800 }} data={data} options={options} />, document.getElementById('bar_g'));
+    ReactDOM.render(<Bar style={{ width: 900, height: 800 }} data={data} options={options} />, document.getElementById('bar_g'));
 
   }
 
@@ -134,7 +135,7 @@ function Home() {
                   src={inventory} />
                   <table>
                   <tr><th><td><div id="bar_g"> </div></td></th></tr>
-                  <tr><th><td><Popup trigger={<button className='nbutton' style={{marginTop: 40, marginLeft:370}}>Request Product</button>}modal>
+                  <tr><th><td><Popup trigger={<button className='nbutton' style={{position:'absolute', left: 580, bottom:60,marginTop: 40}}>Request Product</button>}modal>
                   <center><Card style={{height: '490px'}}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Request Product</h3></Card.Header>
                 <Card.Body>
