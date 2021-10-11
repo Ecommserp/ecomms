@@ -52,7 +52,7 @@ let quantity = '';
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, type : type, quantity: quantity})
+        body: JSON.stringify({ name: type, type : name, quantity: quantity})
     };
     fetch('http://localhost:3220/inv/request', requestOptions)
         .then(response => response.json());
