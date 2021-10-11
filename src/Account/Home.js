@@ -55,7 +55,7 @@ function Home() {
        </div><br /><br /><br />
        <div className="button_group">
 
- <button className="button1"onClick={ci_click}>Company Income</button>    <div className="space"></div>
+ <button className="button1"onClick={ci_click}>Generate Report</button>    <div className="space"></div>
 
    <button className="button1"onClick={c_click}>Cash Flow</button>
  </div>

@@ -52,7 +52,7 @@ let quantity = '';
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, type : type, quantity: quantity})
+        body: JSON.stringify({ name: type, type : name, quantity: quantity})
     };
     fetch('http://localhost:3220/inv/request', requestOptions)
         .then(response => response.json());
@@ -162,7 +162,6 @@ let quantity = '';
                   <option value="Null"></option>
                       <option value="PURC"> PURC </option>
                       <option value="MANU">MANU</option>
-                      <option value="OTHER">OTHER</option>
                 </select><br></br><br></br>
                         <label style={{marginLeft:36}}>
                         Quantity :

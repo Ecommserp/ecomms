@@ -2,16 +2,22 @@ import React, {Component, PropTypes} from 'react';
 import { jsPDF } from "jspdf";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import './invReports.css';
 import ReactDOM from 'react-dom';
-import { Line } from 'react-chartjs-2';
 import * as _html2canvas from "html2canvas";
-import logo from "./assets/cyan.png";
-import './manfReports.css';
-import './MPages.css';
+import logo from "./assets/logo.png";
+import { Line } from 'react-chartjs-2';
 import moment from 'moment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
+import './invPages.css';
+import './invReports.css';
+import inventory from "./assets/inventory.png"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import generate from './assets/generate.jpg';
 
 
 // download html2canvas and jsPDF and save the files in app/ext, or somewhere else
@@ -32,11 +38,6 @@ let year_rev = [];
 let month_rev = [];
 let total_rev = [];
 let date_rev = [];
-
-let year_rev1 = [];
-let month_rev1 = [];
-let total_rev1 = [];
-
 
 const options = {
   scales: {
@@ -161,71 +162,41 @@ return response.json();
 async function sample_aa() {
   //alert(data_revy1)
     ReactDOM.render(
-      <div style={{'marginTop':'-500', marginLeft:100}}>
-      <label className="tile_text_bi"> production Satus Record</label>
+      <div className='pdfTable'>
+      <div style={{'marginTop':'-500'}}>
+      <label className="tile_text_bi"> Customer Relationship Management</label>
+      <label className="tile_text_bi"> Customer Inquiries</label>
       <table>
 <tbody>
-<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '20px', 'width': '180px'}}>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Details</th>
-    <th>Status</th>
+<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '15px', 'width': '200px'}}>
+    <th>Inquiry ID</th>
+    <th>Sales ID</th>
+    <th>Customer Inquiry</th>
+    <th>Lodged Date</th>
   </tr>
 {
 year_rev.map((value, index) => {
-    return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{value}</td>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{month_rev[index]}</td>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{total_rev[index]}</td>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{date_rev[index]}</td>
-                
-            </tr>
+    return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{value}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{month_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{total_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{date_rev[index]}</td></tr>
 })
 }
 </tbody>
-</table></div>, document.getElementById('divToPrint'));
+</table></div></div>, document.getElementById('divToPrint'));
 
 }
 
-async function sample_aa1() {
-  //alert(data_revy1)
-    ReactDOM.render(
-      <div style={{'marginTop':'-700', marginLeft:100}}>
-      <label className="tile_text_bi">  Machines Status Records</label>
-      <table>
-<tbody>
-<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '20px', 'width': '180px'}}>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Status</th>
-    
-  </tr>
-{
-year_rev1.map((value, index) => {
-    return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{value}</td>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{total_rev1[index]}</td>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{month_rev1[index]}</td>
-               
-                
-            </tr>
-})
-}
-</tbody>
-</table></div>, document.getElementById('divToPrint'));
-
-}
 
   async function getData_rev7() {
 
-      const apiUrl = 'http://localhost:3220/manu_prod_g/rep7';
+      const apiUrl = 'http://localhost:3220/crm/inq7';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].Product_ID;
-        month_rev[i] = data[i].name;
-        total_rev[i] = data[i].Details;
-        date_rev[i] = data[i].Production_stat;
+        year_rev[i] = data[i].InquireID;
+        month_rev[i] = data[i].Sales_ID;
+        total_rev[i] = data[i].Customer_inquiry;
+        date_rev[i] = data[i].inquiry_date;
 
       }
       sample_aa();
@@ -233,19 +204,19 @@ year_rev1.map((value, index) => {
 
   async function getData_rev30() {
 
-      const apiUrl = 'http://localhost:3220/manu_prod_g/c_machine';
+      const apiUrl = 'http://localhost:3220/crm/inq30';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev1[i] = data[i].Machine_no;
-        total_rev1[i] = data[i].name;
-        month_rev1[i] = data[i].Machine_stat;
-        
+        year_rev[i] = data[i].InquireID;
+        month_rev[i] = data[i].Sales_ID;
+        total_rev[i] = data[i].Customer_inquiry;
+        date_rev[i] = data[i].inquiry_date;
 
       }
-      sample_aa1();
+      sample_aa();
   }
 
   async function getData_rev365() {
@@ -265,7 +236,7 @@ year_rev1.map((value, index) => {
       sample_aa();
   }
 
-
+//weekly report
 function printDocument7() {
 
   getData_rev7();
@@ -326,16 +297,46 @@ export default class Export extends Component {
 
   render() {
     return (<div>
-<br/><br/>
-<br/>
-<br/>
-<br/>
 
-      <button className='button2'  style={{marginTop: 50,marginRight:10,width:300, marginLeft:200}} onClick={printDocument7}>Product Report</button>
-
-      <button className='button2' style={{marginTop: 50,marginRight:10,width:300}} onClick={printDocument30}>Machine Report</button>
-
-      <button className='button2' style={{marginTop: 50,marginRight:10,width:300}} onClick={printDocument365}>Generate Annual Report</button>
+<div className = 'invscreen'>
+    <motion.div className = "reportsgen" initial='out'
+    animate='in'
+    exit='out'
+    variants={animationOne}
+    transition={transition}>
+        <i><h1 style={{
+                position: 'absolute',
+                right: 15,
+                top: 10,}}>Inventory<br></br>Management</h1></i>
+                <img className="invlogo"
+                style={{
+                  position: 'absolute',
+                  left: 200,
+                  top: -20,}}
+                src = {logo}/>
+                <img className='invimg'
+                style={{
+                  position: 'absolute',
+                right: 250,
+                top: 12}}
+                  src={inventory} />
+                  <div className="invtile_gen">
+                  <img src={generate} className="invgenerate_img" alt="Generate Reports" />
+                  <table style={{width:700}}>
+                  <tr><th>
+                  <button className='invbutton' style={{marginTop: 30, marginBottom:30}} onClick={printDocument7}>Generate Status Report</button>
+                  </th></tr>
+                  <tr><th>
+                    <p>Generate Custom Report</p>
+                    <form>
+                      <label style ={{marginRight:20}} >From : <input type="date"></input></label><br></br>
+                      <label style={{marginTop: 20}}>To : <input type="date"></input></label>
+                      </form>
+                  <button className='invbutton' style={{marginTop: 30, marginBottom:50}}>Generate Report</button>
+                  </th></tr>
+                  </table>
+                      </div>
+                  </motion.div></div>
 
       <div id="divToPrint" className="pdf_temp">
         <div>Note: Here the dimensions of div are same as A4</div>

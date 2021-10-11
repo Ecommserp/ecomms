@@ -74,7 +74,7 @@ Inventory.getAll = result => {
 };
 
 Inventory.getAllgraph = result => {
-  sql.query("SELECT inventory.Product_name, SUM(inventory.quantity) AS qua FROM inventory INNER JOIN sales ON sales.Product_ID = inventory.Product_ID GROUP BY sales.Product_ID LIMIT 5", (err, res) => {
+  sql.query("SELECT inventory.Product_name, inventory.quantity AS qua FROM inventory INNER JOIN sales ON sales.Product_ID = inventory.Product_ID GROUP BY sales.Product_ID LIMIT 5", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

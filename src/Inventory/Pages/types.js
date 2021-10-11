@@ -87,8 +87,8 @@ if(data[0].Product_type == "PURC") {
       }
 
       async function sample_aa() {
-        ReactDOM.render(<div><Doughnut  style={{ width: 450, height: 450, position: 'relative',
-        left: -400,
+        ReactDOM.render(<div><Doughnut  style={{ width: 480, position: 'relative',
+        left: -300,
         top: 10 }} data={data}  />
         </div>, document.getElementById('dough_g'));
 
@@ -126,10 +126,10 @@ if(data[0].Product_type == "PURC") {
                   right: 200,
                   top: 200}}>
                     <div className="typetile_home">
-                      <p className="typetile_text">No of Sales for<br></br>Manufactured Items: {manu}</p>
+                      <p className="typetile_text">Number of<br></br>Manufactured Items: {manu}</p>
                       </div><br></br><br></br><br></br>
                       <div className="typetile_home">
-                        <p className="typetile_text">No of Sales for<br></br>Purchased Items: {purc}</p>
+                        <p className="typetile_text">Number of<br></br>Purchased Items: {purc}</p>
                         </div>
                         </div>
                   </motion.div></div>

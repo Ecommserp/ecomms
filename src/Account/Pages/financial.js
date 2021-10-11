@@ -115,7 +115,7 @@ const data = {
 
 async function sample_aa() {
   //alert(data_revy1)
-  ReactDOM.render(<Line height='140' data={data} options={options} />, document.getElementById('revenue_graph'));
+  ReactDOM.render(<Line  data={data} options={options} />, document.getElementById('revenue_graph33'));
 }
 
 function financial() {
@@ -123,7 +123,7 @@ function financial() {
   getData_rev();
 
   return (
-    <div className="App_bi">
+    <div className="tyryt">
     <i><h1 style={{
             position: 'absolute',
             right: 50,
@@ -136,13 +136,12 @@ function financial() {
             width: 160
           }} />
 
-    <div className="revenue" id="revenue">
+    <div className="revenue2" id="revenue2">
     <label className="tile_text">Revenue Growth</label><br /><br /><br />
     <br />
-    <div id="revenue_graph"> </div>
     </div>
     <div className="space"></div>
-
+ <div style={{width:1000  ,height:500 , marginTop:100}} id="revenue_graph33"> </div>
     </div>
 
 

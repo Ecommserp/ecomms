@@ -190,16 +190,14 @@ export default class Export extends Component {
 
 
 
-    <table style={{width:1000  ,height:500 , marginTop:100,marginStart: 500}}>
+    <table style={{width:1000  ,height:500 , marginTop:100,marginStart: 1000}}>
       <tr><th>
-      <button className='invbutton' style={{marginTop: 50}} onClick={printDocument7}> View Weekly Reports</button>
+      <button className='invbutton' style={{marginTop: 50}} onClick={printDocument7}> View Invoive Reports</button>
       </th></tr>
       <tr><th>
-      <button className='invbutton' style={{marginTop: 50}} onClick={printDocument30}>View Monthly Reports</button>
+      <button className='invbutton' style={{marginTop: 50}} onClick={printDocument30}>View Cash Flow Reports</button>
       </th></tr>
-      <tr><th>
-      <button className='invbutton' style={{marginTop: 50, marginBottom: 50}}onClick={printDocument365}>View Annual Reports</button>
-      </th></tr>
+
       </table>
 
       <div id="divToPrint">
