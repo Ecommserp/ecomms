@@ -1,5 +1,8 @@
+const Rrequest = require("../models/request.model.js");
+
+
 // Create and Save a new Item
-exports.create = (req, res) => {
+exports.createreq = (req, res) => {
     console.log('request ' + req.body)
     // Validate request
     if (!req.body) {
@@ -7,16 +10,16 @@ exports.create = (req, res) => {
         message: "Content can not be empty!"
       });
     }
-  
+
     //Create a new Item
-    const request = new Request({
-      Product_name: req.body.name,
-      Product_type: req.body.type,
+    const rrequest = new Rrequest({
+      name: req.body.name,
+      type: req.body.type,
       quantity: req.body.quantity,
     });
-  
+
     // Save Item in the database
-    Request.create(inventory, (err, data) => {
+    Rrequest.create(rrequest, (err, data) => {
       if (err)
         res.status(500).send({
           message:

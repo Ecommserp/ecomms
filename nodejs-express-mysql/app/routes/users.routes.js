@@ -12,6 +12,7 @@ module.exports = app => {
   const sales =  require("../controllers/sales.controller.js");
   const emp_benefits =  require("../controllers/emp_benefits.controller.js");
   const hr_attendance =  require("../controllers/hr_attendance.controller.js");
+  const rr =  require("../controllers/request.controller.js");
 
 
   
@@ -34,6 +35,9 @@ module.exports = app => {
 
   // Retrieve all Customers
   app.get("/users", customers.findAll);
+
+  // Retrieve all Customers
+  app.post("/inv/request", rr.createreq);
 
   // Retrieve a single Customer with customerId
   app.get("/users/:customerId", customers.findOne);

@@ -92,7 +92,7 @@ function MAdditem() {
                 <select className='lab3' type="text" name="stat" value={Mstat} onChange={(e) => setstat(e.target.value)}>
                   <option value="Null"></option>
                       <option value="Start"> Start   </option>
-                      <option value="Paused">Paused</option>
+                      <option value="Released"> Released </option>
                       <option value="Repaired">Repaired </option>
                       <option value="Malfuntiond"> Malfuntioned </option>
                 </select>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import GoogleEventComponent from './GoogleEventComponent';
+import GoogleEventComponent from './Gc';
 import Pdfgen from './pdf';
 import { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';

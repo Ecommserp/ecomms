@@ -21,7 +21,7 @@ function MHome() {
   }
 
   const data = {
-    labels: ['Start ', 'Paused', 'Repaired', 'Malfuntioned'],
+    labels: ['Start ', 'Released', 'Repaired', 'Malfuntioned'],
     datasets: [
       {
         label: 'Quality of Production Process',

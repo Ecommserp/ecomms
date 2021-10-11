@@ -1,5 +1,6 @@
 import './Hr.css';
 import logo from './images/ecomms_logo.png';
+import background from './images/backgrnd.jpg';
 import './salary.css';
 import Navbar from "./components/Navbar";
 import { useState } from "react";
@@ -50,7 +51,7 @@ const [allowance, setallowance] = useState("");
 
   return (
 
-    
+    <div className="hr_bckground_container"> 
     <div className="App" className="body" >
     <img src={logo} className="App-logo" alt="logo" />
     
@@ -58,7 +59,7 @@ const [allowance, setallowance] = useState("");
 
 
     <div>
-        <h1 className="hr_tile">Salary and Other Comphensions</h1>
+        <h1 className="hr_tile">Salary and Other Comphension Management</h1>
     </div>
 
     <div>
@@ -69,33 +70,36 @@ const [allowance, setallowance] = useState("");
 
     <br></br> <br></br> <br></br>
     
-    <div className="hr_sal_app-container">
+    <div className="hr_sal_app-container" className="hr_salmargin">
     <form onSubmit={handleSubmit}>
-      <label>Enter Employee ID:
+      <label>   
       <input 
         type="Number" 
         name="Emp_id" 
+        placeholder="Enter Employee ID:"
         onChange={(e) => setEmp_id(e.target.value)}
       />
       </label>
-      <label>Enter Basic Salary:
+      <label>
         <input 
           type="number" 
           name="basic_sal" 
+          placeholder="Enter Basic Salary:"
           onChange={(e) => setbasic_sal(e.target.value)}
         />
         </label>
-        <label>Enter Allowance:
+        <label>
         <input 
           type="number" 
           name="allowance"
+          placeholder="Enter Allowance:"
           onChange={(e) => setallowance(e.target.value)}
         />
         </label>
         <label>
        
   <label>
-   Date 
+    
                                 <input  type="date" name="date" onChange={(e) => setdate(e.target.value)}/>
 
                                 </label>
@@ -104,8 +108,13 @@ const [allowance, setallowance] = useState("");
         </label>
         <button className="button" value="Submit" onClick={insert}>Insert Data</button>
     </form>
+    
     </div>
-
+    <br></br><br></br>
+    <div>
+        <h1 className="hr_footer_tile">ecomms (Enterprise Resource Planning System -ERP System) - Human Resource Management</h1>
+      </div>
+    </div>
   </div>
   
   )

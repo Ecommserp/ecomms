@@ -50,6 +50,8 @@ const [type, settype] = useState("");
 
   return (
 
+    <div className="hr_bckground_container">
+
     
     <div className="App" className="body" >
     <img src={logo} className="App-logo" alt="logo" />
@@ -69,19 +71,25 @@ const [type, settype] = useState("");
 
     <br></br> <br></br> <br></br>
     
-    <div className="hr_sal_app-container">
+    <div className="hr_sal_app-container" className="hr_salmargin">
+      <h1 className="hr_sal_h1cat">Leave Category (Please input leave category code only) </h1>
+      <h1 className="hr_sal_h1cat"> * Casual Leave : cl1 </h1>
+      <h1 className="hr_sal_h1cat"> * Annual Leave : Al1 </h1>
+      <h1 className="hr_sal_h1cat"> * Sick Leave   : Sl1 </h1>
     <form onSubmit={handleSubmit}>
-      <label>Enter Employee ID:
+      <label>
       <input 
         type="Number" 
         name="Emp_id" 
+        placeholder="Enter Employee ID:"
         onChange={(e) => setEmp_id(e.target.value)}
       />
       </label>
-      <label>Enter Leave Type:
+      <label>
         <input 
           type="text" 
           name="type" 
+          placeholder="Enter Leave Type:"
           onChange={(e) => settype(e.target.value)}
         />
         </label>
@@ -89,7 +97,7 @@ const [type, settype] = useState("");
         <label>
        
   <label>
-   Date 
+    
                                 <input  type="date" name="date" onChange={(e) => setdate(e.target.value)}/>
 
                                 </label>
@@ -99,7 +107,11 @@ const [type, settype] = useState("");
         <button className="button" value="Submit" onClick={insert}>Insert Data</button>
     </form>
     </div>
-
+    <br></br><br></br>
+    <div>
+        <h1 className="hr_footer_tile">ecomms (Enterprise Resource Planning System -ERP System) - Human Resource Management</h1>
+      </div>
+    </div>
   </div>
   
   )

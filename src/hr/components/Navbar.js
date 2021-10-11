@@ -8,7 +8,6 @@ function Navbar() {
             <div className="hr_lLinks">
             <a href="http://localhost:3000/Hr">Home</a>
             <a href="http://localhost:3000/HrCrudOps">Employee Database</a>
-            <a href="http://localhost:3000/Hrsearch">Search</a>
             <a href="http://localhost:3000/Hrsalary">Salary and Other Comphension</a>
             <a href="http://localhost:3000/Hrattendance">Attendance and Leave</a>
             <a href=""> Reports</a>
