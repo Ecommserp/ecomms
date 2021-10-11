@@ -172,7 +172,6 @@ module.exports = app => {
      // Retrieve all inqusiries for last week
         app.get("/purchases/inq7", pm2.findAll_inq7);
 
-
         app.get("/purchases/inq30", pm2.findAll_inq30);
 
         app.get("/purchases/inq365", pm2.findAll_inq365);
@@ -188,7 +187,6 @@ module.exports = app => {
 
      // update supplier details by id
      app.put("/suppliers/:supplierId", sp.update);
-
 
      // Create a new Invoice
      app.post("/account/invoice", managingdb.create);
@@ -237,6 +235,12 @@ module.exports = app => {
 
    // Retrieve all Hr emplyees
    app.get("/hr/emp", hr.findAll);
+
+   // Retrieve all Hr emplyees
+   app.get("/hr/sal", hr.getAll_sal);
+
+      // Retrieve all Hr emplyees
+   app.get("/hr/attl", hr.find_att);
 
    // Retrieve one Hr emplyees
    app.get("/hr/emp/:Emp_ID", hr.findOne);

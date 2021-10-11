@@ -43,6 +43,28 @@ exports.findAll = (req, res) => {
   });
 };
 
+exports.getAll_sal = (req, res) => {
+  Hr.getAll_sal((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers."
+      });
+    else res.send(data);
+  });
+};
+
+exports.find_att = (req, res) => {
+  Hr.getAll_att((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers."
+      });
+    else res.send(data);
+  });
+};
+
 // Find a single Customer with a customerId
 exports.findOne = (req, res) => {
   Hr.findById(req.params.Emp_ID, (err, data) => {

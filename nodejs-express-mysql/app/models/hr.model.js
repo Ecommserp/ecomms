@@ -55,6 +55,32 @@ Hr.getAll = result => {
   });
 };
 
+Hr.getAll_sal = result => {
+  sql.query("SELECT * FROM emp_benefits", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("employees : ", res);
+    result(null, res);
+  });
+};
+
+Hr.getAll_att = result => {
+  sql.query("SELECT * FROM emp_leave", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("employees : ", res);
+    result(null, res);
+  });
+};
+
 Hr.updateById = (id, customer, result) => {
   sql.query(
     "UPDATE employee SET fullname = ?, phonenumber = ?, address = ?, department = ?, position = ? WHERE empid = ?",
