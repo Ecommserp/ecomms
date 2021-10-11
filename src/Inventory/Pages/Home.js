@@ -19,6 +19,9 @@ function Home() {
   const [type,settype] = useState("");
   const [quantity, setquantity] = useState("");
 
+  let pnames = [];
+  let pqua = [];
+
   function validateForm() {
     return name.length > 0 && quantity.length > 0;
   }
@@ -31,6 +34,7 @@ function Home() {
 
   function insert() {
 
+
     const requestOptions = {
 
         method: 'POST',
@@ -41,7 +45,7 @@ function Home() {
         .then(response => response.json());
         alert("Item added")
 
-        
+
         setname("");
         settype("");
         setquantity("");
@@ -50,10 +54,10 @@ function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const data = {
-    labels: ['Cement', 'Wires', 'Bulbs', 'Banners', 'Wrenches'],
+    labels: pnames,
     datasets: [{
         label: 'Quantity of Highest Selling Products',
-        data: [1000,400,500,390,600],
+        data: pqua,
         fill: false,
         borderWidth: 2,
         backgroundColor: '#1F78B4',
@@ -61,6 +65,12 @@ function Home() {
       },
     ],
   };
+
+  async function getData(url) {
+  const response = await fetch(url);
+
+  return response.json();
+  }
 
   const options = {
     scales: {
@@ -74,7 +84,29 @@ function Home() {
     },
   };
 
-  
+  async function getData_rev() {
+
+      const apiUrl = 'http://localhost:3220/sales/g3';
+      const data = await getData(apiUrl);
+
+      for(var i = 0; i < data.length; i++){
+        pnames[i] = data[i].Product_name;
+        pqua[i] = data[i].qua;
+
+}
+
+      sample_aa();
+
+
+  }
+
+  async function sample_aa() {
+    ReactDOM.render(<Bar style={{ width: 700, height: 800 }} data={data} options={options} />, document.getElementById('bar_g'));
+
+  }
+
+  getData_rev();
+
 
 
   return (
@@ -101,7 +133,7 @@ function Home() {
                 top: 12}}
                   src={inventory} />
                   <table>
-                  <tr><th><td><Bar style={{ marginTop:50 ,width: 900}} data={data} options={options} /></td></th></tr>
+                  <tr><th><td><div id="bar_g"> </div></td></th></tr>
                   <tr><th><td><Popup trigger={<button className='nbutton' style={{marginTop: 40, marginLeft:370}}>Request Product</button>}modal>
                   <center><Card style={{height: '490px'}}>
                 <Card.Header style ={{backgroundColor: '#1f78b4'}}><h3 style ={{color:'white'}}>Request Product</h3></Card.Header>
@@ -130,7 +162,7 @@ function Home() {
             </table>
     </motion.div></div>
   );
-                
+
 }
 
 export default Home;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from "./assets/logo.png";
 import './invPages.css';
 import './invTypes.css';
@@ -13,16 +13,25 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
+import ReactDOM from "react-dom";
 
 
 function Types() {
 
+  let ptypes = [];
+  let pqua = [];
+
+  async function getData(url) {
+  const response = await fetch(url);
+
+  return response.json();
+  }
     const data = {
-        labels: ['Manufactured', 'Purchased'],
+        labels: ptypes,
         datasets: [
           {
             label: 'Product Types',
-            data: [3, 6],
+            data: pqua,
             fill: false,
             backgroundColor: [
         '#7353BA',
@@ -35,7 +44,7 @@ function Types() {
           },
         ],
       };
-    
+
       const options = {
         scales: {
           yAxes: [
@@ -47,6 +56,46 @@ function Types() {
           ],
         },
       };
+
+      const [manu, setmanu] = useState("");
+      const [purc, setpurc] = useState("");
+
+      async function getData_rev() {
+
+          const apiUrl = 'http://localhost:3220/bI/pp';
+          const data = await getData(apiUrl);
+
+            ptypes[0] = data[0].Product_type;
+            pqua[0] = data[0].qua;
+
+            ptypes[1] = data[1].Product_type;
+            pqua[1] = data[1].qua;
+
+//if(data[0].Product_type == "MANU") {
+  //setmanu(data[0].qua);
+  //setpurc(data[1].qua);
+//}
+//if(data[0].Product_type == "PURC") {
+  //setmanu(data[1].qua);
+  //setpurc(data[0].qua);
+//}
+
+
+          sample_aa();
+
+
+      }
+
+      async function sample_aa() {
+        ReactDOM.render(<div><Doughnut  style={{ width: 450, height: 450, position: 'relative',
+        left: -400,
+        top: 10 }} data={data}  />
+        </div>, document.getElementById('dough_g'));
+
+      }
+
+      getData_rev();
+
   return (
     <div className = 'invscreen'>
     <motion.div className = "types" initial='out'
@@ -71,18 +120,16 @@ function Types() {
                 top: 12}}
                   src={inventory} />
                   <div>
-                  <Doughnut  style={{ width: 450, height: 450, position: 'relative',
-                  left: -400,
-                  top: 10 }} data={data}  />
+                  <div id="dough_g"> </div>
                   </div>
                   <div style={{position: 'absolute',
                   right: 200,
                   top: 200}}>
                     <div className="typetile_home">
-                      <p className="typetile_text">No of Sales for<br></br>Manufactured Items:</p>
+                      <p className="typetile_text">No of Sales for<br></br>Manufactured Items: {manu}</p>
                       </div><br></br><br></br><br></br>
                       <div className="typetile_home">
-                        <p className="typetile_text">No of Sales for<br></br>Purchased Items:</p>
+                        <p className="typetile_text">No of Sales for<br></br>Purchased Items: {purc}</p>
                         </div>
                         </div>
                   </motion.div></div>
