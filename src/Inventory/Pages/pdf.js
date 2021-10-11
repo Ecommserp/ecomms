@@ -169,10 +169,10 @@ async function sample_aa() {
       <table>
 <tbody>
 <tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '15px', 'width': '200px'}}>
-    <th>Inquiry ID</th>
-    <th>Sales ID</th>
-    <th>Customer Inquiry</th>
-    <th>Lodged Date</th>
+    <th>Product ID</th>
+    <th>Product Name</th>
+    <th>Product Type</th>
+    <th>Quantity</th>
   </tr>
 {
 year_rev.map((value, index) => {
@@ -187,16 +187,16 @@ year_rev.map((value, index) => {
 
   async function getData_rev7() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq7';
+      const apiUrl = 'http://localhost:3220/inventory';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].InquireID;
-        month_rev[i] = data[i].Sales_ID;
-        total_rev[i] = data[i].Customer_inquiry;
-        date_rev[i] = data[i].inquiry_date;
+        year_rev[i] = data[i].Product_ID;
+        month_rev[i] = data[i].Product_name;
+        total_rev[i] = data[i].Product_type;
+        date_rev[i] = data[i].quantity;
 
       }
       sample_aa();

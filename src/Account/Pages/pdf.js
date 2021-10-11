@@ -63,7 +63,7 @@ year_rev.map((value, index) => {
 
 }
 
-  getData_rev7();
+  //getData_rev7();
 
   async function getData_rev7() {
 
