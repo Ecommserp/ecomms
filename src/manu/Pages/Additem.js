@@ -85,13 +85,13 @@ function Additem() {
             <form onSubmit={handleSubmit}>
               <label className='lab'>  Product Name : </label>
 
-                <input className='lab1' type="text" name="name" value={name} onChange={(e) => setname(e.target.value)} />
+                <input className='lab1' type="text" name="name" value={name} onChange={(e) => setname(e.target.value)} required />
               <br></br><br></br>
               <label className='lab'> Product Details :</label>
-                <input className='lab2' type="text" name="details" value={details} onChange={(e) => setdetails(e.target.value)} />
+                <input className='lab2' type="text" name="details" value={details} onChange={(e) => setdetails(e.target.value)} required/>
               <br></br><br></br>
               <label className='lab'> Production Status : </label>
-                <select className='lab3' type="text" name="stat" value={stat} onChange={(e) => setstat(e.target.value)}>
+                <select className='lab3' type="text" name="stat" value={stat} onChange={(e) => setstat(e.target.value)} required>
                   <option value="Null"></option>
                       <option value="Start"> Start </option>
                       <option value="Paused">Pause</option>
