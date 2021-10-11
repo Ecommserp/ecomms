@@ -4,13 +4,13 @@ import React, {useState} from 'react';
 
 
 function AddSales() {
-    
+
   const [clientid, setclientid] = useState("");
   const [productid,setproductid] = useState("");
   const [quantity, setquantity] = useState("");
-  
 
-  
+
+
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -30,7 +30,7 @@ function AddSales() {
         .then(response => response.json());
         alert("Sales added")
 
-        
+
         setclientid("");
         setproductid("");
         setquantity("");
@@ -40,34 +40,34 @@ function AddSales() {
     return (
 
 	<div className="sscreen">
-  
-		
+
+
 		<form id="form" class="salesform">
     <div class="sshead">
 		<h2>Add Sales</h2>
-	</div> 
+	</div>
 		<div class="sform-control">
 			<label for="username">Client ID</label>
 			<input type="text" placeholder=""  name="clientid" value={clientid} onChange={(e) => setclientid(e.target.value)}/>
-			
-			
+
+
 		</div>
 		<div class="sform-control">
 			<label for="username">Product ID</label>
 			<input type="text" placeholder="" name="productid" value={productid} onChange={(e) => setproductid(e.target.value)} />
-			
-			
+
+
 		</div>
 		<div class="sform-control">
 			<label for="username">Quantity</label>
 			<input type="text" placeholder="" name="quantity" value={quantity} onChange={(e) => setquantity(e.target.value)}/>
-			
+
 		</div>
-	
+
 		<input className="salebutton" type="button" value="Submit" onClick={insert}/>
 	</form>
 </div>
-        
+
       );
 }
 export default AddSales;

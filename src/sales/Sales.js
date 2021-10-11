@@ -28,13 +28,13 @@ function Salesmanagement() {
           <Route path='/addsales' component={AddSales}/>
         </Switch>
       </Router>
-      
+
      <div>
-     
+
      </div>
-    
+
       </div>
-      </> 
+      </>
   );
 }
 

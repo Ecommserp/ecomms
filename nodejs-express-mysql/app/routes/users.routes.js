@@ -110,10 +110,8 @@ module.exports = app => {
   // Retrieve data for goughnut chart
   app.get("/manu_prod_g/c_machine", macnin_prod.find_machine);
 
-
   // Retrieve a single Customer with customerId
   app.get("/macnin_prod/:Machine_no", macnin_prod.findOne);
-
 
   // Update a Customer with customerId
   app.put("/manu_prod/:Product_ID", manu_prod.update);
@@ -146,10 +144,10 @@ module.exports = app => {
      app.post("/suppliers", sp.create);
 
      // delete specific supplier
-         app.delete("/suppliers/:supplierId", sp.delete);
+     app.delete("/suppliers/:supplierId", sp.delete);
 
      // update supplier details by id
-         app.put("/suppliers/:supplierId", sp.update);
+     app.put("/suppliers/:supplierId", sp.update);
 
 
      // Create a new Invoice
@@ -165,13 +163,11 @@ module.exports = app => {
    // Retrieve all inquiry group
    app.get("/crm/dough", crmI.findAll_g);
 
-
    // Retrieve all inquiries
    app.get("/crm/inq", crmI.findAll_inq);
 
    // Retrieve all inquiries
    app.get("/crm/inq_join/:salesid", crmI.findAll_inq_join);
-
 
    // Retrieve a single Customer with customerId
    app.get("/crm/crm/:inq_id", crmI.findOne);
@@ -216,6 +212,16 @@ module.exports = app => {
 
   // Retrieve all Hr emplyees
   app.get("/sales/cli", sales.findAll_cli);
+
+  // Retrieve all Hr emplyees
+  app.get("/sales/g1", sales.findAllg1);
+
+
+    // Retrieve all Hr emplyees
+    app.get("/sales/g2", sales.findAllg2);
+
+    // Retrieve all Hr emplyees
+    app.get("/sales/g3", sales.findAllg3);
 
   // Retrieve a single client with customerId
   app.get("/sales/cli/:Client_ID", sales.findOne_cli);
