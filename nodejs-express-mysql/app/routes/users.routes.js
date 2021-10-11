@@ -104,7 +104,7 @@ module.exports = app => {
 
 
 
-  // Retrieve a single Customer with customerId
+  // Retrieve a single Product with ProductId
   app.get("/manu/:Product_ID", manu_prod.findOne);
 
   // Retrieve data for manufacturing home graph
@@ -119,22 +119,22 @@ module.exports = app => {
   // Retrieve data for goughnut chart
   app.get("/manu_prod_g/c_machine", macnin_prod.find_machine);
 
-  // Retrieve a single Customer with customerId
+  // Retrieve a single Machine with MachineId
   app.get("/manf/:Machine_no", macnin_prod.findOne);
 
-  // Update a Customer with customerId
+  // Update a Product with ProductId
   app.put("/manu_prod/:Product_ID", manu_prod.update);
 
-  // Update a Customer with customerId
+  // Update a Machine with MachineId
   app.put("/macnin_prod/:Machine_no", macnin_prod.update);
 
-  // Delete a Customer with customerId
+  // Delete a Product with ProductId
   app.delete("/manu_prod/:Product_ID", manu_prod.delete);
 
-   // Delete a Customer with customerId
+   // Delete a Machine with MachineId
   app.delete("/macnin_prod/:Machine_no", macnin_prod.delete);
 
-  // Delete a new Customer inquiry
+  // Delete all product 
   app.delete("/manu_prod", manu_prod.deleteAll);
 
 
