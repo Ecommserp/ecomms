@@ -8,6 +8,7 @@ import generate from './assets/generate.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Pdfgen from './pdf';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
@@ -17,8 +18,8 @@ function CustomerReports() {
 
   return (
 
-    
-    
+
+
     <table style={{width:10000  ,height:500 , marginTop:100}}>
     <tr><th>
     <button className='button1' style={{marginTop: 50}}>Generate Weekly Report</button>
@@ -30,7 +31,7 @@ function CustomerReports() {
     <button className='button1' style={{marginTop: 50}}>Generate Annual Report</button>
     </th></tr>
     </table>
-    
+
   );
 }
 
