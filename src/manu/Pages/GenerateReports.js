@@ -6,12 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {motion} from 'framer-motion';
+import Pdfgen from './pdf';
 import { animationOne, transition } from '../animations';
 
 
 function ReportsGen() {
   return (
-   
+
     <motion.div className = "reportsgen" initial='out'
     animate='in'
     exit='out'
@@ -47,17 +48,8 @@ function ReportsGen() {
           }}
           src={logo} /></div>
 
-                  <table style={{width:1000}}>
-                  <tr><th>
-                  <button className='button2' style={{marginTop: 50}}>Generate Weekly Report</button>
-                  </th></tr>
-                  <tr><th>
-                  <button className='button2' style={{marginTop: 50}}>Generate Monthly Report</button>
-                  </th></tr>
-                  <tr><th>
-                  <button className='button2' style={{marginTop: 50}}>Generate Annual Report</button>
-                  </th></tr>
-                  </table>
+          <Pdfgen />
+
                   </motion.div>
 
 );

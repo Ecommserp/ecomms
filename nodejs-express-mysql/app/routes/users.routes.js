@@ -10,9 +10,24 @@ module.exports = app => {
   const managingdb = require("../controllers/managingdb.controller.js");
   const hr = require("../controllers/Hr.controller.js");
   const sales =  require("../controllers/sales.controller.js");
+  const emp_benefits =  require("../controllers/emp_benefits.controller.js");
+  const hr_attendance =  require("../controllers/hr_attendance.controller.js");
   const rr =  require("../controllers/request.controller.js");
 
 
+  
+  // Retrieve all hr_attendance
+  app.get("/hr_attendance", hr_attendance.findAll);
+
+  // Create  hr_attendance
+  app.post("/hr_attendance", hr_attendance.create);
+  
+  
+  // Retrieve all emp_benefits
+  app.get("/emp_benefits", emp_benefits.findAll);
+
+  // Create  emp_benefits
+  app.post("/emp_benefits", emp_benefits.create);
 
 
   // Create a new Customer
@@ -116,10 +131,14 @@ module.exports = app => {
   // Retrieve data for doughnut chart
   app.get("/manu_prod_g/dough", macnin_prod.findcount);
 
+<<<<<<< HEAD
   // Retrieve data for goughnut chart
   app.get("/manu_prod_g/c_machine", macnin_prod.find_machine);
 
   // Retrieve a single Machine with MachineId
+=======
+  // Retrieve a single Customer with customerId
+>>>>>>> 929174d1ef086ab33a7028320d9f29dfd826fdbd
   app.get("/manf/:Machine_no", macnin_prod.findOne);
 
   // Update a Product with ProductId
@@ -174,15 +193,6 @@ module.exports = app => {
 
    // Retrieve all inquiries
    app.get("/crm/inq", crmI.findAll_inq);
-
-   // Retrieve all inquiries for last week
-   app.get("/crm/inq7", crmI.findAll_inq7);
-
-   // Retrieve all inquiries for last week
-   app.get("/crm/inq30", crmI.findAll_inq30);
-
-   // Retrieve all inquiries for last week
-   app.get("/crm/inq365", crmI.findAll_inq365);
 
    // Retrieve all inquiries
    app.get("/crm/inq_join/:salesid", crmI.findAll_inq_join);

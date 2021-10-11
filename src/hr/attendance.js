@@ -1,131 +1,126 @@
 import './Hr.css';
 import logo from './images/ecomms_logo.png';
-import './attendance.css';
+import './salary.css';
 import Navbar from "./components/Navbar";
-
-
-
-function attendance() {
-    return (
-        <div className="hr_App" className="body">
-            <img src={logo} className="hr_App-logo" alt="logo" />
-
-
-            <div>
-                <h1 className="hr_tile">Employee Attendance and Leave</h1>
-            </div>
-
-            <div>
-            <Navbar />
-
-            </div>
-
-
-            <br></br> <br></br> <br></br>
-
-
-
-            <div  className="hr_att_abackgroud">
-              <h1 className="hr_att_h1">Total Daily Employee Attendance</h1>
-            <table className="hr_att_table">
-                <tr>
-                  <td>Date </td>
-                  <td>Department</td>
-                  <td>Total Employees </td>
-                  <td>Attendance Count</td>
-                  <td>Leave</td>
-                </tr>
-                <tr>
-                  <td>20.09.2021</td>
-                  <td>Human Resource Department</td>
-                  <td>6</td>
-                  <td>5</td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>20.09.2021</td>
-                  <td>Finance Department</td>
-                  <td>3</td>
-                  <td>3</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>20.09.2021</td>
-                  <td>Purchasing Department</td>
-                  <td>5</td>
-                  <td>2</td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <td>20.09.2021</td>
-                  <td>Manufacturing Department</td>
-                  <td>10</td>
-                  <td>6</td>
-                  <td>4</td>
-                </tr>
-                <tr>
-                  <td>20.09.2021</td>
-                  <td>Customer Service Department</td>
-                  <td>4</td>
-                  <td>1</td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <td>20.09.2021</td>
-                  <td>Sales Department</td>
-                  <td>7</td>
-                  <td>5</td>
-                  <td>2</td>
-                </tr>
-                <tr>
-                  <td>20.09.2021</td>
-                  <td>Inventry Department</td>
-                  <td>2</td>
-                  <td>2</td>
-                  <td>2</td>
-                </tr>
-
-            </table>
-
-           </div>
-
-            <br></br><br></br><br></br><br></br>
-           <div  className="hr_att_abackgroud">
-              <h1 className="hr_att_h1">Total  Attendance and Leave Count</h1>
-            <table className="hr_att_table" >
-                <tr>
-                    <td>Date </td>
-                  <td>Total Employees </td>
-                  <td>Total Attendance</td>
-                  <td>Total Leave</td>
-
-                </tr>
-                <tr>
-                  <td>20.09.2021</td>
-                  <td>37</td>
-                  <td>24</td>
-                  <td>15</td>
-
-                </tr>
-
-            </table>
-            <br></br><br></br><br></br><br></br>
-
-           </div>
+import { useState } from "react";
+import ReactDOM from "react-dom";
+import moment from 'moment';
 
 
 
 
 
-         </div>
-
-
-
-    );
 
 
 
 
+function Attendance() {
+
+  const [inputs, setInputs] = useState({});
+  
+const [date, setdate] = useState("");
+const [Emp_id, setEmp_id] = useState("");
+const [type, settype] = useState("");
+
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(inputs);
+  }
+
+  function insert() {
+
+    const requestOptions = {
+  
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ Emp_id: Emp_id, type: type, month: moment(date).format('YYYY-MM-DD')})};
+    fetch('http://localhost:3220/hr_attendance', requestOptions)
+        .then(response => response.json());
+        alert("Item added")
+  }
+  
+
+
+  return (
+
+    <div className="hr_bckground_container">
+
+    
+    <div className="App" className="body" >
+    <img src={logo} className="App-logo" alt="logo" />
+    
+    
+
+
+    <div>
+        <h1 className="hr_tile">Leave Management</h1>
+    </div>
+
+    <div>
+    <Navbar />
+
+    </div>
+
+
+    <br></br> <br></br> <br></br>
+    
+    <div className="hr_sal_app-container" className="hr_salmargin">
+      <h1 className="hr_sal_h1cat">Leave Category (Please input leave category code only) </h1>
+      <h1 className="hr_sal_h1cat"> * Casual Leave : cl1 </h1>
+      <h1 className="hr_sal_h1cat"> * Annual Leave : Al1 </h1>
+      <h1 className="hr_sal_h1cat"> * Sick Leave   : Sl1 </h1>
+    <form onSubmit={handleSubmit}>
+      <label>
+      <input 
+        type="Number" 
+        name="Emp_id" 
+        placeholder="Enter Employee ID:"
+        onChange={(e) => setEmp_id(e.target.value)}
+      />
+      </label>
+      <label>
+        <input 
+          type="text" 
+          name="type" 
+          placeholder="Enter Leave Type:"
+          onChange={(e) => settype(e.target.value)}
+        />
+        </label>
+        
+        <label>
+       
+  <label>
+    
+                                <input  type="date" name="date" onChange={(e) => setdate(e.target.value)}/>
+
+                                </label>
+
+
+        </label>
+        <button className="button" value="Submit" onClick={insert}>Insert Data</button>
+    </form>
+    </div>
+    <br></br><br></br>
+    <div>
+        <h1 className="hr_footer_tile">ecomms (Enterprise Resource Planning System -ERP System) - Human Resource Management</h1>
+      </div>
+    </div>
+  </div>
+  
+  )
 }
 
-export default attendance;
+ReactDOM.render(<Attendance />, document.getElementById('root'));
+
+
+
+
+
+export default Attendance;

@@ -6,8 +6,8 @@ import ReactDOM from 'react-dom';
 import { Line } from 'react-chartjs-2';
 import * as _html2canvas from "html2canvas";
 import logo from "./assets/cyan.png";
-import './CRMPages.css';
-import './Report.css';
+import './manfReports.css';
+import './MPages.css';
 import moment from 'moment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {motion} from 'framer-motion';
@@ -161,10 +161,10 @@ async function sample_aa() {
       <table>
 <tbody>
 <tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}}>
-    <th>Inquiry ID</th>
-    <th>Sales ID</th>
-    <th>Customer Inquiry</th>
-    <th>Lodged Date</th>
+    <th>Product ID</th>
+    <th>Name</th>
+    <th>Details</th>
+    <th>Status</th>
   </tr>
 {
 year_rev.map((value, index) => {
@@ -179,16 +179,16 @@ year_rev.map((value, index) => {
 
   async function getData_rev7() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq7';
+      const apiUrl = 'http://localhost:3220/manu_prod_g/rep7';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].InquireID;
-        month_rev[i] = data[i].Sales_ID;
-        total_rev[i] = data[i].Customer_inquiry;
-        date_rev[i] = data[i].inquiry_date;
+        year_rev[i] = data[i].Product_ID;
+        month_rev[i] = data[i].name;
+        total_rev[i] = data[i].Details;
+        date_rev[i] = data[i].Production_stat;
 
       }
       sample_aa();
@@ -196,16 +196,15 @@ year_rev.map((value, index) => {
 
   async function getData_rev30() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq30';
+      const apiUrl = 'http://localhost:3220/manu_prod_g/c_machine';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].InquireID;
-        month_rev[i] = data[i].Sales_ID;
-        total_rev[i] = data[i].Customer_inquiry;
-        date_rev[i] = data[i].inquiry_date;
+        year_rev[i] = data[i].Machine_no;
+        month_rev[i] = data[i].Machine_stat;
+        total_rev[i] = data[i].name;
 
       }
       sample_aa();
@@ -289,10 +288,14 @@ export default class Export extends Component {
 
   render() {
     return (<div>
+<br/><br/>
+<br/>
+<br/>
+<br/>
 
-      <button className='button1'  style={{marginTop: 50}} onClick={printDocument7}>Generate Weekly Report</button>
+      <button className='button1'  style={{marginTop: 50}} onClick={printDocument7}>Product Report</button>
 
-      <button className='button1' style={{marginTop: 50}} onClick={printDocument30}>Generate Monthly Report</button>
+      <button className='button1' style={{marginTop: 50}} onClick={printDocument30}>Machine Report</button>
 
       <button className='button1' style={{marginTop: 50}} onClick={printDocument365}>Generate Annual Report</button>
 

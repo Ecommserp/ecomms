@@ -6,6 +6,7 @@ import inventory from "./assets/inventory.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import generate from './assets/generate.jpg';
 import {motion} from 'framer-motion';
 import { animationOne, transition } from '../animations';
 
@@ -35,14 +36,15 @@ function ReportsGen() {
                 top: 12}}
                   src={inventory} />
                   <div className="invtile_gen">
+                  <img src={generate} className="invgenerate_img" alt="Generate Reports" />
                   <table style={{width:700}}>
                   <tr><th>
-                  <button className='invbutton' style={{marginTop: 50, marginBottom:50}}>Generate Status Report</button>
+                  <button className='invbutton' style={{marginTop: 30, marginBottom:30}}>Generate Status Report</button>
                   </th></tr>
                   <tr><th>
                     <p>Generate Custom Report</p>
                     <form>
-                      <label >From : <input type="date"></input></label><br></br>
+                      <label style ={{marginRight:20}} >From : <input type="date"></input></label><br></br>
                       <label style={{marginTop: 20}}>To : <input type="date"></input></label>
                       </form>
                   <button className='invbutton' style={{marginTop: 30, marginBottom:50}}>Generate Report</button>

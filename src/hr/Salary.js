@@ -1,116 +1,131 @@
-
 import './Hr.css';
 import logo from './images/ecomms_logo.png';
+import background from './images/backgrnd.jpg';
 import './salary.css';
 import Navbar from "./components/Navbar";
+import { useState } from "react";
+import ReactDOM from "react-dom";
+import moment from 'moment';
+
+
+
+
+
+
 
 
 
 function Salary() {
-    return (
 
-        <div className="App" className="body">
-            <img src={logo} className="App-logo" alt="logo" />
+  const [inputs, setInputs] = useState({});
+  
+const [date, setdate] = useState("");
+const [Emp_id, setEmp_id] = useState("");
+const [basic_sal, setbasic_sal] = useState("");
+const [allowance, setallowance] = useState("");
 
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
 
-            <div>
-                <h1 className="hr_tile">Salary and Other Comphension</h1>
-            </div>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(inputs);
+  }
 
-            <div>
-            <Navbar />
+  function insert() {
 
-            </div>
-
-
-            <br></br> <br></br> <br></br>
-
-
-
-            <div className="salaryAppBack">
-              <h1 className="hr_salary_h1">Payroll 2021 (Amounts in LKR)</h1> <br></br>
-            <table className="hr_salary_table" className="hr_salary_td">
-                <tr>
-                  <td>Month</td>
-                  <td>Total Payments Received from Finance</td>
-                  <td>Total Basic Salary Payments</td>
-                  <td>Total Overtime Payments</td>
-                  <td>Total Other Compehensions</td>
-                </tr>
-                <tr>
-                  <td>January</td>
-                  <td>1000000</td>
-                  <td>800000</td>
-                  <td>150000</td>
-                  <td>50000</td>
-                </tr>
-                <tr>
-                  <td>February</td>
-                  <td>1100000</td>
-                  <td>900000</td>
-                  <td>150000</td>
-                  <td>50000</td>
-                </tr>
-                <tr>
-                  <td>March</td>
-                  <td>1050000</td>
-                  <td>850000</td>
-                  <td>180000</td>
-                  <td>20000</td>
-                </tr>
-                <tr>
-                  <td>April</td>
-                  <td>9000000</td>
-                  <td>700000</td>
-                  <td>100000</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>May</td>
-                  <td>1150000</td>
-                  <td>1000000</td>
-                  <td>1000000</td>
-                  <td>15000</td>
-                </tr>
-                <tr>
-                  <td>June</td>
-                  <td>1100000</td>
-                  <td>800000</td>
-                  <td>160000</td>
-                  <td>50000</td>
-                </tr>
-                <tr>
-                  <td>July</td>
-                  <td>950000</td>
-                  <td>800000</td>
-                  <td>100000</td>
-                  <td>50000</td>
-                </tr>
-                <tr>
-                  <td>August</td>
-                  <td>1200000</td>
-                  <td>1100000</td>
-                  <td>50000</td>
-                  <td>50000</td>
-                </tr>
-
-            </table>
-
-           </div>
+    const requestOptions = {
+  
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ Emp_id: Emp_id, basic_sal: basic_sal ,allowance:allowance, month: moment(date).format('YYYY-MM-DD')})};
+    fetch('http://localhost:3220/emp_benefits', requestOptions)
+        .then(response => response.json());
+        alert("Item added")
+  }
+  
 
 
+  return (
+
+    <div className="hr_bckground_container"> 
+    <div className="App" className="body" >
+    <img src={logo} className="App-logo" alt="logo" />
+    
+    
 
 
+    <div>
+        <h1 className="hr_tile">Salary and Other Comphension Management</h1>
+    </div>
 
-         </div>
+    <div>
+    <Navbar />
+
+    </div>
 
 
+    <br></br> <br></br> <br></br>
+    
+    <div className="hr_sal_app-container" className="hr_salmargin">
+    <form onSubmit={handleSubmit}>
+      <label>   
+      <input 
+        type="Number" 
+        name="Emp_id" 
+        placeholder="Enter Employee ID:"
+        onChange={(e) => setEmp_id(e.target.value)}
+      />
+      </label>
+      <label>
+        <input 
+          type="number" 
+          name="basic_sal" 
+          placeholder="Enter Basic Salary:"
+          onChange={(e) => setbasic_sal(e.target.value)}
+        />
+        </label>
+        <label>
+        <input 
+          type="number" 
+          name="allowance"
+          placeholder="Enter Allowance:"
+          onChange={(e) => setallowance(e.target.value)}
+        />
+        </label>
+        <label>
+       
+  <label>
+    
+                                <input  type="date" name="date" onChange={(e) => setdate(e.target.value)}/>
 
-    );
+                                </label>
 
 
-
-
+        </label>
+        <button className="button" value="Submit" onClick={insert}>Insert Data</button>
+    </form>
+    
+    </div>
+    <br></br><br></br>
+    <div>
+        <h1 className="hr_footer_tile">ecomms (Enterprise Resource Planning System -ERP System) - Human Resource Management</h1>
+      </div>
+    </div>
+  </div>
+  
+  )
 }
 
+ReactDOM.render(<Salary />, document.getElementById('root'));
+
+
+
+
+
 export default Salary;
+
+

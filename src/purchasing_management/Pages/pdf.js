@@ -5,13 +5,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ReactDOM from 'react-dom';
 import { Line } from 'react-chartjs-2';
 import * as _html2canvas from "html2canvas";
-import logo from "./assets/cyan.png";
-import './CRMPages.css';
-import './Report.css';
 import moment from 'moment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {motion} from 'framer-motion';
-import { animationOne, transition } from '../animations';
+
 
 
 // download html2canvas and jsPDF and save the files in app/ext, or somewhere else
@@ -156,9 +153,9 @@ return response.json();
 async function sample_aa() {
   //alert(data_revy1)
     ReactDOM.render(
-      <div style={{'marginTop':'-500'}}>
+      <div>
       <label className="tile_text_bi">Inquiries</label>
-      <table>
+      <table >
 <tbody>
 <tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}}>
     <th>Inquiry ID</th>
@@ -179,16 +176,16 @@ year_rev.map((value, index) => {
 
   async function getData_rev7() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq7';
+      const apiUrl = 'http://localhost:3220/purchases/inq7';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].InquireID;
-        month_rev[i] = data[i].Sales_ID;
-        total_rev[i] = data[i].Customer_inquiry;
-        date_rev[i] = data[i].inquiry_date;
+        year_rev[i] = data[i].Purchase_id;
+        month_rev[i] = data[i].Supplier_id;
+        total_rev[i] = data[i].quantity;
+        date_rev[i] = data[i].Date;
 
       }
       sample_aa();
@@ -196,33 +193,32 @@ year_rev.map((value, index) => {
 
   async function getData_rev30() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq30';
+      const apiUrl = 'http://localhost:3220/purchases/inq30';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].InquireID;
-        month_rev[i] = data[i].Sales_ID;
-        total_rev[i] = data[i].Customer_inquiry;
-        date_rev[i] = data[i].inquiry_date;
-
+        year_rev[i] = data[i].Purchase_id;
+        month_rev[i] = data[i].Supplier_id;
+        total_rev[i] = data[i].quantity;
+        date_rev[i] = data[i].Date;
       }
       sample_aa();
   }
 
   async function getData_rev365() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq30';
+      const apiUrl = 'http://localhost:3220/purchases/inq365';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].InquireID;
-        month_rev[i] = data[i].Sales_ID;
-        total_rev[i] = data[i].Customer_inquiry;
-        date_rev[i] = data[i].inquiry_date;
+        year_rev[i] = data[i].Purchase_id;
+        month_rev[i] = data[i].Supplier_id;
+        total_rev[i] = data[i].quantity;
+        date_rev[i] = data[i].Date;
 
       }
       sample_aa();
@@ -241,6 +237,7 @@ function printDocument7() {
         pdf.addImage(imgData, 'JPEG', 0, 0);
         // pdf.output('dataurlnewwindow');
         pdf.save("download.pdf");
+
       })
     ;
   }
@@ -277,6 +274,7 @@ function printDocument7() {
         ;
       }
 
+  getData_rev7();
 
 
 export default class Export extends Component {
