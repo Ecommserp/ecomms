@@ -46,7 +46,7 @@ function Hr() {
         <a href="" className="hr_button">Logout</a>
       </div>
 
-      <br></br><br></br><br></br><br></br><br></br><br></br>
+      <br></br><br></br><br></br><br></br>
       <div>
         <h1 className="hr_footer_tile">ecomms (Enterprise Resource Planning System -ERP System) - Human Resource Management</h1>
       </div>

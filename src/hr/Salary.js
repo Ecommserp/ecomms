@@ -113,7 +113,9 @@ const [allowance, setallowance] = useState("");
       variants={animationOne}
       transition={transition}>
 
-  <div className='subti5'> <h3> All Customer Inquiries  </h3></div>
+        <br></br>
+
+  <div className='subti5'> <h3 classname></h3></div>
 
                     <Paper className={classes.root}>
         <TableContainer className={classes.container}>
@@ -196,7 +198,7 @@ const [allowance, setallowance] = useState("");
 
 
     <div>
-        <h1 className="hr_tile">Salary and Other Comphension Management</h1>
+        <h1 className="hr_tile">Salary and Other Comprehension Management</h1>
     </div>
 
     <div>
@@ -207,6 +209,8 @@ const [allowance, setallowance] = useState("");
 <div id="g_dis">
 </div>
     <br></br> <br></br> <br></br>
+
+    <h1 className="hr_sal_addtitle">Add Salary Details</h1>
 
     <div className="hr_sal_app-container" className="hr_salmargin">
     <form onSubmit={handleSubmit}>

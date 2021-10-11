@@ -84,7 +84,7 @@
   color: #fff;
   background-color: #659fdf;
   width: 40%;
-  height: 100px;
+  height: 115px;
   border: 1px solid;
   border-color: #659fdf;
   border-radius: 30px;
@@ -171,4 +171,12 @@
   padding-top: 0%;
   font-size: 20px;
   color: rgb(241, 243, 245);
+}
+
+.hr_sal_addtitle {
+  text-align: center;
+  padding-top: 0%;
+  font-size: 30px;
+  color: rgb(241, 243, 245);
+  margin-left: -400px;
 }

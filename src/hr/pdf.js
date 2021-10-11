@@ -158,10 +158,10 @@ async function sample_aa() {
       <table  style={{width:790 ,marginTop:-5000}} >
 <tbody>
 <tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '18px', 'width': '180px'}}>
-    <th>Inquiry ID</th>
-    <th>Sales ID</th>
-    <th>Customer Inquiry</th>
-    <th>Lodged Date</th>
+    <th>Employee ID</th>
+    <th>Basic Salary</th>
+    <th>Other Allowances</th>
+    <th>Month and date</th>
   </tr>
 {
 year_rev.map((value, index) => {
@@ -207,22 +207,7 @@ year_rev.map((value, index) => {
       sample_aa();
   }
 
-  async function getData_rev365() {
-
-      const apiUrl = 'http://localhost:3220/purchases/inq365';
-      const data = await getData(apiUrl);
-
-
-      for(var i = 0; i < data.length; i++){
-
-        year_rev[i] = data[i].Purchase_id;
-        month_rev[i] = data[i].Supplier_id;
-        total_rev[i] = data[i].quantity;
-        date_rev[i] = data[i].Date;
-
-      }
-      sample_aa();
-  }
+  
 
 
 function printDocument7() {
@@ -258,21 +243,7 @@ function printDocument7() {
       ;
     }
 
-    function printDocument365() {
-
-      getData_rev365();
-
-        const input = document.getElementById('divToPrint');
-        html2canvas(input)
-          .then((canvas) => {
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF();
-            pdf.addImage(imgData, 'JPEG', 0, 0);
-            // pdf.output('dataurlnewwindow');
-            pdf.save("download.pdf");
-          })
-        ;
-      }
+    
 
 
 
@@ -285,17 +256,30 @@ export default class Export extends Component {
 
 
   render() {
-    return (<div>
-
-      <button className='button1'  style={{marginTop: 50}} onClick={printDocument7}>Generate emp_benefits Report</button>
-
-      <button className='button1' style={{marginTop: 50}} onClick={printDocument30}>Generate emp_leave Report</button>
+    return (
+      
+  <div className="hr_bckground_container">
+        <br></br><br></br><br></br><br></br><br></br><br></br>
+    <div className="hr_repbtn">
+      
+      <button className='hr_button'  style={{marginTop: 50}} onClick={printDocument7}>Generate Employee Salary and Allowances Report</button>
+      <div className="hr_space"></div>
+      <br></br><br></br><br></br> <br></br><br></br><br></br>
+      <button className='hr_button' style={{marginTop: 50}} onClick={printDocument30}>Generate Employee Leave Report</button>
 
      
 
       <div id="divToPrint" >
         
       </div>
-    </div> );
+     <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+     <div>
+        <h1 className="hr_footer_tile">ecomms (Enterprise Resource Planning System -ERP System) - Human Resource Management</h1>
+      </div>
+  </div>
+    </div>
+  
+    
+    );
   }
 }

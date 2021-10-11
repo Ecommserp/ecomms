@@ -4,7 +4,8 @@
  import SearchBar from "./SearchBar";
  import './Hr.css';
  import Navbar from "./components/Navbar"
- import Pdfgen from './pdf';
+ import Pdfdwn from './pdf';
+ import './salary.css';
 
 
  import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +17,7 @@
 
  function search() {
      return (
+        <div className="hr_bckground_container">
          <div  >
              <img src={logo} className="App-logo" alt="logo" />
 
@@ -32,7 +34,7 @@
              <br></br> <br></br> <br></br>
 
            
-             <Pdfgen />
+             <Pdfdwn />
 
 
 
@@ -40,6 +42,8 @@
 
 
 
+          </div>
+          
           </div>
 
 
