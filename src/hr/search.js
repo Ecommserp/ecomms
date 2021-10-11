@@ -3,9 +3,11 @@
  import logo from './images/ecomms_logo.png';
  import SearchBar from "./SearchBar";
  import './Hr.css';
- import Navbar from "./components/Navbar";
- import empdata from "./mock-crudops";
+ import Navbar from "./components/Navbar"
+ import Pdfgen from './pdf';
 
+
+ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -19,7 +21,7 @@
 
 
              <div>
-                 <h1 className="hr_tile">Search</h1>
+                 <h1 className="hr_tile">Report</h1>
              </div>
 
              <div>
@@ -29,8 +31,8 @@
 
              <br></br> <br></br> <br></br>
 
-             <SearchBar placeholder="Enter the details.." data={empdata}/>
-
+           
+             <Pdfgen />
 
 
 

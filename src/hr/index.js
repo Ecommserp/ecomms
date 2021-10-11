@@ -5,6 +5,7 @@ import search from './search';
 import CrudOps from './CrudOps';
 import Salary from './Salary';
 import attendance from './attendance';
+import Hrreport from './Hrreport';
 
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -23,6 +24,7 @@ ReactDOM.render(
         <Route path='/HrCrudOps' component={CrudOps} />
         <Route path='/HrSalary' component={Salary} />
         <Route path='/Hrattendance' component={attendance} />
+        <Route path='/Hrreport' component={Hrreport} />
 
 
       </Switch>

@@ -489,7 +489,7 @@
                   type="text"
                   name="fullname"
                   required="required"
-                  placeholder="Enter the name"
+                  placeholder="Enter the Name"
                   onChange={(e) => setName(e.target.value)}
 
               />
@@ -497,7 +497,7 @@
                   type="number"
                   name="phonenumber"
                   required="required"
-                  placeholder="Enter the phone number"
+                  placeholder="Enter the Contact"
                   onChange={(e) => setPhone(e.target.value)}
 
               />
@@ -505,7 +505,7 @@
                   type="text"
                   name="address"
                   required="required"
-                  placeholder="Enter the address"
+                  placeholder="Enter the Address"
                   onChange={(e) => setAddress(e.target.value)}
 
               />
@@ -513,7 +513,7 @@
                   type="text"
                   name="email"
                   required="required"
-                  placeholder="Enter the email"
+                  placeholder="Enter the E-Mail"
                   onChange={(e) => setEmail(e.target.value)}
 
               />
@@ -521,7 +521,7 @@
                   type="text"
                   name="department"
                   required="required"
-                  placeholder="Enter the department"
+                  placeholder="Enter the Department"
                   onChange={(e) => setDepartment(e.target.value)}
 
               />
@@ -529,7 +529,7 @@
                   type="text"
                   name="position"
                   required="required"
-                  placeholder="Enter the position"
+                  placeholder="Enter the Position"
                   onChange={(e) => setPosition(e.target.value)}
               />
 

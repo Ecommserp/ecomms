@@ -41,7 +41,7 @@ function Hr() {
       <br></br>
 
       <div className="hr_button_group">
-        <a href="" className="hr_button">Reports</a>
+        <a href="http://localhost:3000/Hrsearch" className="hr_button">Reports</a>
         <div className="hr_space"></div>
         <a href="" className="hr_button">Logout</a>
       </div>
