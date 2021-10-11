@@ -114,7 +114,7 @@ function MUpdate() {
                 <select  className='lab3' type="text" name="codep" value={Mcstat} onChange={(e) => setStat(e.target.value)}>
                   <option value="Null"></option>
                       <option value="Start"> On working </option>
-                      <option value="Paused">Paused</option>
+                      <option value="Released">Released</option>
                       <option value="Repaired">Repaired</option>
                       <option value="Malfuntiond"> Malfuntioned </option>
                 </select>
