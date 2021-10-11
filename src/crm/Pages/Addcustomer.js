@@ -112,7 +112,7 @@ function Addcustomer() {
                         Inquiry  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input className='label2' type="text" name="inquiry" value={inquiry} onChange={(e) => setinquiry(e.target.value)}/>
                         </label><br></br><br></br>
-                        <label className='label1'>
+                        {/* <label className='label1'>
                         Inquiry Status  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         <select className='label2'type="text" name="status " value={status} onChange={(e) => setstatus(e.target.value)}>
                       <option value="Null"></option>
@@ -120,7 +120,7 @@ function Addcustomer() {
                       <option value="Assigned">Assigned</option>
                       <option value="Resolved">Resolved</option>
 
-                        </select>
+                        </select> */}
                         <br></br><br></br>
                         <input className="button1" type="button" value="Submit" onClick={insert}/>
                         </form>
