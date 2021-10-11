@@ -16,9 +16,21 @@ import { relativeTimeRounding } from "moment";
 
 function Home() {
 
-  const [name, setname] = useState("");
-  const [type,settype] = useState("");
-  const [quantity, setquantity] = useState("");
+let name = '';
+let type = '';
+let quantity = '';
+
+  function settype(det){
+    name = det;
+  }
+
+  function setname(det){
+    type = det;
+  }
+
+  function setquantity(det){
+    quantity = det;
+  }
 
   let pnames = [];
   let pqua = [];
@@ -143,10 +155,10 @@ function Home() {
                 <form onSubmit={handleSubmit}>
                         <label>
                         Product Name :
-                        <input type="text" name="name" value={name} onChange={(e) => setname(e.target.value)} style={{marginLeft:10}}/>
+                        <input type="text" name="name" onChange={(e) => setname(e.target.value)} style={{marginLeft:10}}/>
                         </label><br></br><br></br>
                         <label> Product Type : </label>
-                <select style = {{width:175, marginLeft:15}} type="text" name="stat" value={type} onChange={(e) => settype(e.target.value)}>
+                <select style = {{width:175, marginLeft:15}} type="text" name="stat" onChange={(e) => settype(e.target.value)}>
                   <option value="Null"></option>
                       <option value="PURC"> PURC </option>
                       <option value="MANU">MANU</option>
@@ -154,7 +166,7 @@ function Home() {
                 </select><br></br><br></br>
                         <label style={{marginLeft:36}}>
                         Quantity :
-                        <input type="text" name="quantity" value={quantity} onChange={(e) => setquantity(e.target.value)} style={{marginLeft:10}}/>
+                        <input type="text" name="quantity" onChange={(e) => setquantity(e.target.value)} style={{marginLeft:10}}/>
                         </label><br></br><br></br>
                         <input className="nbutton" type="button" value="Submit" onClick={insert}/>
                         </form>
