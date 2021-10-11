@@ -29,7 +29,7 @@ function MUpdate() {
 
            e.preventDefault();
 
-           const apiUrl = 'http://localhost:3220/manu/'+ ID;
+           const apiUrl = 'http://localhost:3220/manf/'+ ID;
            const data = await getData(apiUrl);
 
 

@@ -112,7 +112,7 @@ module.exports = app => {
 
 
   // Retrieve a single Customer with customerId
-  app.get("/macnin_prod/:Machine_no", macnin_prod.findOne);
+  app.get("/manf/:Machine_no", macnin_prod.findOne);
 
 
   // Update a Customer with customerId

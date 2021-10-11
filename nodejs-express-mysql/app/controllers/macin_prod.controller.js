@@ -116,6 +116,16 @@ exports.update = (req, res) => {
   }
 
   console.log(req.body);
+  
+
+//  const macnin_prod = new macnin_prod_m({
+//     Machine_no:req.Machine_no,
+//     name: req.body.name,
+//     Machine_stat: req.body.Machine_stat,
+//     //Production_stat: req.body.Production_stat,
+//     //Machine_no: req.body.Machine_no,
+//   });
+
 
   macnin_prod_m.updateById(
     req.params.Machine_no,
@@ -124,7 +134,7 @@ exports.update = (req, res) => {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found Customer with id ${req.params.Machine_no}.`
+            message: `Not found Machine with id ${req.params.Machine_no}.`
           });
         } else {
           res.status(500).send({
