@@ -37,16 +37,15 @@ function ReportsGen() {
                   <div className="invtile_gen">
                   <table style={{width:700}}>
                   <tr><th>
-                  <button className='invbutton' style={{marginTop: 50}}>Generate Status Report</button>
+                  <button className='invbutton' style={{marginTop: 50, marginBottom:50}}>Generate Status Report</button>
                   </th></tr>
                   <tr><th>
-                  <button className='invbutton' style={{marginTop: 50}}>Generate Weekly Report</button>
-                  </th></tr>
-                  <tr><th>
-                  <button className='invbutton' style={{marginTop: 50}}>Generate Monthly Report</button>
-                  </th></tr>
-                  <tr><th>
-                  <button className='invbutton' style={{marginTop: 50, marginBottom:50}}>Generate Annual Report</button>
+                    <p>Generate Custom Report</p>
+                    <form>
+                      <label >From : <input type="date"></input></label><br></br>
+                      <label style={{marginTop: 20}}>To : <input type="date"></input></label>
+                      </form>
+                  <button className='invbutton' style={{marginTop: 30, marginBottom:50}}>Generate Report</button>
                   </th></tr>
                   </table>
                       </div>
