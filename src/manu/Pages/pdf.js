@@ -36,7 +36,7 @@ let date_rev = [];
 let year_rev1 = [];
 let month_rev1 = [];
 let total_rev1 = [];
-let date_rev1 = [];
+
 
 const options = {
   scales: {
@@ -162,10 +162,10 @@ async function sample_aa() {
   //alert(data_revy1)
     ReactDOM.render(
       <div style={{'marginTop':'-500', marginLeft:100}}>
-      <label className="tile_text_bi"> Record</label>
+      <label className="tile_text_bi"> production Satus Record</label>
       <table>
 <tbody>
-<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}}>
+<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '20px', 'width': '180px'}}>
     <th>ID</th>
     <th>Name</th>
     <th>Details</th>
@@ -173,10 +173,10 @@ async function sample_aa() {
   </tr>
 {
 year_rev.map((value, index) => {
-    return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{value}</td>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{month_rev[index]}</td>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{total_rev[index]}</td>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{date_rev[index]}</td>
+    return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{value}</td>
+                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{month_rev[index]}</td>
+                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{total_rev[index]}</td>
+                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{date_rev[index]}</td>
                 
             </tr>
 })
@@ -185,27 +185,26 @@ year_rev.map((value, index) => {
 </table></div>, document.getElementById('divToPrint'));
 
 }
-
 
 async function sample_aa1() {
   //alert(data_revy1)
     ReactDOM.render(
-      <div style={{'marginTop':'-500', marginLeft:100}}>
-      <label className="tile_text_bi"> Record</label>
+      <div style={{'marginTop':'-700', marginLeft:100}}>
+      <label className="tile_text_bi">  Machines Status Records</label>
       <table>
 <tbody>
-<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}}>
+<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '20px', 'width': '180px'}}>
     <th>ID</th>
     <th>Name</th>
-    <th>Details</th>
+    <th>Status</th>
     
   </tr>
 {
-year_rev.map((value, index) => {
-    return <tr>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{year_rev1[index]}</td>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{month_rev1[index]}</td>
-                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}} key={index}>{total_rev1[index]}</td>
+year_rev1.map((value, index) => {
+    return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{value}</td>
+                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{total_rev1[index]}</td>
+                <td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{month_rev1[index]}</td>
+               
                 
             </tr>
 })
@@ -214,8 +213,6 @@ year_rev.map((value, index) => {
 </table></div>, document.getElementById('divToPrint'));
 
 }
-
-
 
   async function getData_rev7() {
 
@@ -243,8 +240,9 @@ year_rev.map((value, index) => {
       for(var i = 0; i < data.length; i++){
 
         year_rev1[i] = data[i].Machine_no;
-        month_rev1[i] = data[i].Machine_stat;
         total_rev1[i] = data[i].name;
+        month_rev1[i] = data[i].Machine_stat;
+        
 
       }
       sample_aa1();
