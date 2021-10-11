@@ -155,7 +155,7 @@ let quantity = '';
                 <form onSubmit={handleSubmit}>
                         <label>
                         Product Name :
-                        <input type="text" name="name" onChange={(e) => setname(e.target.value)} style={{marginLeft:10}}/>
+                        <input type="text" name="name"onChange={(e) => setname(e.target.value)} style={{marginLeft:10}}/>
                         </label><br></br><br></br>
                         <label> Product Type : </label>
                 <select style = {{width:175, marginLeft:15}} type="text" name="stat" onChange={(e) => settype(e.target.value)}>

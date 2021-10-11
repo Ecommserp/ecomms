@@ -24,7 +24,7 @@ import ReactDOM from 'react-dom';
     { id: 'name', label: 'Name ', minWidth: 70 },
     { id: 'Details',label: 'Details',minWidth: 170,align: 'right',},
     { id: 'Production_stat',label: 'Status',minWidth: 170,align: 'right',},
-
+    { id: 'Machine_no',label: 'Machine ID',minWidth: 170,align: 'right',},
   ];
 
   async function getData(url) {
@@ -36,8 +36,8 @@ import ReactDOM from 'react-dom';
 
 
 
-      function createData(Product_ID, name, Details, Production_stat) {
-        return { Product_ID, name, Details, Production_stat};
+      function createData(Product_ID, name, Details, Production_stat,Machine_no) {
+        return { Product_ID, name, Details, Production_stat,Machine_no};
       }
 
       const rows = [];
@@ -164,7 +164,7 @@ import ReactDOM from 'react-dom';
       const data = await getData(apiUrl);
 
       for(var i = 0; i < data.length; i++){
-        rows[i] = createData(data[i].Product_ID, data[i].name, data[i].Details, data[i].Production_stat);
+        rows[i] = createData(data[i].Product_ID, data[i].name, data[i].Details, data[i].Production_stat,data[i].Machine_no);
 
 
 

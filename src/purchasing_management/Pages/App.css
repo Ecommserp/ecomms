@@ -4,6 +4,10 @@
 .Search_stocks{
   background-color: coral;
 }
+table {
+  width: 100%;
+}
+
 .screen{
 min-width: 700px;
 width: 1000px;

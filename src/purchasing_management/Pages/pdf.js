@@ -5,13 +5,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ReactDOM from 'react-dom';
 import { Line } from 'react-chartjs-2';
 import * as _html2canvas from "html2canvas";
-import logo from "./assets/cyan.png";
-import './manfReports.css';
-import './MPages.css';
 import moment from 'moment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {motion} from 'framer-motion';
-import { animationOne, transition } from '../animations';
+
 
 
 // download html2canvas and jsPDF and save the files in app/ext, or somewhere else
@@ -156,15 +153,15 @@ return response.json();
 async function sample_aa() {
   //alert(data_revy1)
     ReactDOM.render(
-      <div style={{'marginTop':'-500', marginLeft:100}}>
-      <label className="tile_text_bi"> Record </label>
-      <table>
+      <div>
+      <label className="tile_text_bi">Inquiries</label>
+      <table >
 <tbody>
 <tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '180px'}}>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Details</th>
-    <th>Status</th>
+    <th>Inquiry ID</th>
+    <th>Sales ID</th>
+    <th>Customer Inquiry</th>
+    <th>Lodged Date</th>
   </tr>
 {
 year_rev.map((value, index) => {
@@ -179,16 +176,16 @@ year_rev.map((value, index) => {
 
   async function getData_rev7() {
 
-      const apiUrl = 'http://localhost:3220/manu_prod_g/rep7';
+      const apiUrl = 'http://localhost:3220/purchases/inq7';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].Product_ID;
-        month_rev[i] = data[i].name;
-        total_rev[i] = data[i].Details;
-        date_rev[i] = data[i].Production_stat;
+        year_rev[i] = data[i].Purchase_id;
+        month_rev[i] = data[i].Supplier_id;
+        total_rev[i] = data[i].quantity;
+        date_rev[i] = data[i].Date;
 
       }
       sample_aa();
@@ -196,32 +193,32 @@ year_rev.map((value, index) => {
 
   async function getData_rev30() {
 
-      const apiUrl = 'http://localhost:3220/manu_prod_g/c_machine';
+      const apiUrl = 'http://localhost:3220/purchases/inq30';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].Machine_no;
-        month_rev[i] = data[i].Machine_stat;
-        total_rev[i] = data[i].name;
-
+        year_rev[i] = data[i].Purchase_id;
+        month_rev[i] = data[i].Supplier_id;
+        total_rev[i] = data[i].quantity;
+        date_rev[i] = data[i].Date;
       }
       sample_aa();
   }
 
   async function getData_rev365() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq30';
+      const apiUrl = 'http://localhost:3220/purchases/inq365';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].InquireID;
-        month_rev[i] = data[i].Sales_ID;
-        total_rev[i] = data[i].Customer_inquiry;
-        date_rev[i] = data[i].inquiry_date;
+        year_rev[i] = data[i].Purchase_id;
+        month_rev[i] = data[i].Supplier_id;
+        total_rev[i] = data[i].quantity;
+        date_rev[i] = data[i].Date;
 
       }
       sample_aa();
@@ -240,6 +237,7 @@ function printDocument7() {
         pdf.addImage(imgData, 'JPEG', 0, 0);
         // pdf.output('dataurlnewwindow');
         pdf.save("download.pdf");
+
       })
     ;
   }
@@ -276,6 +274,7 @@ function printDocument7() {
         ;
       }
 
+  getData_rev7();
 
 
 export default class Export extends Component {
@@ -288,16 +287,12 @@ export default class Export extends Component {
 
   render() {
     return (<div>
-<br/><br/>
-<br/>
-<br/>
-<br/>
 
-      <button className='button2'  style={{marginTop: 50,marginRight:10,width:300, marginLeft:200}} onClick={printDocument7}>Product Report</button>
+      <button className='button1'  style={{marginTop: 50}} onClick={printDocument7}>Generate Weekly Report</button>
 
-      <button className='button2' style={{marginTop: 50,marginRight:10,width:300}} onClick={printDocument30}>Machine Report</button>
+      <button className='button1' style={{marginTop: 50}} onClick={printDocument30}>Generate Monthly Report</button>
 
-      <button className='button2' style={{marginTop: 50,marginRight:10,width:300}} onClick={printDocument365}>Generate Annual Report</button>
+      <button className='button1' style={{marginTop: 50}} onClick={printDocument365}>Generate Annual Report</button>
 
       <div id="divToPrint" className="pdf_temp">
         <div>Note: Here the dimensions of div are same as A4</div>
