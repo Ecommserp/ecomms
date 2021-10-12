@@ -272,7 +272,7 @@ year_rev.map((value, index) => {
 
   async function getData_rev30() {
 
-      const apiUrl = 'http://localhost:3220/purchases';
+      const apiUrl = 'http://localhost:3220/purchases/inq7';
       const data = await getData(apiUrl);
 
 
@@ -288,7 +288,7 @@ year_rev.map((value, index) => {
 
   async function getData_rev365() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq30';
+      const apiUrl = 'http://localhost:3220/purchases/inq30';
       const data = await getData(apiUrl);
 
 
@@ -361,7 +361,7 @@ export default class Export extends Component {
   }
 
 
-  
+
 
   render() {
     return (<div>
@@ -396,7 +396,7 @@ export default class Export extends Component {
                   </th></tr>
                   <tr><th>
                     <p>Incomings Reports</p>
-                    <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument365}>Generate Weekly Report</button><br></br>
+                    <button className='invbutton' style={{marginTop: 30}} onClick={printDocument365}>Generate Weekly Report</button><br></br>
                   <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument30}>Generate Monthly Report</button>
                   </th></tr>
                   </table>
