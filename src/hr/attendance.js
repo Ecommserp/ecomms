@@ -216,7 +216,7 @@ const [type, settype] = useState("");
         <br></br>
         <h1 className="hr_sal_addtitle">Add Salary Details</h1>
       <br></br><br></br>
-      <div classname="hr_sal_align">
+      
     <div className="hr_sal_app-container" className="hr_salmargin">
       <h1 className="hr_sal_h1cat">Leave Category (Please input leave category code only) </h1>
       <h1 className="hr_sal_h1cat"> * Casual Leave : cl1 </h1>
@@ -253,7 +253,7 @@ const [type, settype] = useState("");
         <button className="button" value="Submit" onClick={insert}>Insert Data</button>
     </form>
     </div>
-    </div>
+    
     <br></br><br></br>
     <div>
         <h1 className="hr_footer_tile">ecomms (Enterprise Resource Planning System -ERP System) - Human Resource Management</h1>

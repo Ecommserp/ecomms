@@ -115,7 +115,7 @@
         return (
           <AutoSizer>
             {({ height, width }) => (
-              <Table 
+              <Table
                 height={height}
                 width={width}
                 rowHeight={rowHeight}
@@ -231,14 +231,14 @@
                 dataKey: 'address',
               },
               {
-                width:220,
-                lable: 'Email',
-                datakey: 'email',
-              },
-              {
                 width: 220,
                 label: 'Department',
                 dataKey: 'department',
+              },
+              {
+                width: 220,
+                label: 'Email',
+                dataKey: 'email',
               },
               {
                 width: 220,
@@ -450,7 +450,7 @@
 
 
       return (
-        <div className="hr_bckground_container"> 
+        <div className="hr_bckground_container">
   <div>
       <div>
           <img src={logo} className="App-logo" alt="logo" />
@@ -465,7 +465,7 @@
               <Navbar />
 
       </div>
-      
+
 
       <div id="main_win">
       </div>
@@ -536,7 +536,7 @@
               <button type="button" onClick={insert_emp}>Submit</button>
 
           </form>
-          
+
           <div>
         <h1 className="hr_footer_tile">ecomms (Enterprise Resource Planning System -ERP System) - Human Resource Management</h1>
       </div>

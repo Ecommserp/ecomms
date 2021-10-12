@@ -23,7 +23,7 @@
 
 
              <div>
-                 <h1 className="hr_tile">Report</h1>
+                 <h1 className="hr_tile">Human Resource Reports</h1>
              </div>
 
              <div>

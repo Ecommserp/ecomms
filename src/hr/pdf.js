@@ -163,6 +163,8 @@ async function sample_aa() {
     <th>Other Allowances</th>
     <th>Month and date</th>
   </tr>
+
+  
 {
 year_rev.map((value, index) => {
     return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '14px', 'width': '180px'}} key={index}>{value}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '14px', 'width': '180px'}} key={index}>{month_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '14px', 'width': '180px'}} key={index}>{total_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '14px', 'width': '180px'}} key={index}>{date_rev[index]}</td></tr>
@@ -171,12 +173,31 @@ year_rev.map((value, index) => {
 </tbody>
 </table></div>, document.getElementById('divToPrint'));
 
+
+
 }
 
 
   async function getData_rev7() {
 
-      const apiUrl = 'http://localhost:3220/hr_attendance';
+      const apiUrl = 'http://localhost:3220/hr/sal';
+      const data = await getData(apiUrl);
+
+
+      for(var i = 0; i < data.length; i++){
+
+        year_rev[i] = data[i].Emp_id;
+        month_rev[i] = data[i].basic_sal; 
+        total_rev[i] = data[i].allowance; 
+        date_rev[i] = data[i].month; 
+
+      }
+      sample_aa();
+  }
+
+  async function getData_rev30() {
+
+      const apiUrl = 'http://localhost:3220/hr/sal';
       const data = await getData(apiUrl);
 
 
@@ -186,23 +207,6 @@ year_rev.map((value, index) => {
         month_rev[i] = data[i].month;
         total_rev[i] = data[i].type;
         date_rev[i] = data[i].name;
-
-      }
-      sample_aa();
-  }
-
-  async function getData_rev30() {
-
-      const apiUrl = 'http://localhost:3220/emp_benefits';
-      const data = await getData(apiUrl);
-
-
-      for(var i = 0; i < data.length; i++){
-
-        year_rev[i] = data[i].Emp_id;
-        month_rev[i] = data[i].basic_sal;
-        total_rev[i] = data[i].allowance;
-        date_rev[i] = data[i].month;
       }
       sample_aa();
   }
@@ -262,14 +266,16 @@ export default class Export extends Component {
         <br></br><br></br><br></br><br></br><br></br><br></br>
     <div className="hr_repbtn">
       
-      <button className='hr_button'  style={{marginTop: 50}} onClick={printDocument7}>Generate Employee Salary and Allowances Report</button>
+      <button className='hr_button'  style={{marginTop: 50}} onClick={printDocument7}>Generate Employee Leave Report</button>
       <div className="hr_space"></div>
       <br></br><br></br><br></br> <br></br><br></br><br></br>
-      <button className='hr_button' style={{marginTop: 50}} onClick={printDocument30}>Generate Employee Leave Report</button>
+      <button className='hr_button' style={{marginTop: 50}} onClick={printDocument30}>Generate Employee Salary and Allowances Leave Report</button>
 
      
 
       <div id="divToPrint" >
+      <div>Note: Here the dimensions of div are same as A4</div>
+        <div>You Can add any component here</div>
         
       </div>
      <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
