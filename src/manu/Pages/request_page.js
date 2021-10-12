@@ -76,6 +76,7 @@ alert("successfully removed Request")
 
 async function getData_rev() {
 
+
     const apiUrl = 'http://localhost:3220/purchases/requests';
     const data = await getData(apiUrl);
 
@@ -86,11 +87,14 @@ async function getData_rev() {
 
 
     }
+
 render_data();
 
 }
 
 async function render_data() {
+
+
 
   if(document.getElementById("load_data13")) {
     ReactDOM.render(<MaterialTable
@@ -147,6 +151,8 @@ const [id, setid] = useState("");
 return (
 
 <div>
+
+
    <div className="screen33">
 <div id="load_data13"> </div>
 </div>

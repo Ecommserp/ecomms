@@ -162,7 +162,8 @@ async function sample_aa() {
   //alert(data_revy1)
     ReactDOM.render(
       <div style={{'marginTop':'-500', marginLeft:100}}>
-      <label className="tile_text_bi"> production Satus Record</label>
+        <label className="tile_text_bi">  Product Manufacring Management </label>
+      <label className="tile_text_bi"> production Status Record</label>
       <table>
 <tbody>
 <tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '20px', 'width': '180px'}}>
@@ -190,6 +191,7 @@ async function sample_aa1() {
   //alert(data_revy1)
     ReactDOM.render(
       <div style={{'marginTop':'-700', marginLeft:100}}>
+        <label className="tile_text_bi">  Product Manufacring Management </label>
       <label className="tile_text_bi">  Machines Status Records</label>
       <table>
 <tbody>

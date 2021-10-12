@@ -94,13 +94,19 @@ function Additem() {
                 <select className='lab3' type="text" name="stat" value={stat} onChange={(e) => setstat(e.target.value)} required>
                   <option value="Null"></option>
                       <option value="Start"> Start </option>
-                      <option value="Paused">Pause</option>
+                      {/* <option value="Paused">Pause</option>
                       <option value="completed">Complete</option>
-                      <option value="Malfuntiond"> Malfuntioned </option>
+                      <option value="Malfuntiond"> Malfuntioned </option> */}
                 </select>
               <br></br><br></br>
               <label className='lab'> Machine Number : </label>
-                <input className='lab4' type="number" name="m_num" value={m_num} onChange={(e) => setm_num(e.target.value)} />
+                <select className='lab4' type="number" name="m_num" value={m_num} onChange={(e) => setm_num(e.target.value)} >
+                   <option value="Null"></option>
+                   <option value="1008"> 1008 </option>
+                      <option value="1009">1009</option>
+                      <option value="1010">1010</option>
+                      <option value="1011"> 1011 </option>
+                  </select>
               <br></br><br></br>
               <input className="button2" type="button" value="Submit" onClick={insert} />
             </form>

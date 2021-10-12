@@ -1,4 +1,4 @@
-.tile_home {
+.tile_home1 {
   height: 200px;
   width: 50%;
   background-color: #fff;
@@ -34,7 +34,7 @@
   padding-left: 120px;
 }
 
-.generate_img {
+.generate_img1 {
   position: relative;
   width: 280px;
   padding-right: 10px;
