@@ -211,7 +211,30 @@ async function sample_aaa() {
     ReactDOM.render(
       <div className='pdfTable'>
       <div style={{'marginTop':'-500'}}>
-      <label className="tile_text_bi"> Inventory Incomings Report</label><br></br>
+      <label className="tile_text_bi"> Inventory Monthly Incomings Report</label><br></br>
+      <table>
+<tbody>
+<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '15px', 'width': '200px'}}>
+    <th>Product ID</th>
+    <th>Quantity</th>
+    <th>Date</th>
+  </tr>
+{
+year_rev.map((value, index) => {
+    return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{value}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{month_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{total_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '10px', 'width': '180px'}} key={index}>{date_rev[index]}</td></tr>
+})
+}
+</tbody>
+</table></div></div>, document.getElementById('divToPrint'));
+
+}
+
+async function sample_aaaa() {
+  //alert(data_revy1)
+    ReactDOM.render(
+      <div className='pdfTable'>
+      <div style={{'marginTop':'-500'}}>
+      <label className="tile_text_bi"> Inventory Weekly Incomings Report</label><br></br>
       <table>
 <tbody>
 <tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '15px', 'width': '200px'}}>
@@ -277,7 +300,7 @@ year_rev.map((value, index) => {
         date_rev[i] = data[i].inquiry_date;
 
       }
-      sample_aa();
+      sample_aaaa();
   }
 let currentDate = '10/12/2021';
 //weekly report
@@ -373,12 +396,9 @@ export default class Export extends Component {
                   <button className='invbutton' style={{marginTop: 30, marginBottom:30}} onClick={printDocument7}>Generate Status Report</button>
                   </th></tr>
                   <tr><th>
-                    <p>Incomings Report</p>
-                    <form>
-                      <label style ={{marginRight:20}} >From : <input type="date" value={from} onChange={(e) => setFrom(e.target.value)}></input></label><br></br>
-                      <label style={{marginTop: 20}}>To : <input type="date" value={to} onChange={(e) => setTo(e.target.value)}></input></label>
-                      </form>
-                  <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument30}>Generate Incomings Report</button>
+                    <p>Incomings Reports</p>
+                    <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument365}>Generate Weekly Report</button>
+                  <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument30}>Generate Monthly Report</button>
                   </th></tr>
                   </table>
                       </div>
