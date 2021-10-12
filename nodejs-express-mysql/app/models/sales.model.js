@@ -93,7 +93,7 @@ Sales.getAll_inq365 = result => {
 };
 
 Sales.getAll_g1 = result => {
-  sql.query("SELECT YEAR(Date) AS year, MONTH(Date) AS month, SUM(quantity) AS total FROM sales GROUP BY YEAR(Date), MONTH(Date)", (err, res) => {
+  sql.query("SELECT YEAR(date) AS year, MONTH(date) AS month, SUM(Total) AS total FROM invoice GROUP BY YEAR(date), MONTH(date)", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
