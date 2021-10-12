@@ -39,7 +39,7 @@ let to = '';
 let repo_type;
 let repo_time;
 let repo_format;
-
+let currentDate = '10/12/2021';
 const html2canvas: any = _html2canvas;
 
 let data_revy1 = [];
@@ -272,7 +272,7 @@ year_rev.map((value, index) => {
 
   async function getData_rev30() {
 
-      const apiUrl = 'http://localhost:3220/purchases';
+      const apiUrl = 'http://localhost:3220/purchases/inq7';
       const data = await getData(apiUrl);
 
 
@@ -288,21 +288,20 @@ year_rev.map((value, index) => {
 
   async function getData_rev365() {
 
-      const apiUrl = 'http://localhost:3220/crm/inq30';
+      const apiUrl = 'http://localhost:3220/purchases/inq30';
       const data = await getData(apiUrl);
 
 
       for(var i = 0; i < data.length; i++){
 
-        year_rev[i] = data[i].InquireID;
-        month_rev[i] = data[i].Sales_ID;
-        total_rev[i] = data[i].Customer_inquiry;
-        date_rev[i] = data[i].inquiry_date;
+        year_rev[i] = data[i].Product_id;
+        month_rev[i] = data[i].quantity;
+        total_rev[i] = data[i].Date;
 
       }
       sample_aaaa();
   }
-let currentDate = '10/12/2021';
+
 //weekly report
 function printDocument7() {
 
@@ -315,7 +314,7 @@ function printDocument7() {
         const pdf = new jsPDF();
         pdf.addImage(imgData, 'JPEG', 0, 0);
         // pdf.output('dataurlnewwindow');
-        pdf.save("download.pdf");
+        pdf.save("invStatus.pdf");
       })
     ;
   }
@@ -331,7 +330,7 @@ function printDocument7() {
           const pdf = new jsPDF();
           pdf.addImage(imgData, 'JPEG', 0, 0);
           // pdf.output('dataurlnewwindow');
-          pdf.save("download.pdf");
+          pdf.save("monthlyincomings.pdf");
         })
       ;
     }
@@ -347,7 +346,7 @@ function printDocument7() {
             const pdf = new jsPDF();
             pdf.addImage(imgData, 'JPEG', 0, 0);
             // pdf.output('dataurlnewwindow');
-            pdf.save("download.pdf");
+            pdf.save("weeklyincomings.pdf");
           })
         ;
       }
@@ -362,7 +361,7 @@ export default class Export extends Component {
   }
 
 
-  
+
 
   render() {
     return (<div>
@@ -397,7 +396,7 @@ export default class Export extends Component {
                   </th></tr>
                   <tr><th>
                     <p>Incomings Reports</p>
-                    <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument365}>Generate Weekly Report</button>
+                    <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument365}>Generate Weekly Report</button><br></br>
                   <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument30}>Generate Monthly Report</button>
                   </th></tr>
                   </table>

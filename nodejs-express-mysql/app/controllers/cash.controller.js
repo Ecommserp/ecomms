@@ -70,6 +70,14 @@ exports.update = (req, res) => {
 
   console.log(req.body);
 
+  const cash = new Cash({
+    acc_id: req.body.Account_ID,
+    name: req.body.Account_name,
+    amount: req.body.Total,
+    date: req.body.date,
+  });
+
+
   Cash.updateById(
     req.params.Invoice_ID,
     new Cash(req.body),
