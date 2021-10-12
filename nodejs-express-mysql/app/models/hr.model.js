@@ -4,6 +4,7 @@ const sql = require("./db.js");
 const Hr = function(emp) {
   this.fullname = emp.fullname;
   this.phonenumber = emp.phonenumber;
+  this.email = emp.email;
   this.address = emp.address;
   this.department = emp.department;
   this.position = emp.position;

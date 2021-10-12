@@ -539,8 +539,82 @@ const data = {
   ],
 };
 
+function createData_cli(Client_ID, name, contact) {
+  return { Client_ID, name, contact };
+}
+
+const rows_cli = [];
+let cli_count = 0;
+
+async function getData_cli() {
+
+
+    const apiUrl = 'http://localhost:3220/sales/cli';
+    const data = await getData(apiUrl);
+
+    //console.log(data)
+
+    for(var i = 0; i < data.length; i++){
+
+        rows_cli[i] = createData_cli(data[i].Client_ID ,data[i].name, data[i].contact);
+
+        //rows_meet[i] = createData_meet(sample_meet);
+        cli_count += 1;
+
+
+    }
+
+    ReactDOM.render(
+      <div>
+      <label className="tile_text_bi">Clients</label>
+      <div className="drop_down">
+      <FormControl>
+        <Select>
+          <MenuItem value={10}>Last 3 Months</MenuItem>
+          <MenuItem value={20}>Last 6 Months</MenuItem>
+          <MenuItem value={30}>Last Y9ar</MenuItem>
+        </Select>
+      </FormControl>
+      </div>
+      <br /><br />
+      <TrendingUpIcon className="TrendingUpIcon"></TrendingUpIcon> <label className="p_title">{cli_count} New clients in Last 6 months</label>
+
+      <Paper style={{ height: 390, width: '100%' }}>
+           <VirtualizedTable
+             rowCount={rows_cli.length}
+             rowGetter={({ index }) => rows_cli[index]}
+             columns={[
+               {
+                 width: 330,
+                 label: 'Client ID',
+                 dataKey: 'Client_ID',
+               },
+               {
+                 width: 330,
+                 label: 'Name',
+                 dataKey: 'name',
+               },
+               {
+                 width: 330,
+                 label: 'Contact',
+                 dataKey: 'contact',
+               },
+             ]}
+           />
+         </Paper>
+         </div>
+         , document.getElementById('clients_g'));
+
+    //sample_aa();
+
+
+
+}
+
 async function sample_aa() {
   //alert(data_revy1)
+
+getData_cli();
 
   ReactDOM.render(<Line height='140' data={data} options={options} />, document.getElementById('revenue_graph'));
   ReactDOM.render(<Pie data={data3} />, document.getElementById('pp_graph'));
@@ -579,6 +653,8 @@ async function sample_aa() {
        </Paper>
        </div>
        , document.getElementById('emp_div'));
+
+
 
 }
 
@@ -859,58 +935,9 @@ getData_meet();
 </div>
 <div className="space"></div>
 
-<div className="clients">
-<label className="tile_text_bi">Clients</label>
-<div className="drop_down">
-<FormControl>
-  <Select>
-    <MenuItem value={10}>Last 3 Months</MenuItem>
-    <MenuItem value={20}>Last 6 Months</MenuItem>
-    <MenuItem value={30}>Last Y9ar</MenuItem>
-  </Select>
-</FormControl>
-</div>
-<br /><br />
-<TrendingUpIcon className="TrendingUpIcon"></TrendingUpIcon> <label className="p_title">30 New clients in Last 6 months</label>
+<div className="clients" id="clients_g">
 
-<Paper style={{ height: 390, width: '100%' }}>
-     <VirtualizedTable
-       rowCount={rows_emp.length}
-       rowGetter={({ index }) => rows_emp[index]}
-       columns={[
-         {
-           width: 120,
-           label: 'Segment',
-           dataKey: 'segment',
-         },
-         {
-           width: 120,
-           label: 'Country',
-           dataKey: 'country',
-         },
-         {
-           width: 120,
-           label: 'Product',
-           dataKey: 'product',
-         },
-         {
-           width: 120,
-           label: 'Discount Band',
-           dataKey: 'band',
-         },
-         {
-           width: 120,
-           label: 'Sold Units',
-           dataKey: 'units',
-        },
-        {
 
-          label: 'Revenue',
-          dataKey: 'revenue',
-       },
-       ]}
-     />
-   </Paper>
    </div></div>
 
    <div className="body_3"><div className="space"></div>

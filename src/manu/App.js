@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import Home from './Pages/Home';
 import MHome from './Pages/MHome';
 import Reports from './Pages/Reports';
+import Request_page from './Pages/request_page'
 import Update from './Pages/Update';
 import MUpdate from './Pages/MUpdate';
 import Additem from './Pages/Additem';
@@ -45,6 +46,8 @@ function App() {
           <Route path= '/manu/MDeleteitem' component={MDeleteitem} />
           <Route path= '/manu/updateform' component={UpdateForm} />
           <Route path= '/manu/generatereports' component={GenerateReports} />
+          <Route path="/manu/Request_page" component={Request_page}/>
+
           <Route path= '/manu/viewreports' component={ViewReports} />
           </Switch>
         </AnimatePresence>

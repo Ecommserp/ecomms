@@ -15,6 +15,7 @@ exports.create = (req, res) => {
   const employee = new Hr({
     fullname: req.body.fullname,
     phonenumber: req.body.phonenumber,
+    email: req.body.email,
     address: req.body.address,
     department: req.body.department,
     position: req.body.position

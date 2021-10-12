@@ -23,6 +23,7 @@ const html2canvas: any = _html2canvas;
 let data_revy1 = [];
 let data_revy2 = [];
 let data_revy3 = [];
+let date_rev = [];
 
 let year_rev = [];
 let month_rev = [];
@@ -185,6 +186,31 @@ year_rev.map((value, index) => {
 
 }
 
+async function sample_emp() {
+
+
+  ReactDOM.render(
+    <div>
+    <label className="tile_text_bi"> Employee Leave Report</label>
+
+    <table>
+<tbody>
+<tr style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '18px', 'width': '180px'}}>
+  <th>Employee ID</th>
+  <th>Month</th>
+  <th>Type</th>
+  <th>Name</th>
+</tr>
+{
+year_rev.map((value, index) => {
+  return <tr><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '80px'}} key={index}>{value}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '80px'}} key={index}>{month_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '80px'}} key={index}>{total_rev[index]}</td><td style={{"borderWidth":"1px", 'borderColor':"#000", 'borderStyle':'solid', 'fontSize': '8px', 'width': '80px'}} key={index}>{date_rev[index]}</td></tr>
+})
+}
+</tbody>
+</table></div>, document.getElementById('divToPrint'));
+
+}
+
 
   async function getData_rev(range) {
     //alert('working')
@@ -220,8 +246,31 @@ year_rev.map((value, index) => {
 
   getData_rev(730);
 
-  function getData_emp(){
+  async function getData_emp(){
 
+    var date = new Date();
+date.setDate(date.getDate() - 13);
+
+console.log(date);
+
+
+    year_rev = [];
+    month_rev = [];
+    total_rev = [];
+    date_rev = [];
+    const apiUrl = 'http://localhost:3220/hr_attendance';
+    const data = await getData(apiUrl);
+
+
+    for(var i = 0; i < data.length; i++){
+
+      year_rev[i] = data[i].Emp_id;
+      month_rev[i] = data[i].month;
+      total_rev[i] = data[i].type;
+      date_rev[i] = data[i].name;
+
+    }
+    sample_emp();
 
   }
 
@@ -278,9 +327,7 @@ report_type(e){
         onChange={this.report_type} >
         <MenuItem value={10}>Employee Report</MenuItem>
         <MenuItem value={20}>Cashflow Report</MenuItem>
-        <MenuItem value={30}>Inventory Report</MenuItem>
         <MenuItem value={40}>Invoice Report</MenuItem>
-        <MenuItem value={50}>Clients Report</MenuItem>
       </Select><br /><br />
 
       <label className="tile_text_bi1">Time Period</label><br />
@@ -304,8 +351,6 @@ report_type(e){
       value={repo_format}
         onChange={this.report_format}>
         <MenuItem value={10}>PDF</MenuItem>
-        <MenuItem value={20}>excel</MenuItem>
-        <MenuItem value={30}>CSV</MenuItem>
       </Select><br /><br /><br />
 
       <button className="button_add" onClick={this.printDocument}>Generate My Report</button>

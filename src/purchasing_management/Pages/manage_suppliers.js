@@ -320,7 +320,7 @@ getData_rev();
 
                                     <label>
                                         Business registration code &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                                        <input type="text" name="nic" value={br} onChange={(e) => setbr(e.target.value)} />
+                                        <input type="text" name="br" value={br} onChange={(e) => setbr(e.target.value)} />
                                         </label><br></br><br></br>
 
                         <button className="button22" value="Submit" onClick={insert}>Insert Data</button>

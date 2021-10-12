@@ -172,30 +172,39 @@ module.exports = app => {
 
 
 
-     // Retrieve all purchases
-     app.get("/purchases", pm.findAll);
+  // Retrieve all purchases
+ app.get("/purchases", pm.findAll);
 
-     // make a new purchase
-     app.post("/purchases", pm.create);
+ // make a new purchase
+ app.post("/purchases", pm.create);
 
-     // Retrieve all inqusiries for last week
-        app.get("/purchases/inq7", pm2.findAll_inq7);
 
-        app.get("/purchases/inq30", pm2.findAll_inq30);
 
-        app.get("/purchases/inq365", pm2.findAll_inq365);
 
-     // Retrieve all suppliers
-     app.get("/suppliers", sp.findAll);
+    app.get("/purchases/requests", pm2.findAll);
 
-     // Create a new supplier
-     app.post("/suppliers", sp.create);
+     app.delete("/purchases/requests/:id", pm2.delete);
 
-     // delete specific supplier
-     app.delete("/suppliers/:supplierId", sp.delete);
 
-     // update supplier details by id
-     app.put("/suppliers/:supplierId", sp.update);
+ // Retrieve all inqusiries for last week
+    app.get("/purchases/inq7", pm2.findAll_inq7);
+
+    app.get("/purchases/inq30", pm2.findAll_inq30);
+
+    app.get("/purchases/inq365", pm2.findAll_inq365);
+
+ // Retrieve all suppliers
+ app.get("/suppliers", sp.findAll);
+
+ // Create a new supplier
+ app.post("/suppliers", sp.create);
+
+ // delete specific supplier
+ app.delete("/suppliers/:supplierId", sp.delete);
+
+ // update supplier details by id
+ app.put("/suppliers/:supplierId", sp.update);
+
 
      // Create a new Invoice
      app.post("/account/invoice", managingdb.create);
@@ -234,7 +243,7 @@ module.exports = app => {
 
    // Retrieve all inquiries
 
-   // Retrieve all sales details to add inquiry table 
+   // Retrieve all sales details to add inquiry table
    app.get("/crm/inq_join/:salesid", crmI.findAll_inq_join);
 
    // Retrieve a single Customer with customerId
