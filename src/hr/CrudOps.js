@@ -231,14 +231,14 @@
                 dataKey: 'address',
               },
               {
-                width:220,
-                lable: 'Email',
-                datakey: 'email',
-              },
-              {
                 width: 220,
                 label: 'Department',
                 dataKey: 'department',
+              },
+              {
+                width: 220,
+                label: 'Email',
+                dataKey: 'email',
               },
               {
                 width: 220,
