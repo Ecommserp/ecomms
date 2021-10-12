@@ -314,7 +314,7 @@ function printDocument7() {
         const pdf = new jsPDF();
         pdf.addImage(imgData, 'JPEG', 0, 0);
         // pdf.output('dataurlnewwindow');
-        pdf.save("download.pdf");
+        pdf.save("invStatus.pdf");
       })
     ;
   }
@@ -330,7 +330,7 @@ function printDocument7() {
           const pdf = new jsPDF();
           pdf.addImage(imgData, 'JPEG', 0, 0);
           // pdf.output('dataurlnewwindow');
-          pdf.save("download.pdf");
+          pdf.save("monthlyincomings.pdf");
         })
       ;
     }
@@ -346,7 +346,7 @@ function printDocument7() {
             const pdf = new jsPDF();
             pdf.addImage(imgData, 'JPEG', 0, 0);
             // pdf.output('dataurlnewwindow');
-            pdf.save("download.pdf");
+            pdf.save("weeklyincomings.pdf");
           })
         ;
       }
