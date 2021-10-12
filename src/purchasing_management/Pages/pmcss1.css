@@ -4,10 +4,29 @@
 .Search_stocks{
   background-color: coral;
 }
+.crop {
+  height: 150px;
+  width: 280px;
+  background-color: #fff;
+  border: 2px solid;
+  border-color: #666666;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px rgba(102, 102, 102, 0.2);
+  display: inline-block;
+  transition: box-shadow 0.8s;
+}
+
 .screen2{
 min-width: 700px;
 width: 1000px;
   margin: auto;
+}
+
+.screen33{
+  margin-top: 100px;
+  margin-left: 400px;
+  margin-right: auto;
+
 }
 .screen3{
 min-width: 700px;

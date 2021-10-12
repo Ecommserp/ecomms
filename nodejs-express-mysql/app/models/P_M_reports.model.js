@@ -11,6 +11,32 @@ const Purchases = function(purchases) {
 };
 
 
+const Reque = function(reque) {
+  this.id = reque.id;
+  this.name = reque.name;
+    this.type = reque.type;
+  this.quantity = reque.quantity;
+
+};
+
+
+
+
+
+Purchases.getAll = result => {
+  sql.query("SELECT * FROM requests WHERE type = 'PURC'", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+
 
 
 
@@ -56,6 +82,24 @@ Purchases.getAll_inq365 = result => {
 };
 
 
+Purchases.remove = (id, result) => {
+  sql.query("DELETE FROM requests WHERE id = ?", id, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    if (res.affectedRows == 0) {
+      // not found Customer with the id
+      result({ kind: "not_found" }, null);
+      return;
+    }
+
+    console.log("deleted request with id: ", id);
+    result(null, res);
+  });
+};
 
 
 

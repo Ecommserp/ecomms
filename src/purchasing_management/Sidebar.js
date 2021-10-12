@@ -39,6 +39,10 @@ const Sidebar = () => {
             </NavLink>
 
 
+            <NavLink exact to="/Purchasing_Management/pages/Request_page" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="columns">Requests</CDBSidebarMenuItem>
+            </NavLink>
+
             <NavLink exact to="/Purchasing_Management/pages/Reports" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="chart-line">Generate reports</CDBSidebarMenuItem>
             </NavLink>
