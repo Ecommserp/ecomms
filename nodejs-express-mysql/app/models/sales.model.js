@@ -53,6 +53,45 @@ Sales.getAll = result => {
   });
 };
 
+Sales.getAll_inq7 = result => {
+  sql.query("SELECT * FROM sales WHERE sales.Date > now() - INTERVAL 7 day", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+Sales.getAll_inq30 = result => {
+  sql.query("SELECT * FROM sales WHERE sales.Date > now() - INTERVAL 30 day", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
+Sales.getAll_inq365 = result => {
+  sql.query("SELECT * FROM sales WHERE sales.Date > now() - INTERVAL 365 day", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("customers: ", res);
+    result(null, res);
+  });
+};
+
 Sales.getAll_g1 = result => {
   sql.query("SELECT YEAR(Date) AS year, MONTH(Date) AS month, SUM(quantity) AS total FROM sales GROUP BY YEAR(Date), MONTH(Date)", (err, res) => {
     if (err) {

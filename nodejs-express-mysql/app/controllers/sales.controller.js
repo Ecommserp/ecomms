@@ -55,6 +55,39 @@ exports.create = (req, res) => {
     });
   };
 
+  exports.findAll_inq7 = (req, res) => {
+    Sales.getAll_inq7((err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers."
+        });
+      else res.send(data);
+    });
+  };
+
+  exports.findAll_inq30 = (req, res) => {
+    Sales.getAll_inq30((err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers."
+        });
+      else res.send(data);
+    });
+  };
+
+  exports.findAll_inq365 = (req, res) => {
+    Sales.getAll_inq365((err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving customers."
+        });
+      else res.send(data);
+    });
+  };
+
   exports.findAllg2 = (req, res) => {
     Sales.getAll_g2((err, data) => {
       if (err)

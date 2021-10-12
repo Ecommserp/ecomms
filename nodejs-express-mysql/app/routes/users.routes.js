@@ -217,6 +217,16 @@ module.exports = app => {
    app.get("/crm/inq365", crmI.findAll_inq365);
 
 
+   // Retrieve all inquiries for last week
+   app.get("/sales/inq7", sales.findAll_inq7);
+
+   // Retrieve all inquiries for last week
+   app.get("/sales/inq30", sales.findAll_inq30);
+
+   // Retrieve all inquiries for last week
+   app.get("/sales/inq365", sales.findAll_inq365);
+
+
    // Retrieve all inquiries
    app.get("/crm/inq_join/:salesid", crmI.findAll_inq_join);
 
