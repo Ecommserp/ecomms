@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-
 import './CRMPages.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';

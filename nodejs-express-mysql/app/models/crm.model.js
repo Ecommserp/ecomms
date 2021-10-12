@@ -74,6 +74,7 @@ Customers.getAll = result => {
   });
 };
 
+// inquiry management table data query
 Customers.getAll_g = result => {
   sql.query("SELECT COUNT(inquiries.Sales_ID) AS count FROM inquiries GROUP BY inquiries.stat", (err, res) => {
     if (err) {
@@ -138,7 +139,7 @@ Customers.getAll_inq365 = result => {
     result(null, res);
   });
 };
-
+//to get client and sales details to add inquiry form
 Customers.getAll_inq_join = (salesid, result) => {
   sql.query(`SELECT sales.Sales_ID, client.Client_ID, client.name, client.contact, sales.Product_ID FROM sales INNER JOIN client ON sales.Client_ID = client.Client_ID WHERE sales.Sales_ID = '${salesid}'`, (err, res) => {
     if (err) {
@@ -181,7 +182,7 @@ Customers.updateById = (id, customer, result) => {
     }
   );
 };
-
+//delete inquiry query
 Customers.remove = (id, result) => {
   sql.query("DELETE FROM inquiries WHERE InquireID = ?", id, (err, res) => {
     if (err) {

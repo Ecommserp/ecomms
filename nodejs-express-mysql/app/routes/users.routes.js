@@ -195,19 +195,18 @@ module.exports = app => {
      app.post("/account/invoice", managingdb.create);
 
 
-   // Create a new Customer inquiry
+   // Create a new inquiry
    app.post("/crm/crm", crmI.create);
 
-   // Retrieve all Customers inquiry
+   // Retrieve all Customers inquiry for update
    app.get("/crm/crm", crmI.findAll);
 
-   // Retrieve all inquiry group
+   // inquiry management table data
    app.get("/crm/dough", crmI.findAll_g);
 
-   // Retrieve all inquiries
+   // Retrieve all inquiries for table in home.js
    app.get("/crm/inq", crmI.findAll_inq);
 
-   // Retrieve all inquiries for last week
    app.get("/crm/inq7", crmI.findAll_inq7);
 
    // Retrieve all inquiries for last week
@@ -218,6 +217,8 @@ module.exports = app => {
 
 
    // Retrieve all inquiries
+
+   // Retrieve all sales details to add inquiry table 
    app.get("/crm/inq_join/:salesid", crmI.findAll_inq_join);
 
    // Retrieve a single Customer with customerId
@@ -231,6 +232,8 @@ module.exports = app => {
 
    // Delete a new Customer inquiry
    app.delete("/crm", crmI.deleteAll);
+
+
 
 
    // Create a new invoice
