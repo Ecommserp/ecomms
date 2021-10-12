@@ -51,6 +51,11 @@ const Sidebar = () => {
              <NavLink exact to="/manu/Mupdate" activeClassName="activeClicked" >
               <CDBSidebarMenuItem icon="edit">Update Machines</CDBSidebarMenuItem>
             </NavLink>
+
+            <NavLink exact to="/manu/Request_page" activeClassName="activeClicked" >
+              <CDBSidebarMenuItem icon="columns">Requests</CDBSidebarMenuItem>
+            </NavLink>
+
             <NavLink exact to="/manu/reports" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="chart-line">Reports</CDBSidebarMenuItem>
             </NavLink>

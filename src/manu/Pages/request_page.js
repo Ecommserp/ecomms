@@ -18,7 +18,7 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import EditIcon from '@material-ui/icons/Edit';
 import Card from 'react-bootstrap/Card';
-
+import Popup from './popup';
 import {  useState } from "react";
 import './pmcss1.css';
 import ReactDOM from 'react-dom'
