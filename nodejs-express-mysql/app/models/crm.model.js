@@ -76,7 +76,7 @@ Customers.getAll = result => {
 
 // inquiry management table data query
 Customers.getAll_g = result => {
-  sql.query("SELECT COUNT(inquiries.Sales_ID) AS count FROM inquiries GROUP BY inquiries.stat", (err, res) => {
+  sql.query("SELECT inquiries.stat, COUNT(inquiries.Sales_ID) AS count FROM inquiries GROUP BY inquiries.stat", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

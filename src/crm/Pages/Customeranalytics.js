@@ -12,6 +12,7 @@ function Customeranalytics() {
 
   let data_pp = [];
 
+let data_p2 = [];
   async function getData(url) {
   const response = await fetch(url);
 
@@ -19,7 +20,7 @@ function Customeranalytics() {
   }
 
   const data = {
-    labels: ['Assigned ', 'Pending', 'Resolved'],
+    labels: data_p2,
     datasets: [
       {
         label: 'Quality of Production Process',
@@ -59,8 +60,11 @@ function Customeranalytics() {
       const data_1 = await getData(apiUrl_1);
 
       data_pp[0] = data_1[0].count;
+      data_p2[0] = data_1[0].stat;
       data_pp[1] = data_1[1].count;
+      data_p2[1] = data_1[1].stat;
       data_pp[2] = data_1[2].count;
+      data_p2[2] = data_1[2].stat;
       sample_aa();
 
 
