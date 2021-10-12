@@ -24,7 +24,7 @@ const Reque = function(reque) {
 
 
 Purchases.getAll = result => {
-  sql.query("SELECT * FROM requests WHERE type = 'PURC'", (err, res) => {
+  sql.query("SELECT * FROM requests WHERE type = 'MANU'", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
