@@ -2,7 +2,7 @@ const CRM = require("../models/crm.model.js");
 const CRM_u = require("../models/crm.model.js");
 
 
-// Create and Save a new customer inquiry
+// Create new customer inquiry
 exports.create = (req, res) => {
   console.log('request ' + req.body)
   // Validate request
@@ -12,7 +12,7 @@ exports.create = (req, res) => {
     });
   }
 
-  //Create a new customer inquiry
+  
 
   const crmI = new CRM({
     Sales_ID: req.body.Sales_ID,
@@ -21,7 +21,7 @@ exports.create = (req, res) => {
     stat: req.body.stat,
   });
 
-  // Save customer inquiry in the database
+  
   CRM.create(crmI, (err, data) => {
     console.log('samle id' + req.body.Sales_ID)
     if (err)
@@ -33,7 +33,7 @@ exports.create = (req, res) => {
   });
 };
 
-// Retrieve all Customers inquiry from the database.
+// Retrieve all Customers inquiry from the database for update.
 exports.findAll = (req, res) => {
   CRM.getAll((err, data) => {
     if (err)
@@ -44,7 +44,7 @@ exports.findAll = (req, res) => {
     else res.send(data);
   });
 };
-
+// inquiry management table data
 exports.findAll_g = (req, res) => {
   CRM.getAll_g((err, data) => {
     if (err)
@@ -56,7 +56,7 @@ exports.findAll_g = (req, res) => {
   });
 };
 
-// Retrieve all inquiries from the database.
+// Retrieve all inquiries from the database for table in home.js
 exports.findAll_inq = (req, res) => {
   CRM.getAll_inq((err, data) => {
     if (err)
@@ -68,7 +68,7 @@ exports.findAll_inq = (req, res) => {
   });
 };
 
-// Retrieve all inquiries from the database.
+// Retrieve all inquiries from the database for weekly report
 exports.findAll_inq7 = (req, res) => {
   CRM.getAll_inq7((err, data) => {
     if (err)
@@ -104,7 +104,7 @@ exports.findAll_inq365 = (req, res) => {
   });
 };
 
-// Retrieve all inquiries from the database.
+// Retrieve all sales details from the database to inquiry form.
 exports.findAll_inq_join = (req, res) => {
   CRM.getAll_inq_join(req.params.salesid, (err, data) => {
      if (err) {

@@ -177,7 +177,7 @@ year_rev.map((value, index) => {
 
 }
 
-
+//for weekly
   async function getData_rev7() {
 
       const apiUrl = 'http://localhost:3220/crm/inq7';
@@ -194,7 +194,7 @@ year_rev.map((value, index) => {
       }
       sample_aa();
   }
-
+//for monthly
   async function getData_rev30() {
 
       const apiUrl = 'http://localhost:3220/crm/inq30';
@@ -211,7 +211,7 @@ year_rev.map((value, index) => {
       }
       sample_aa();
   }
-
+//for annually
   async function getData_rev365() {
 
       const apiUrl = 'http://localhost:3220/crm/inq30';
@@ -229,7 +229,7 @@ year_rev.map((value, index) => {
       sample_aa();
   }
 
-//weekly report
+// print weekly report
 function printDocument7() {
 
   getData_rev7();

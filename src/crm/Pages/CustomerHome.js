@@ -53,14 +53,14 @@ import ReactDOM from 'react-dom';
           width: '100%',
         },
         container: {
-          maxHeight: 440,
+          maxHeight: 550,
         },
       });
 
       export default function CustomerHome() {
         const classes = useStyles();
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(6);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -79,7 +79,7 @@ import ReactDOM from 'react-dom';
       variants={animationOne}
       transition={transition}>
 
-<div className='subti5'> <h3> All Customer Inquiries  </h3></div>
+<div className='inqtabletitle'> <h3> All Customer Inquiries  </h3></div>
 
                     <Paper className={classes.root}>
         <TableContainer className={classes.container}>

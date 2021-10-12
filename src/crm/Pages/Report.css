@@ -51,9 +51,10 @@
     background-color: yellowgreen;
     width: 300%;
     height: 200%;
-  } */
-.pdfTable {
-  background-color: rgb(253, 253, 253);
-  height: 500px;
-  margin-top: 50px;
-}
+  } */ 
+  .pdfTable{
+ 
+    height: 500px;
+    margin-top: 50px;
+   
+   }

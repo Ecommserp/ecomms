@@ -17,9 +17,9 @@ function GenerateCustomerReport() {
     variants={animationOne}
     transition={transition}>
 
-    <Pdfgen />
+                  <Pdfgen />
 
-                  </motion.div></div>
+    </motion.div></div>
 
 );
 }

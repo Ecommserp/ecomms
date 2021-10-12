@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './CRMPages.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -43,7 +42,7 @@ function Addcustomer() {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ Sales_ID: sales_id, Customer_inquiry: inquiry, client_ID: client_id, stat: 'pending'})
+        body: JSON.stringify({ Sales_ID: sales_id, Customer_inquiry: inquiry, client_ID: client_id, stat: 'pending'}) //stringify-converts a JavaScript object or value to a JSON string
     };
     fetch('http://localhost:3220/crm/crm', requestOptions)
         .then(response => response.json());
@@ -112,7 +111,7 @@ function Addcustomer() {
                         Inquiry  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input className='label2' type="text" name="inquiry" value={inquiry} onChange={(e) => setinquiry(e.target.value)}required/>
                         </label><br></br><br></br>
-                        {/* <label className='label1'>
+                        <label className='label1'>
                         Inquiry Status  : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         <select className='label2'type="text" name="status " value={status} onChange={(e) => setstatus(e.target.value)}>
                       <option value="Null"></option>
@@ -120,7 +119,7 @@ function Addcustomer() {
                       <option value="Assigned">Assigned</option>
                       <option value="Resolved">Resolved</option>
 
-                        </select> */}
+                        </select>
                         <br></br><br></br>
                         <input className="button1" type="button" value="Submit" onClick={insert}/>
                         </form>
