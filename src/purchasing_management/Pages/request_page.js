@@ -59,7 +59,7 @@ getData_rev();
 
 function showpopup() {
 
-alert("You want to Update supplier : " + s_id[0]);
+alert("You want to Remove Request : " + s_id[0]);
 
   const requestOptions = {
 method: 'DELETE',
@@ -69,7 +69,7 @@ body: JSON.stringify({ id: s_id[0]})
 fetch('http://localhost:3220/purchases/requests/'+ s_id[0], requestOptions)
 .then(response => response.json());
 console.log(requestOptions)
-alert("successfully removed supplier")
+alert("successfully removed Request")
 
 
 }
@@ -97,18 +97,18 @@ async function render_data() {
 
 
      icons={tableIcons}
-          title="Suppliers"
+          title="Requests"
           columns={[
-            { title: 'Supplier ID', field: 'id' , minWidth: 200  },
+            { title: 'ID', field: 'id' , minWidth: 200  },
 
 
             {title: 'Name',field: 'name', minWidth: 200},
 
 
 
-                { title: 'type', field: 'type', type: 'name' ,align: 'center' },
+                { title: 'Type', field: 'type', type: 'name' ,align: 'center' },
 
-{ title: 'quantity', field: 'quantity', type: 'name', minWidth: 200  ,align: 'center' },
+{ title: 'Quantity', field: 'quantity', type: 'name', minWidth: 200  ,align: 'center' },
 
 
 
