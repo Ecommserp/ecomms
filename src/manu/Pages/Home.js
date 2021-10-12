@@ -21,7 +21,7 @@ function Home() {
     }
 
   const data = {
-    labels: ['UPcomming ', 'In Process', 'Completed', 'Malfuntioned'],
+    labels: ['Completed ', 'Malfuntioned', 'Paused', 'Start'],
     datasets: [
       {
         label: 'Quality of Production Process',
@@ -110,7 +110,7 @@ function Home() {
 
           <div className='row'>
             <div className='col1'>
-                <div className='subti'> <h3>products Management </h3></div>
+                <div className='subti'> <h3>Products Management </h3></div>
               <table>
                  <tr>
                    <th>
