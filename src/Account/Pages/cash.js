@@ -42,6 +42,11 @@ function Additem() {
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
 
+  const [accupid, setupaccID] = useState("");
+  const [accupname, setupaccname] = useState("");
+  const [upamount, setupAmount] = useState("");
+  const [udate, setuDate] = useState("");
+
 
 
   const tableIcons = {
@@ -125,9 +130,9 @@ function Additem() {
 
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ Account_ID: accid, Account_name: accname, Total: amount,date: date})
+          body: JSON.stringify({ Account_ID: accupid, Account_name: accupname, Total: upamount,date: udate})
       };
-      fetch('http://localhost:3220/acc/cash', requestOptions)
+      fetch('http://localhost:3220/acc/cash/' + accupid, requestOptions)
           .then(response => response.json());
           alert("Item added")
     }
@@ -197,27 +202,27 @@ function Additem() {
                         <form>
                             <label>
                                 Account ID : &nbsp;&nbsp;&nbsp;
-                                <input type="text" name="code" />
+                                <input type="text" name="code" value={accupid} onChange={(e) => setupaccID(e.target.value)}/>
                                 </label><br></br><br></br>
                                 <label>
 
                                 Account name : &nbsp;&nbsp;&nbsp;
-                                <input type="text" name="code" />
+                                <input type="text" name="code" value={accupname} onChange={(e) => setupaccname(e.target.value)}/>
                                 </label><br></br><br></br>
                                 <label>
 
                                 Amount : &nbsp;&nbsp;
-                                <input type="text" name="name" />
+                                <input type="text" name="name" value={upamount} onChange={(e) => setupAmount(e.target.value)}/>
                                 </label><br></br><br></br>
                                 <label>
 
 
 
                                 Date : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="date" name="quantity"/>
+                                <input type="date" name="quantity" value={udate} onChange={(e) => setuDate(e.target.value)}/>
                                 </label><br></br><br></br>
                                 <input type="Reset" value="Reset"/> <div className="space"></div>
-                                <input type="Button" value="Change"/> <div className="space"></div>
+                                <input type="Button" onClick={update} value="Change"/> <div className="space"></div>
 
                                 </form>
 

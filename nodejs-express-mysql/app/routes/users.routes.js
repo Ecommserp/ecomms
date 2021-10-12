@@ -238,6 +238,9 @@ module.exports = app => {
 
    app.post("/acc/cash", cash.create);
 
+   app.put("/acc/cash/:Invoice_ID", cash.update);
+
+
    // Create a new invoice
    app.put("/acc/managingdb/:Invoice_ID", managingdb.update);
 

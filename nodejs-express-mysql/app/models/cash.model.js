@@ -55,9 +55,10 @@ Cash.getAll = result => {
 };
 
 Cash.updateById = (id, customer, result) => {
+  console.log(customer.acc_id)
   sql.query(
-    "UPDATE invoice SET Supplier_ID = ?, Total = ?, Discount = ?, date = ? WHERE Invoice_ID = ?",
-    [customer.Supplier_ID, customer.Total, customer.Discount, customer.date, id],
+    "UPDATE cash SET acc_id = ?, name = ?, amount = ?, date = ? WHERE acc_id = ?",
+    [customer.acc_id, customer.name, customer.amount, customer.date, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
