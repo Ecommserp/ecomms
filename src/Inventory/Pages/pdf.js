@@ -396,7 +396,7 @@ export default class Export extends Component {
                   </th></tr>
                   <tr><th>
                     <p>Incomings Reports</p>
-                    <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument365}>Generate Weekly Report</button><br></br>
+                    <button className='invbutton' style={{marginTop: 30}} onClick={printDocument365}>Generate Weekly Report</button><br></br>
                   <button className='invbutton' style={{marginTop: 30, marginBottom:50}} onClick={printDocument30}>Generate Monthly Report</button>
                   </th></tr>
                   </table>
