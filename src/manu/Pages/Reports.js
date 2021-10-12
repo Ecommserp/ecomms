@@ -57,9 +57,9 @@ function Reports() {
                       <div className="space"></div>
                       <div className="space"></div>
                       <div className="space"></div>
-                      <div className="tile_home" onClick={event =>  window.location.href='/manu/generatereports'}>
+                      <div className="tile_home1" onClick={event =>  window.location.href='/manu/generatereports'}>
                         <p className="tile_text">Generate<br />Reports</p>
-                        <img src={generate} className="generate_img" alt="Generate Reports" />
+                        <img src={generate} className="generate_img1" alt="Generate Reports" />
                         </div>
                         </div>
                         </div>
