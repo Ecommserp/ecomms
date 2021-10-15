@@ -1,7 +1,7 @@
 let gapi = window.gapi;
-const API_KEY = 'AIzaSyDNWXM0O6Vt-c6-n5RjcaKXIFiqWHvwrD8';
+const API_KEY = 'XXXX';
 const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-const CLIENT_ID = '1076027111629-vh0fk6n23luoqfol3hihf90clo9smk78.apps.googleusercontent.com';
+const CLIENT_ID = 'XXX';
 const SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
 export function initClient(callback) {
